@@ -11,17 +11,19 @@ Un film est gardé s'il :
 - n'a pas « VOSTFR », « bande-annonce »… dans son titre (VF uniquement) ;
 - n'est pas dans exclus.txt.
 
-Le genre vient de la chaîne (ex. « Horreur ») ou, à défaut, du titre YouTube
-(ce qui suit « Film Complet en Français | »).
+Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
+complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
 
 La clé API est lue dans la variable d'environnement YOUTUBE_API_KEY
 (un « secret » GitHub), jamais écrite dans ce fichier.
 """
 
+import difflib
 import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -70,14 +72,49 @@ MOTS_INTERDITS = re.compile(
     flags=re.IGNORECASE,
 )
 
+GENRES_CONNUS = [
+    "Action", "Animation", "Arts martiaux", "Aventure", "Biopic", "Catastrophe",
+    "Comédie", "Comédie dramatique", "Comédie romantique", "Crime", "Documentaire", "Drame", "Famille",
+    "Fantastique", "Guerre", "Historique", "Horreur", "Musical", "Mystère", "Noël",
+    "Policier", "Romance", "Science-fiction", "Sport", "Thriller", "Western",
+]
+
 GENRES_RENOMMES = {
     "teen": "Ados",
+    "teen movie": "Ados",
     "fantasy": "Fantastique",
     "suspense": "Thriller",
-    "comedie": "Comédie",
     "sci-fi": "Science-fiction",
     "science fiction": "Science-fiction",
+    "epouvante": "Horreur",
+    "aventures": "Aventure",
+    "comedy": "Comédie",
+    "drama": "Drame",
+    "horror": "Horreur",
 }
+
+
+def sans_accents(texte):
+    return unicodedata.normalize("NFKD", texte).encode("ascii", "ignore").decode().lower()
+
+
+def genre_normalise(genre):
+    """Corrige les fautes et variantes (« Thriler », « Comedie »…) vers un nom unique."""
+    cle = sans_accents(genre)
+    if cle in GENRES_RENOMMES:
+        return GENRES_RENOMMES[cle]
+    connus = {sans_accents(g): g for g in GENRES_CONNUS}
+    proche = difflib.get_close_matches(cle, connus, n=1, cutoff=0.9)
+    if proche:
+        return connus[proche[0]]
+    # « Thriller psychologique » -> « Thriller », « Film d'action » -> « Action »
+    contenus = [k for k in connus if re.search(r"\b" + re.escape(k) + r"\b", cle)]
+    if contenus:
+        return connus[max(contenus, key=len)]
+    for k, nom in GENRES_RENOMMES.items():
+        if re.search(r"\b" + re.escape(k) + r"\b", cle):
+            return nom
+    return genre[0].upper() + genre[1:].lower()
 
 
 def genres_du_titre(titre):
@@ -90,7 +127,7 @@ def genres_du_titre(titre):
                 genre = genre.strip()
                 if not genre:
                     continue
-                genre = GENRES_RENOMMES.get(genre.lower(), genre[0].upper() + genre[1:])
+                genre = genre_normalise(genre)
                 if genre not in genres:
                     genres.append(genre)
             return genres
@@ -164,9 +201,16 @@ def details_des_videos(ids, cle):
 
 def fiche_film(video, chaine):
     snippet = video["snippet"]
+    # Les genres du titre sont les plus précis. Le genre de la chaîne est ajouté
+    # en plus, sauf « Animation » : la chaîne Animation publie aussi des films
+    # avec de vrais acteurs (ex. « Le Monstre des Sables »).
     genres = genres_du_titre(snippet.get("title", ""))
-    if chaine.get("genre") and chaine["genre"] not in genres:
-        genres.insert(0, chaine["genre"])
+    genre_chaine = chaine.get("genre", "")
+    if genre_chaine and genre_chaine not in genres:
+        if not genres:
+            genres.append(genre_chaine)
+        elif genre_chaine != "Animation":
+            genres.append(genre_chaine)
     return {
         "id": video["id"],
         "titre": titre_propre(snippet.get("title", "")),
