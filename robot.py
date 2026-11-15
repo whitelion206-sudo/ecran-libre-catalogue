@@ -15,7 +15,8 @@ Un film est gardé s'il :
 Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
 complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
 
-Il ajoute aussi les « classiques » du domaine public listés dans classiques.json,
+Il cherche aussi la bande-annonce de chaque film (70 films par jour au plus,
+à cause du quota de l'API YouTube), puis ajoute les « classiques » du domaine public listés dans classiques.json,
 hébergés sur Wikimedia Commons (réutilisation commerciale permise).
 
 La clé API est lue dans la variable d'environnement YOUTUBE_API_KEY
@@ -23,6 +24,7 @@ La clé API est lue dans la variable d'environnement YOUTUBE_API_KEY
 """
 
 import difflib
+import html
 import json
 import os
 import re
@@ -31,7 +33,7 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 API = "https://www.googleapis.com/youtube/v3/"
 PAYS = "FR"
@@ -44,8 +46,12 @@ FICHIER_CATALOGUE = os.path.join(DOSSIER, "catalogue.json")
 FICHIER_CLASSIQUES = os.path.join(DOSSIER, "classiques.json")
 
 
-def appel_api(methode, parametres, cle):
-    """Appelle l'API YouTube et renvoie la réponse JSON."""
+def appel_api(methode, parametres, cle, fatal=True):
+    """Appelle l'API YouTube et renvoie la réponse JSON.
+
+    Si fatal=False, une erreur (par exemple quota du jour épuisé) ne stoppe
+    pas le robot : elle lève RuntimeError, que l'appelant peut rattraper.
+    """
     parametres = dict(parametres, key=cle)
     url = API + methode + "?" + urllib.parse.urlencode(parametres)
     try:
@@ -53,7 +59,14 @@ def appel_api(methode, parametres, cle):
             return json.load(reponse)
     except urllib.error.HTTPError as erreur:
         detail = erreur.read().decode("utf-8", "replace")
-        sys.exit(f"Erreur de l'API YouTube ({erreur.code}) sur {methode} : {detail}")
+        message = f"Erreur de l'API YouTube ({erreur.code}) sur {methode} : {detail[:300]}"
+        if fatal:
+            sys.exit(message)
+        raise RuntimeError(message)
+    except (urllib.error.URLError, TimeoutError) as erreur:
+        if fatal:
+            sys.exit(f"Connexion impossible à l'API YouTube sur {methode} : {erreur}")
+        raise RuntimeError(str(erreur))
 
 
 def duree_en_minutes(iso):
@@ -258,6 +271,141 @@ def fiche_film(video, chaine):
     }
 
 
+# --- Bandes-annonces ---------------------------------------------------------
+#
+# Une recherche YouTube coûte 100 points de quota sur 10 000 par jour.
+# Le robot en fait donc au plus MAX_RECHERCHES par jour, en commençant par les
+# films les plus récents, et retient le résultat dans catalogue.json
+# (« recherches_bandes_annonces ») pour ne pas chercher deux fois.
+# Chaque jour, les bandes-annonces déjà trouvées sont revérifiées (1 point
+# par paquet de 50) : une vidéo supprimée ou bloquée disparaît de l'appli.
+
+MAX_RECHERCHES = 70
+REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
+DUREE_MAX_BA_MINUTES = 6
+
+MOTS_BA = re.compile(r"bande[- ]?annonce|\btrailer\b|\bteaser\b", flags=re.IGNORECASE)
+MOTS_BA_REFUSES = re.compile(
+    r"\bvost(?:fr)?\b|\bvo\b|sous[- ]titr|english|r[ée]action|critique|review|analyse|"
+    r"explication|fan[- ]?made|parodie|r[ée]sum[ée]|making[- ]of|interview|extrait",
+    flags=re.IGNORECASE,
+)
+SIGNES_VF = re.compile(r"\bVF\b|fran[cç]ais", flags=re.IGNORECASE)
+
+
+def normalise(texte):
+    return re.sub(r"[^a-z0-9]+", " ", sans_accents(html.unescape(texte or ""))).strip()
+
+
+def chercher_bande_annonce(film, cle, exclus):
+    """Renvoie les vidéos candidates (id, titre), les VF en premier."""
+    cible = normalise(film["titre"])
+    if len(cible) < 2:
+        return []
+    reponse = appel_api("search", {
+        "part": "snippet", "q": f'{film["titre"]} bande annonce', "type": "video",
+        "maxResults": 5, "regionCode": PAYS, "relevanceLanguage": "fr",
+        "videoEmbeddable": "true", "videoDuration": "short",
+    }, cle, fatal=False)
+    candidats = []
+    for item in reponse.get("items", []):
+        id_video = item.get("id", {}).get("videoId")
+        titre = html.unescape(item.get("snippet", {}).get("title", ""))
+        if not id_video or id_video in exclus or id_video == film["id"]:
+            continue
+        if not re.search(r"\b" + re.escape(cible) + r"\b", normalise(titre)):
+            continue  # le titre du film doit apparaître dans celui de la vidéo
+        if not MOTS_BA.search(titre) or MOTS_BA_REFUSES.search(titre):
+            continue
+        candidats.append((id_video, titre))
+    candidats.sort(key=lambda c: 0 if SIGNES_VF.search(c[1]) else 1)
+    return candidats
+
+
+def bandes_annonces_lisibles(ids, cle, exclus):
+    """Parmi ces vidéos, garde celles qu'on peut lire dans l'appli en France."""
+    bonnes = set()
+    ids = list(dict.fromkeys(ids))
+    for debut in range(0, len(ids), 50):
+        reponse = appel_api("videos", {
+            "part": "contentDetails,status", "id": ",".join(ids[debut:debut + 50]),
+        }, cle, fatal=False)
+        for video in reponse.get("items", []):
+            statut = video.get("status", {})
+            contenu = video.get("contentDetails", {})
+            if video["id"] in exclus:
+                continue
+            if statut.get("privacyStatus") != "public" or not statut.get("embeddable", False):
+                continue
+            if contenu.get("contentRating", {}).get("ytRating") == "ytAgeRestricted":
+                continue
+            if duree_en_minutes(contenu.get("duration")) > DUREE_MAX_BA_MINUTES:
+                continue
+            if autorise_en_france(video):
+                bonnes.add(video["id"])
+    return bonnes
+
+
+def bandes_annonces(films, ancien_catalogue, cle, exclus):
+    """Ajoute « bande_annonce » aux films et renvoie la mémoire des recherches."""
+    aujourd_hui = datetime.now(timezone.utc).date()
+    memoire = {fid: r for fid, r in ancien_catalogue.get("recherches_bandes_annonces", {}).items()
+               if fid in films}
+
+    # 1. Revérifier les bandes-annonces déjà trouvées.
+    deja = {fid: r["id"] for fid, r in memoire.items() if r.get("id")}
+    try:
+        encore_bonnes = bandes_annonces_lisibles(list(deja.values()), cle, exclus)
+        for fid, id_ba in deja.items():
+            if id_ba not in encore_bonnes:
+                del memoire[fid]  # supprimée ou bloquée : on cherchera une autre
+    except RuntimeError as erreur:
+        print(f"Vérification des bandes-annonces impossible aujourd'hui : {erreur}")
+
+    # 2. Chercher pour les films jamais cherchés (ou sans résultat depuis longtemps).
+    def a_chercher(fid):
+        r = memoire.get(fid)
+        if r is None:
+            return True
+        if r.get("id"):
+            return False
+        try:
+            return (aujourd_hui - date.fromisoformat(r.get("date", ""))).days >= REESSAI_JOURS
+        except ValueError:
+            return True
+
+    file_attente = [f for f in sorted(films.values(), key=lambda f: f["date"], reverse=True)
+                    if a_chercher(f["id"])]
+    candidats = {}
+    for film in file_attente[:MAX_RECHERCHES]:
+        try:
+            candidats[film["id"]] = chercher_bande_annonce(film, cle, exclus)
+        except RuntimeError as erreur:
+            print(f"Recherche de bandes-annonces arrêtée (quota du jour ?) : {erreur}")
+            break
+
+    # 3. Garder la première candidate lisible en France.
+    try:
+        lisibles = bandes_annonces_lisibles(
+            [c[0] for liste in candidats.values() for c in liste], cle, exclus)
+        for fid, liste in candidats.items():
+            choix = next((c[0] for c in liste if c[0] in lisibles), None)
+            memoire[fid] = {"id": choix, "date": aujourd_hui.isoformat()}
+    except RuntimeError as erreur:
+        print(f"Vérification des nouvelles bandes-annonces impossible : {erreur}")
+
+    # 4. Inscrire la bande-annonce dans la fiche de chaque film.
+    for fid, film in films.items():
+        r = memoire.get(fid)
+        if r and r.get("id"):
+            film["bande_annonce"] = r["id"]
+    avec = sum(1 for r in memoire.values() if r.get("id"))
+    reste = len(file_attente) - len(candidats)
+    print(f"Bandes-annonces : {len(candidats)} recherches aujourd'hui, "
+          f"{avec} films en ont une, {reste} films restent à chercher.")
+    return memoire
+
+
 # --- Classiques du domaine public (Wikimedia Commons) -----------------------
 
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
@@ -402,6 +550,7 @@ def main():
         except ValueError:
             ancien = {}
 
+    memoire_ba = bandes_annonces(films, ancien, cle, exclus)
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -409,6 +558,7 @@ def main():
         "films": sorted(films.values(), key=lambda film: film["date"], reverse=True),
         "nombre_de_classiques": len(liste_classiques),
         "classiques": liste_classiques,
+        "recherches_bandes_annonces": memoire_ba,
     }
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
