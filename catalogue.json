@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-15T19:16:05Z",
+ "mis_a_jour": "2026-11-15T19:30:58Z",
  "nombre_de_films": 2411,
  "films": [
   {
@@ -127,7 +127,8 @@
     "Ados",
     "Famille"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets"
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "bande_annonce": "OXm-xvgzhgA"
   },
   {
    "id": "blE4y3E-_N0",
@@ -156,7 +157,8 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets"
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "FMHepXvRLV8"
   },
   {
    "id": "wO5cmlJvysQ",
@@ -197,7 +199,8 @@
     "Action",
     "Thriller"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "NQMpmX6rXOo"
   },
   {
    "id": "ALz78xPK4p4",
@@ -285,7 +288,8 @@
    "genres": [
     "Comédie"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "iYPnUrREbRg"
   },
   {
    "id": "tfZHLVx542Q",
@@ -314,7 +318,8 @@
    "genres": [
     "Aventure"
    ],
-   "chaine": "Boxoffice Animation | Films Complets"
+   "chaine": "Boxoffice Animation | Films Complets",
+   "bande_annonce": "vW3GOIU55fY"
   },
   {
    "id": "ceMyEO7bs1A",
@@ -328,7 +333,8 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "bande_annonce": "fraAGOuT3sA"
   },
   {
    "id": "Hqv8iVaHcwY",
@@ -340,7 +346,8 @@
    "miniature": "https://i.ytimg.com/vi/Hqv8iVaHcwY/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "My Digital Channel - Films Complets"
+   "chaine": "My Digital Channel - Films Complets",
+   "bande_annonce": "LyCy2wmob-k"
   },
   {
    "id": "OmbpVzUWB7M",
@@ -413,7 +420,8 @@
    "genres": [
     "Thriller"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "kG1CnKPO5BE"
   },
   {
    "id": "RWyU74IEQ6w",
@@ -512,7 +520,8 @@
     "Fantastique",
     "Aventure"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "DHo0PbCTjbk"
   },
   {
    "id": "rLF8jzWghyQ",
@@ -779,7 +788,8 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets"
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "A-dYQ2JlQoo"
   },
   {
    "id": "Fb3kGP35XZw",
@@ -876,7 +886,8 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "bande_annonce": "1HZxxjFEsOc"
   },
   {
    "id": "YLIpkR4FJiw",
@@ -945,7 +956,8 @@
     "Fantastique",
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets"
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "nTz2TJLXlwA"
   },
   {
    "id": "eCfuqmVMQBI",
@@ -33627,5 +33639,287 @@
   }
  ],
  "nombre_de_classiques": 0,
- "classiques": []
+ "classiques": [],
+ "recherches_bandes_annonces": {
+  "No8UmXSbx2Y": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "pJ0nlhmk5-c": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "M9VE5CqpIWk": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "cOzmqkjykgc": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "VmewMT5nIjA": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "VGKb64eA6z4": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "yybVB9R4ENA": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "wCdHIc1AfaE": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "0wQVczTXx-s": {
+   "id": "OXm-xvgzhgA",
+   "date": "2026-11-15"
+  },
+  "blE4y3E-_N0": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "M9QkzXX6Gys": {
+   "id": "FMHepXvRLV8",
+   "date": "2026-11-15"
+  },
+  "wO5cmlJvysQ": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "dCgRl27A_uA": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "9S0pjuIGD48": {
+   "id": "NQMpmX6rXOo",
+   "date": "2026-11-15"
+  },
+  "ALz78xPK4p4": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "h0Z1xNJC0Lo": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "4v8V3OwD2ss": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "CCHY8R_zY5k": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "57JaX3Wtm9U": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "vL-JN9d91Gk": {
+   "id": "iYPnUrREbRg",
+   "date": "2026-11-15"
+  },
+  "tfZHLVx542Q": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "9M-o_gQnR_U": {
+   "id": "vW3GOIU55fY",
+   "date": "2026-11-15"
+  },
+  "ceMyEO7bs1A": {
+   "id": "fraAGOuT3sA",
+   "date": "2026-11-15"
+  },
+  "Hqv8iVaHcwY": {
+   "id": "LyCy2wmob-k",
+   "date": "2026-11-15"
+  },
+  "OmbpVzUWB7M": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "edG16VQsOQc": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "f3YFfdXZSv0": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "bMe6zl4T0Sw": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "1iXZCbBUTqY": {
+   "id": "kG1CnKPO5BE",
+   "date": "2026-11-15"
+  },
+  "RWyU74IEQ6w": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "lK6Re_Swjl8": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "x-_ICXOI5Ig": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "8q6bsM05Jk0": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "F6dEqLY3BYc": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "7AJBcZ5agVQ": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "lYe-RUNFKoA": {
+   "id": "DHo0PbCTjbk",
+   "date": "2026-11-15"
+  },
+  "rLF8jzWghyQ": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "9IB6WrwJw6A": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "9ecDTXUWvLM": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "zodcgmRjCSk": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "q5B8KrUAwRo": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "wOVP1cV9H2w": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "ncTwNU6LcSA": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "FxRGnPzMlNE": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "YtPFarWZ4AM": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "LMJ8Bb_OIBQ": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "QsfT2dmKH5w": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "LW-EbOEzHLk": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "zj8Dg_tobrE": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "rcC0LkQ7200": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "_6ZAKS4Hur0": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "logmQ5Ao1Iw": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "1H7dlUx0sjg": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "nbR-88QLygw": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "92wLEJCvpOw": {
+   "id": "A-dYQ2JlQoo",
+   "date": "2026-11-15"
+  },
+  "Fb3kGP35XZw": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "EIjIU-EDdUo": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "eq5dt_A1irQ": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "mde72DlUNWo": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "mzQla0v1p4s": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "PxasvxRrYVE": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "k7e3xRxfbZM": {
+   "id": "1HZxxjFEsOc",
+   "date": "2026-11-15"
+  },
+  "YLIpkR4FJiw": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "WUBoI1U3m6s": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "uJ_KXY3R3BE": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "sx6PAMSWeT4": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "Nt9-Q-5KvgI": {
+   "id": "nTz2TJLXlwA",
+   "date": "2026-11-15"
+  },
+  "eCfuqmVMQBI": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "2d9TrAAU1GA": {
+   "id": null,
+   "date": "2026-11-15"
+  },
+  "ON6kusOM-WA": {
+   "id": null,
+   "date": "2026-11-15"
+  }
+ }
 }
