@@ -4,5 +4,7 @@
  {"nom": "Boxoffice | HORREUR | Films Complets", "id": "UCrqQ9blKZGUbIoxkgt5mjQA", "genre": "Horreur"},
  {"nom": "Boxoffice | FAMILLE | Films Complets", "id": "UC1GJOmIrsa-OmUt2yYHfAKQ", "genre": "Famille"},
  {"nom": "Boxoffice | TEEN MOVIES | Films Complets", "id": "UC48_JVww4eqOPmmkDni-xEA", "genre": "Ados"},
- {"nom": "Boxoffice Animation | Films Complets", "id": "UC7oJmPW2GF1TCSjoKq7ybZg", "genre": "Animation"}
+ {"nom": "Boxoffice Animation | Films Complets", "id": "UC7oJmPW2GF1TCSjoKq7ybZg", "genre": "Animation"},
+ {"nom": "V Français - Films Complets", "id": "UCYXEXhyT3n_rcXhrqjBGd_Q", "genre": ""},
+ {"nom": "My Digital Channel - Films Complets", "id": "UCZFGH22U_Iv6C5_zNdsxLXQ", "genre": "", "vf_seulement": true}
 ]

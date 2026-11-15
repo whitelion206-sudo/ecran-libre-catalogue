@@ -9,10 +9,14 @@ Un film est gardé s'il :
 - est autorisé en France ;
 - n'est pas réservé aux adultes (ces vidéos ne se lisent pas hors de YouTube) ;
 - n'a pas « VOSTFR », « bande-annonce »… dans son titre (VF uniquement) ;
-- n'est pas dans exclus.txt.
+- n'est pas dans exclus.txt ;
+- pour les chaînes marquées « vf_seulement », a un titre qui dit qu'il est en français.
 
 Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
 complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
+
+Il ajoute aussi les « classiques » du domaine public listés dans classiques.json,
+hébergés sur Wikimedia Commons (réutilisation commerciale permise).
 
 La clé API est lue dans la variable d'environnement YOUTUBE_API_KEY
 (un « secret » GitHub), jamais écrite dans ce fichier.
@@ -37,6 +41,7 @@ DOSSIER = os.path.dirname(os.path.abspath(__file__))
 FICHIER_CHAINES = os.path.join(DOSSIER, "chaines.json")
 FICHIER_EXCLUS = os.path.join(DOSSIER, "exclus.txt")
 FICHIER_CATALOGUE = os.path.join(DOSSIER, "catalogue.json")
+FICHIER_CLASSIQUES = os.path.join(DOSSIER, "classiques.json")
 
 
 def appel_api(methode, parametres, cle):
@@ -71,6 +76,34 @@ MOTS_INTERDITS = re.compile(
     r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b",
     flags=re.IGNORECASE,
 )
+
+# Pour les chaînes qui mélangent français et anglais (option "vf_seulement"
+# dans chaines.json) : on ne garde que les vidéos dont le titre dit qu'elles
+# sont en français.
+SIGNES_ANGLAIS = re.compile(
+    r"full[\s-]+(?:length\s+)?movie|\benglish\b|free\s+movie",
+    flags=re.IGNORECASE,
+)
+SIGNES_FRANCAIS = re.compile(
+    r"fran[cç]ais|\bVF\b|films?\s+complets?|version\s+fran[cç]aise",
+    flags=re.IGNORECASE,
+)
+
+
+def est_en_francais(video):
+    """Vrai si la vidéo est clairement en français (titre ou langue indiquée)."""
+    snippet = video.get("snippet", {})
+    titre = snippet.get("title", "")
+    if SIGNES_ANGLAIS.search(titre):
+        return False
+    if SIGNES_FRANCAIS.search(titre):
+        return True
+    if re.search(r"\bmovie\b", titre, flags=re.IGNORECASE):
+        return False
+    audio = (snippet.get("defaultAudioLanguage") or "").lower()
+    langue = (snippet.get("defaultLanguage") or "").lower()
+    return audio.startswith("fr") and langue.startswith("fr")
+
 
 GENRES_CONNUS = [
     "Action", "Animation", "Arts martiaux", "Aventure", "Biopic", "Catastrophe",
@@ -225,6 +258,110 @@ def fiche_film(video, chaine):
     }
 
 
+# --- Classiques du domaine public (Wikimedia Commons) -----------------------
+
+COMMONS_API = "https://commons.wikimedia.org/w/api.php"
+# Wikimedia demande que chaque robot se présente avec un nom et un contact.
+USER_AGENT = "EcranLibreBot/1.0 (https://github.com/whitelion206-sudo/ecran-libre-catalogue)"
+
+
+def sans_html(texte):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", texte or "")).strip()
+
+
+def infos_commons(fichiers):
+    """Demande à Commons les adresses, la durée, l'image et la licence de chaque fichier."""
+    infos = {}
+    for debut in range(0, len(fichiers), 50):
+        paquet = fichiers[debut:debut + 50]
+        parametres = {
+            "action": "query",
+            "format": "json",
+            "formatversion": "2",
+            "prop": "videoinfo",
+            "viprop": "url|size|mime|derivatives|extmetadata",
+            "viurlwidth": "640",
+            "titles": "|".join("File:" + f for f in paquet),
+        }
+        requete = urllib.request.Request(
+            COMMONS_API + "?" + urllib.parse.urlencode(parametres),
+            headers={"User-Agent": USER_AGENT},
+        )
+        with urllib.request.urlopen(requete, timeout=60) as reponse:
+            donnees = json.load(reponse)
+        requete_q = donnees.get("query", {})
+        # Commons peut réécrire un nom (ex. « _ » en espace) : on garde la correspondance.
+        renomme = {n["to"]: n["from"] for n in requete_q.get("normalized", [])}
+        for page in requete_q.get("pages", []):
+            nom = renomme.get(page["title"], page["title"])
+            nom = nom[len("File:"):] if nom.startswith("File:") else nom
+            if page.get("missing") or not page.get("videoinfo"):
+                print(f"Classique introuvable sur Commons : {nom}")
+                continue
+            infos[nom.replace("_", " ")] = page["videoinfo"][0]
+    return infos
+
+
+def choisir_video(info):
+    """Choisit une version légère pour le téléphone (environ 480p), et une de secours."""
+    versions = []
+    for d in info.get("derivatives", []):
+        # Seules les versions réencodées par Commons (« /transcoded/ ») sont légères.
+        if "webm" not in d.get("type", "") or "/transcoded/" not in d.get("src", ""):
+            continue
+        versions.append((int(d.get("height") or 0), "vp9" in d.get("type", ""), d["src"]))
+    if not versions:
+        return info.get("url", ""), info.get("url", "")
+    moyennes = [v for v in versions if 300 <= v[0] <= 480]
+    principale = max(moyennes or versions, key=lambda v: (v[1], v[0]))
+    secours = [v for v in versions if not v[1]] or versions
+    return principale[2], min(secours, key=lambda v: v[0])[2]
+
+
+def fiche_classique(entree, info):
+    meta = info.get("extmetadata", {})
+    video, video_secours = choisir_video(info)
+    duree = info.get("duration")
+    return {
+        "id": "commons:" + entree["fichier"],
+        "titre": entree["titre"],
+        "annee": entree.get("annee"),
+        "realisation": entree.get("realisation", ""),
+        "genre": entree.get("genre", ""),
+        "genres": [entree["genre"]] if entree.get("genre") else [],
+        "description": entree.get("description", ""),
+        "texte_a_l_ecran": entree.get("texte_a_l_ecran", ""),
+        "duree_minutes": max(1, round(duree / 60)) if duree else None,
+        "video": video,
+        "video_secours": video_secours,
+        "miniature": info.get("thumburl", ""),
+        "licence": sans_html(meta.get("LicenseShortName", {}).get("value", "")),
+        "credit": sans_html(meta.get("Artist", {}).get("value", "")),
+        "page_source": info.get("descriptionurl", ""),
+        "source": "Wikimedia Commons",
+    }
+
+
+def classiques(ancien_catalogue):
+    """Construit la liste des classiques. En cas de panne de Commons, garde l'ancienne liste."""
+    if not os.path.exists(FICHIER_CLASSIQUES):
+        return []
+    with open(FICHIER_CLASSIQUES, encoding="utf-8") as f:
+        entrees = json.load(f)
+    try:
+        infos = infos_commons([e["fichier"] for e in entrees])
+    except Exception as erreur:  # Commons en panne : on ne casse pas le catalogue YouTube
+        print(f"Commons indisponible ({erreur}) : je garde les classiques d'hier.")
+        return ancien_catalogue.get("classiques", [])
+    liste = []
+    for entree in entrees:
+        info = infos.get(entree["fichier"].replace("_", " "))
+        if info:
+            liste.append(fiche_classique(entree, info))
+    print(f"Classiques : {len(liste)} sur {len(entrees)} trouvés sur Commons.")
+    return liste
+
+
 def lire_exclus():
     if not os.path.exists(FICHIER_EXCLUS):
         return set()
@@ -248,6 +385,8 @@ def main():
         for video in details_des_videos(ids, cle):
             if not est_utilisable(video, exclus):
                 continue
+            if chaine.get("vf_seulement") and not est_en_francais(video):
+                continue
             fiche = fiche_film(video, chaine)
             deja = films.get(video["id"])
             if deja is None or (not deja["genre"] and fiche["genre"]):
@@ -255,14 +394,25 @@ def main():
             gardes += 1
         print(f"{chaine['nom']} : {len(ids)} vidéos, {gardes} films gardés")
 
+    ancien = {}
+    if os.path.exists(FICHIER_CATALOGUE):
+        try:
+            with open(FICHIER_CATALOGUE, encoding="utf-8") as f:
+                ancien = json.load(f)
+        except ValueError:
+            ancien = {}
+
+    liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "nombre_de_films": len(films),
         "films": sorted(films.values(), key=lambda film: film["date"], reverse=True),
+        "nombre_de_classiques": len(liste_classiques),
+        "classiques": liste_classiques,
     }
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
-    print(f"Catalogue écrit : {len(films)} films.")
+    print(f"Catalogue écrit : {len(films)} films YouTube et {len(liste_classiques)} classiques.")
 
 
 if __name__ == "__main__":
