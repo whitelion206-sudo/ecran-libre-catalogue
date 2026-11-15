@@ -1,0 +1,4 @@
+# Films à ne jamais mettre dans l'appli (film signalé, droits contestés...).
+# Une ligne par film : l'identifiant YouTube (les 11 caractères après youtu.be/),
+# puis un # et une note si tu veux. Exemple :
+# AbCdEfGhIjK  # signalé par un utilisateur le 20/11/2026
