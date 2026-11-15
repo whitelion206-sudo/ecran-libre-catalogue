@@ -8,7 +8,11 @@ Un film est gardé s'il :
 - est public et peut être intégré dans une autre appli ;
 - est autorisé en France ;
 - n'est pas réservé aux adultes (ces vidéos ne se lisent pas hors de YouTube) ;
+- n'a pas « VOSTFR », « bande-annonce »… dans son titre (VF uniquement) ;
 - n'est pas dans exclus.txt.
+
+Le genre vient de la chaîne (ex. « Horreur ») ou, à défaut, du titre YouTube
+(ce qui suit « Film Complet en Français | »).
 
 La clé API est lue dans la variable d'environnement YOUTUBE_API_KEY
 (un « secret » GitHub), jamais écrite dans ce fichier.
@@ -61,6 +65,38 @@ def titre_propre(titre):
     return morceau.strip(" |-–—") or titre.strip()
 
 
+MOTS_INTERDITS = re.compile(
+    r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b",
+    flags=re.IGNORECASE,
+)
+
+GENRES_RENOMMES = {
+    "teen": "Ados",
+    "fantasy": "Fantastique",
+    "suspense": "Thriller",
+    "comedie": "Comédie",
+    "sci-fi": "Science-fiction",
+    "science fiction": "Science-fiction",
+}
+
+
+def genres_du_titre(titre):
+    """Lit les genres écrits après « Film Complet en Français | » dans le titre YouTube."""
+    morceaux = [m.strip() for m in titre.split("|")]
+    for i, morceau in enumerate(morceaux):
+        if re.search(r"films?\s+complets?", morceau, flags=re.IGNORECASE) and i + 1 < len(morceaux):
+            genres = []
+            for genre in re.split(r"[,/]", morceaux[i + 1]):
+                genre = genre.strip()
+                if not genre:
+                    continue
+                genre = GENRES_RENOMMES.get(genre.lower(), genre[0].upper() + genre[1:])
+                if genre not in genres:
+                    genres.append(genre)
+            return genres
+    return []
+
+
 def autorise_en_france(details):
     restriction = details.get("contentDetails", {}).get("regionRestriction", {})
     if "allowed" in restriction and PAYS not in restriction["allowed"]:
@@ -74,6 +110,8 @@ def est_utilisable(video, exclus):
     statut = video.get("status", {})
     contenu = video.get("contentDetails", {})
     if video["id"] in exclus:
+        return False
+    if MOTS_INTERDITS.search(video.get("snippet", {}).get("title", "")):
         return False
     if statut.get("privacyStatus") != "public" or not statut.get("embeddable", False):
         return False
@@ -126,6 +164,9 @@ def details_des_videos(ids, cle):
 
 def fiche_film(video, chaine):
     snippet = video["snippet"]
+    genres = genres_du_titre(snippet.get("title", ""))
+    if chaine.get("genre") and chaine["genre"] not in genres:
+        genres.insert(0, chaine["genre"])
     return {
         "id": video["id"],
         "titre": titre_propre(snippet.get("title", "")),
@@ -134,7 +175,8 @@ def fiche_film(video, chaine):
         "duree_minutes": duree_en_minutes(video["contentDetails"].get("duration")),
         "date": snippet.get("publishedAt", ""),
         "miniature": miniature(snippet),
-        "genre": chaine.get("genre", ""),
+        "genre": genres[0] if genres else "",
+        "genres": genres,
         "chaine": chaine["nom"],
     }
 
