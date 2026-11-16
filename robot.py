@@ -178,6 +178,16 @@ GENRES_RENOMMES = {
     "musique": "Musical", "comedie musicale": "Musical", "opera": "Musical", "danse": "Musical",
     "football": "Sport", "boxe": "Sport", "surf": "Sport",
     "documentary": "Documentaire",
+    # Vus dans le journal du robot du 16/11/2026
+    "frissons": "Horreur", "frisson": "Horreur",
+    "combat": "Action", "combats": "Action", "bagarre": "Action",
+    "emotion": "Drame", "emotions": "Drame",
+    "survival": "Aventure", "road trip": "Aventure", "road movie": "Aventure",
+    "ballet": "Musical",
+    "seduction": "Romance",
+    "anime": "Animation", "manga": "Animation",
+    "formula 1": "Sport", "formule 1": "Sport", "f1": "Sport", "skate": "Sport",
+    "course": "Sport", "courses": "Sport", "voiture": "Action", "voitures": "Action",
 }
 
 GENRES_IGNORES = {}  # genre inconnu -> nombre de fois vu (affiché dans le journal)
