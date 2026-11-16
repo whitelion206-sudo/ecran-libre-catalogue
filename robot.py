@@ -118,63 +118,116 @@ def est_en_francais(video):
     return audio.startswith("fr") and langue.startswith("fr")
 
 
+# Les catégories affichées dans l'appli. Tout genre lu dans un titre est
+# ramené à l'une d'elles ; un genre inconnu est ignoré (et noté dans le journal
+# du robot pour qu'on puisse l'ajouter ici plus tard).
 GENRES_CONNUS = [
-    "Action", "Animation", "Arts martiaux", "Aventure", "Biopic", "Catastrophe",
-    "Comédie", "Comédie dramatique", "Comédie romantique", "Crime", "Documentaire", "Drame", "Famille",
-    "Fantastique", "Guerre", "Historique", "Horreur", "Musical", "Mystère", "Noël",
+    "Action", "Ados", "Animation", "Arts martiaux", "Aventure", "Biopic", "Catastrophe",
+    "Comédie", "Comédie dramatique", "Comédie romantique", "Documentaire", "Drame", "Famille",
+    "Fantastique", "Guerre", "Historique", "Horreur", "Musical", "Noël",
     "Policier", "Romance", "Science-fiction", "Sport", "Thriller", "Western",
 ]
 
+# Variantes et sous-genres (écrits sans accents ni majuscules) -> catégorie.
 GENRES_RENOMMES = {
-    "teen": "Ados",
-    "teen movie": "Ados",
-    "fantasy": "Fantastique",
-    "suspense": "Thriller",
-    "sci-fi": "Science-fiction",
-    "science fiction": "Science-fiction",
-    "epouvante": "Horreur",
-    "aventures": "Aventure",
-    "comedy": "Comédie",
-    "drama": "Drame",
-    "horror": "Horreur",
+    # Ados
+    "teen": "Ados", "teen movie": "Ados", "teen movies": "Ados", "ado": "Ados",
+    "adolescent": "Ados", "adolescents": "Ados", "drame adolescent": "Ados",
+    # Famille / enfants
+    "kids": "Famille", "kid": "Famille", "enfant": "Famille", "enfants": "Famille",
+    "enfance": "Famille", "jeunesse": "Famille", "familial": "Famille", "family": "Famille",
+    "equitation": "Famille", "cheval": "Famille", "chevaux": "Famille",
+    "animal": "Famille", "animaux": "Famille", "chien": "Famille", "chiens": "Famille",
+    # Animation
+    "dessin anime": "Animation", "dessins animes": "Animation", "stop motion": "Animation",
+    "animated": "Animation",
+    # Science-fiction
+    "sf": "Science-fiction", "sci-fi": "Science-fiction", "sci fi": "Science-fiction",
+    "science fiction": "Science-fiction", "anticipation": "Science-fiction",
+    "extraterrestre": "Science-fiction", "extraterrestres": "Science-fiction",
+    "robot": "Science-fiction", "robots": "Science-fiction",
+    # Fantastique
+    "fantasy": "Fantastique", "magie": "Fantastique", "dragon": "Fantastique",
+    "dragons": "Fantastique", "conte": "Fantastique", "contes": "Fantastique",
+    "super heros": "Fantastique", "super-heros": "Fantastique", "superheros": "Fantastique",
+    # Horreur
+    "horror": "Horreur", "epouvante": "Horreur", "monstre": "Horreur", "monstres": "Horreur",
+    "zombie": "Horreur", "zombies": "Horreur", "vampire": "Horreur", "vampires": "Horreur",
+    "slasher": "Horreur", "gore": "Horreur", "halloween": "Horreur", "requin": "Horreur",
+    "requins": "Horreur", "creature": "Horreur", "creatures": "Horreur",
+    # Aventure
+    "aventures": "Aventure", "adventure": "Aventure", "pirate": "Aventure",
+    "pirates": "Aventure", "dinosaure": "Aventure", "dinosaures": "Aventure",
+    "survie": "Aventure", "jungle": "Aventure",
+    # Thriller
+    "suspense": "Thriller", "mystere": "Thriller", "enquete": "Thriller",
+    "psychologique": "Thriller", "espionnage": "Thriller", "espion": "Thriller",
+    # Policier
+    "crime": "Policier", "criminel": "Policier", "gangster": "Policier",
+    "gangsters": "Policier", "mafia": "Policier", "braquage": "Policier", "polar": "Policier",
+    # Comédie / drame / romance
+    "comedy": "Comédie", "humour": "Comédie", "parodie": "Comédie",
+    "drama": "Drame", "romantique": "Romance", "amour": "Romance", "romance": "Romance",
+    "comedie dramatique": "Comédie dramatique", "comedie romantique": "Comédie romantique",
+    # Autres
+    "noel": "Noël", "christmas": "Noël", "fetes": "Noël",
+    "kung fu": "Arts martiaux", "karate": "Arts martiaux", "martial": "Arts martiaux",
+    "biographie": "Biopic", "biographique": "Biopic", "histoire vraie": "Biopic",
+    "histoire": "Historique", "peplum": "Historique", "medieval": "Historique",
+    "militaire": "Guerre", "war": "Guerre",
+    "musique": "Musical", "comedie musicale": "Musical", "opera": "Musical", "danse": "Musical",
+    "football": "Sport", "boxe": "Sport", "surf": "Sport",
+    "documentary": "Documentaire",
 }
+
+GENRES_IGNORES = {}  # genre inconnu -> nombre de fois vu (affiché dans le journal)
 
 
 def sans_accents(texte):
     return unicodedata.normalize("NFKD", texte).encode("ascii", "ignore").decode().lower()
 
 
+def nettoie_genre(genre):
+    """Enlève les emojis et symboles (💎, ⏫…) et les espaces en trop."""
+    propre = "".join(c for c in genre if c.isalnum() or c in " -'’")
+    return re.sub(r"\s+", " ", propre).strip(" -'’")
+
+
 def genre_normalise(genre):
-    """Corrige les fautes et variantes (« Thriler », « Comedie »…) vers un nom unique."""
-    cle = sans_accents(genre)
+    """Ramène un genre à une catégorie de GENRES_CONNUS, ou None s'il est inconnu."""
+    propre = nettoie_genre(genre)
+    cle = sans_accents(propre)
+    if not cle:
+        return None
+    connus = {sans_accents(g): g for g in GENRES_CONNUS}
     if cle in GENRES_RENOMMES:
         return GENRES_RENOMMES[cle]
-    connus = {sans_accents(g): g for g in GENRES_CONNUS}
+    if cle in connus:
+        return connus[cle]
     proche = difflib.get_close_matches(cle, connus, n=1, cutoff=0.9)
-    if proche:
+    if proche:  # fautes de frappe : « Thriler », « Comedie »
         return connus[proche[0]]
-    # « Thriller psychologique » -> « Thriller », « Film d'action » -> « Action »
-    contenus = [k for k in connus if re.search(r"\b" + re.escape(k) + r"\b", cle)]
-    if contenus:
-        return connus[max(contenus, key=len)]
-    for k, nom in GENRES_RENOMMES.items():
+    # Un mot connu dans une expression plus longue : on garde le plus long.
+    trouves = {}
+    for k, nom in list(connus.items()) + list(GENRES_RENOMMES.items()):
         if re.search(r"\b" + re.escape(k) + r"\b", cle):
-            return nom
-    return genre[0].upper() + genre[1:].lower()
+            trouves[k] = nom
+    if trouves:
+        return trouves[max(trouves, key=len)]
+    GENRES_IGNORES[propre] = GENRES_IGNORES.get(propre, 0) + 1
+    return None
 
 
 def genres_du_titre(titre):
     """Lit les genres écrits après « Film Complet en Français | » dans le titre YouTube."""
     morceaux = [m.strip() for m in titre.split("|")]
     for i, morceau in enumerate(morceaux):
-        if re.search(r"films?\s+complets?", morceau, flags=re.IGNORECASE) and i + 1 < len(morceaux):
+        if re.search(r"(?:films?|dessins?\s+anim[ée]s?)\s+complets?", morceau, flags=re.IGNORECASE) \
+                and i + 1 < len(morceaux):
             genres = []
-            for genre in re.split(r"[,/]", morceaux[i + 1]):
-                genre = genre.strip()
-                if not genre:
-                    continue
+            for genre in re.split(r"[,/&]|\bet\b", morceaux[i + 1]):
                 genre = genre_normalise(genre)
-                if genre not in genres:
+                if genre and genre not in genres:
                     genres.append(genre)
             return genres
     return []
@@ -563,6 +616,11 @@ def main():
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
     print(f"Catalogue écrit : {len(films)} films YouTube et {len(liste_classiques)} classiques.")
+    toutes = sorted({g for film in films.values() for g in film["genres"]})
+    print(f"Catégories ({len(toutes)}) : {', '.join(toutes)}")
+    if GENRES_IGNORES:
+        ignores = sorted(GENRES_IGNORES.items(), key=lambda x: -x[1])
+        print("Genres ignorés : " + ", ".join(f"{g} ({n})" for g, n in ignores))
 
 
 if __name__ == "__main__":
