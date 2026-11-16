@@ -344,6 +344,7 @@ def fiche_film(video, chaine):
 # par paquet de 50) : une vidéo supprimée ou bloquée disparaît de l'appli.
 
 MAX_RECHERCHES = 70
+REGLE_BA = 2           # version de la règle de correspondance (2 = titre exact)
 REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
 DUREE_MAX_BA_MINUTES = 6
 
@@ -358,6 +359,35 @@ SIGNES_VF = re.compile(r"\bVF\b|fran[cç]ais", flags=re.IGNORECASE)
 
 def normalise(texte):
     return re.sub(r"[^a-z0-9]+", " ", sans_accents(html.unescape(texte or ""))).strip()
+
+
+# Mots qu'on accepte autour du titre du film dans le titre d'une bande-annonce.
+# Les articles (le, la, the…) et les chiffres n'en font pas partie : « The Head
+# Hunter » ou « Rage 2 » ne sont pas « Head Hunter » ou « Rage ».
+MOTS_AUTOUR_BA = {
+    "bande", "annonce", "annonces", "bandeannonce", "trailer", "teaser", "vf", "vff",
+    "officielle", "officiel", "official", "francais", "francaise", "french", "hd", "4k",
+    "uhd", "nouvelle", "nouveau", "exclusive", "exclusif", "film", "en", "version",
+    "de", "du", "d", "fr",
+} | {mot for g in GENRES_CONNUS for mot in normalise(g).split()}
+SEPARATEURS_BA = re.compile(r"\s?\|\s?")  # « Titre | Bande-annonce VF | Chaîne »
+
+
+def titre_correspond(titre_film, titre_video):
+    """Vrai si la vidéo porte le titre exact du film, entouré seulement de mots
+    comme « bande-annonce », « VF », l'année ou le genre."""
+    cible = normalise(titre_film).split()
+    if not cible:
+        return False
+    for morceau in [titre_video] + SEPARATEURS_BA.split(titre_video):
+        mots = normalise(morceau).split()
+        for debut in range(len(mots) - len(cible) + 1):
+            if mots[debut:debut + len(cible)] != cible:
+                continue
+            autour = mots[:debut] + mots[debut + len(cible):]
+            if all(m in MOTS_AUTOUR_BA or re.fullmatch(r"(19|20)\d\d", m) for m in autour):
+                return True
+    return False
 
 
 def chercher_bande_annonce(film, cle, exclus):
@@ -376,10 +406,10 @@ def chercher_bande_annonce(film, cle, exclus):
         titre = html.unescape(item.get("snippet", {}).get("title", ""))
         if not id_video or id_video in exclus or id_video == film["id"]:
             continue
-        if not re.search(r"\b" + re.escape(cible) + r"\b", normalise(titre)):
-            continue  # le titre du film doit apparaître dans celui de la vidéo
         if not MOTS_BA.search(titre) or MOTS_BA_REFUSES.search(titre):
             continue
+        if not titre_correspond(film["titre"], titre):
+            continue  # la vidéo doit porter exactement le titre du film
         candidats.append((id_video, titre))
     candidats.sort(key=lambda c: 0 if SIGNES_VF.search(c[1]) else 1)
     return candidats
@@ -413,7 +443,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus):
     """Ajoute « bande_annonce » aux films et renvoie la mémoire des recherches."""
     aujourd_hui = datetime.now(timezone.utc).date()
     memoire = {fid: r for fid, r in ancien_catalogue.get("recherches_bandes_annonces", {}).items()
-               if fid in films}
+               if fid in films and (r.get("regle") == REGLE_BA or not r.get("id"))}
 
     # 1. Revérifier les bandes-annonces déjà trouvées.
     deja = {fid: r["id"] for fid, r in memoire.items() if r.get("id")}
@@ -453,7 +483,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus):
             [c[0] for liste in candidats.values() for c in liste], cle, exclus)
         for fid, liste in candidats.items():
             choix = next((c[0] for c in liste if c[0] in lisibles), None)
-            memoire[fid] = {"id": choix, "date": aujourd_hui.isoformat()}
+            memoire[fid] = {"id": choix, "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
     except RuntimeError as erreur:
         print(f"Vérification des nouvelles bandes-annonces impossible : {erreur}")
 
