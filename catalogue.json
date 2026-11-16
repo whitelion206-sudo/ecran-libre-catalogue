@@ -1,7 +1,22 @@
 {
- "mis_a_jour": "2026-11-15T19:30:58Z",
- "nombre_de_films": 2411,
+ "mis_a_jour": "2026-11-16T05:37:27Z",
+ "nombre_de_films": 2412,
  "films": [
+  {
+   "id": "TBf-ZKVTjiA",
+   "titre": "Head Hunter",
+   "titre_youtube": "Head Hunter | Film Complet en Français | Horreur",
+   "description": "Après avoir été expulsé de sa planète, un extraterrestre prend possession de corps humains, semant la terreur tandis que la police tente de l'arrêter.\n\n🔥 Plus de nouveautés ICI ➤ https://www.youtube.com/playlist?list=PLpPy9e-Nyh3uAgehMbGGP9XehzyCttJhy\n\nGenre : Film Horreur, Thriller, Suspense\n© Tous Droits Réservés\n#FilmHorreurFR #FilmComplet",
+   "duree_minutes": 81,
+   "date": "2026-11-15T20:15:29Z",
+   "miniature": "https://i.ytimg.com/vi/TBf-ZKVTjiA/maxresdefault.jpg",
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "JBu8W7PTggA"
+  },
   {
    "id": "No8UmXSbx2Y",
    "titre": "Casino : Assaut Final",
@@ -1012,7 +1027,8 @@
    "genres": [
     "Animation"
    ],
-   "chaine": "Boxoffice Animation | Films Complets"
+   "chaine": "Boxoffice Animation | Films Complets",
+   "bande_annonce": "4Uy9jX7IYbM"
   },
   {
    "id": "IVF2ScXyJFs",
@@ -1026,7 +1042,8 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets"
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "qp4ztrhTGHk"
   },
   {
    "id": "SYcyU09bzq8",
@@ -1040,7 +1057,8 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "bande_annonce": "lC0hEpje8IQ"
   },
   {
    "id": "4g1wKn-l2sA",
@@ -1054,7 +1072,8 @@
    "genres": [
     "Thriller"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "iOPXStM4blg"
   },
   {
    "id": "kqYg-62DGzM",
@@ -1070,7 +1089,8 @@
     "Romance",
     "Ados"
    ],
-   "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
+   "chaine": "Boxoffice | TEEN MOVIES | Films Complets",
+   "bande_annonce": "qSyBkU4bdDg"
   },
   {
    "id": "u7s_s1St6cE",
@@ -1182,7 +1202,8 @@
     "Thriller",
     "Téléfilm ⏫"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "WYpf48mi5OU"
   },
   {
    "id": "egM3FQYWnuc",
@@ -1237,7 +1258,8 @@
     "Famille",
     "Animation"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets"
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "bande_annonce": "kBQ4kB8HnsA"
   },
   {
    "id": "lfqlUBLzmtA",
@@ -1295,7 +1317,8 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "bande_annonce": "Q5kpVMgW1Wk"
   },
   {
    "id": "68KwcDIrOdU",
@@ -1351,7 +1374,8 @@
     "Animation",
     "Aventure"
    ],
-   "chaine": "Boxoffice Animation | Films Complets"
+   "chaine": "Boxoffice Animation | Films Complets",
+   "bande_annonce": "5DIzJOKh_kY"
   },
   {
    "id": "KGBMlljChZ4",
@@ -33920,6 +33944,118 @@
   "ON6kusOM-WA": {
    "id": null,
    "date": "2026-11-15"
+  },
+  "TBf-ZKVTjiA": {
+   "id": "JBu8W7PTggA",
+   "date": "2026-11-16"
+  },
+  "UtQY8ZMCHEs": {
+   "id": "4Uy9jX7IYbM",
+   "date": "2026-11-16"
+  },
+  "IVF2ScXyJFs": {
+   "id": "qp4ztrhTGHk",
+   "date": "2026-11-16"
+  },
+  "SYcyU09bzq8": {
+   "id": "lC0hEpje8IQ",
+   "date": "2026-11-16"
+  },
+  "4g1wKn-l2sA": {
+   "id": "iOPXStM4blg",
+   "date": "2026-11-16"
+  },
+  "kqYg-62DGzM": {
+   "id": "qSyBkU4bdDg",
+   "date": "2026-11-16"
+  },
+  "u7s_s1St6cE": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "iIeBS4E5ISo": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "E7AC75a2SaM": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "x9LKU0EEVSs": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "HnveiZBOy1o": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "_5fztJPXsaQ": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "H5JQWgrPJVQ": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "T0VpSVB6ZYQ": {
+   "id": "WYpf48mi5OU",
+   "date": "2026-11-16"
+  },
+  "egM3FQYWnuc": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "aqiVJBZmd_0": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "gBvbrzv-pKs": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "O_JCMOgt2RM": {
+   "id": "kBQ4kB8HnsA",
+   "date": "2026-11-16"
+  },
+  "lfqlUBLzmtA": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "dC4HnRYyVTU": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "kJWPNgT54Jk": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "vA5qdmvX6mE": {
+   "id": "Q5kpVMgW1Wk",
+   "date": "2026-11-16"
+  },
+  "68KwcDIrOdU": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "X8-Az3H0Yew": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "8zxg-48baUA": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "CqvYd0A_oVU": {
+   "id": "5DIzJOKh_kY",
+   "date": "2026-11-16"
+  },
+  "KGBMlljChZ4": {
+   "id": null,
+   "date": "2026-11-16"
+  },
+  "nCdkp1CM3sc": {
+   "id": null,
+   "date": "2026-11-16"
   }
  }
 }
