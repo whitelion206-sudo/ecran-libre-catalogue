@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-16T05:37:27Z",
+ "mis_a_jour": "2026-11-16T06:04:55Z",
  "nombre_de_films": 2412,
  "films": [
   {
@@ -419,7 +419,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -645,7 +645,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -718,8 +718,7 @@
    "miniature": "https://i.ytimg.com/vi/zj8Dg_tobrE/maxresdefault.jpg",
    "genre": "Aventure",
    "genres": [
-    "Aventure",
-    "Pirate"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -1025,7 +1024,8 @@
    "miniature": "https://i.ytimg.com/vi/UtQY8ZMCHEs/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Fantastique"
    ],
    "chaine": "Boxoffice Animation | Films Complets",
    "bande_annonce": "4Uy9jX7IYbM"
@@ -1083,11 +1083,10 @@
    "duree_minutes": 82,
    "date": "2026-10-28T19:30:21Z",
    "miniature": "https://i.ytimg.com/vi/kqYg-62DGzM/maxresdefault.jpg",
-   "genre": "Drame",
+   "genre": "Ados",
    "genres": [
-    "Drame",
-    "Romance",
-    "Ados"
+    "Ados",
+    "Romance"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets",
    "bande_annonce": "qSyBkU4bdDg"
@@ -1145,7 +1144,8 @@
    "miniature": "https://i.ytimg.com/vi/x9LKU0EEVSs/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -1199,8 +1199,7 @@
    "miniature": "https://i.ytimg.com/vi/T0VpSVB6ZYQ/maxresdefault.jpg",
    "genre": "Thriller",
    "genres": [
-    "Thriller",
-    "Téléfilm ⏫"
+    "Thriller"
    ],
    "chaine": "Allociné Films Complets",
    "bande_annonce": "WYpf48mi5OU"
@@ -1272,7 +1271,7 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Dessin animé"
+    "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -1298,9 +1297,8 @@
    "duree_minutes": 102,
    "date": "2026-10-24T18:30:33Z",
    "miniature": "https://i.ytimg.com/vi/kJWPNgT54Jk/maxresdefault.jpg",
-   "genre": "Drame",
+   "genre": "Ados",
    "genres": [
-    "Drame",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -1330,8 +1328,7 @@
    "miniature": "https://i.ytimg.com/vi/68KwcDIrOdU/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Nanar"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -1441,8 +1438,7 @@
    "miniature": "https://i.ytimg.com/vi/urIlAaPeknE/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Nanar"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -1624,7 +1620,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Dessin animé"
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -1638,7 +1634,8 @@
    "miniature": "https://i.ytimg.com/vi/gnwCxMdzBrM/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -1791,11 +1788,10 @@
    "duree_minutes": 95,
    "date": "2026-10-14T18:30:17Z",
    "miniature": "https://i.ytimg.com/vi/gYt4aNEZ6p4/maxresdefault.jpg",
-   "genre": "Ado",
+   "genre": "Ados",
    "genres": [
-    "Ado",
-    "Aventure",
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -1949,8 +1945,7 @@
    "miniature": "https://i.ytimg.com/vi/E9hyV98EBes/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Nanar 💎"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -1990,7 +1985,8 @@
    "miniature": "https://i.ytimg.com/vi/6bveVxAiWhA/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -2046,8 +2042,7 @@
    "miniature": "https://i.ytimg.com/vi/Ez73NZ2MfbA/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Nanar 💎"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -2071,9 +2066,9 @@
    "duree_minutes": 92,
    "date": "2026-10-10T12:00:30Z",
    "miniature": "https://i.ytimg.com/vi/KoXwJHxAHcA/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
+    "Ados",
     "Science-fiction",
     "Famille"
    ],
@@ -2115,8 +2110,7 @@
    "miniature": "https://i.ytimg.com/vi/TwIh8lItIBw/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Nanar"
+    "Horreur"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -2160,7 +2154,7 @@
    "genre": "Ados",
    "genres": [
     "Ados",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -2356,12 +2350,11 @@
    "duree_minutes": 90,
    "date": "2026-10-03T18:30:06Z",
    "miniature": "https://i.ytimg.com/vi/EUtkenkql-U/maxresdefault.jpg",
-   "genre": "Ado",
+   "genre": "Ados",
    "genres": [
-    "Ado",
+    "Ados",
     "Aventure",
-    "Sf",
-    "Ados"
+    "Science-fiction"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -2567,8 +2560,9 @@
    "duree_minutes": 73,
    "date": "2026-09-30T12:00:32Z",
    "miniature": "https://i.ytimg.com/vi/d69fFQpxSQY/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -2639,7 +2633,6 @@
    "genre": "Drame",
    "genres": [
     "Drame",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -2684,7 +2677,6 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -2740,7 +2732,8 @@
    "miniature": "https://i.ytimg.com/vi/rVjAfObq798/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -2906,9 +2899,8 @@
    "duree_minutes": 94,
    "date": "2026-09-24T18:00:34Z",
    "miniature": "https://i.ytimg.com/vi/kJEX70ROO5w/maxresdefault.jpg",
-   "genre": "🇬🇧",
+   "genre": "Action",
    "genres": [
-    "🇬🇧",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -2949,8 +2941,10 @@
    "duree_minutes": 73,
    "date": "2026-09-23T12:00:08Z",
    "miniature": "https://i.ytimg.com/vi/nlqA790GO_c/hqdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -3183,9 +3177,9 @@
    "duree_minutes": 90,
    "date": "2026-09-17T15:00:00Z",
    "miniature": "https://i.ytimg.com/vi/2BHYP8L8Kxk/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Thriller"
    ],
    "chaine": "Allociné Films Complets"
@@ -3483,9 +3477,9 @@
    "duree_minutes": 94,
    "date": "2026-09-08T15:00:35Z",
    "miniature": "https://i.ytimg.com/vi/QGdU7jVXJYo/maxresdefault.jpg",
-   "genre": "Mystère",
+   "genre": "Thriller",
    "genres": [
-    "Mystère",
+    "Thriller",
     "Famille"
    ],
    "chaine": "Allociné Films Complets"
@@ -3554,11 +3548,10 @@
    "duree_minutes": 85,
    "date": "2026-09-05T18:30:05Z",
    "miniature": "https://i.ytimg.com/vi/BADpgNhkQJ4/maxresdefault.jpg",
-   "genre": "Ado",
+   "genre": "Ados",
    "genres": [
-    "Ado",
-    "Aventure",
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -3777,7 +3770,7 @@
    "genre": "Thriller",
    "genres": [
     "Thriller",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -3940,8 +3933,7 @@
    "miniature": "https://i.ytimg.com/vi/IlaPaBTbxw0/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Slasher"
+    "Horreur"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -4036,8 +4028,7 @@
    "miniature": "https://i.ytimg.com/vi/YGlyth-jOXY/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Animaux"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -4175,8 +4166,7 @@
    "miniature": "https://i.ytimg.com/vi/rFsCs8FWsqA/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Survival"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -4218,7 +4208,8 @@
    "miniature": "https://i.ytimg.com/vi/veNgqgwGTW4/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -4537,8 +4528,7 @@
    "miniature": "https://i.ytimg.com/vi/QJFygwdCkOY/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Requins💎"
+    "Horreur"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -4580,7 +4570,7 @@
    "genres": [
     "Famille",
     "Aventure",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -4637,8 +4627,7 @@
    "miniature": "https://i.ytimg.com/vi/5Jtq0t5OJcU/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction",
-    "Nanar"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -4884,8 +4873,7 @@
    "miniature": "https://i.ytimg.com/vi/LSxvQY1rI1Y/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action",
-    "Combat 💎"
+    "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -4951,9 +4939,9 @@
    "duree_minutes": 91,
    "date": "2026-07-30T15:00:01Z",
    "miniature": "https://i.ytimg.com/vi/DIicJIjBQ-k/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Horreur"
    ],
    "chaine": "Allociné Films Complets"
@@ -5281,7 +5269,8 @@
    "miniature": "https://i.ytimg.com/vi/452xG1HROqQ/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -5419,7 +5408,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Péplum"
+    "Historique"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -5434,7 +5423,7 @@
    "genre": "Animation",
    "genres": [
     "Animation",
-    "Enfants 💎"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -5541,11 +5530,10 @@
    "duree_minutes": 83,
    "date": "2026-07-11T18:30:14Z",
    "miniature": "https://i.ytimg.com/vi/6WRKuyrANlE/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Chevaux",
-    "Ados"
+    "Ados",
+    "Famille"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -5752,7 +5740,6 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -6032,8 +6019,7 @@
    "miniature": "https://i.ytimg.com/vi/t83YeAn1k04/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Animaux"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -6073,8 +6059,7 @@
    "miniature": "https://i.ytimg.com/vi/nnfDquhSXTU/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Nanar"
+    "Horreur"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -7390,10 +7375,10 @@
    "duree_minutes": 94,
    "date": "2026-05-09T12:00:19Z",
    "miniature": "https://i.ytimg.com/vi/D-fNF4YxxuE/maxresdefault.jpg",
-   "genre": "Mystère",
+   "genre": "Thriller",
    "genres": [
-    "Mystère",
-    "Ado",
+    "Thriller",
+    "Ados",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -7583,9 +7568,9 @@
    "duree_minutes": 90,
    "date": "2026-05-03T08:00:15Z",
    "miniature": "https://i.ytimg.com/vi/Kyoec_K1y4I/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Fantastique",
    "genres": [
-    "Animation"
+    "Fantastique"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -7711,7 +7696,8 @@
    "miniature": "https://i.ytimg.com/vi/7DssjSg9EcA/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -8039,11 +8025,10 @@
    "duree_minutes": 91,
    "date": "2026-04-18T18:30:53Z",
    "miniature": "https://i.ytimg.com/vi/hm4g-l_58mQ/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Drame",
-    "Ados"
+    "Ados",
+    "Drame"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -8474,10 +8459,9 @@
    "duree_minutes": 94,
    "date": "2026-04-04T18:30:07Z",
    "miniature": "https://i.ytimg.com/vi/8Rj9Dl1yhMA/maxresdefault.jpg",
-   "genre": "Mystère",
+   "genre": "Thriller",
    "genres": [
-    "Mystère",
-    "Ado",
+    "Thriller",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -8589,9 +8573,9 @@
    "duree_minutes": 84,
    "date": "2026-04-01T08:00:04Z",
    "miniature": "https://i.ytimg.com/vi/67UCvMRLZd4/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -8629,9 +8613,9 @@
    "duree_minutes": 85,
    "date": "2026-03-30T15:00:34Z",
    "miniature": "https://i.ytimg.com/vi/NCSfKo7hRfk/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Catastrophe"
    ],
    "chaine": "Allociné Films Complets"
@@ -8673,8 +8657,7 @@
    "miniature": "https://i.ytimg.com/vi/FBfOgxR5dso/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Animaux"
+    "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -9204,8 +9187,7 @@
    "miniature": "https://i.ytimg.com/vi/ZAM4gDM5SU0/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action",
-    "Combat"
+    "Action"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -9245,9 +9227,9 @@
    "duree_minutes": 87,
    "date": "2026-03-11T09:00:56Z",
    "miniature": "https://i.ytimg.com/vi/WJB30PwjT4A/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -9354,10 +9336,9 @@
    "duree_minutes": 111,
    "date": "2026-03-07T13:01:02Z",
    "miniature": "https://i.ytimg.com/vi/ZkuibMUmCjo/maxresdefault.jpg",
-   "genre": "Animé",
+   "genre": "Science-fiction",
    "genres": [
-    "Animé",
-    "Sf",
+    "Science-fiction",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -9370,9 +9351,9 @@
    "duree_minutes": 83,
    "date": "2026-03-07T09:00:55Z",
    "miniature": "https://i.ytimg.com/vi/jhrSaFZLaJ4/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -9494,7 +9475,6 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -9879,11 +9859,10 @@
    "duree_minutes": 98,
    "date": "2026-02-14T19:30:09Z",
    "miniature": "https://i.ytimg.com/vi/x-fVBYdf5Jc/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Drame",
-    "Ados"
+    "Ados",
+    "Drame"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -9939,9 +9918,9 @@
    "duree_minutes": 91,
    "date": "2026-02-14T13:01:50Z",
    "miniature": "https://i.ytimg.com/vi/zPVwAGfA8X8/maxresdefault.jpg",
-   "genre": "Conte de fées",
+   "genre": "Fantastique",
    "genres": [
-    "Conte de fées",
+    "Fantastique",
     "Animation",
     "Famille"
    ],
@@ -10161,8 +10140,10 @@
    "duree_minutes": 87,
    "date": "2026-02-07T13:00:41Z",
    "miniature": "https://i.ytimg.com/vi/NGK_Mlaw90U/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -10452,7 +10433,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -10790,10 +10771,9 @@
    "duree_minutes": 72,
    "date": "2026-01-07T16:00:03Z",
    "miniature": "https://i.ytimg.com/vi/2rDvu5359-g/maxresdefault.jpg",
-   "genre": "Nanar",
+   "genre": "Comédie",
    "genres": [
-    "Nanar",
-    "Parodie"
+    "Comédie"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -10808,7 +10788,7 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Mystère"
+    "Thriller"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -10996,7 +10976,8 @@
    "miniature": "https://i.ytimg.com/vi/bEAhBkv6Tlg/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -11258,8 +11239,9 @@
    "duree_minutes": 84,
    "date": "2025-12-23T09:00:29Z",
    "miniature": "https://i.ytimg.com/vi/ChBANeoDk1I/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
+    "Famille",
     "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -11370,7 +11352,8 @@
    "miniature": "https://i.ytimg.com/vi/Q_ox1SFqiYk/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -11593,8 +11576,7 @@
    "miniature": "https://i.ytimg.com/vi/NE9poWyrOKE/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Slasher"
+    "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
   },
@@ -11651,8 +11633,7 @@
    "miniature": "https://i.ytimg.com/vi/cX056c3PPpA/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation",
-    "Voiture"
+    "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -11764,7 +11745,7 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Enquête",
+    "Thriller",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -11859,9 +11840,8 @@
    "duree_minutes": 90,
    "date": "2025-12-06T19:30:06Z",
    "miniature": "https://i.ytimg.com/vi/mKVf_424FKk/maxresdefault.jpg",
-   "genre": "Drame",
+   "genre": "Ados",
    "genres": [
-    "Drame",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -12120,9 +12100,8 @@
    "duree_minutes": 85,
    "date": "2025-11-29T19:00:19Z",
    "miniature": "https://i.ytimg.com/vi/Il8-6hY-kvs/maxresdefault.jpg",
-   "genre": "Requins",
+   "genre": "Horreur",
    "genres": [
-    "Requins",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -12388,7 +12367,8 @@
    "miniature": "https://i.ytimg.com/vi/_WhxOiyXNt0/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -12440,7 +12420,8 @@
    "miniature": "https://i.ytimg.com/vi/XNf5dP5WCh4/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -12526,7 +12507,8 @@
    "miniature": "https://i.ytimg.com/vi/nMP44QTfQIg/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -12583,7 +12565,8 @@
    "miniature": "https://i.ytimg.com/vi/PhAcgKHZoSU/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -12777,7 +12760,7 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Dessin animé"
+    "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -12789,9 +12772,9 @@
    "duree_minutes": 114,
    "date": "2025-11-02T10:00:07Z",
    "miniature": "https://i.ytimg.com/vi/SHfyHRIDcmo/maxresdefault.jpg",
-   "genre": "Histoire vraie",
+   "genre": "Biopic",
    "genres": [
-    "Histoire vraie",
+    "Biopic",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -12865,7 +12848,8 @@
    "miniature": "https://i.ytimg.com/vi/pe3kQ6nCRFc/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -13305,11 +13289,10 @@
    "duree_minutes": 83,
    "date": "2025-10-11T18:30:19Z",
    "miniature": "https://i.ytimg.com/vi/MIt4OHKyOkk/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
-    "Comédie",
-    "Ados"
+    "Ados",
+    "Comédie"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -13379,9 +13362,9 @@
    "duree_minutes": 87,
    "date": "2025-10-08T15:01:18Z",
    "miniature": "https://i.ytimg.com/vi/kN8WEwvHXRQ/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Allociné Films Complets"
@@ -13865,8 +13848,7 @@
    "miniature": "https://i.ytimg.com/vi/UpOsyjChzUM/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Survival"
+    "Horreur"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -14170,11 +14152,10 @@
    "duree_minutes": 83,
    "date": "2025-08-23T18:30:47Z",
    "miniature": "https://i.ytimg.com/vi/Vx3xWoaNj-M/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
-    "Comédie",
-    "Ados"
+    "Ados",
+    "Comédie"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -14188,8 +14169,7 @@
    "miniature": "https://i.ytimg.com/vi/r765SIx1Wy8/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Zombies💎"
+    "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
   },
@@ -14201,9 +14181,9 @@
    "duree_minutes": 85,
    "date": "2025-08-23T08:01:09Z",
    "miniature": "https://i.ytimg.com/vi/xU4BUJktbLI/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
-    "Animation"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -14513,9 +14493,9 @@
    "duree_minutes": 69,
    "date": "2025-07-30T08:00:51Z",
    "miniature": "https://i.ytimg.com/vi/nQCpk3_LRUs/maxresdefault.jpg",
-   "genre": "Kids",
+   "genre": "Famille",
    "genres": [
-    "Kids",
+    "Famille",
     "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -14627,9 +14607,9 @@
    "duree_minutes": 79,
    "date": "2025-07-23T08:00:12Z",
    "miniature": "https://i.ytimg.com/vi/B-ADY_nFKGA/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
-    "Animation"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -14768,9 +14748,9 @@
    "duree_minutes": 90,
    "date": "2025-07-12T18:31:04Z",
    "miniature": "https://i.ytimg.com/vi/jEkEdp-xiZA/maxresdefault.jpg",
-   "genre": "Équitation",
+   "genre": "Famille",
    "genres": [
-    "Équitation",
+    "Famille",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -14881,9 +14861,9 @@
    "duree_minutes": 116,
    "date": "2025-07-06T15:01:34Z",
    "miniature": "https://i.ytimg.com/vi/xXsuvH-P84A/maxresdefault.jpg",
-   "genre": "Histoire",
+   "genre": "Historique",
    "genres": [
-    "Histoire",
+    "Historique",
     "Drame"
    ],
    "chaine": "Allociné Films Complets"
@@ -14967,7 +14947,8 @@
    "miniature": "https://i.ytimg.com/vi/b_4E1qaun-Q/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Animation"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -15120,9 +15101,9 @@
    "duree_minutes": 78,
    "date": "2025-06-25T08:00:43Z",
    "miniature": "https://i.ytimg.com/vi/bOr2vRiyJIs/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -15205,8 +15186,9 @@
    "duree_minutes": 79,
    "date": "2025-06-21T12:01:31Z",
    "miniature": "https://i.ytimg.com/vi/lYH_YgznX2c/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -15289,8 +15271,7 @@
    "miniature": "https://i.ytimg.com/vi/uiuhDq-Cizs/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action",
-    "Formula 1"
+    "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -15328,9 +15309,9 @@
    "duree_minutes": 85,
    "date": "2025-06-12T15:01:16Z",
    "miniature": "https://i.ytimg.com/vi/o_ntN7NcYjU/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -15387,10 +15368,8 @@
    "duree_minutes": 78,
    "date": "2025-06-10T15:01:20Z",
    "miniature": "https://i.ytimg.com/vi/oilnxcI71fo/maxresdefault.jpg",
-   "genre": "Frissons",
-   "genres": [
-    "Frissons"
-   ],
+   "genre": "",
+   "genres": [],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -15444,8 +15423,9 @@
    "duree_minutes": 96,
    "date": "2025-06-07T12:00:07Z",
    "miniature": "https://i.ytimg.com/vi/8UQRnUvPHuI/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -15611,7 +15591,6 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
-    "Skate",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -15665,10 +15644,8 @@
    "duree_minutes": 97,
    "date": "2025-05-26T15:01:22Z",
    "miniature": "https://i.ytimg.com/vi/kl8v3X4lUi8/maxresdefault.jpg",
-   "genre": "Séduction",
-   "genres": [
-    "Séduction"
-   ],
+   "genre": "",
+   "genres": [],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -15790,10 +15767,8 @@
    "duree_minutes": 69,
    "date": "2025-05-21T15:00:00Z",
    "miniature": "https://i.ytimg.com/vi/-6AbYM1KLus/maxresdefault.jpg",
-   "genre": "Frissons",
-   "genres": [
-    "Frissons"
-   ],
+   "genre": "",
+   "genres": [],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -15856,9 +15831,8 @@
    "duree_minutes": 91,
    "date": "2025-05-17T18:30:38Z",
    "miniature": "https://i.ytimg.com/vi/T_VnjBOwM3Q/maxresdefault.jpg",
-   "genre": "Drame",
+   "genre": "Ados",
    "genres": [
-    "Drame",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -16102,8 +16076,7 @@
    "miniature": "https://i.ytimg.com/vi/1KHHx_L3Pfc/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Requins"
+    "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
   },
@@ -16381,9 +16354,9 @@
    "duree_minutes": 78,
    "date": "2025-04-19T12:01:00Z",
    "miniature": "https://i.ytimg.com/vi/UCGyJYyWnmE/maxresdefault.jpg",
-   "genre": "Mystère",
+   "genre": "Thriller",
    "genres": [
-    "Mystère",
+    "Thriller",
     "Aventure",
     "Famille"
    ],
@@ -16481,7 +16454,8 @@
    "miniature": "https://i.ytimg.com/vi/cqDUVDyhSxo/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Aventure"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -16598,11 +16572,10 @@
    "duree_minutes": 86,
    "date": "2025-03-29T19:30:00Z",
    "miniature": "https://i.ytimg.com/vi/7SEnPEmCdz4/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
-    "Aventure",
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -16642,8 +16615,9 @@
    "duree_minutes": 74,
    "date": "2025-03-29T13:01:25Z",
    "miniature": "https://i.ytimg.com/vi/wJQCLQWOSU4/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -16754,8 +16728,7 @@
    "miniature": "https://i.ytimg.com/vi/17j9GVakgao/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Monstre 💎"
+    "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
   },
@@ -16848,9 +16821,9 @@
    "duree_minutes": 88,
    "date": "2025-03-16T16:01:04Z",
    "miniature": "https://i.ytimg.com/vi/weeGeE0UUwI/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -16920,8 +16893,10 @@
    "duree_minutes": 76,
    "date": "2025-03-15T13:00:38Z",
    "miniature": "https://i.ytimg.com/vi/OklqxMkG5cI/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -17173,8 +17148,9 @@
    "duree_minutes": 140,
    "date": "2025-02-26T10:00:05Z",
    "miniature": "https://i.ytimg.com/vi/3yoqvpAbbV4/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -17281,9 +17257,9 @@
    "duree_minutes": 79,
    "date": "2025-02-18T16:00:29Z",
    "miniature": "https://i.ytimg.com/vi/WoYKAztBQbk/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Allociné Films Complets"
@@ -17803,9 +17779,9 @@
    "duree_minutes": 126,
    "date": "2025-01-13T16:00:37Z",
    "miniature": "https://i.ytimg.com/vi/ZtVEM03zfJ0/maxresdefault.jpg",
-   "genre": "Histoire vraie",
+   "genre": "Biopic",
    "genres": [
-    "Histoire vraie"
+    "Biopic"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -17949,9 +17925,8 @@
    "duree_minutes": 87,
    "date": "2024-12-28T19:30:01Z",
    "miniature": "https://i.ytimg.com/vi/Grs8SYTt6QU/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -17967,7 +17942,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Péplum ☄️"
+    "Historique"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -18059,10 +18034,10 @@
    "duree_minutes": 100,
    "date": "2024-12-23T16:00:06Z",
    "miniature": "https://i.ytimg.com/vi/3Uo-HBAW7DY/maxresdefault.jpg",
-   "genre": "Crime",
+   "genre": "Policier",
    "genres": [
-    "Crime",
-    "Histoire vraie"
+    "Policier",
+    "Biopic"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -18526,8 +18501,9 @@
    "duree_minutes": 68,
    "date": "2024-11-30T13:01:06Z",
    "miniature": "https://i.ytimg.com/vi/uO25alzP83M/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -18571,7 +18547,8 @@
    "miniature": "https://i.ytimg.com/vi/f9oInWxTN0w/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Fantastique"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -18639,9 +18616,9 @@
    "duree_minutes": 87,
    "date": "2024-11-23T16:00:01Z",
    "miniature": "https://i.ytimg.com/vi/0P5iI6BzSXI/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Allociné Films Complets"
@@ -18740,7 +18717,7 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
-    "Adolescents",
+    "Ados",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -19051,8 +19028,7 @@
    "miniature": "https://i.ytimg.com/vi/vmVtxskB1dk/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action",
-    "Combat"
+    "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -19150,8 +19126,9 @@
    "duree_minutes": 93,
    "date": "2024-11-02T13:00:45Z",
    "miniature": "https://i.ytimg.com/vi/cE0y-3M7GvQ/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -19178,9 +19155,9 @@
    "duree_minutes": 89,
    "date": "2024-10-31T19:30:00Z",
    "miniature": "https://i.ytimg.com/vi/0nopf8SAczE/maxresdefault.jpg",
-   "genre": "Halloween",
+   "genre": "Horreur",
    "genres": [
-    "Halloween",
+    "Horreur",
     "Fantastique",
     "Ados"
    ],
@@ -19345,9 +19322,8 @@
    "duree_minutes": 85,
    "date": "2024-10-24T17:00:41Z",
    "miniature": "https://i.ytimg.com/vi/msAuXh2rtAU/maxresdefault.jpg",
-   "genre": "Combat",
+   "genre": "Action",
    "genres": [
-    "Combat",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -19374,9 +19350,8 @@
    "duree_minutes": 108,
    "date": "2024-10-19T18:30:00Z",
    "miniature": "https://i.ytimg.com/vi/1705klbDD8E/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -19403,8 +19378,10 @@
    "duree_minutes": 89,
    "date": "2024-10-19T12:00:36Z",
    "miniature": "https://i.ytimg.com/vi/RHuDCeT8lgY/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Fantastique",
    "genres": [
+    "Fantastique",
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -19564,9 +19541,9 @@
    "duree_minutes": 84,
    "date": "2024-10-10T15:00:39Z",
    "miniature": "https://i.ytimg.com/vi/WtDODyFgbCs/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -19674,8 +19651,9 @@
    "duree_minutes": 86,
    "date": "2024-10-05T12:01:01Z",
    "miniature": "https://i.ytimg.com/vi/puGwBGsxizw/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -19716,9 +19694,8 @@
    "duree_minutes": 85,
    "date": "2024-09-28T18:00:25Z",
    "miniature": "https://i.ytimg.com/vi/pwvjcpZh2Xc/maxresdefault.jpg",
-   "genre": "Frissons",
+   "genre": "Horreur",
    "genres": [
-    "Frissons",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -19731,9 +19708,9 @@
    "duree_minutes": 84,
    "date": "2024-09-28T16:00:07Z",
    "miniature": "https://i.ytimg.com/vi/8RFo_TS5TcY/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -19914,9 +19891,9 @@
    "duree_minutes": 86,
    "date": "2024-09-14T08:00:33Z",
    "miniature": "https://i.ytimg.com/vi/hXMZ0hUkLVw/maxresdefault.jpg",
-   "genre": "Animaux",
+   "genre": "Famille",
    "genres": [
-    "Animaux"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -19981,9 +19958,9 @@
    "duree_minutes": 81,
    "date": "2024-09-07T12:00:23Z",
    "miniature": "https://i.ytimg.com/vi/RM6E-XSyhqc/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
+    "Ados",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -20010,9 +19987,9 @@
    "duree_minutes": 89,
    "date": "2024-09-06T15:00:08Z",
    "miniature": "https://i.ytimg.com/vi/AeX2efiaak0/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -20174,9 +20151,8 @@
    "duree_minutes": 81,
    "date": "2024-08-24T18:30:26Z",
    "miniature": "https://i.ytimg.com/vi/KYc0iDAIe94/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -20312,9 +20288,8 @@
    "duree_minutes": 76,
    "date": "2024-08-17T18:30:10Z",
    "miniature": "https://i.ytimg.com/vi/F_FXeNvy2xM/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -20341,9 +20316,9 @@
    "duree_minutes": 86,
    "date": "2024-08-17T12:00:11Z",
    "miniature": "https://i.ytimg.com/vi/EJexhNSqJHw/maxresdefault.jpg",
-   "genre": "Football",
+   "genre": "Sport",
    "genres": [
-    "Football",
+    "Sport",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -20431,7 +20406,7 @@
    "genre": "Horreur",
    "genres": [
     "Horreur",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -20443,9 +20418,9 @@
    "duree_minutes": 93,
    "date": "2024-08-10T16:00:04Z",
    "miniature": "https://i.ytimg.com/vi/69pLP5x26GQ/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -20458,9 +20433,9 @@
    "duree_minutes": 88,
    "date": "2024-08-10T08:00:29Z",
    "miniature": "https://i.ytimg.com/vi/Z8ghuIG8Yec/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
+    "Ados",
     "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -20502,9 +20477,8 @@
    "duree_minutes": 83,
    "date": "2024-08-08T15:00:29Z",
    "miniature": "https://i.ytimg.com/vi/dWSJxEEAJxI/maxresdefault.jpg",
-   "genre": "Nanar",
+   "genre": "Horreur",
    "genres": [
-    "Nanar",
     "Horreur"
    ],
    "chaine": "Allociné Films Complets"
@@ -20650,9 +20624,8 @@
    "duree_minutes": 83,
    "date": "2024-07-27T18:30:33Z",
    "miniature": "https://i.ytimg.com/vi/X8AkUZQactA/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -20682,7 +20655,6 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Animaux",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -20737,9 +20709,8 @@
    "duree_minutes": 82,
    "date": "2024-07-22T19:00:28Z",
    "miniature": "https://i.ytimg.com/vi/utMmix29bBY/maxresdefault.jpg",
-   "genre": "Frissons",
+   "genre": "Horreur",
    "genres": [
-    "Frissons",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -20841,7 +20812,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Adolescent"
+    "Ados"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -20921,9 +20892,9 @@
    "duree_minutes": 79,
    "date": "2024-07-06T16:00:09Z",
    "miniature": "https://i.ytimg.com/vi/GXfeChto-Qo/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -21230,7 +21201,8 @@
    "miniature": "https://i.ytimg.com/vi/udXclKAWqng/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -21299,9 +21271,9 @@
    "duree_minutes": 81,
    "date": "2024-06-15T12:00:11Z",
    "miniature": "https://i.ytimg.com/vi/AwIu5f5Wkxg/maxresdefault.jpg",
-   "genre": "Mystère",
+   "genre": "Thriller",
    "genres": [
-    "Mystère",
+    "Thriller",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -21317,7 +21289,7 @@
    "genre": "Drame",
    "genres": [
     "Drame",
-    "Mystère"
+    "Thriller"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -21397,11 +21369,10 @@
    "duree_minutes": 88,
    "date": "2024-06-08T18:30:19Z",
    "miniature": "https://i.ytimg.com/vi/C7qPguYHcgs/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Aventure",
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -21597,10 +21568,8 @@
    "duree_minutes": 83,
    "date": "2024-05-28T15:00:26Z",
    "miniature": "https://i.ytimg.com/vi/ZMVJhEPOXuA/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
+   "genre": "",
+   "genres": [],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -21655,8 +21624,9 @@
    "duree_minutes": 200,
    "date": "2024-05-25T12:00:07Z",
    "miniature": "https://i.ytimg.com/vi/7Q94YxvINys/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -21669,8 +21639,9 @@
    "duree_minutes": 79,
    "date": "2024-05-25T08:00:35Z",
    "miniature": "https://i.ytimg.com/vi/tYDnxj_omc4/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
+    "Famille",
     "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -21795,8 +21766,9 @@
    "duree_minutes": 94,
    "date": "2024-05-18T12:00:52Z",
    "miniature": "https://i.ytimg.com/vi/vijIdCPGock/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -21852,9 +21824,9 @@
    "duree_minutes": 75,
    "date": "2024-05-14T16:00:37Z",
    "miniature": "https://i.ytimg.com/vi/gfbGRjL3ATM/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -21913,7 +21885,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Adolescent"
+    "Ados"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -22005,11 +21977,10 @@
    "duree_minutes": 74,
    "date": "2024-05-04T18:30:22Z",
    "miniature": "https://i.ytimg.com/vi/eCkZKeftmU4/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Comédie",
-    "Ados"
+    "Ados",
+    "Comédie"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -22037,8 +22008,7 @@
    "miniature": "https://i.ytimg.com/vi/pBNSWByT2ac/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Enfants"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22050,9 +22020,9 @@
    "duree_minutes": 70,
    "date": "2024-05-01T08:00:19Z",
    "miniature": "https://i.ytimg.com/vi/ZEgHSS4wTQo/maxresdefault.jpg",
-   "genre": "Enfant",
+   "genre": "Famille",
    "genres": [
-    "Enfant"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22252,8 +22222,7 @@
    "miniature": "https://i.ytimg.com/vi/Ya8FUILSVvY/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Enfants"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22324,8 +22293,9 @@
    "duree_minutes": 70,
    "date": "2024-04-13T12:01:00Z",
    "miniature": "https://i.ytimg.com/vi/yl6YCn4IOrw/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -22340,7 +22310,8 @@
    "miniature": "https://i.ytimg.com/vi/3I9Ksa11C7E/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22366,9 +22337,9 @@
    "duree_minutes": 76,
    "date": "2024-04-10T08:00:23Z",
    "miniature": "https://i.ytimg.com/vi/k8nuNkxbCCI/maxresdefault.jpg",
-   "genre": "Enfant",
+   "genre": "Famille",
    "genres": [
-    "Enfant",
+    "Famille",
     "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -22398,7 +22369,6 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -22425,10 +22395,10 @@
    "duree_minutes": 74,
    "date": "2024-04-06T12:00:25Z",
    "miniature": "https://i.ytimg.com/vi/WMrnNJlhx74/maxresdefault.jpg",
-   "genre": "Adolescents",
+   "genre": "Ados",
    "genres": [
-    "Adolescents",
-    "Mystère",
+    "Ados",
+    "Thriller",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -22641,9 +22611,9 @@
    "duree_minutes": 88,
    "date": "2024-03-23T13:00:33Z",
    "miniature": "https://i.ytimg.com/vi/UScUd-qa-zs/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
+    "Ados",
     "Aventure",
     "Famille"
    ],
@@ -22674,8 +22644,7 @@
    "miniature": "https://i.ytimg.com/vi/MhJ6qkDGz7o/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Enfant"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22746,8 +22715,7 @@
    "miniature": "https://i.ytimg.com/vi/B0NbmmB8ks4/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Enfant"
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22787,8 +22755,9 @@
    "duree_minutes": 79,
    "date": "2024-03-09T13:00:12Z",
    "miniature": "https://i.ytimg.com/vi/7geAzZXj6JM/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -22801,9 +22770,9 @@
    "duree_minutes": 77,
    "date": "2024-03-09T09:00:36Z",
    "miniature": "https://i.ytimg.com/vi/lPvps6rprjI/maxresdefault.jpg",
-   "genre": "Enfant",
+   "genre": "Famille",
    "genres": [
-    "Enfant",
+    "Famille",
     "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -22889,7 +22858,8 @@
    "miniature": "https://i.ytimg.com/vi/vAluJ_zRowA/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -22942,11 +22912,10 @@
    "duree_minutes": 74,
    "date": "2024-02-24T19:30:00Z",
    "miniature": "https://i.ytimg.com/vi/1DrCQi3SKgI/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Aventure",
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -22986,9 +22955,8 @@
    "duree_minutes": 99,
    "date": "2024-02-24T13:00:33Z",
    "miniature": "https://i.ytimg.com/vi/WFmjykJ_9Xw/maxresdefault.jpg",
-   "genre": "Enfants",
+   "genre": "Famille",
    "genres": [
-    "Enfants",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -23033,7 +23001,7 @@
    "genres": [
     "Aventure",
     "Action",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -23264,8 +23232,9 @@
    "duree_minutes": 71,
    "date": "2024-02-03T10:00:41Z",
    "miniature": "https://i.ytimg.com/vi/qw6ed5x9E64/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
+    "Famille",
     "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
@@ -23442,9 +23411,8 @@
    "duree_minutes": 86,
    "date": "2024-01-20T13:00:46Z",
    "miniature": "https://i.ytimg.com/vi/sWeiN-J2pZ0/maxresdefault.jpg",
-   "genre": "Enfance",
+   "genre": "Famille",
    "genres": [
-    "Enfance",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -23683,8 +23651,9 @@
    "duree_minutes": 80,
    "date": "2023-12-27T10:00:05Z",
    "miniature": "https://i.ytimg.com/vi/9DXYTFnd-DA/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -23962,8 +23931,9 @@
    "duree_minutes": 90,
    "date": "2023-12-20T10:00:33Z",
    "miniature": "https://i.ytimg.com/vi/eNhc4VdabmE/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -24032,7 +24002,8 @@
    "miniature": "https://i.ytimg.com/vi/fSpjSOeaATU/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -24115,7 +24086,8 @@
    "miniature": "https://i.ytimg.com/vi/WaE3frQT9Tc/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -24285,8 +24257,9 @@
    "duree_minutes": 84,
    "date": "2023-12-06T10:00:37Z",
    "miniature": "https://i.ytimg.com/vi/jzjWgCcP2jo/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -24427,8 +24400,7 @@
    "miniature": "https://i.ytimg.com/vi/ZXSzuAPInow/maxresdefault.jpg",
    "genre": "Ados",
    "genres": [
-    "Ados",
-    "Adolescent"
+    "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -24522,8 +24494,9 @@
    "duree_minutes": 82,
    "date": "2023-11-22T10:00:13Z",
    "miniature": "https://i.ytimg.com/vi/GwsSB4y3is4/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -24646,8 +24619,10 @@
    "duree_minutes": 82,
    "date": "2023-11-15T10:00:00Z",
    "miniature": "https://i.ytimg.com/vi/0XIZDFS4_nI/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Fantastique",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -24775,8 +24750,9 @@
    "duree_minutes": 70,
    "date": "2023-11-08T09:00:07Z",
    "miniature": "https://i.ytimg.com/vi/Eerlv6WDjqs/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -25169,7 +25145,6 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
-    "Course",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -25337,9 +25312,9 @@
    "duree_minutes": 86,
    "date": "2023-09-16T14:00:16Z",
    "miniature": "https://i.ytimg.com/vi/QxuBWYiZngg/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -25516,8 +25491,9 @@
    "duree_minutes": 77,
    "date": "2023-09-02T12:00:16Z",
    "miniature": "https://i.ytimg.com/vi/R59NLFB1zPs/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -25797,8 +25773,9 @@
    "duree_minutes": 72,
    "date": "2023-08-05T12:00:47Z",
    "miniature": "https://i.ytimg.com/vi/zOWkJ97s3wU/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -25857,7 +25834,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Histoire"
+    "Historique"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -25927,8 +25904,7 @@
    "miniature": "https://i.ytimg.com/vi/0KmXvhR4D_A/maxresdefault.jpg",
    "genre": "Romance",
    "genres": [
-    "Romance",
-    "Cuisine"
+    "Romance"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -25940,8 +25916,9 @@
    "duree_minutes": 83,
    "date": "2023-07-22T12:00:20Z",
    "miniature": "https://i.ytimg.com/vi/D8GVnpr1Qdw/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -26113,8 +26090,9 @@
    "duree_minutes": 77,
    "date": "2023-07-08T12:00:12Z",
    "miniature": "https://i.ytimg.com/vi/Ixj18-LugYE/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -26279,8 +26257,9 @@
    "duree_minutes": 74,
    "date": "2023-06-17T12:00:41Z",
    "miniature": "https://i.ytimg.com/vi/iVZUcUTiH50/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -26631,8 +26610,9 @@
    "duree_minutes": 78,
    "date": "2023-04-26T09:15:00Z",
    "miniature": "https://i.ytimg.com/vi/1UaC88J_L6k/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -26645,9 +26625,9 @@
    "duree_minutes": 75,
    "date": "2023-04-24T15:00:04Z",
    "miniature": "https://i.ytimg.com/vi/7YAhTy2gDuQ/maxresdefault.jpg",
-   "genre": "Sf",
+   "genre": "Science-fiction",
    "genres": [
-    "Sf",
+    "Science-fiction",
     "Horreur"
    ],
    "chaine": "Allociné Films Complets"
@@ -26815,9 +26795,8 @@
    "duree_minutes": 75,
    "date": "2023-04-08T18:00:31Z",
    "miniature": "https://i.ytimg.com/vi/zOqDa0A51Is/maxresdefault.jpg",
-   "genre": "Film hd",
+   "genre": "Horreur",
    "genres": [
-    "Film hd",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -27342,10 +27321,9 @@
    "duree_minutes": 81,
    "date": "2022-12-25T17:30:04Z",
    "miniature": "https://i.ytimg.com/vi/yHgCvbMhMEU/maxresdefault.jpg",
-   "genre": "Monstre",
+   "genre": "Horreur",
    "genres": [
-    "Monstre",
-    "Requin",
+    "Horreur",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -27358,8 +27336,9 @@
    "duree_minutes": 81,
    "date": "2022-12-25T09:15:01Z",
    "miniature": "https://i.ytimg.com/vi/MUNZZzyL83M/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -27414,11 +27393,10 @@
    "duree_minutes": 94,
    "date": "2022-12-23T15:00:11Z",
    "miniature": "https://i.ytimg.com/vi/A9UcTIop0GA/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Noël",
-    "Ados"
+    "Ados",
+    "Noël"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -27689,7 +27667,7 @@
    "genre": "Action",
    "genres": [
     "Action",
-    "Sf"
+    "Science-fiction"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -27855,8 +27833,9 @@
    "duree_minutes": 76,
    "date": "2022-10-15T12:00:17Z",
    "miniature": "https://i.ytimg.com/vi/Vzyt2LmzEsw/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -28316,10 +28295,8 @@
    "duree_minutes": 81,
    "date": "2022-06-19T11:00:09Z",
    "miniature": "https://i.ytimg.com/vi/LsxS4XlmypE/maxresdefault.jpg",
-   "genre": "Frissons",
-   "genres": [
-    "Frissons"
-   ],
+   "genre": "",
+   "genres": [],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -28589,7 +28566,7 @@
    "genres": [
     "Comédie",
     "Famille",
-    "Dinosaures",
+    "Aventure",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -28760,9 +28737,8 @@
    "duree_minutes": 85,
    "date": "2022-02-23T16:00:00Z",
    "miniature": "https://i.ytimg.com/vi/0MBgOR8K3gQ/maxresdefault.jpg",
-   "genre": "Nanar",
+   "genre": "Guerre",
    "genres": [
-    "Nanar",
     "Guerre"
    ],
    "chaine": "Allociné Films Complets"
@@ -28889,8 +28865,7 @@
    "miniature": "https://i.ytimg.com/vi/N-BJavzzO_Y/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur",
-    "Zombies"
+    "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
   },
@@ -28994,8 +28969,10 @@
    "duree_minutes": 88,
    "date": "2022-01-01T09:00:00Z",
    "miniature": "https://i.ytimg.com/vi/-PlTRcEA3zc/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29023,8 +29000,10 @@
    "duree_minutes": 88,
    "date": "2021-12-28T09:00:15Z",
    "miniature": "https://i.ytimg.com/vi/L9017Zlc3fU/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29037,9 +29016,9 @@
    "duree_minutes": 86,
    "date": "2021-12-26T16:22:17Z",
    "miniature": "https://i.ytimg.com/vi/VsPxQ_upf3Y/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
+    "Ados",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29112,7 +29091,6 @@
    "genre": "Drame",
    "genres": [
     "Drame",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -29157,7 +29135,7 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
-    "Adolescent"
+    "Ados"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -29171,8 +29149,7 @@
    "miniature": "https://i.ytimg.com/vi/upFW-FlJ3Qk/maxresdefault.jpg",
    "genre": "Drame",
    "genres": [
-    "Drame",
-    "Ballet"
+    "Drame"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -29224,8 +29201,9 @@
    "duree_minutes": 85,
    "date": "2021-12-05T15:00:30Z",
    "miniature": "https://i.ytimg.com/vi/cvdtGE04Tug/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29238,9 +29216,9 @@
    "duree_minutes": 92,
    "date": "2021-12-05T08:00:11Z",
    "miniature": "https://i.ytimg.com/vi/euonxDsupOw/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -29255,7 +29233,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Enquête",
+    "Thriller",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -29310,8 +29288,10 @@
    "duree_minutes": 90,
    "date": "2021-11-28T15:00:15Z",
    "miniature": "https://i.ytimg.com/vi/Zc0Aub4-pQg/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29340,8 +29320,9 @@
    "duree_minutes": 77,
    "date": "2021-11-26T14:00:09Z",
    "miniature": "https://i.ytimg.com/vi/C2QafmB7x-0/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29493,8 +29474,9 @@
    "duree_minutes": 79,
    "date": "2021-11-06T16:31:41Z",
    "miniature": "https://i.ytimg.com/vi/dCy0vleRMSg/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -29522,9 +29504,10 @@
    "duree_minutes": 94,
    "date": "2021-11-05T15:00:11Z",
    "miniature": "https://i.ytimg.com/vi/JLkoDsi3Ezc/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Famille",
    "genres": [
-    "Animation"
+    "Famille",
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -29594,11 +29577,10 @@
    "duree_minutes": 72,
    "date": "2021-10-30T12:00:33Z",
    "miniature": "https://i.ytimg.com/vi/g_M6c1DEX4c/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Drame",
-    "Ados"
+    "Ados",
+    "Drame"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -29625,11 +29607,10 @@
    "duree_minutes": 82,
    "date": "2021-10-22T13:00:17Z",
    "miniature": "https://i.ytimg.com/vi/E3hCkWfwZy4/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Drame",
-    "Ados"
+    "Ados",
+    "Drame"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -29684,9 +29665,8 @@
    "duree_minutes": 92,
    "date": "2021-10-08T13:00:13Z",
    "miniature": "https://i.ytimg.com/vi/S3GWLx973hQ/maxresdefault.jpg",
-   "genre": "Émotion",
+   "genre": "Famille",
    "genres": [
-    "Émotion",
     "Famille",
     "Musical",
     "Ados"
@@ -29732,9 +29712,8 @@
    "duree_minutes": 64,
    "date": "2021-09-25T18:00:04Z",
    "miniature": "https://i.ytimg.com/vi/EP48jIGKyek/maxresdefault.jpg",
-   "genre": "Nanar",
+   "genre": "Horreur",
    "genres": [
-    "Nanar",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -29794,8 +29773,7 @@
    "miniature": "https://i.ytimg.com/vi/2WrRGr55bFk/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille",
-    "Émotion"
+    "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -29821,9 +29799,8 @@
    "duree_minutes": 87,
    "date": "2021-09-11T12:00:02Z",
    "miniature": "https://i.ytimg.com/vi/7HDmyCJCFHY/maxresdefault.jpg",
-   "genre": "Émotion",
+   "genre": "Famille",
    "genres": [
-    "Émotion",
     "Famille",
     "Ados"
    ],
@@ -29869,7 +29846,7 @@
    "genre": "Drame",
    "genres": [
     "Drame",
-    "Adolescent"
+    "Ados"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -29912,11 +29889,10 @@
    "duree_minutes": 80,
    "date": "2021-09-02T15:00:01Z",
    "miniature": "https://i.ytimg.com/vi/2STqarURw6E/maxresdefault.jpg",
-   "genre": "Requin",
+   "genre": "Horreur",
    "genres": [
-    "Requin",
-    "Nanar",
-    "Sf"
+    "Horreur",
+    "Science-fiction"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -29957,7 +29933,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Adolescent",
+    "Ados",
     "Comédie"
    ],
    "chaine": "Allociné Films Complets"
@@ -30014,10 +29990,8 @@
    "duree_minutes": 86,
    "date": "2021-08-27T13:00:02Z",
    "miniature": "https://i.ytimg.com/vi/7Kjt1BvIC9k/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Road trip",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -30077,7 +30051,6 @@
    "genres": [
     "Aventure",
     "Drame",
-    "Adolescent",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -30106,10 +30079,9 @@
    "duree_minutes": 97,
    "date": "2021-08-15T17:25:24Z",
    "miniature": "https://i.ytimg.com/vi/obZXlfOWXug/maxresdefault.jpg",
-   "genre": "Danse",
+   "genre": "Musical",
    "genres": [
-    "Danse",
-    "Musique",
+    "Musical",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -30382,7 +30354,7 @@
    "genre": "Famille",
    "genres": [
     "Famille",
-    "Musique"
+    "Musical"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -30394,12 +30366,10 @@
    "duree_minutes": 92,
    "date": "2021-06-11T18:22:26Z",
    "miniature": "https://i.ytimg.com/vi/ueOEzE66XlU/maxresdefault.jpg",
-   "genre": "Adolescent",
+   "genre": "Ados",
    "genres": [
-    "Adolescent",
-    "Drame",
-    "Ballet",
-    "Ados"
+    "Ados",
+    "Drame"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -30486,7 +30456,7 @@
    "genres": [
     "Thriller",
     "Drame",
-    "Opéra"
+    "Musical"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -30501,7 +30471,6 @@
    "genre": "Fantastique",
    "genres": [
     "Fantastique",
-    "Dragon",
     "Famille",
     "Ados"
    ],
@@ -30611,8 +30580,10 @@
    "duree_minutes": 75,
    "date": "2021-05-01T17:47:24Z",
    "miniature": "https://i.ytimg.com/vi/Fomg3ir6ThY/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
+    "Fantastique",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -30752,8 +30723,9 @@
    "duree_minutes": 76,
    "date": "2021-03-21T08:20:21Z",
    "miniature": "https://i.ytimg.com/vi/4qb6Y4A6Q30/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -30848,9 +30820,8 @@
    "duree_minutes": 92,
    "date": "2021-01-01T15:00:15Z",
    "miniature": "https://i.ytimg.com/vi/Pdl1W-ziRlw/maxresdefault.jpg",
-   "genre": "Émotion",
+   "genre": "Famille",
    "genres": [
-    "Émotion",
     "Famille",
     "Musical"
    ],
@@ -31347,8 +31318,9 @@
    "duree_minutes": 81,
    "date": "2020-08-01T07:45:00Z",
    "miniature": "https://i.ytimg.com/vi/bJzV8zgFPoc/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -31445,7 +31417,8 @@
    "miniature": "https://i.ytimg.com/vi/p6mD0QbbVP0/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Science-fiction"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -31712,9 +31685,8 @@
    "duree_minutes": 79,
    "date": "2020-02-14T17:45:00Z",
    "miniature": "https://i.ytimg.com/vi/mvcOgWfrO8s/maxresdefault.jpg",
-   "genre": "Requins",
+   "genre": "Horreur",
    "genres": [
-    "Requins",
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
@@ -31977,8 +31949,9 @@
    "duree_minutes": 76,
    "date": "2019-12-01T12:43:22Z",
    "miniature": "https://i.ytimg.com/vi/PGUN6kGLpS4/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -32415,8 +32388,10 @@
    "duree_minutes": 215,
    "date": "2019-04-05T17:30:00Z",
    "miniature": "https://i.ytimg.com/vi/9Wmsy29oaK0/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Fantastique",
    "genres": [
+    "Fantastique",
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -32457,8 +32432,9 @@
    "duree_minutes": 74,
    "date": "2019-03-20T13:18:05Z",
    "miniature": "https://i.ytimg.com/vi/EsYejcWXVpk/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -32713,9 +32689,9 @@
    "duree_minutes": 87,
    "date": "2018-11-21T10:26:16Z",
    "miniature": "https://i.ytimg.com/vi/EsaU12fSaKs/maxresdefault.jpg",
-   "genre": "Animation",
+   "genre": "Aventure",
    "genres": [
-    "Animation"
+    "Aventure"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -32755,8 +32731,9 @@
    "duree_minutes": 86,
    "date": "2018-11-01T14:00:30Z",
    "miniature": "https://i.ytimg.com/vi/Nowb5vihgVo/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -32793,8 +32770,9 @@
    "duree_minutes": 81,
    "date": "2018-09-18T15:00:03Z",
    "miniature": "https://i.ytimg.com/vi/X-cLm7cG_sI/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Aventure",
    "genres": [
+    "Aventure",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -32955,8 +32933,9 @@
    "duree_minutes": 102,
    "date": "2018-07-16T21:06:31Z",
    "miniature": "https://i.ytimg.com/vi/oFLHG66dwgE/maxresdefault.jpg",
-   "genre": "Action",
+   "genre": "Fantastique",
    "genres": [
+    "Fantastique",
     "Action"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
@@ -33551,9 +33530,9 @@
    "duree_minutes": 85,
    "date": "2017-07-22T07:00:03Z",
    "miniature": "https://i.ytimg.com/vi/LAOkAV6br8c/maxresdefault.jpg",
-   "genre": "Drame",
+   "genre": "Famille",
    "genres": [
-    "Drame"
+    "Famille"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -33655,9 +33634,9 @@
    "duree_minutes": 80,
    "date": "2017-05-13T12:30:19Z",
    "miniature": "https://i.ytimg.com/vi/HfYMkkvZvn4/maxresdefault.jpg",
-   "genre": "Comédie",
+   "genre": "Ados",
    "genres": [
-    "Comédie"
+    "Ados"
    ],
    "chaine": "Allociné Films Complets"
   }
