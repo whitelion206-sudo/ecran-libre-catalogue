@@ -83,11 +83,28 @@ def duree_en_minutes(iso):
     return jours * 1440 + heures * 60 + minutes + round(secondes / 60)
 
 
+# « | Film Complet en Français », « - Film COMPLET en VF »,
+# « 🐎| Film Western Complet en Français », « - Film Western Complet - Acteur (1973) »
+FIN_DE_TITRE = re.compile(
+    r"\s*[|\-–—•]\s*(?:films?|dessins?\s+anim[ée]s?)\b(?:\s+[\w'’]+){0,3}?\s+complets?\b",
+    flags=re.IGNORECASE,
+)
+
+
+def sans_emojis(texte):
+    """Enlève les emojis et pictogrammes (🐎, 🥷, 😲…) d'un titre."""
+    propre = "".join(c for c in texte
+                     if unicodedata.category(c) not in ("So", "Sk", "Cs", "Co")
+                     and c not in "‍️")
+    return re.sub(r"\s+", " ", propre).strip()
+
+
 def titre_propre(titre):
-    """Enlève la fin du type « | Film Complet en Français » ou « - Film COMPLET en VF »."""
-    morceau = re.split(r"\s*[|\-–—]\s*(?:film|films)\s+complet", titre, flags=re.IGNORECASE)[0]
-    morceau = morceau.split(" | ")[0]
-    return morceau.strip(" |-–—") or titre.strip()
+    """Garde seulement le nom du film, sans « Film complet… » ni emojis."""
+    morceau = FIN_DE_TITRE.split(titre)[0]
+    morceau = re.split(r"\s*\|\s*", morceau)[0]
+    morceau = sans_emojis(morceau).strip(" |-–—•")
+    return morceau or titre.strip()
 
 
 MOTS_INTERDITS = re.compile(
@@ -401,7 +418,7 @@ def fiche_film(video, chaine):
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 MAX_DEMANDES_WIKIDATA = 150   # par jour
 REESSAI_TITRE_JOURS = 30      # film non trouvé : on redemande après 30 jours
-STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0}
+STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0, "sans_reponse": 0}
 
 VERBE_ACCROCHE = re.compile(
     r"\b(?:il|elle|ils|elles|on)\s+(?:va|vont|doit|doivent|devra|devront|veut|veulent|"
@@ -412,13 +429,21 @@ VERBE_ACCROCHE = re.compile(
 
 
 def est_une_accroche(titre):
-    """Vrai si le « titre » ressemble à une phrase plutôt qu'à un nom de film."""
+    """Vrai si le « titre » ressemble à une phrase plutôt qu'à un nom de film.
+    Une virgule ne suffit pas : « Creuse ta fosse, j'aurai ta peau » est un
+    vrai titre. Il faut une phrase longue, ou « il va… », « elle doit… »."""
     mots = titre.split()
     if len(mots) >= 10:
         return True
-    if len(mots) >= 6 and ("," in titre or VERBE_ACCROCHE.search(titre)):
-        return True
-    return len(mots) >= 5 and titre.rstrip().endswith(("!", "?", "…", "..."))
+    return len(mots) >= 6 and bool(VERBE_ACCROCHE.search(titre))
+
+
+def deja_le_bon_titre(titre_youtube, titre_wikidata):
+    """Vrai si Wikidata renvoie en fait le même titre (« Ciakmull, le bâtard
+    de Dodge City » / « Ciak Mull ») : la chaîne avait déjà le vrai nom."""
+    a = normalise(titre_youtube).replace(" ", "")
+    b = normalise(titre_wikidata).replace(" ", "")
+    return bool(a and b) and (a in b or b in a or difflib.SequenceMatcher(None, a, b).ratio() >= 0.6)
 
 
 def noms(ligne):
@@ -493,14 +518,42 @@ def vrais_titres(films, textes_films, ancien_catalogue):
     """Remplace les phrases d'accroche par le vrai titre quand Wikidata le connaît.
     Renvoie la mémoire des recherches."""
     aujourd_hui = datetime.now(timezone.utc).date()
-    memoire = {fid: r for fid, r in ancien_catalogue.get("titres_trouves", {}).items()
-               if fid in films}
+    ancienne = ancien_catalogue.get("titres_trouves", {})
+    memoire = {}
+    deja_demande = {}   # même équipe (film publié sur plusieurs chaînes) : une seule demande
     demandes = 0
+    pannes = 0
     panne = False
+
+    def demander(realisateurs, acteurs):
+        """Demande à Wikidata, avec un second essai si le serveur hoquette."""
+        nonlocal demandes, pannes, panne
+        cle = (tuple(realisateurs), tuple(acteurs))
+        if cle in deja_demande:
+            return deja_demande[cle]
+        for essai in (1, 2):
+            try:
+                demandes += 1
+                titre = chercher_vrai_titre(realisateurs, acteurs)
+                time.sleep(1)  # Wikidata demande de ne pas aller trop vite
+                deja_demande[cle] = titre
+                return titre
+            except Exception as erreur:
+                if essai == 1:
+                    time.sleep(5)
+                    continue
+                pannes += 1
+                if pannes >= 3:  # Wikidata vraiment en panne : on réessaiera demain
+                    print(f"Wikidata indisponible ({erreur}) : vrais titres remis à demain.")
+                    panne = True
+                raise
+
     for fid, film in films.items():
         if not est_une_accroche(film["titre"]):
             continue
-        r = memoire.get(fid)
+        r = ancienne.get(fid)
+        if r is not None:
+            memoire[fid] = r
         a_demander = r is None
         if r and not r.get("titre"):
             try:
@@ -515,13 +568,12 @@ def vrais_titres(films, textes_films, ancien_catalogue):
                 STATS_TITRES["sans_equipe"] += 1
             else:
                 try:
-                    demandes += 1
-                    titre = chercher_vrai_titre(realisateurs, acteurs)
-                    time.sleep(1)  # Wikidata demande de ne pas aller trop vite
-                except Exception as erreur:  # Wikidata en panne : on réessaiera demain
-                    print(f"Wikidata indisponible ({erreur}) : vrais titres remis à demain.")
-                    panne = True
-                    continue
+                    titre = demander(realisateurs, acteurs)
+                except Exception:
+                    STATS_TITRES["sans_reponse"] += 1
+                    continue  # pas de réponse : on redemandera au prochain passage
+                if titre and deja_le_bon_titre(film["titre"], titre):
+                    titre = None
                 if titre:
                     STATS_TITRES["trouves"].append(f"{film['titre']} → {titre}")
                 else:
@@ -534,7 +586,8 @@ def vrais_titres(films, textes_films, ancien_catalogue):
     print(f"Vrais titres : {gardes} films avec une phrase d'accroche corrigée "
           f"({len(STATS_TITRES['trouves'])} trouvés aujourd'hui, "
           f"{STATS_TITRES['pas_trouves']} inconnus de Wikidata, "
-          f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description).")
+          f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description, "
+          f"{STATS_TITRES['sans_reponse']} sans réponse de Wikidata).")
     for ligne in STATS_TITRES["trouves"][:20]:
         print("  ✓ " + ligne)
     return memoire
