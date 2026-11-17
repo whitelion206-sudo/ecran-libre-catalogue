@@ -344,17 +344,92 @@ def fiche_film(video, chaine):
 # par paquet de 50) : une vidéo supprimée ou bloquée disparaît de l'appli.
 
 MAX_RECHERCHES = 70
-REGLE_BA = 2           # version de la règle de correspondance (2 = titre exact)
+# Version de la règle de choix. 2 = titre exact ; 3 = + VF écrite dans le titre
+# + preuve que c'est le même film (acteurs, réalisateur ou année) ;
+# 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF.
+# Changer ce numéro efface toutes les recherches faites avec l'ancienne règle
+# (trouvées ou non) : elles sont refaites avec la nouvelle.
+REGLE_BA = 4
 REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
 DUREE_MAX_BA_MINUTES = 6
 
 MOTS_BA = re.compile(r"bande[- ]?annonce|\btrailer\b|\bteaser\b", flags=re.IGNORECASE)
 MOTS_BA_REFUSES = re.compile(
-    r"\bvost(?:fr)?\b|\bvo\b|sous[- ]titr|english|r[ée]action|critique|review|analyse|"
+    r"english|anglais|r[ée]action|critique|review|analyse|"
     r"explication|fan[- ]?made|parodie|r[ée]sum[ée]|making[- ]of|interview|extrait",
     flags=re.IGNORECASE,
 )
-SIGNES_VF = re.compile(r"\bVF\b|fran[cç]ais", flags=re.IGNORECASE)
+# « Bande-annonce » seul ne dit pas la langue : le titre doit dire VF, FR,
+# français… ou VOSTFR (version originale sous-titrée en français).
+SIGNES_VOSTFR = re.compile(
+    r"\bvost(?:fr|f)?\b|\bvo\s*st\s*fr?\b|\bvo\b.*sous[- ]?titr|sous[- ]?titr\w*\s+(?:en\s+)?fran[cç]ais",
+    flags=re.IGNORECASE,
+)
+SIGNES_VF = re.compile(r"\bVFF?\b|\bFR\b|fran[cç]ais|version\s+fran[cç]aise", flags=re.IGNORECASE)
+
+
+def langue_du_titre(titre):
+    """« VF », « VOSTFR », ou None si le titre ne dit pas que c'est en français."""
+    if SIGNES_VOSTFR.search(titre):
+        return "VOSTFR"
+    if SIGNES_VF.search(titre):
+        return "VF"
+    return None
+
+# Mots qui commencent souvent par une majuscule sans être un nom de personne :
+# ils ne comptent pas comme preuve que deux vidéos parlent du même film.
+MOTS_PAS_DES_NOMS = set("""
+a à au aux avec avant apres alors au aussi bande annonce annonces bientot blu bonus ca car ce ces
+cette chaine cinema cine complet complete dans de des decouvrez disponible distribution du dvd d elle
+elles en entre et exclusif exclusive facebook film films francais francaise france hd il ils instagram
+je jamais la le les leur lui mais meme nous on ou official officiel officielle par pendant plus pour
+quand qui que regardez retrouvez sa sans se ses si son sortie sous suivez sur synopsis teaser tiktok
+toujours tous tout trailer twitter un une vf vff video videos vod vous youtube abonnez abonne
+prime amazon netflix disney canal plus apple tv allocine filmsactu bande-annonce genre duree date
+lundi mardi mercredi jeudi vendredi samedi dimanche janvier fevrier mars avril mai juin juillet aout
+septembre octobre novembre decembre realise realisateur realisatrice casting avec acteurs actrices
+nationalite americain americaine francais anglais britannique version originale long metrage
+vost vostfr vostf vo st fr titre titres titree titrees
+""".split())
+
+
+def preuves(texte, mots_titre):
+    """Années et noms propres (deux mots à majuscule qui se suivent : « Bruce
+    Willis ») d'un texte. Sert à vérifier qu'une bande-annonce et un film qui
+    portent le même titre sont bien le même film."""
+    texte = html.unescape(texte or "")
+    annees = set(re.findall(r"\b(?:19[2-9]\d|20[0-4]\d)\b", texte))
+    noms = set()
+    for phrase in re.split(r"[\n.,;:!?()\[\]{}|/«»\"“”•–—]+", texte):
+        mots = re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿ-]+", phrase)
+        for a, b in zip(mots, mots[1:]):
+            if not (a[0].isupper() and b[0].isupper()):
+                continue
+            na, nb = normalise(a), normalise(b)
+            if len(na) < 2 or len(nb) < 2:
+                continue
+            if any(m in MOTS_PAS_DES_NOMS or m in mots_titre for m in (na + " " + nb).split()):
+                continue
+            noms.add(f"{na} {nb}")
+    return annees, noms
+
+
+def meme_film(texte_film, texte_ba, titre_film):
+    """Renvoie la preuve commune (nom ou année), ou None s'il n'y en a pas."""
+    mots_titre = set(normalise(titre_film).split())
+    annees_f, noms_f = preuves(texte_film, mots_titre)
+    annees_b, noms_b = preuves(texte_ba, mots_titre)
+    communs = sorted(noms_f & noms_b)
+    if communs:
+        return ", ".join(communs[:2])
+    annees = sorted(annees_f & annees_b)
+    if annees:
+        return "année " + annees[0]
+    return None
+
+
+STATS_BA = {"pas_francais": 0, "autre_langue": 0, "sans_preuve": 0}
+EXEMPLES_REFUSES = []
 
 
 def normalise(texte):
@@ -368,7 +443,8 @@ MOTS_AUTOUR_BA = {
     "bande", "annonce", "annonces", "bandeannonce", "trailer", "teaser", "vf", "vff",
     "officielle", "officiel", "official", "francais", "francaise", "french", "hd", "4k",
     "uhd", "nouvelle", "nouveau", "exclusive", "exclusif", "film", "en", "version",
-    "de", "du", "d", "fr",
+    "de", "du", "d", "fr", "et", "vost", "vostfr", "vostf", "vo", "st", "stfr", "sous",
+    "titre", "titres", "titree", "titrees",
 } | {mot for g in GENRES_CONNUS for mot in normalise(g).split()}
 SEPARATEURS_BA = re.compile(r"\s?\|\s?")  # « Titre | Bande-annonce VF | Chaîne »
 
@@ -391,13 +467,15 @@ def titre_correspond(titre_film, titre_video):
 
 
 def chercher_bande_annonce(film, cle, exclus):
-    """Renvoie les vidéos candidates (id, titre), les VF en premier."""
+    """Renvoie les vidéos candidates (id, titre, langue), les VF en premier,
+    puis les VOSTFR."""
     cible = normalise(film["titre"])
     if len(cible) < 2:
         return []
+    # 10 résultats coûtent autant de quota que 5 (100 points par recherche).
     reponse = appel_api("search", {
         "part": "snippet", "q": f'{film["titre"]} bande annonce', "type": "video",
-        "maxResults": 5, "regionCode": PAYS, "relevanceLanguage": "fr",
+        "maxResults": 10, "regionCode": PAYS, "relevanceLanguage": "fr",
         "videoEmbeddable": "true", "videoDuration": "short",
     }, cle, fatal=False)
     candidats = []
@@ -410,18 +488,23 @@ def chercher_bande_annonce(film, cle, exclus):
             continue
         if not titre_correspond(film["titre"], titre):
             continue  # la vidéo doit porter exactement le titre du film
-        candidats.append((id_video, titre))
-    candidats.sort(key=lambda c: 0 if SIGNES_VF.search(c[1]) else 1)
+        langue = langue_du_titre(titre)
+        if langue is None:
+            STATS_BA["pas_francais"] += 1
+            continue  # « bande-annonce » seul ne veut pas dire « en français »
+        candidats.append((id_video, titre, langue))
+    candidats.sort(key=lambda c: 0 if c[2] == "VF" else 1)
     return candidats
 
 
 def bandes_annonces_lisibles(ids, cle, exclus):
-    """Parmi ces vidéos, garde celles qu'on peut lire dans l'appli en France."""
-    bonnes = set()
+    """Parmi ces vidéos, garde celles qu'on peut lire dans l'appli en France.
+    Renvoie {id: détails de la vidéo} (titre et description compris)."""
+    bonnes = {}
     ids = list(dict.fromkeys(ids))
     for debut in range(0, len(ids), 50):
         reponse = appel_api("videos", {
-            "part": "contentDetails,status", "id": ",".join(ids[debut:debut + 50]),
+            "part": "snippet,contentDetails,status", "id": ",".join(ids[debut:debut + 50]),
         }, cle, fatal=False)
         for video in reponse.get("items", []):
             statut = video.get("status", {})
@@ -435,15 +518,22 @@ def bandes_annonces_lisibles(ids, cle, exclus):
             if duree_en_minutes(contenu.get("duration")) > DUREE_MAX_BA_MINUTES:
                 continue
             if autorise_en_france(video):
-                bonnes.add(video["id"])
+                bonnes[video["id"]] = video
     return bonnes
 
 
-def bandes_annonces(films, ancien_catalogue, cle, exclus):
-    """Ajoute « bande_annonce » aux films et renvoie la mémoire des recherches."""
+def langue_pas_francaise(video):
+    """Vrai si YouTube indique une langue audio autre que le français."""
+    audio = (video.get("snippet", {}).get("defaultAudioLanguage") or "").lower()
+    return bool(audio) and not audio.startswith("fr")
+
+
+def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
+    """Ajoute « bande_annonce » aux films et renvoie la mémoire des recherches.
+    textes_films : {id du film: titre + description complète sur YouTube}."""
     aujourd_hui = datetime.now(timezone.utc).date()
     memoire = {fid: r for fid, r in ancien_catalogue.get("recherches_bandes_annonces", {}).items()
-               if fid in films and (r.get("regle") == REGLE_BA or not r.get("id"))}
+               if fid in films and r.get("regle") == REGLE_BA}
 
     # 1. Revérifier les bandes-annonces déjà trouvées.
     deja = {fid: r["id"] for fid, r in memoire.items() if r.get("id")}
@@ -477,13 +567,38 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus):
             print(f"Recherche de bandes-annonces arrêtée (quota du jour ?) : {erreur}")
             break
 
-    # 3. Garder la première candidate lisible en France.
+    # 3. Garder la première candidate lisible en France, en français, et dont
+    #    la description confirme que c'est le même film.
+    trouvees = []
     try:
         lisibles = bandes_annonces_lisibles(
             [c[0] for liste in candidats.values() for c in liste], cle, exclus)
         for fid, liste in candidats.items():
-            choix = next((c[0] for c in liste if c[0] in lisibles), None)
-            memoire[fid] = {"id": choix, "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
+            film = films[fid]
+            choix, langue_choisie = None, None
+            for id_ba, titre_ba, langue in liste:
+                video = lisibles.get(id_ba)
+                if video is None:
+                    continue
+                # Une VF annoncée doit avoir un son en français. Une VOSTFR a
+                # forcément un son dans une autre langue : on ne vérifie pas.
+                if langue == "VF" and langue_pas_francaise(video):
+                    STATS_BA["autre_langue"] += 1
+                    continue
+                snippet = video.get("snippet", {})
+                texte_ba = snippet.get("title", "") + "\n" + snippet.get("description", "")
+                texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
+                preuve = meme_film(texte_film, texte_ba, film["titre"])
+                if preuve is None:
+                    STATS_BA["sans_preuve"] += 1
+                    if len(EXEMPLES_REFUSES) < 10:
+                        EXEMPLES_REFUSES.append(f"{film['titre']} → {titre_ba}")
+                    continue
+                choix, langue_choisie = id_ba, langue
+                trouvees.append(f"{film['titre']} → {titre_ba} [{langue} · {preuve}]")
+                break
+            memoire[fid] = {"id": choix, "langue": langue_choisie,
+                            "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
     except RuntimeError as erreur:
         print(f"Vérification des nouvelles bandes-annonces impossible : {erreur}")
 
@@ -492,10 +607,23 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus):
         r = memoire.get(fid)
         if r and r.get("id"):
             film["bande_annonce"] = r["id"]
+            film["bande_annonce_langue"] = r.get("langue") or "VF"  # « VF » ou « VOSTFR »
     avec = sum(1 for r in memoire.values() if r.get("id"))
+    vostfr = sum(1 for r in memoire.values() if r.get("id") and r.get("langue") == "VOSTFR")
     reste = len(file_attente) - len(candidats)
     print(f"Bandes-annonces : {len(candidats)} recherches aujourd'hui, "
-          f"{avec} films en ont une, {reste} films restent à chercher.")
+          f"{avec} films en ont une (dont {vostfr} en VOSTFR), {reste} films restent à chercher.")
+    print(f"Refusées : {STATS_BA['pas_francais']} ni VF ni VOSTFR, {STATS_BA['autre_langue']} "
+          f"« VF » mais son dans une autre langue, {STATS_BA['sans_preuve']} sans preuve "
+          f"que c'est le même film.")
+    if trouvees:
+        print("Nouvelles bandes-annonces :")
+        for ligne in trouvees:
+            print("  ✓ " + ligne)
+    if EXEMPLES_REFUSES:
+        print("Exemples refusés (même titre, mais rien ne prouve que c'est le même film) :")
+        for ligne in EXEMPLES_REFUSES:
+            print("  ✗ " + ligne)
     return memoire
 
 
@@ -620,6 +748,7 @@ def main():
     exclus = lire_exclus()
 
     films = {}
+    textes_films = {}  # titre + description complète, pour vérifier les bandes-annonces
     for chaine in chaines:
         ids = videos_de_la_chaine(chaine["id"], cle)
         gardes = 0
@@ -628,6 +757,8 @@ def main():
                 continue
             if chaine.get("vf_seulement") and not est_en_francais(video):
                 continue
+            snippet = video.get("snippet", {})
+            textes_films[video["id"]] = snippet.get("title", "") + "\n" + snippet.get("description", "")
             fiche = fiche_film(video, chaine)
             deja = films.get(video["id"])
             if deja is None or (not deja["genre"] and fiche["genre"]):
@@ -643,7 +774,7 @@ def main():
         except ValueError:
             ancien = {}
 
-    memoire_ba = bandes_annonces(films, ancien, cle, exclus)
+    memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films)
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
