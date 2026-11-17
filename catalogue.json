@@ -1,7 +1,22 @@
 {
- "mis_a_jour": "2026-11-16T06:04:55Z",
+ "mis_a_jour": "2026-11-17T05:04:29Z",
  "nombre_de_films": 2412,
  "films": [
+  {
+   "id": "qpaYysRIF20",
+   "titre": "Menace sur Washington",
+   "titre_youtube": "Menace sur Washington | Chuck Norris (Expendables 2) | Film Complet en Français | Action, Thriller",
+   "description": "Missionné secrètement par le président, un redoutable agent et son équipe traquent un commando extrémiste ayant dérobé de quoi déclencher un cataclysme nucléaire sur le sol américain\n\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PLWuoXqy3Dr_rA5EIsbakEUIhBP2UF3tD2\n\nGenre : Nouveautés, Film Cinéma, Film en Français Complet, Cinéma\n©  Tous Droits Réservés #FilmComplet",
+   "duree_minutes": 91,
+   "date": "2026-11-16T16:00:06Z",
+   "miniature": "https://i.ytimg.com/vi/qpaYysRIF20/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action",
+    "Thriller"
+   ],
+   "chaine": "Allociné Films Complets"
+  },
   {
    "id": "TBf-ZKVTjiA",
    "titre": "Head Hunter",
@@ -14,8 +29,7 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets",
-   "bande_annonce": "JBu8W7PTggA"
+   "chaine": "Boxoffice | HORREUR | Films Complets"
   },
   {
    "id": "No8UmXSbx2Y",
@@ -142,8 +156,7 @@
     "Ados",
     "Famille"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "bande_annonce": "OXm-xvgzhgA"
+   "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
   {
    "id": "blE4y3E-_N0",
@@ -173,7 +186,7 @@
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets",
-   "bande_annonce": "FMHepXvRLV8"
+   "bande_annonce": "S2ORBFO2cO4"
   },
   {
    "id": "wO5cmlJvysQ",
@@ -215,7 +228,7 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "bande_annonce": "NQMpmX6rXOo"
+   "bande_annonce": "8SKIuG4HSTQ"
   },
   {
    "id": "ALz78xPK4p4",
@@ -303,8 +316,7 @@
    "genres": [
     "Comédie"
    ],
-   "chaine": "Allociné Films Complets",
-   "bande_annonce": "iYPnUrREbRg"
+   "chaine": "Allociné Films Complets"
   },
   {
    "id": "tfZHLVx542Q",
@@ -333,8 +345,7 @@
    "genres": [
     "Aventure"
    ],
-   "chaine": "Boxoffice Animation | Films Complets",
-   "bande_annonce": "vW3GOIU55fY"
+   "chaine": "Boxoffice Animation | Films Complets"
   },
   {
    "id": "ceMyEO7bs1A",
@@ -362,7 +373,7 @@
    "genre": "",
    "genres": [],
    "chaine": "My Digital Channel - Films Complets",
-   "bande_annonce": "LyCy2wmob-k"
+   "bande_annonce": "fTPRVKdqLkU"
   },
   {
    "id": "OmbpVzUWB7M",
@@ -436,7 +447,7 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "bande_annonce": "kG1CnKPO5BE"
+   "bande_annonce": "3_VU8UNYAVk"
   },
   {
    "id": "RWyU74IEQ6w",
@@ -536,7 +547,7 @@
     "Aventure"
    ],
    "chaine": "Allociné Films Complets",
-   "bande_annonce": "DHo0PbCTjbk"
+   "bande_annonce": "ix0OAk5ao80"
   },
   {
    "id": "rLF8jzWghyQ",
@@ -802,8 +813,7 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets",
-   "bande_annonce": "A-dYQ2JlQoo"
+   "chaine": "Boxoffice | HORREUR | Films Complets"
   },
   {
    "id": "Fb3kGP35XZw",
@@ -900,8 +910,7 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets",
-   "bande_annonce": "1HZxxjFEsOc"
+   "chaine": "Boxoffice | ACTION | Films Complets"
   },
   {
    "id": "YLIpkR4FJiw",
@@ -970,8 +979,7 @@
     "Fantastique",
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets",
-   "bande_annonce": "nTz2TJLXlwA"
+   "chaine": "Boxoffice | HORREUR | Films Complets"
   },
   {
    "id": "eCfuqmVMQBI",
@@ -1027,8 +1035,7 @@
     "Animation",
     "Fantastique"
    ],
-   "chaine": "Boxoffice Animation | Films Complets",
-   "bande_annonce": "4Uy9jX7IYbM"
+   "chaine": "Boxoffice Animation | Films Complets"
   },
   {
    "id": "IVF2ScXyJFs",
@@ -1042,8 +1049,7 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets",
-   "bande_annonce": "qp4ztrhTGHk"
+   "chaine": "Boxoffice | HORREUR | Films Complets"
   },
   {
    "id": "SYcyU09bzq8",
@@ -1057,8 +1063,7 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets",
-   "bande_annonce": "lC0hEpje8IQ"
+   "chaine": "Boxoffice | ACTION | Films Complets"
   },
   {
    "id": "4g1wKn-l2sA",
@@ -1073,7 +1078,7 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "bande_annonce": "iOPXStM4blg"
+   "bande_annonce": "X7gvNhmoMGk"
   },
   {
    "id": "kqYg-62DGzM",
@@ -1088,8 +1093,7 @@
     "Ados",
     "Romance"
    ],
-   "chaine": "Boxoffice | TEEN MOVIES | Films Complets",
-   "bande_annonce": "qSyBkU4bdDg"
+   "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
   {
    "id": "u7s_s1St6cE",
@@ -1202,7 +1206,7 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "bande_annonce": "WYpf48mi5OU"
+   "bande_annonce": "zkOiC1dHC3U"
   },
   {
    "id": "egM3FQYWnuc",
@@ -1315,8 +1319,7 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets",
-   "bande_annonce": "Q5kpVMgW1Wk"
+   "chaine": "Boxoffice | ACTION | Films Complets"
   },
   {
    "id": "68KwcDIrOdU",
@@ -1371,8 +1374,7 @@
     "Animation",
     "Aventure"
    ],
-   "chaine": "Boxoffice Animation | Films Complets",
-   "bande_annonce": "5DIzJOKh_kY"
+   "chaine": "Boxoffice Animation | Films Complets"
   },
   {
    "id": "KGBMlljChZ4",
@@ -1412,7 +1414,8 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "bande_annonce": "W2ElU5z0LkM"
   },
   {
    "id": "j3QJ4LIn1HE",
@@ -1426,7 +1429,8 @@
    "genres": [
     "Action"
    ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "bande_annonce": "Sn6k-r2Ldkk"
   },
   {
    "id": "urIlAaPeknE",
@@ -1622,7 +1626,8 @@
     "Famille",
     "Animation"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets"
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "bande_annonce": "-CH0voakhkM"
   },
   {
    "id": "gnwCxMdzBrM",
@@ -1667,7 +1672,8 @@
    "genres": [
     "Horreur"
    ],
-   "chaine": "Boxoffice | HORREUR | Films Complets"
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "bande_annonce": "aeLv-it-ExU"
   },
   {
    "id": "LF07QTZWsd4",
@@ -1723,7 +1729,8 @@
     "Famille",
     "Science-fiction"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets"
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "bande_annonce": "0hG3zZH2Qms"
   },
   {
    "id": "0Iu9aPmsDsQ",
@@ -1820,20 +1827,6 @@
    "genre": "",
    "genres": [],
    "chaine": "My Digital Channel - Films Complets"
-  },
-  {
-   "id": "rGSUfJfFt_M",
-   "titre": "Mexican Murders",
-   "titre_youtube": "Mexican Murders | Film Complet en Français | Action",
-   "description": "Des soldats profitent d’une permission au Mexique lorsqu’un cartel transforme leur séjour en guerre. Leur chef doit tout faire pour sauver ses hommes.\n\n🔥  Les films et nouveautés ACTION ici ➤ https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nGenre  : Action, Film en Français, Nouveauté, Suspense, Cinéma\n© Tous Droits Réservés\n#FilmComplet #FilmAction",
-   "duree_minutes": 100,
-   "date": "2026-10-14T16:00:15Z",
-   "miniature": "https://i.ytimg.com/vi/rGSUfJfFt_M/maxresdefault.jpg",
-   "genre": "Action",
-   "genres": [
-    "Action"
-   ],
-   "chaine": "Boxoffice | ACTION | Films Complets"
   },
   {
    "id": "8ik1LipRevE",
@@ -2072,7 +2065,8 @@
     "Science-fiction",
     "Famille"
    ],
-   "chaine": "Boxoffice | FAMILLE | Films Complets"
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "bande_annonce": "8lI_ieJzNEU"
   },
   {
    "id": "n0QwEgR2fQY",
@@ -4166,7 +4160,8 @@
    "miniature": "https://i.ytimg.com/vi/rFsCs8FWsqA/maxresdefault.jpg",
    "genre": "Science-fiction",
    "genres": [
-    "Science-fiction"
+    "Science-fiction",
+    "Aventure"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -9336,8 +9331,9 @@
    "duree_minutes": 111,
    "date": "2026-03-07T13:01:02Z",
    "miniature": "https://i.ytimg.com/vi/ZkuibMUmCjo/maxresdefault.jpg",
-   "genre": "Science-fiction",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Science-fiction",
     "Famille"
    ],
@@ -11633,7 +11629,8 @@
    "miniature": "https://i.ytimg.com/vi/cX056c3PPpA/maxresdefault.jpg",
    "genre": "Animation",
    "genres": [
-    "Animation"
+    "Animation",
+    "Action"
    ],
    "chaine": "Boxoffice Animation | Films Complets"
   },
@@ -13848,7 +13845,8 @@
    "miniature": "https://i.ytimg.com/vi/UpOsyjChzUM/maxresdefault.jpg",
    "genre": "Horreur",
    "genres": [
-    "Horreur"
+    "Horreur",
+    "Aventure"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -15271,7 +15269,8 @@
    "miniature": "https://i.ytimg.com/vi/uiuhDq-Cizs/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action"
+    "Action",
+    "Sport"
    ],
    "chaine": "Boxoffice | ACTION | Films Complets"
   },
@@ -15368,8 +15367,10 @@
    "duree_minutes": 78,
    "date": "2025-06-10T15:01:20Z",
    "miniature": "https://i.ytimg.com/vi/oilnxcI71fo/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -15591,6 +15592,7 @@
    "genre": "Comédie",
    "genres": [
     "Comédie",
+    "Sport",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -15644,8 +15646,10 @@
    "duree_minutes": 97,
    "date": "2025-05-26T15:01:22Z",
    "miniature": "https://i.ytimg.com/vi/kl8v3X4lUi8/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
+   "genre": "Romance",
+   "genres": [
+    "Romance"
+   ],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -15767,8 +15771,10 @@
    "duree_minutes": 69,
    "date": "2025-05-21T15:00:00Z",
    "miniature": "https://i.ytimg.com/vi/-6AbYM1KLus/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -25145,6 +25151,7 @@
    "genre": "Aventure",
    "genres": [
     "Aventure",
+    "Sport",
     "Ados"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
@@ -28295,8 +28302,10 @@
    "duree_minutes": 81,
    "date": "2022-06-19T11:00:09Z",
    "miniature": "https://i.ytimg.com/vi/LsxS4XlmypE/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
    "chaine": "Allociné Films Complets"
   },
   {
@@ -29149,7 +29158,8 @@
    "miniature": "https://i.ytimg.com/vi/upFW-FlJ3Qk/maxresdefault.jpg",
    "genre": "Drame",
    "genres": [
-    "Drame"
+    "Drame",
+    "Musical"
    ],
    "chaine": "Allociné Films Complets"
   },
@@ -29665,8 +29675,9 @@
    "duree_minutes": 92,
    "date": "2021-10-08T13:00:13Z",
    "miniature": "https://i.ytimg.com/vi/S3GWLx973hQ/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Drame",
    "genres": [
+    "Drame",
     "Famille",
     "Musical",
     "Ados"
@@ -29773,7 +29784,8 @@
    "miniature": "https://i.ytimg.com/vi/2WrRGr55bFk/maxresdefault.jpg",
    "genre": "Famille",
    "genres": [
-    "Famille"
+    "Famille",
+    "Drame"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
   },
@@ -29799,8 +29811,9 @@
    "duree_minutes": 87,
    "date": "2021-09-11T12:00:02Z",
    "miniature": "https://i.ytimg.com/vi/7HDmyCJCFHY/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Drame",
    "genres": [
+    "Drame",
     "Famille",
     "Ados"
    ],
@@ -29992,7 +30005,8 @@
    "miniature": "https://i.ytimg.com/vi/7Kjt1BvIC9k/maxresdefault.jpg",
    "genre": "Ados",
    "genres": [
-    "Ados"
+    "Ados",
+    "Aventure"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -30018,8 +30032,9 @@
    "duree_minutes": 68,
    "date": "2021-08-25T08:00:30Z",
    "miniature": "https://i.ytimg.com/vi/vhgJ57SvaTM/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Animation",
    "genres": [
+    "Animation",
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets"
@@ -30369,7 +30384,8 @@
    "genre": "Ados",
    "genres": [
     "Ados",
-    "Drame"
+    "Drame",
+    "Musical"
    ],
    "chaine": "Boxoffice | TEEN MOVIES | Films Complets"
   },
@@ -30820,8 +30836,9 @@
    "duree_minutes": 92,
    "date": "2021-01-01T15:00:15Z",
    "miniature": "https://i.ytimg.com/vi/Pdl1W-ziRlw/maxresdefault.jpg",
-   "genre": "Famille",
+   "genre": "Drame",
    "genres": [
+    "Drame",
     "Famille",
     "Musical"
    ],
@@ -33676,16 +33693,8 @@
    "id": null,
    "date": "2026-11-15"
   },
-  "0wQVczTXx-s": {
-   "id": "OXm-xvgzhgA",
-   "date": "2026-11-15"
-  },
   "blE4y3E-_N0": {
    "id": null,
-   "date": "2026-11-15"
-  },
-  "M9QkzXX6Gys": {
-   "id": "FMHepXvRLV8",
    "date": "2026-11-15"
   },
   "wO5cmlJvysQ": {
@@ -33694,10 +33703,6 @@
   },
   "dCgRl27A_uA": {
    "id": null,
-   "date": "2026-11-15"
-  },
-  "9S0pjuIGD48": {
-   "id": "NQMpmX6rXOo",
    "date": "2026-11-15"
   },
   "ALz78xPK4p4": {
@@ -33720,24 +33725,8 @@
    "id": null,
    "date": "2026-11-15"
   },
-  "vL-JN9d91Gk": {
-   "id": "iYPnUrREbRg",
-   "date": "2026-11-15"
-  },
   "tfZHLVx542Q": {
    "id": null,
-   "date": "2026-11-15"
-  },
-  "9M-o_gQnR_U": {
-   "id": "vW3GOIU55fY",
-   "date": "2026-11-15"
-  },
-  "ceMyEO7bs1A": {
-   "id": "fraAGOuT3sA",
-   "date": "2026-11-15"
-  },
-  "Hqv8iVaHcwY": {
-   "id": "LyCy2wmob-k",
    "date": "2026-11-15"
   },
   "OmbpVzUWB7M": {
@@ -33754,10 +33743,6 @@
   },
   "bMe6zl4T0Sw": {
    "id": null,
-   "date": "2026-11-15"
-  },
-  "1iXZCbBUTqY": {
-   "id": "kG1CnKPO5BE",
    "date": "2026-11-15"
   },
   "RWyU74IEQ6w": {
@@ -33782,10 +33767,6 @@
   },
   "7AJBcZ5agVQ": {
    "id": null,
-   "date": "2026-11-15"
-  },
-  "lYe-RUNFKoA": {
-   "id": "DHo0PbCTjbk",
    "date": "2026-11-15"
   },
   "rLF8jzWghyQ": {
@@ -33860,10 +33841,6 @@
    "id": null,
    "date": "2026-11-15"
   },
-  "92wLEJCvpOw": {
-   "id": "A-dYQ2JlQoo",
-   "date": "2026-11-15"
-  },
   "Fb3kGP35XZw": {
    "id": null,
    "date": "2026-11-15"
@@ -33888,10 +33865,6 @@
    "id": null,
    "date": "2026-11-15"
   },
-  "k7e3xRxfbZM": {
-   "id": "1HZxxjFEsOc",
-   "date": "2026-11-15"
-  },
   "YLIpkR4FJiw": {
    "id": null,
    "date": "2026-11-15"
@@ -33908,10 +33881,6 @@
    "id": null,
    "date": "2026-11-15"
   },
-  "Nt9-Q-5KvgI": {
-   "id": "nTz2TJLXlwA",
-   "date": "2026-11-15"
-  },
   "eCfuqmVMQBI": {
    "id": null,
    "date": "2026-11-15"
@@ -33923,30 +33892,6 @@
   "ON6kusOM-WA": {
    "id": null,
    "date": "2026-11-15"
-  },
-  "TBf-ZKVTjiA": {
-   "id": "JBu8W7PTggA",
-   "date": "2026-11-16"
-  },
-  "UtQY8ZMCHEs": {
-   "id": "4Uy9jX7IYbM",
-   "date": "2026-11-16"
-  },
-  "IVF2ScXyJFs": {
-   "id": "qp4ztrhTGHk",
-   "date": "2026-11-16"
-  },
-  "SYcyU09bzq8": {
-   "id": "lC0hEpje8IQ",
-   "date": "2026-11-16"
-  },
-  "4g1wKn-l2sA": {
-   "id": "iOPXStM4blg",
-   "date": "2026-11-16"
-  },
-  "kqYg-62DGzM": {
-   "id": "qSyBkU4bdDg",
-   "date": "2026-11-16"
   },
   "u7s_s1St6cE": {
    "id": null,
@@ -33976,10 +33921,6 @@
    "id": null,
    "date": "2026-11-16"
   },
-  "T0VpSVB6ZYQ": {
-   "id": "WYpf48mi5OU",
-   "date": "2026-11-16"
-  },
   "egM3FQYWnuc": {
    "id": null,
    "date": "2026-11-16"
@@ -33990,10 +33931,6 @@
   },
   "gBvbrzv-pKs": {
    "id": null,
-   "date": "2026-11-16"
-  },
-  "O_JCMOgt2RM": {
-   "id": "kBQ4kB8HnsA",
    "date": "2026-11-16"
   },
   "lfqlUBLzmtA": {
@@ -34008,10 +33945,6 @@
    "id": null,
    "date": "2026-11-16"
   },
-  "vA5qdmvX6mE": {
-   "id": "Q5kpVMgW1Wk",
-   "date": "2026-11-16"
-  },
   "68KwcDIrOdU": {
    "id": null,
    "date": "2026-11-16"
@@ -34024,10 +33957,6 @@
    "id": null,
    "date": "2026-11-16"
   },
-  "CqvYd0A_oVU": {
-   "id": "5DIzJOKh_kY",
-   "date": "2026-11-16"
-  },
   "KGBMlljChZ4": {
    "id": null,
    "date": "2026-11-16"
@@ -34035,6 +33964,356 @@
   "nCdkp1CM3sc": {
    "id": null,
    "date": "2026-11-16"
+  },
+  "qpaYysRIF20": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "TBf-ZKVTjiA": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "0wQVczTXx-s": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "M9QkzXX6Gys": {
+   "id": "S2ORBFO2cO4",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "9S0pjuIGD48": {
+   "id": "8SKIuG4HSTQ",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "vL-JN9d91Gk": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "9M-o_gQnR_U": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "ceMyEO7bs1A": {
+   "id": "fraAGOuT3sA",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "Hqv8iVaHcwY": {
+   "id": "fTPRVKdqLkU",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "1iXZCbBUTqY": {
+   "id": "3_VU8UNYAVk",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "lYe-RUNFKoA": {
+   "id": "ix0OAk5ao80",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "92wLEJCvpOw": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "k7e3xRxfbZM": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "Nt9-Q-5KvgI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "UtQY8ZMCHEs": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "IVF2ScXyJFs": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "SYcyU09bzq8": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "4g1wKn-l2sA": {
+   "id": "X7gvNhmoMGk",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "kqYg-62DGzM": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "T0VpSVB6ZYQ": {
+   "id": "zkOiC1dHC3U",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "O_JCMOgt2RM": {
+   "id": "kBQ4kB8HnsA",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "vA5qdmvX6mE": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "CqvYd0A_oVU": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "LXe9z91KEOI": {
+   "id": "W2ElU5z0LkM",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "j3QJ4LIn1HE": {
+   "id": "Sn6k-r2Ldkk",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "urIlAaPeknE": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "SVjOXsvZJ3c": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "UMz-SWKQ7w0": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "mPoDshlPXqk": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "Ssc4PagfBvk": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "LRjUvN-qVfI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "FOXtRsdF_Kg": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "DCWvgZM3yWM": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "twrZJfYrUFo": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "J7waA8-w0-0": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "-mit3MUYeuU": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "MHLV7WL8Q5s": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "sxCf7q2oL9o": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "cjzN5Eh74qk": {
+   "id": "-CH0voakhkM",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "gnwCxMdzBrM": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "dLjtsHBM-vU": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "irTLO0kZnrk": {
+   "id": "aeLv-it-ExU",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "LF07QTZWsd4": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "90VO9gPcNaI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "aHQYgpicXDI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "CBKwH3AW7Cs": {
+   "id": "0hG3zZH2Qms",
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "0Iu9aPmsDsQ": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "pt21q_iAVAs": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "c6yL0p5mzbI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "HiLFs7I0DMA": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "gYt4aNEZ6p4": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "PqkxPwOZ2-s": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "IA8R_Aj1qQc": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "8ik1LipRevE": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "fZosK5GjNtY": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "JqxJ1DzHiBY": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "xhuUUg9MOcI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "Ga4r_DTaxdw": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "t4bEg1mShqI": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "4c-Rhk5l2Hw": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "E9hyV98EBes": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "7fzeYOYb-Dc": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "qPKo8c9oCDM": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "6bveVxAiWhA": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "RIDqDw0GMMY": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "O1NZ1kdK8_U": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "mYXl_UqCZe8": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "Ez73NZ2MfbA": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "azhBOf7FXcE": {
+   "id": null,
+   "date": "2026-11-17",
+   "regle": 2
+  },
+  "KoXwJHxAHcA": {
+   "id": "8lI_ieJzNEU",
+   "date": "2026-11-17",
+   "regle": 2
   }
  }
 }
