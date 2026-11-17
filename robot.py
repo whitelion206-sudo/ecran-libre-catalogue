@@ -418,7 +418,10 @@ def fiche_film(video, chaine):
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 MAX_DEMANDES_WIKIDATA = 150   # par jour
 REESSAI_TITRE_JOURS = 30      # film non trouvé : on redemande après 30 jours
-STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0, "sans_reponse": 0}
+REGLE_TITRES = 2              # changer ce numéro fait tout redemander à Wikidata
+TOLERANCE_DUREE_MINUTES = 15  # durée Wikidata trop différente : ce n'est pas le même film
+STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0, "sans_reponse": 0,
+                "deux_points": 0}
 
 VERBE_ACCROCHE = re.compile(
     r"\b(?:il|elle|ils|elles|on)\s+(?:va|vont|doit|doivent|devra|devront|veut|veulent|"
@@ -436,6 +439,14 @@ def est_une_accroche(titre):
     if len(mots) >= 10:
         return True
     return len(mots) >= 6 and bool(VERBE_ACCROCHE.search(titre))
+
+
+def titre_avant_deux_points(titre):
+    """« Ice Road Terror : la créature rôde sur la route » -> « Ice Road Terror »."""
+    m = re.match(r"^(.{2,60}?)\s+:\s+(.+)$", titre)
+    if m and 1 <= len(m.group(1).split()) <= 6 and len(m.group(2).split()) >= 4:
+        return m.group(1).strip()
+    return None
 
 
 def deja_le_bon_titre(titre_youtube, titre_wikidata):
@@ -476,13 +487,14 @@ def requete_wikidata(realisateurs, acteurs):
         lien_realisateur = (f"VALUES ?nomReal {{ {valeurs(realisateurs)} }} "
                             "?real rdfs:label ?nomReal . ?film wdt:P57 ?real .")
     return f"""SELECT ?film (SAMPLE(?fr) AS ?titreFr) (SAMPLE(?en) AS ?titreEn)
-       (COUNT(DISTINCT ?acteur) AS ?n) WHERE {{
+       (SAMPLE(?d) AS ?duree) (COUNT(DISTINCT ?acteur) AS ?n) WHERE {{
   {lien_realisateur}
   VALUES ?nomActeur {{ {valeurs(acteurs)} }}
   ?acteur rdfs:label ?nomActeur .
   ?film wdt:P161 ?acteur .
   OPTIONAL {{ ?film rdfs:label ?fr . FILTER(LANG(?fr) = "fr") }}
   OPTIONAL {{ ?film rdfs:label ?en . FILTER(LANG(?en) = "en") }}
+  OPTIONAL {{ ?film wdt:P2047 ?d }}
 }} GROUP BY ?film ORDER BY DESC(?n) LIMIT 5"""
 
 
@@ -495,7 +507,7 @@ def appel_wikidata(requete):
         return json.load(reponse)
 
 
-def chercher_vrai_titre(realisateurs, acteurs):
+def chercher_vrai_titre(realisateurs, acteurs, duree_youtube=None):
     """Renvoie le titre du seul film qui réunit ce réalisateur et ces acteurs,
     ou None (rien trouvé, ou plusieurs films possibles)."""
     lignes = appel_wikidata(requete_wikidata(realisateurs, acteurs))["results"]["bindings"]
@@ -503,15 +515,26 @@ def chercher_vrai_titre(realisateurs, acteurs):
     for ligne in lignes:
         titre = (ligne.get("titreFr") or ligne.get("titreEn") or {}).get("value", "").strip()
         n = int(ligne.get("n", {}).get("value", 0))
+        try:
+            duree = float(ligne.get("duree", {}).get("value", ""))
+            if duree > 400:          # parfois donnée en secondes
+                duree = duree / 60
+        except ValueError:
+            duree = None
         if titre:
-            films.append((n, titre))
-    # Avec le réalisateur, un acteur en commun suffit ; sans lui, il en faut deux.
-    minimum = 1 if realisateurs else 2
+            films.append((n, titre, duree))
+    # Il faut deux acteurs en commun (un seul ne suffit pas : un réalisateur
+    # tourne souvent plusieurs films avec le même acteur). Exception : la
+    # description ne cite qu'un acteur, et le réalisateur est connu.
+    minimum = 1 if (realisateurs and len(acteurs) == 1) else 2
     if not films or films[0][0] < minimum:
         return None
     if len(films) > 1 and films[1][0] == films[0][0]:
         return None  # deux films aussi probables : on ne devine pas
-    return films[0][1]
+    n, titre, duree = films[0]
+    if duree and duree_youtube and abs(duree - duree_youtube) > TOLERANCE_DUREE_MINUTES:
+        return None  # pas la même durée : pas le même film
+    return titre
 
 
 def vrais_titres(films, textes_films, ancien_catalogue):
@@ -525,16 +548,16 @@ def vrais_titres(films, textes_films, ancien_catalogue):
     pannes = 0
     panne = False
 
-    def demander(realisateurs, acteurs):
+    def demander(realisateurs, acteurs, duree):
         """Demande à Wikidata, avec un second essai si le serveur hoquette."""
         nonlocal demandes, pannes, panne
-        cle = (tuple(realisateurs), tuple(acteurs))
+        cle = (tuple(realisateurs), tuple(acteurs), duree)
         if cle in deja_demande:
             return deja_demande[cle]
         for essai in (1, 2):
             try:
                 demandes += 1
-                titre = chercher_vrai_titre(realisateurs, acteurs)
+                titre = chercher_vrai_titre(realisateurs, acteurs, duree)
                 time.sleep(1)  # Wikidata demande de ne pas aller trop vite
                 deja_demande[cle] = titre
                 return titre
@@ -551,7 +574,15 @@ def vrais_titres(films, textes_films, ancien_catalogue):
     for fid, film in films.items():
         if not est_une_accroche(film["titre"]):
             continue
+        avant = titre_avant_deux_points(film["titre"])
+        if avant:  # le vrai titre est déjà là, avant « : »
+            STATS_TITRES["deux_points"] += 1
+            film["titre_accroche"] = film["titre"]
+            film["titre"] = avant
+            continue
         r = ancienne.get(fid)
+        if r is not None and r.get("regle") != REGLE_TITRES:
+            r = None  # trouvé avec une ancienne règle : on redemande
         if r is not None:
             memoire[fid] = r
         a_demander = r is None
@@ -568,7 +599,7 @@ def vrais_titres(films, textes_films, ancien_catalogue):
                 STATS_TITRES["sans_equipe"] += 1
             else:
                 try:
-                    titre = demander(realisateurs, acteurs)
+                    titre = demander(realisateurs, acteurs, film.get("duree_minutes"))
                 except Exception:
                     STATS_TITRES["sans_reponse"] += 1
                     continue  # pas de réponse : on redemandera au prochain passage
@@ -578,13 +609,15 @@ def vrais_titres(films, textes_films, ancien_catalogue):
                     STATS_TITRES["trouves"].append(f"{film['titre']} → {titre}")
                 else:
                     STATS_TITRES["pas_trouves"] += 1
-            r = memoire[fid] = {"titre": titre, "date": aujourd_hui.isoformat()}
+            r = memoire[fid] = {"titre": titre, "date": aujourd_hui.isoformat(),
+                                "regle": REGLE_TITRES}
         if r and r.get("titre"):
             film["titre_accroche"] = film["titre"]
             film["titre"] = r["titre"]
     gardes = sum(1 for f in films.values() if f.get("titre_accroche"))
     print(f"Vrais titres : {gardes} films avec une phrase d'accroche corrigée "
-          f"({len(STATS_TITRES['trouves'])} trouvés aujourd'hui, "
+          f"({STATS_TITRES['deux_points']} grâce au titre écrit avant « : », "
+          f"{len(STATS_TITRES['trouves'])} trouvés aujourd'hui sur Wikidata, "
           f"{STATS_TITRES['pas_trouves']} inconnus de Wikidata, "
           f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description, "
           f"{STATS_TITRES['sans_reponse']} sans réponse de Wikidata).")
@@ -813,6 +846,11 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
     aujourd_hui = datetime.now(timezone.utc).date()
     memoire = {fid: r for fid, r in ancien_catalogue.get("recherches_bandes_annonces", {}).items()
                if fid in films and r.get("regle") == REGLE_BA}
+    # Titre corrigé depuis la dernière recherche (phrase d'accroche) : la
+    # bande-annonce trouvée avec l'ancien titre ne compte plus.
+    for fid in list(memoire):
+        if films[fid].get("titre_accroche") and memoire[fid].get("titre") != films[fid]["titre"]:
+            del memoire[fid]
 
     # 1. Revérifier les bandes-annonces déjà trouvées.
     deja = {fid: r["id"] for fid, r in memoire.items() if r.get("id")}
@@ -831,9 +869,6 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
             return True
         if r.get("id"):
             return False
-        # Vrai titre trouvé depuis la dernière recherche : on recherche avec lui.
-        if films[fid].get("titre_accroche") and r.get("titre") != films[fid]["titre"]:
-            return True
         try:
             return (aujourd_hui - date.fromisoformat(r.get("date", ""))).days >= REESSAI_JOURS
         except ValueError:
