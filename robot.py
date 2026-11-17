@@ -349,10 +349,12 @@ MAX_RECHERCHES = 70
 # 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF ;
 # 5 = la preuve n'est plus obligatoire (les descriptions des films en ont
 # rarement), mais une année différente fait refuser la vidéo, et les vidéos
-# avec une preuve passent en premier.
+# avec une preuve passent en premier ;
+# 6 = dans la description du film, on ignore les années égales ou postérieures
+# à sa mise en ligne sur YouTube (« © 2026 »…) : ce n'est pas l'année du film.
 # Changer ce numéro efface toutes les recherches faites avec l'ancienne règle
 # (trouvées ou non) : elles sont refaites avec la nouvelle.
-REGLE_BA = 5
+REGLE_BA = 6
 REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
 DUREE_MAX_BA_MINUTES = 6
 
@@ -420,8 +422,11 @@ def preuves(texte, mots_titre):
     return annees, noms
 
 
-def meme_film(texte_film, texte_ba, titre_film):
+def meme_film(texte_film, texte_ba, titre_film, annee_mise_en_ligne=None):
     """Compare un film et une bande-annonce qui portent le même titre.
+    annee_mise_en_ligne : année où le film complet a été publié sur YouTube.
+    Les années égales ou postérieures dans sa description (« © 2026 »,
+    « nouveauté 2026 »…) ne sont pas l'année du film : on les ignore.
     Renvoie (verdict, détail) :
       ("preuve", …)  un même nom (acteur, réalisateur…) ou la même année ;
       ("conflit", …) les deux donnent une année, et elles sont différentes ;
@@ -429,6 +434,8 @@ def meme_film(texte_film, texte_ba, titre_film):
     mots_titre = set(normalise(titre_film).split())
     annees_f, noms_f = preuves(texte_film, mots_titre)
     annees_b, noms_b = preuves(texte_ba, mots_titre)
+    if annee_mise_en_ligne:
+        annees_f = {a for a in annees_f if int(a) < annee_mise_en_ligne}
     communs = sorted(noms_f & noms_b)
     if communs:
         return "preuve", ", ".join(communs[:2])
@@ -590,6 +597,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
         for fid, liste in candidats.items():
             film = films[fid]
             texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
+            annee_film = int(film["date"][:4]) if str(film.get("date", ""))[:4].isdigit() else None
             gardees = []
             for id_ba, titre_ba, langue in liste:
                 video = lisibles.get(id_ba)
@@ -602,7 +610,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
                     continue
                 snippet = video.get("snippet", {})
                 texte_ba = snippet.get("title", "") + "\n" + snippet.get("description", "")
-                verdict, detail = meme_film(texte_film, texte_ba, film["titre"])
+                verdict, detail = meme_film(texte_film, texte_ba, film["titre"], annee_film)
                 if verdict == "conflit":
                     STATS_BA["conflit"] += 1
                     if len(EXEMPLES_REFUSES) < 10:
