@@ -15,6 +15,10 @@ Un film est gardé s'il :
 Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
 complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
 
+Quand une chaîne remplace le nom du film par une phrase d'accroche, le robot
+retrouve le vrai titre sur Wikidata grâce au réalisateur et aux acteurs
+indiqués dans la description (voir vrais_titres).
+
 Il cherche aussi la bande-annonce de chaque film (70 films par jour au plus,
 à cause du quota de l'API YouTube), puis ajoute les « classiques » du domaine public listés dans classiques.json,
 hébergés sur Wikimedia Commons (réutilisation commerciale permise).
@@ -29,6 +33,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 import urllib.error
 import urllib.parse
@@ -205,8 +210,10 @@ def nettoie_genre(genre):
     return re.sub(r"\s+", " ", propre).strip(" -'’")
 
 
-def genre_normalise(genre):
-    """Ramène un genre à une catégorie de GENRES_CONNUS, ou None s'il est inconnu."""
+def genre_normalise(genre, strict=False):
+    """Ramène un genre à une catégorie de GENRES_CONNUS, ou None s'il est inconnu.
+    strict=True : seulement un genre exact (ou une faute de frappe), sans
+    chercher un mot connu dans une expression plus longue, et sans le noter."""
     propre = nettoie_genre(genre)
     cle = sans_accents(propre)
     if not cle:
@@ -219,6 +226,8 @@ def genre_normalise(genre):
     proche = difflib.get_close_matches(cle, connus, n=1, cutoff=0.9)
     if proche:  # fautes de frappe : « Thriler », « Comedie »
         return connus[proche[0]]
+    if strict:
+        return None
     # Un mot connu dans une expression plus longue : on garde le plus long.
     trouves = {}
     for k, nom in list(connus.items()) + list(GENRES_RENOMMES.items()):
@@ -242,6 +251,13 @@ def genres_du_titre(titre):
                 if genre and genre not in genres:
                     genres.append(genre)
             return genres
+    # Pas de « Film complet » dans le titre (« Accroche | Sci-Fi, Action ») :
+    # on prend un morceau suivant s'il ne contient QUE des genres connus.
+    for morceau in morceaux[1:]:
+        parties = [p for p in re.split(r"[,/&]|\bet\b", morceau) if nettoie_genre(p)]
+        genres = [genre_normalise(p, strict=True) for p in parties]
+        if parties and all(genres):
+            return list(dict.fromkeys(genres))
     return []
 
 
@@ -371,6 +387,157 @@ def fiche_film(video, chaine):
         "genres": genres,
         "chaine": chaine["nom"],
     }
+
+
+# --- Vrais titres (Wikidata) -------------------------------------------------
+#
+# Certaines chaînes (Ciné Nanar…) remplacent le nom du film par une phrase
+# d'accroche : « Pour sauver sa fille, il va devoir traverser une planète
+# condamnée ». Leur description donne alors le réalisateur et les acteurs
+# (« ►Réalisation », « ►ACTEURS »). Le robot demande à Wikidata (gratuit, sans
+# clé, sans quota YouTube) quel film les réunit, et prend son titre français.
+# Le résultat est retenu dans catalogue.json (« titres_trouves »).
+
+WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
+MAX_DEMANDES_WIKIDATA = 150   # par jour
+REESSAI_TITRE_JOURS = 30      # film non trouvé : on redemande après 30 jours
+STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0}
+
+VERBE_ACCROCHE = re.compile(
+    r"\b(?:il|elle|ils|elles|on)\s+(?:va|vont|doit|doivent|devra|devront|veut|veulent|"
+    r"est|sont|a|ont|se|s'|s’|ne|n'|n’|d[ée]couvre|d[ée]couvrent|devient|deviennent|"
+    r"pense|pensait|croit|croyait|tente|tentent)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def est_une_accroche(titre):
+    """Vrai si le « titre » ressemble à une phrase plutôt qu'à un nom de film."""
+    mots = titre.split()
+    if len(mots) >= 10:
+        return True
+    if len(mots) >= 6 and ("," in titre or VERBE_ACCROCHE.search(titre)):
+        return True
+    return len(mots) >= 5 and titre.rstrip().endswith(("!", "?", "…", "..."))
+
+
+def noms(ligne):
+    """« Kellan Lutz, Daniel MacPherson et Isabel Lucas » -> liste de noms."""
+    resultat = []
+    for nom in re.split(r"[,/&;]|\set\s|\sand\s", ligne):
+        nom = re.sub(r"\s+", " ", nom).strip(" .-–—:")
+        if 2 <= len(nom.split()) <= 5 and len(nom) <= 60 and nom not in resultat:
+            resultat.append(nom)
+    return resultat
+
+
+def equipe_du_film(description):
+    """Lit le réalisateur et les acteurs dans la description YouTube."""
+    def section(motif):
+        m = re.search(r"(?:^|\n)[^\w\n]*(?:" + motif + r")\s*:?[ \t]*(?:\n\s*)?([^\n]+)",
+                      description, flags=re.IGNORECASE)
+        return noms(m.group(1)) if m else []
+    realisateurs = section(r"r[ée]alisation|r[ée]alisateurs?|r[ée]alisatrices?|r[ée]alis[ée] par")
+    acteurs = section(r"acteurs?|casting|distribution")
+    return realisateurs[:2], acteurs[:5]
+
+
+def requete_wikidata(realisateurs, acteurs):
+    def valeurs(liste):
+        liste = [n.replace("\\", "").replace('"', "") for n in liste]
+        return " ".join(f'"{n}"@{langue}' for n in liste for langue in ("mul", "en", "fr"))
+    lien_realisateur = ""
+    if realisateurs:
+        lien_realisateur = (f"VALUES ?nomReal {{ {valeurs(realisateurs)} }} "
+                            "?real rdfs:label ?nomReal . ?film wdt:P57 ?real .")
+    return f"""SELECT ?film (SAMPLE(?fr) AS ?titreFr) (SAMPLE(?en) AS ?titreEn)
+       (COUNT(DISTINCT ?acteur) AS ?n) WHERE {{
+  {lien_realisateur}
+  VALUES ?nomActeur {{ {valeurs(acteurs)} }}
+  ?acteur rdfs:label ?nomActeur .
+  ?film wdt:P161 ?acteur .
+  OPTIONAL {{ ?film rdfs:label ?fr . FILTER(LANG(?fr) = "fr") }}
+  OPTIONAL {{ ?film rdfs:label ?en . FILTER(LANG(?en) = "en") }}
+}} GROUP BY ?film ORDER BY DESC(?n) LIMIT 5"""
+
+
+def appel_wikidata(requete):
+    requete_http = urllib.request.Request(
+        WIKIDATA_SPARQL + "?" + urllib.parse.urlencode({"query": requete}),
+        headers={"User-Agent": USER_AGENT, "Accept": "application/sparql-results+json"},
+    )
+    with urllib.request.urlopen(requete_http, timeout=60) as reponse:
+        return json.load(reponse)
+
+
+def chercher_vrai_titre(realisateurs, acteurs):
+    """Renvoie le titre du seul film qui réunit ce réalisateur et ces acteurs,
+    ou None (rien trouvé, ou plusieurs films possibles)."""
+    lignes = appel_wikidata(requete_wikidata(realisateurs, acteurs))["results"]["bindings"]
+    films = []
+    for ligne in lignes:
+        titre = (ligne.get("titreFr") or ligne.get("titreEn") or {}).get("value", "").strip()
+        n = int(ligne.get("n", {}).get("value", 0))
+        if titre:
+            films.append((n, titre))
+    # Avec le réalisateur, un acteur en commun suffit ; sans lui, il en faut deux.
+    minimum = 1 if realisateurs else 2
+    if not films or films[0][0] < minimum:
+        return None
+    if len(films) > 1 and films[1][0] == films[0][0]:
+        return None  # deux films aussi probables : on ne devine pas
+    return films[0][1]
+
+
+def vrais_titres(films, textes_films, ancien_catalogue):
+    """Remplace les phrases d'accroche par le vrai titre quand Wikidata le connaît.
+    Renvoie la mémoire des recherches."""
+    aujourd_hui = datetime.now(timezone.utc).date()
+    memoire = {fid: r for fid, r in ancien_catalogue.get("titres_trouves", {}).items()
+               if fid in films}
+    demandes = 0
+    panne = False
+    for fid, film in films.items():
+        if not est_une_accroche(film["titre"]):
+            continue
+        r = memoire.get(fid)
+        a_demander = r is None
+        if r and not r.get("titre"):
+            try:
+                a_demander = (aujourd_hui - date.fromisoformat(r.get("date", ""))).days \
+                    >= REESSAI_TITRE_JOURS
+            except ValueError:
+                a_demander = True
+        if a_demander and not panne and demandes < MAX_DEMANDES_WIKIDATA:
+            realisateurs, acteurs = equipe_du_film(textes_films.get(fid, ""))
+            titre = None
+            if not acteurs:
+                STATS_TITRES["sans_equipe"] += 1
+            else:
+                try:
+                    demandes += 1
+                    titre = chercher_vrai_titre(realisateurs, acteurs)
+                    time.sleep(1)  # Wikidata demande de ne pas aller trop vite
+                except Exception as erreur:  # Wikidata en panne : on réessaiera demain
+                    print(f"Wikidata indisponible ({erreur}) : vrais titres remis à demain.")
+                    panne = True
+                    continue
+                if titre:
+                    STATS_TITRES["trouves"].append(f"{film['titre']} → {titre}")
+                else:
+                    STATS_TITRES["pas_trouves"] += 1
+            r = memoire[fid] = {"titre": titre, "date": aujourd_hui.isoformat()}
+        if r and r.get("titre"):
+            film["titre_accroche"] = film["titre"]
+            film["titre"] = r["titre"]
+    gardes = sum(1 for f in films.values() if f.get("titre_accroche"))
+    print(f"Vrais titres : {gardes} films avec une phrase d'accroche corrigée "
+          f"({len(STATS_TITRES['trouves'])} trouvés aujourd'hui, "
+          f"{STATS_TITRES['pas_trouves']} inconnus de Wikidata, "
+          f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description).")
+    for ligne in STATS_TITRES["trouves"][:20]:
+        print("  ✓ " + ligne)
+    return memoire
 
 
 # --- Bandes-annonces ---------------------------------------------------------
@@ -611,6 +778,9 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
             return True
         if r.get("id"):
             return False
+        # Vrai titre trouvé depuis la dernière recherche : on recherche avec lui.
+        if films[fid].get("titre_accroche") and r.get("titre") != films[fid]["titre"]:
+            return True
         try:
             return (aujourd_hui - date.fromisoformat(r.get("date", ""))).days >= REESSAI_JOURS
         except ValueError:
@@ -663,7 +833,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
                 STATS_BA["avec_preuve" if rang[1] == 0 else "sans_preuve"] += 1
                 trouvees.append(f"{film['titre']} → {titre_ba} [{langue_choisie} · {detail}] "
                                 f"(id : {choix})")
-            memoire[fid] = {"id": choix, "langue": langue_choisie,
+            memoire[fid] = {"id": choix, "langue": langue_choisie, "titre": film["titre"],
                             "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
     except RuntimeError as erreur:
         print(f"Vérification des nouvelles bandes-annonces impossible : {erreur}")
@@ -833,8 +1003,6 @@ def main():
             gardes += 1
         print(f"{chaine['nom']} : {len(ids)} vidéos, {gardes} films gardés")
 
-    films = sans_doublons(films)
-
     ancien = {}
     if os.path.exists(FICHIER_CATALOGUE):
         try:
@@ -842,6 +1010,9 @@ def main():
                 ancien = json.load(f)
         except ValueError:
             ancien = {}
+
+    memoire_titres = vrais_titres(films, textes_films, ancien)
+    films = sans_doublons(films)
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films)
     liste_classiques = classiques(ancien)
@@ -852,6 +1023,7 @@ def main():
         "nombre_de_classiques": len(liste_classiques),
         "classiques": liste_classiques,
         "recherches_bandes_annonces": memoire_ba,
+        "titres_trouves": memoire_titres,
     }
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
