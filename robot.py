@@ -346,15 +346,21 @@ def fiche_film(video, chaine):
 MAX_RECHERCHES = 70
 # Version de la règle de choix. 2 = titre exact ; 3 = + VF écrite dans le titre
 # + preuve que c'est le même film (acteurs, réalisateur ou année) ;
-# 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF.
+# 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF ;
+# 5 = la preuve n'est plus obligatoire (les descriptions des films en ont
+# rarement), mais une année différente fait refuser la vidéo, et les vidéos
+# avec une preuve passent en premier.
 # Changer ce numéro efface toutes les recherches faites avec l'ancienne règle
 # (trouvées ou non) : elles sont refaites avec la nouvelle.
-REGLE_BA = 4
+REGLE_BA = 5
 REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
 DUREE_MAX_BA_MINUTES = 6
 
 MOTS_BA = re.compile(r"bande[- ]?annonce|\btrailer\b|\bteaser\b", flags=re.IGNORECASE)
+# Les films gratuits sur YouTube ne sont pas des films Netflix, Prime Video ou
+# Disney+ : une bande-annonce de ces plateformes parle d'un autre film.
 MOTS_BA_REFUSES = re.compile(
+    r"netflix|prime\s*video|disney\s*\+|disney\s*plus|"
     r"english|anglais|r[ée]action|critique|review|analyse|"
     r"explication|fan[- ]?made|parodie|r[ée]sum[ée]|making[- ]of|interview|extrait",
     flags=re.IGNORECASE,
@@ -415,20 +421,27 @@ def preuves(texte, mots_titre):
 
 
 def meme_film(texte_film, texte_ba, titre_film):
-    """Renvoie la preuve commune (nom ou année), ou None s'il n'y en a pas."""
+    """Compare un film et une bande-annonce qui portent le même titre.
+    Renvoie (verdict, détail) :
+      ("preuve", …)  un même nom (acteur, réalisateur…) ou la même année ;
+      ("conflit", …) les deux donnent une année, et elles sont différentes ;
+      ("neutre", "")  rien pour confirmer ni pour contredire."""
     mots_titre = set(normalise(titre_film).split())
     annees_f, noms_f = preuves(texte_film, mots_titre)
     annees_b, noms_b = preuves(texte_ba, mots_titre)
     communs = sorted(noms_f & noms_b)
     if communs:
-        return ", ".join(communs[:2])
-    annees = sorted(annees_f & annees_b)
-    if annees:
-        return "année " + annees[0]
-    return None
+        return "preuve", ", ".join(communs[:2])
+    proches = sorted(a for a in annees_f for b in annees_b if abs(int(a) - int(b)) <= 1)
+    if proches:
+        return "preuve", "année " + proches[0]
+    if annees_f and annees_b:
+        return "conflit", f"film {min(annees_f)} / vidéo {min(annees_b)}"
+    return "neutre", ""
 
 
-STATS_BA = {"pas_francais": 0, "autre_langue": 0, "sans_preuve": 0}
+STATS_BA = {"pas_francais": 0, "autre_langue": 0, "conflit": 0, "avec_preuve": 0,
+            "sans_preuve": 0}
 EXEMPLES_REFUSES = []
 
 
@@ -567,15 +580,17 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
             print(f"Recherche de bandes-annonces arrêtée (quota du jour ?) : {erreur}")
             break
 
-    # 3. Garder la première candidate lisible en France, en français, et dont
-    #    la description confirme que c'est le même film.
+    # 3. Parmi les candidates lisibles en France et en français, refuser celles
+    #    d'une autre année, puis choisir dans cet ordre : VF avec preuve,
+    #    VF sans preuve, VOSTFR avec preuve, VOSTFR sans preuve.
     trouvees = []
     try:
         lisibles = bandes_annonces_lisibles(
             [c[0] for liste in candidats.values() for c in liste], cle, exclus)
         for fid, liste in candidats.items():
             film = films[fid]
-            choix, langue_choisie = None, None
+            texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
+            gardees = []
             for id_ba, titre_ba, langue in liste:
                 video = lisibles.get(id_ba)
                 if video is None:
@@ -587,16 +602,20 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
                     continue
                 snippet = video.get("snippet", {})
                 texte_ba = snippet.get("title", "") + "\n" + snippet.get("description", "")
-                texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
-                preuve = meme_film(texte_film, texte_ba, film["titre"])
-                if preuve is None:
-                    STATS_BA["sans_preuve"] += 1
+                verdict, detail = meme_film(texte_film, texte_ba, film["titre"])
+                if verdict == "conflit":
+                    STATS_BA["conflit"] += 1
                     if len(EXEMPLES_REFUSES) < 10:
-                        EXEMPLES_REFUSES.append(f"{film['titre']} → {titre_ba}")
+                        EXEMPLES_REFUSES.append(f"{film['titre']} → {titre_ba} ({detail})")
                     continue
-                choix, langue_choisie = id_ba, langue
-                trouvees.append(f"{film['titre']} → {titre_ba} [{langue} · {preuve}]")
-                break
+                rang = (0 if langue == "VF" else 1, 0 if verdict == "preuve" else 1)
+                gardees.append((rang, id_ba, titre_ba, langue, detail or "sans preuve"))
+            choix, langue_choisie = None, None
+            if gardees:
+                rang, choix, titre_ba, langue_choisie, detail = min(gardees)
+                STATS_BA["avec_preuve" if rang[1] == 0 else "sans_preuve"] += 1
+                trouvees.append(f"{film['titre']} → {titre_ba} [{langue_choisie} · {detail}] "
+                                f"(id : {choix})")
             memoire[fid] = {"id": choix, "langue": langue_choisie,
                             "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
     except RuntimeError as erreur:
@@ -614,14 +633,15 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
     print(f"Bandes-annonces : {len(candidats)} recherches aujourd'hui, "
           f"{avec} films en ont une (dont {vostfr} en VOSTFR), {reste} films restent à chercher.")
     print(f"Refusées : {STATS_BA['pas_francais']} ni VF ni VOSTFR, {STATS_BA['autre_langue']} "
-          f"« VF » mais son dans une autre langue, {STATS_BA['sans_preuve']} sans preuve "
-          f"que c'est le même film.")
+          f"« VF » mais son dans une autre langue, {STATS_BA['conflit']} d'une autre année.")
+    print(f"Choisies aujourd'hui : {STATS_BA['avec_preuve']} avec preuve (même acteur ou "
+          f"même année), {STATS_BA['sans_preuve']} sans preuve.")
     if trouvees:
-        print("Nouvelles bandes-annonces :")
+        print("Nouvelles bandes-annonces (pour en bloquer une, ajouter son id dans exclus.txt) :")
         for ligne in trouvees:
             print("  ✓ " + ligne)
     if EXEMPLES_REFUSES:
-        print("Exemples refusés (même titre, mais rien ne prouve que c'est le même film) :")
+        print("Exemples refusés (même titre, mais une autre année) :")
         for ligne in EXEMPLES_REFUSES:
             print("  ✗ " + ligne)
     return memoire
