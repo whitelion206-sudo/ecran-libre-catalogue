@@ -124,12 +124,14 @@ def est_en_francais(video):
 GENRES_CONNUS = [
     "Action", "Ados", "Animation", "Arts martiaux", "Aventure", "Biopic", "Catastrophe",
     "Comédie", "Comédie dramatique", "Comédie romantique", "Documentaire", "Drame", "Famille",
-    "Fantastique", "Guerre", "Historique", "Horreur", "Musical", "Noël",
+    "Fantastique", "Guerre", "Historique", "Horreur", "Musical", "Nanar", "Noël",
     "Policier", "Romance", "Science-fiction", "Sport", "Thriller", "Western",
 ]
 
 # Variantes et sous-genres (écrits sans accents ni majuscules) -> catégorie.
 GENRES_RENOMMES = {
+    # Nanar (séries B volontairement kitsch)
+    "nanars": "Nanar", "film nanar": "Nanar", "cinema nanar": "Nanar",
     # Ados
     "teen": "Ados", "teen movie": "Ados", "teen movies": "Ados", "ado": "Ados",
     "adolescent": "Ados", "adolescents": "Ados", "drame adolescent": "Ados",
@@ -276,12 +278,20 @@ def miniature(snippet):
     return ""
 
 
-def videos_de_la_chaine(id_chaine, cle):
-    """Renvoie les identifiants de toutes les vidéos mises en ligne par la chaîne."""
-    reponse = appel_api("channels", {"part": "contentDetails", "id": id_chaine}, cle)
+def videos_de_la_chaine(chaine, cle):
+    """Renvoie les identifiants de toutes les vidéos mises en ligne par la chaîne.
+    La chaîne est donnée par son identifiant (« id » : UC…) ou par son nom
+    YouTube (« handle » : @…)."""
+    if chaine.get("id"):
+        parametres = {"part": "contentDetails", "id": chaine["id"]}
+    else:
+        parametres = {"part": "contentDetails", "forHandle": chaine.get("handle", "")}
+    reponse = appel_api("channels", parametres, cle)
     if not reponse.get("items"):
-        print(f"Chaîne introuvable : {id_chaine}")
+        print(f"Chaîne introuvable : {chaine.get('id') or chaine.get('handle')}")
         return []
+    if not chaine.get("id"):
+        print(f"{chaine['nom']} : identifiant {reponse['items'][0].get('id')}")
     liste = reponse["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
     ids, page = [], None
     while True:
@@ -306,6 +316,35 @@ def details_des_videos(ids, cle):
         )
         details += reponse.get("items", [])
     return details
+
+
+def sans_doublons(films):
+    """Un même film peut être publié par plusieurs chaînes. On garde la copie
+    de la chaîne qui vient en premier dans chaines.json (ou la plus ancienne),
+    et on lui ajoute les genres des autres copies. Deux films de même titre
+    mais de durées très différentes (un remake…) sont gardés tous les deux."""
+    gardes = {}        # titre normalisé -> fiches gardées
+    resultat = {}
+    retires = []
+    for fid, film in films.items():           # dans l'ordre des chaînes
+        cle_titre = normalise(film["titre"])
+        double = None
+        for autre in gardes.get(cle_titre, []):
+            if abs(film["duree_minutes"] - autre["duree_minutes"]) <= 5:
+                double = autre
+                break
+        if double is None:
+            gardes.setdefault(cle_titre, []).append(film)
+            resultat[fid] = film
+            continue
+        for genre in film["genres"]:
+            if genre not in double["genres"]:
+                double["genres"].append(genre)
+        double["genre"] = double["genre"] or (double["genres"][0] if double["genres"] else "")
+        retires.append(f"{film['titre']} ({film['chaine']})")
+    if retires:
+        print(f"Doublons retirés : {len(retires)} (ex. : {', '.join(retires[:5])})")
+    return resultat
 
 
 def fiche_film(video, chaine):
@@ -778,7 +817,7 @@ def main():
     films = {}
     textes_films = {}  # titre + description complète, pour vérifier les bandes-annonces
     for chaine in chaines:
-        ids = videos_de_la_chaine(chaine["id"], cle)
+        ids = videos_de_la_chaine(chaine, cle)
         gardes = 0
         for video in details_des_videos(ids, cle):
             if not est_utilisable(video, exclus):
@@ -793,6 +832,8 @@ def main():
                 films[video["id"]] = fiche
             gardes += 1
         print(f"{chaine['nom']} : {len(ids)} vidéos, {gardes} films gardés")
+
+    films = sans_doublons(films)
 
     ancien = {}
     if os.path.exists(FICHIER_CATALOGUE):
