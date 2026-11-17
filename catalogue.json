@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-17T08:37:01Z",
+ "mis_a_jour": "2026-11-17T08:48:07Z",
  "nombre_de_films": 2412,
  "films": [
   {
@@ -369,7 +369,9 @@
    "miniature": "https://i.ytimg.com/vi/Hqv8iVaHcwY/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "My Digital Channel - Films Complets"
+   "chaine": "My Digital Channel - Films Complets",
+   "bande_annonce": "LyCy2wmob-k",
+   "bande_annonce_langue": "VF"
   },
   {
    "id": "OmbpVzUWB7M",
@@ -33650,421 +33652,157 @@
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "TBf-ZKVTjiA": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "No8UmXSbx2Y": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "pJ0nlhmk5-c": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "M9VE5CqpIWk": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "cOzmqkjykgc": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "VmewMT5nIjA": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "VGKb64eA6z4": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "yybVB9R4ENA": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "wCdHIc1AfaE": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "0wQVczTXx-s": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "blE4y3E-_N0": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "M9QkzXX6Gys": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "wO5cmlJvysQ": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "dCgRl27A_uA": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "9S0pjuIGD48": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "ALz78xPK4p4": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "h0Z1xNJC0Lo": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "4v8V3OwD2ss": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "CCHY8R_zY5k": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "57JaX3Wtm9U": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "vL-JN9d91Gk": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "tfZHLVx542Q": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "9M-o_gQnR_U": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "ceMyEO7bs1A": {
    "id": null,
    "langue": null,
    "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   },
   "Hqv8iVaHcwY": {
-   "id": null,
-   "langue": null,
+   "id": "LyCy2wmob-k",
+   "langue": "VF",
    "date": "2026-11-17",
-   "regle": 4
-  },
-  "OmbpVzUWB7M": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "edG16VQsOQc": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "f3YFfdXZSv0": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "bMe6zl4T0Sw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "1iXZCbBUTqY": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "RWyU74IEQ6w": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "lK6Re_Swjl8": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "x-_ICXOI5Ig": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "8q6bsM05Jk0": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "F6dEqLY3BYc": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "7AJBcZ5agVQ": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "lYe-RUNFKoA": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "rLF8jzWghyQ": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "9IB6WrwJw6A": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "9ecDTXUWvLM": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "zodcgmRjCSk": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "q5B8KrUAwRo": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "wOVP1cV9H2w": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "ncTwNU6LcSA": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "FxRGnPzMlNE": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "YtPFarWZ4AM": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "LMJ8Bb_OIBQ": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "QsfT2dmKH5w": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "LW-EbOEzHLk": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "zj8Dg_tobrE": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "rcC0LkQ7200": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "_6ZAKS4Hur0": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "logmQ5Ao1Iw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "1H7dlUx0sjg": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "nbR-88QLygw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "92wLEJCvpOw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "Fb3kGP35XZw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "EIjIU-EDdUo": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "eq5dt_A1irQ": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "mde72DlUNWo": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "mzQla0v1p4s": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "PxasvxRrYVE": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "k7e3xRxfbZM": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "YLIpkR4FJiw": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "WUBoI1U3m6s": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "uJ_KXY3R3BE": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "sx6PAMSWeT4": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "Nt9-Q-5KvgI": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
-  },
-  "eCfuqmVMQBI": {
-   "id": null,
-   "langue": null,
-   "date": "2026-11-17",
-   "regle": 4
+   "regle": 5
   }
  }
 }
