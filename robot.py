@@ -403,6 +403,9 @@ def fiche_film(video, chaine):
         "genre": genres[0] if genres else "",
         "genres": genres,
         "chaine": chaine["nom"],
+        # Statut « conçu pour les enfants » de YouTube : l'appli doit couper tout
+        # suivi pour ces vidéos (règles des API YouTube, III.E.4.j).
+        "pour_enfants": bool(video.get("status", {}).get("madeForKids", False)),
     }
 
 
@@ -854,8 +857,11 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
 
     # 1. Revérifier les bandes-annonces déjà trouvées.
     deja = {fid: r["id"] for fid, r in memoire.items() if r.get("id")}
+    pour_enfants = {}  # id de bande-annonce -> statut « conçu pour les enfants »
     try:
         encore_bonnes = bandes_annonces_lisibles(list(deja.values()), cle, exclus)
+        for id_ba, video in encore_bonnes.items():
+            pour_enfants[id_ba] = bool(video.get("status", {}).get("madeForKids", False))
         for fid, id_ba in deja.items():
             if id_ba not in encore_bonnes:
                 del memoire[fid]  # supprimée ou bloquée : on cherchera une autre
@@ -891,6 +897,8 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
     try:
         lisibles = bandes_annonces_lisibles(
             [c[0] for liste in candidats.values() for c in liste], cle, exclus)
+        for id_ba, video in lisibles.items():
+            pour_enfants[id_ba] = bool(video.get("status", {}).get("madeForKids", False))
         for fid, liste in candidats.items():
             film = films[fid]
             texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
@@ -932,6 +940,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
         if r and r.get("id"):
             film["bande_annonce"] = r["id"]
             film["bande_annonce_langue"] = r.get("langue") or "VF"  # « VF » ou « VOSTFR »
+            film["bande_annonce_pour_enfants"] = pour_enfants.get(r["id"], False)
     avec = sum(1 for r in memoire.values() if r.get("id"))
     vostfr = sum(1 for r in memoire.values() if r.get("id") and r.get("langue") == "VOSTFR")
     reste = len(file_attente) - len(candidats)
