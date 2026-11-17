@@ -1,6 +1,6 @@
 {
- "mis_a_jour": "2026-11-17T14:26:23Z",
- "nombre_de_films": 3873,
+ "mis_a_jour": "2026-11-17T14:51:31Z",
+ "nombre_de_films": 3871,
  "films": [
   {
    "id": "ejSv7ZEUN-s",
@@ -276,7 +276,7 @@
   },
   {
    "id": "hn7x3_ZAwjY",
-   "titre": "Le Chant des sirènes : un rêve parisien qui dérape",
+   "titre": "Le Chant des sirènes",
    "titre_youtube": "Le Chant des sirènes : un rêve parisien qui dérape | Film Drame complet en Français | Drame social",
    "description": "►SYNOPSIS\nGare du Nord, un jeune Picard descend du train avec un seul rêve : chanter. Placé enfant par les services sociaux, il n'a ni famille ni repères, seulement une voix et une immense soif de reconnaissance. Entre la plonge dans le restaurant de Fernand et des auditions qui s'enchaînent sans succès, il trouve un peu de lumière auprès de Samia, apprentie comédienne de banlieue qui se heurte elle aussi aux portes fermées du milieu artistique. Mais un soir de bagarre, un groupe d'hommes remarq",
    "duree_minutes": 81,
@@ -284,7 +284,8 @@
    "miniature": "https://i.ytimg.com/vi/hn7x3_ZAwjY/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "Ciné Movies - Films Complets"
+   "chaine": "Ciné Movies - Films Complets",
+   "titre_accroche": "Le Chant des sirènes : un rêve parisien qui dérape"
   },
   {
    "id": "96VTFHMcsE0",
@@ -399,7 +400,7 @@
   },
   {
    "id": "TTLu5xr4Z5U",
-   "titre": "Leçons de vie",
+   "titre": "School of Life",
    "titre_youtube": "School of Life : un rival adoré de tous les élèves | Film de Comédie complet en Français | Drame",
    "description": "►SYNOPSIS\nAu collège de Fallbrook, un nom règne depuis quarante-trois ans. Chaque année, les élèves sacrent Norman Warner professeur de l'année, et son fils Matt, discret enseignant de biologie, vit dans son ombre. Lorsque le vieux maître disparaît en pleine cérémonie, Matt se jure de garder le trophée dans la famille. C'était sans compter sur Michael D'Angelo, ancien élève devenu professeur d'histoire, qui conquiert en un seul discours élèves et collègues. Cours sans plan de classe, match de so",
    "duree_minutes": 106,
@@ -560,7 +561,7 @@
   },
   {
    "id": "k-tmISn1jO8",
-   "titre": "Christmas Bounty",
+   "titre": "Quand une prof tranquille redevient chasseuse de primes pour Noël",
    "titre_youtube": "Quand une prof tranquille redevient chasseuse de primes pour Noël | Comédie, Action",
    "description": "►SYNOPSIS\nÀ l'approche de Noël, une douce institutrice de banlieue prépare son mariage. Mais Tori Ballard cache un lourd secret à son fiancé très comme il faut et à sa famille guindée : avant sa nouvelle vie tranquille, elle était l'une des meilleures chasseuses de primes du Bronx, élevée dans l'entreprise familiale de cautions judiciaires. Tout dérape lorsque « la Tornade », un dangereux fugitif qu'elle avait jadis fait tomber, resurgit pour les fêtes, bien décidé à se venger. Pour protéger les",
    "duree_minutes": 70,
@@ -572,8 +573,7 @@
     "Action",
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
-   "titre_accroche": "Quand une prof tranquille redevient chasseuse de primes pour Noël"
+   "chaine": "Ciné Nanar - Films Complets en Français"
   },
   {
    "id": "XV2Dc_CpaRY",
@@ -2788,7 +2788,7 @@
   },
   {
    "id": "f2AE9p8Th9A",
-   "titre": "The One : elle est la seule survivante",
+   "titre": "The One",
    "titre_youtube": "The One : elle est la seule survivante | Film Drame complet en Français | Drame | Biopic",
    "description": "►SYNOPSIS\nUnion soviétique, un vol intérieur vers l'Extrême-Orient. Larissa et Vladimir rentrent de leur voyage de noces. Elle a vingt ans, elle vient d'échouer à ses examens à Moscou, elle rêve encore de villes portant son prénom. Le vol 811 décolle avec du retard, et la routine d'un aéroport de province continue au sol. Puis l'appareil croise la trajectoire d'un autre avion. Larissa se réveille au milieu de la forêt, blessée, sans repères, avec le silence pour seule compagnie. Pendant qu'elle ",
    "duree_minutes": 91,
@@ -2798,7 +2798,8 @@
    "genres": [
     "Drame"
    ],
-   "chaine": "Ciné Movies - Films Complets"
+   "chaine": "Ciné Movies - Films Complets",
+   "titre_accroche": "The One : elle est la seule survivante"
   },
   {
    "id": "dLjtsHBM-vU",
@@ -3845,7 +3846,7 @@
   },
   {
    "id": "EbtE6TlVHF0",
-   "titre": "Voice from the Stone : l'enfant qui ne parle plus",
+   "titre": "Voice from the Stone",
    "titre_youtube": "Voice from the Stone : l'enfant qui ne parle plus | Film complet en Français | Mystère",
    "description": "►SYNOPSIS\nToscane, un manoir de pierre, un enfant qui s'est tu. Depuis que sa mère, pianiste réputée, n'est plus là, Jacob n'a plus prononcé un mot. Sept mois et seize jours, compte son père, un sculpteur installé dans la maison familiale de sa femme. Plusieurs infirmières ont déjà échoué. Verena arrive sans diplôme mais avec une réputation : elle sait ramener les enfants à la parole, et elle ne s'attache jamais. Elle découvre un domaine dont chaque mur et chaque couloir semblent garder la mémoi",
    "duree_minutes": 85,
@@ -3855,7 +3856,8 @@
    "genres": [
     "Thriller"
    ],
-   "chaine": "Ciné Movies - Films Complets"
+   "chaine": "Ciné Movies - Films Complets",
+   "titre_accroche": "Voice from the Stone : l'enfant qui ne parle plus"
   },
   {
    "id": "7SHP2yWSEhQ",
@@ -3914,7 +3916,7 @@
   },
   {
    "id": "qDUq5umBl-Q",
-   "titre": "Collision fatale",
+   "titre": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin)",
    "titre_youtube": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin) | Catastrophe",
    "description": "►SYNOPSIS\nUn astéroïde non répertorié percute la face cachée de la Lune. Les premières analyses se veulent rassurantes, jusqu'à ce que des fragments prennent la direction de la Terre et que de profondes fissures apparaissent à la surface du satellite. Une astrophysicienne comprend la première que la Lune se disloque et que les effets sur Terre seront immédiats, tempêtes, séismes et marées hors de contrôle. L'agence spatiale opte pour une solution radicale : une navette chargée de têtes nucléaire",
    "duree_minutes": 81,
@@ -3925,8 +3927,7 @@
     "Catastrophe",
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
-   "titre_accroche": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin)"
+   "chaine": "Ciné Nanar - Films Complets en Français"
   },
   {
    "id": "fQTK6TDQ4P4",
@@ -4143,7 +4144,7 @@
   },
   {
    "id": "qaZoac4z5_8",
-   "titre": "Meteor First Impact : la Terre sous une pluie de météores",
+   "titre": "Meteor First Impact",
    "titre_youtube": "Meteor First Impact : la Terre sous une pluie de météores | Film Catastrophe complet",
    "description": "►SYNOPSIS\nNouveau-Mexique, un laboratoire d'observation spatiale. Bill Zito suit depuis six ans la ceinture d'Artémis et vient de détourner des antennes satellites pour confirmer ce qu'il redoute : des météores en route vers la Terre, avec des dates et des lieux d'impact. Son directeur y voit une faute grave et le met à la porte le matin même. Quelques heures plus tard, un premier cratère s'ouvre en plein désert, à l'endroit exact qu'il avait calculé. Aucune évacuation n'est ordonnée, sa famille",
    "duree_minutes": 74,
@@ -4153,7 +4154,8 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "titre_accroche": "Meteor First Impact : la Terre sous une pluie de météores"
   },
   {
    "id": "mYjCzgo6arA",
@@ -4522,7 +4524,7 @@
   },
   {
    "id": "wtOvAq74Eew",
-   "titre": "Special Forces",
+   "titre": "Une île saturée de gaz oblige les commandos à se battre à mains nues",
    "titre_youtube": "Une île saturée de gaz oblige les commandos à se battre à mains nues | Action, Kung-Fu",
    "description": "►SYNOPSIS\nUne île abandonnée au large de la Sibérie, ancien terrain d'essais soviétique. Frank Ratliff, ex-membre de la Navy passé de l'autre côté, y installe sa base après avoir enlevé une physicienne capable d'assembler des ogives nucléaires. Sa demande est simple : un milliard de dollars sous quarante-huit heures. Le problème tient à l'atmosphère du lieu, saturée de méthane depuis un incendie chimique. La moindre étincelle ferait sauter l'île entière, donc aucune arme à feu, dans aucun camp. ",
    "duree_minutes": 90,
@@ -4532,8 +4534,7 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
-   "titre_accroche": "Une île saturée de gaz oblige les commandos à se battre à mains nues"
+   "chaine": "Ciné Nanar - Films Complets en Français"
   },
   {
    "id": "lYsavltVd80",
@@ -5318,7 +5319,7 @@
   },
   {
    "id": "2ak_-eT4-nw",
-   "titre": "The Elite : une unité d'élite contre une menace terroriste",
+   "titre": "The Elite",
    "titre_youtube": "The Elite : une unité d'élite contre une menace terroriste | Film d'Action complet en Français",
    "description": "►SYNOPSIS\nSur une base militaire, un impressionnant arsenal d'armes et d'explosifs est dérobé. Ce vol n'a rien d'un simple délit : celui qui détient désormais cette puissance de feu a de quoi frapper fort. Face à une menace qui prend vite les contours d'un complot terroriste d'ampleur, l'armée fait appel à ce qu'elle a de mieux : une unité de forces spéciales entraînée à opérer là où personne d'autre ne le peut. Sous les ordres du colonel Jason, ces agents d'élite se lancent pour remonter la tra",
    "duree_minutes": 94,
@@ -5328,7 +5329,8 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "titre_accroche": "The Elite : une unité d'élite contre une menace terroriste"
   },
   {
    "id": "mvIW1SHmNDk",
@@ -5832,7 +5834,7 @@
   },
   {
    "id": "FJJPUwMZeNI",
-   "titre": "Le Protecteur",
+   "titre": "Hors de portée",
    "titre_youtube": "Hors de portée : un ex-agent au secours d'une enfant enlevée (Steven Seagal) | Film en Français",
    "description": "►SYNOPSIS\nRetiré du monde, un ancien agent d'élite mène une vie paisible auprès d'animaux blessés. Son seul véritable lien avec le monde, c'est Kasia, une jeune orpheline qu'il parraine dans un foyer d'Europe de l'Est. Tous deux s'écrivent, et leurs lettres cachent de petits codes et des jeux, un langage rien qu'à eux. Mais un jour, les lettres cessent d'arriver. William apprend bientôt l'affreuse vérité : Kasia a été enlevée par un réseau de trafic d'enfants qui s'en prend aux orphelins et dépl",
    "duree_minutes": 82,
@@ -6566,7 +6568,7 @@
   },
   {
    "id": "wqddWYn8Nus",
-   "titre": "Don't Wake Mommy",
+   "titre": "Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable",
    "titre_youtube": "Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable | Thriller | Drame",
    "description": "►SYNOPSIS\nUne jeune maman rentre chez elle avec son nouveau-né, épuisée mais comblée. Mais les premières semaines s'avèrent plus rudes qu'imaginé, et la jeune femme s'enfonce peu à peu dans une profonde détresse post-partum, se sentant dépassée et étrangère à sa propre vie. C'est alors qu'une femme au visage rassurant entre dans son quotidien, se rendant chaque jour plus indispensable, prête à tout pour la soulager de ses tâches et à s'occuper du bébé. Derrière cette bienveillance affichée se ca",
    "duree_minutes": 89,
@@ -6576,8 +6578,7 @@
    "genres": [
     "Thriller"
    ],
-   "chaine": "Ciné Movies - Films Complets",
-   "titre_accroche": "Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable"
+   "chaine": "Ciné Movies - Films Complets"
   },
   {
    "id": "IxghhKVvy_w",
@@ -6763,7 +6764,7 @@
   },
   {
    "id": "tf8OIZKzvO4",
-   "titre": "Les Chroniques de Mars",
+   "titre": "Princess of Mars",
    "titre_youtube": "Princess of Mars : un simple soldat devient le héros de Mars | Film de Sci-Fi complet en Français",
    "description": "►SYNOPSIS\nGravement blessé au combat, un soldat américain devient le cobaye d'une expérience secrète. Arraché de justesse par une technologie de téléportation expérimentale, John Carter voit son corps projeté à travers l'espace jusqu'à Mars 216, un monde lointain où grouille une vie extraterrestre. Là, la faible gravité de la planète fait de lui un guerrier d'une force prodigieuse. Capturé par les redoutables Tharks, ces Martiens à la peau verte, il gagne leur respect en combat singulier et se r",
    "duree_minutes": 85,
@@ -7582,7 +7583,7 @@
   },
   {
    "id": "nGUOH8_4QMQ",
-   "titre": "Death Al Dente: A Gourmet Detective Mystery",
+   "titre": "Ice Road Terror",
    "titre_youtube": "Ice Road Terror : la créature rôde sur la route | Film d'Horreur complet en Français",
    "description": "►SYNOPSIS\nDans le grand nord gelé, des routiers convoient des explosifs vers une mine reculée. Pour l'atteindre avant que le dégel ne rende les routes de glace impraticables, ils doivent traverser des lacs figés dont la surface commence déjà à fondre. À la mine, les ouvriers enfouissent leurs charges plus profond que d'habitude dans le permafrost, et l'explosion, en dégageant une fortune en diamants, éventre le repaire de quelque chose qui aurait dû rester enseveli. Une créature préhistorique co",
    "duree_minutes": 86,
@@ -8070,7 +8071,7 @@
   },
   {
    "id": "saybiW89cd8",
-   "titre": "L'Attaque du requin à six têtes",
+   "titre": "Planet of the Sharks",
    "titre_youtube": "Planet of the Sharks : un monde noyé où les requins règnent | Film d'Horreur complet en Français",
    "description": "►SYNOPSIS\nDans un futur proche, la fonte des glaces a recouvert la Terre d'eau. Quatre-vingt-dix-huit pour cent de la planète repose désormais sous les flots. Les derniers survivants s'accrochent à des radeaux, des bateaux et des colonies flottantes de fortune, glanant l'eau douce des moussons dans un monde noyé toujours plus hostile. Dans cet océan sans fin, les requins sont devenus l'espèce dominante : ils pullulent par milliers, toutes espèces confondues, et se comportent comme jamais auparav",
    "duree_minutes": 89,
@@ -8355,7 +8356,7 @@
   },
   {
    "id": "xONgviiz_5Q",
-   "titre": "Fire Twister : une tornade de feu ravage la ville",
+   "titre": "Fire Twister",
    "titre_youtube": "Fire Twister : une tornade de feu ravage la ville | Film Catastrophe complet en Français",
    "description": "►SYNOPSIS\nÀ Los Angeles, l'explosion d'un dépôt pétrolier embrase soudain toute une partie de la ville. Des flammes s'élève un phénomène que personne n'a jamais vu : une tornade de feu de plus de soixante-dix mètres de haut, qui balaie les rues et se nourrit de tout ce qu'elle touche. Pire encore, le vortex semble attiré par la chaleur : il poursuit les moteurs, les foyers et les êtres vivants comme s'il les traquait, et engendre de nouvelles tornades sur son passage. Alors que les autorités per",
    "duree_minutes": 82,
@@ -8365,7 +8366,8 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "titre_accroche": "Fire Twister : une tornade de feu ravage la ville"
   },
   {
    "id": "pLncCfrNAhk",
@@ -9087,7 +9089,7 @@
   },
   {
    "id": "kUe3qvxbb_8",
-   "titre": "Age of the Dragons : la chasse au légendaire Dragon blanc",
+   "titre": "Age of the Dragons",
    "titre_youtube": "Age of the Dragons : la chasse au légendaire Dragon blanc | Film Fantastique complet en Français",
    "description": "►SYNOPSIS\nDans un monde où les hommes chassent les dragons pour leur précieux vitriol, une légende sème l'effroi. Le jeune Ismaël, harponneur, s'engage dans l'équipage d'un redoutable chasseur de dragons : le capitaine Achab. Des années plus tôt, un dragon blanc légendaire lui a ravagé le visage et anéanti tout son équipage, le laissant dévoré par une seule obsession : traquer la bête et la détruire, quel qu'en soit le prix. À bord de son navire mû au vitriol, entouré de son second Starbuck et d",
    "duree_minutes": 87,
@@ -9097,7 +9099,8 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "titre_accroche": "Age of the Dragons : la chasse au légendaire Dragon blanc"
   },
   {
    "id": "qLlRfQbKF1k",
@@ -9236,7 +9239,7 @@
   },
   {
    "id": "pDyeKijKSL4",
-   "titre": "Dragon Hunter : deux frères face à une invasion de Dragons",
+   "titre": "Dragon Hunter",
    "titre_youtube": "Dragon Hunter : deux frères face à une invasion de Dragons | Film Fantastique complet en Français",
    "description": "►SYNOPSIS\nDans un royaume médiéval ravagé par les dragons, deux frères perdent tout. Après qu'une de ces bêtes a réduit leur foyer en cendres, Darius et son jeune frère Kendrick se retrouvent seuls, liés par une promesse faite à leur père : veiller l'un sur l'autre coûte que coûte. Sur les routes, les deux frères croisent une troupe de chasseurs de dragons aguerris et un étrange protecteur, et se joignent à leur périlleux voyage vers un village lointain qui détiendrait la clé du fléau. À travers",
    "duree_minutes": 86,
@@ -9246,7 +9249,8 @@
    "genres": [
     "Nanar"
    ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "titre_accroche": "Dragon Hunter : deux frères face à une invasion de Dragons"
   },
   {
    "id": "-hoxPlfKisA",
@@ -9808,7 +9812,7 @@
   },
   {
    "id": "D5OmGyuKBIQ",
-   "titre": "(Ryan Reynolds) Just Friends : dix ans pour sortir de la friendzone",
+   "titre": "(Ryan Reynolds) Just Friends",
    "titre_youtube": "(Ryan Reynolds) Just Friends : dix ans pour sortir de la friendzone | Comédie romantique",
    "description": "►SYNOPSIS\nAu lycée, un adolescent maladroit était follement amoureux de sa meilleure amie. Humilié le soir où il a osé lui avouer ses sentiments, Chris Brander a fui sa petite ville pour se réinventer. Dix ans plus tard, il est devenu un producteur de musique séduisant et sûr de lui, à des années-lumière du garçon complexé d'autrefois. Mais lorsqu'un imprévu le force à passer Noël dans sa ville natale, il retombe nez à nez avec Jamie Palamino, celle qui ne l'a jamais vu que comme un ami. Bien dé",
    "duree_minutes": 84,
@@ -9818,7 +9822,8 @@
    "genres": [
     "Comédie romantique"
    ],
-   "chaine": "Ciné Movies - Films Complets"
+   "chaine": "Ciné Movies - Films Complets",
+   "titre_accroche": "(Ryan Reynolds) Just Friends : dix ans pour sortir de la friendzone"
   },
   {
    "id": "UbnoJ5P6D_s",
@@ -22955,7 +22960,7 @@
   },
   {
    "id": "aF7VUgjs0Xg",
-   "titre": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)",
+   "titre": "Lost Letter Mysteries",
    "titre_youtube": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)",
    "description": "__\nNOUVEAUTÉ FILM MYSTÈRE, ROMANCE, DRAME – téléfilm entier 2025 HD et VF :  ✉️ Une lettre oubliée… un secret bouleversant… et des vies qui basculent. 🌪️💌\nL’équipe d’Oliver, détectives postaux spécialisés dans la livraison de lettres perdues, se voit confier une mission intrigante : enquêter sur une lettre datant de 2005, arrivée par hasard sur le bureau de feue Eleonor.\nAu fur et à mesure de leur enquête, ils découvrent que cette lettre cache un secret bouleversant qui pourrait changer le desti",
    "duree_minutes": 84,
@@ -22963,7 +22968,8 @@
    "miniature": "https://i.ytimg.com/vi/aF7VUgjs0Xg/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "My Digital Channel - Films Complets"
+   "chaine": "My Digital Channel - Films Complets",
+   "titre_accroche": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)"
   },
   {
    "id": "6xSaa8OsNcM",
@@ -24463,20 +24469,6 @@
     "Horreur"
    ],
    "chaine": "Boxoffice | HORREUR | Films Complets"
-  },
-  {
-   "id": "SKknuJHPepQ",
-   "titre": "FIRE TWISTER",
-   "titre_youtube": "FIRE TWISTER | FILM COMPLET EN FRANÇAIS | Casper Van Dien & Leah Bateman",
-   "description": "►SYNOPSIS\nUne tornade de feu provoquée par l'homme balaye Los Angeles, laissant la ville en ruines. Cependant, tout n'est pas perdu lorsqu'un groupe d'inconnus s'unit pour mettre fin à la destruction.\n\n►ACTEURS\nCasper Van Dien, Lisa Davis, Johnny Hawkes\n\n►Réalisation\nGeorge Erschbamer\n\nAbonne-toi à notre chaîne si tu veux être informé des prochains films !\n🔔 https://bit.ly/3hJYi25\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n\n►Ciné Movies : https://bit.ly/3Z7TQRA\n►Ciné Nan",
-   "duree_minutes": 82,
-   "date": "2025-08-30T18:00:20Z",
-   "miniature": "https://i.ytimg.com/vi/SKknuJHPepQ/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
   },
   {
    "id": "JgaBlDZ6hxo",
@@ -34474,7 +34466,7 @@
   },
   {
    "id": "Qb8l2nD9mnc",
-   "titre": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)",
+   "titre": "Retour à Cedar Cove",
    "titre_youtube": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)",
    "description": "NOUVEAUTÉ SÉRIE 2024 COMÉDIE, ROMANTIQUE, PARTIE 2 en HD et VF : Après le film éponyme disponible sur notre chaîne, retrouvez Olivia interprétée par Andie MacDowell (UN JOUR SANS FIN, QUATRE MARIAGES ET UN ENTERREMENT) dans cette série touchante aux sous-tons romantiques. Découvrez la suite dans cette nouvelle partie ! \n\nOlivia qui est juge à Cedar Cove, une ville chaleureuse le long des côtes, aspire à être promue en tant que juge fédéral. Déterminée à atteindre son but, elle tombe néanmoins so",
    "duree_minutes": 84,
@@ -34482,7 +34474,8 @@
    "miniature": "https://i.ytimg.com/vi/Qb8l2nD9mnc/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "My Digital Channel - Films Complets"
+   "chaine": "My Digital Channel - Films Complets",
+   "titre_accroche": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)"
   },
   {
    "id": "crmiVgHhfEU",
@@ -37708,20 +37701,6 @@
    "chaine": "Allociné Films Complets"
   },
   {
-   "id": "13HA6LwMbhg",
-   "titre": "Age of the Dragons",
-   "titre_youtube": "Age of the Dragons 🐉 | Film d'Action Complet en Français | Danny Glover, Sofia Pernas",
-   "description": "Le roman classique Moby Dick de Herman Melville est recréé dans un monde où le capitaine Achab et son équipage sont à la recherche d'un grand dragon blanc.\n\nAvec Danny Glover, Vinnie Jones, Corey Sevier et Sofia Pernas\n\nRéalisé par Ryan Little\n\nEnjoy ! 😜\n\nAbonne-toi à notre chaîne si tu veux découvrir pleins d’autres supers nanars !\n🔔 https://bit.ly/3cOJFIM\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n@CineMoviesFilmsComplets \n@CineClassicsFilmsComplets \n@CineWesternFilmsC",
-   "duree_minutes": 92,
-   "date": "2024-03-24T18:00:00Z",
-   "miniature": "https://i.ytimg.com/vi/13HA6LwMbhg/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français"
-  },
-  {
    "id": "R0x7rbzIqR8",
    "titre": "La Proposition",
    "titre_youtube": "La Proposition | Zoey Deutch | Film Complet en Français | Comédie",
@@ -38829,18 +38808,6 @@
     "Drame"
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets"
-  },
-  {
-   "id": "0MMTRaTp23I",
-   "titre": "Retour à Cedar Cove",
-   "titre_youtube": "Retour à Cedar Cove - Film complet HD en français (Comédie, Romance)",
-   "description": "NOUVEAUTÉ FILM COMÉDIE, ÉMOTION, ROMANCE, film entier 2023 HD et VF : Adaptation de la série à succès éponyme diffusée sur TF1, et portée par Andie McDowell (UN JOUR SANS FIN, QUATRE MARIAGES ET UN ENTERREMENT), cette comédie dramatique touchante et presque hors du temps saura ravir les fans du genre. \n\nOlivia, magistrate à la cour municipale de Cedar Cove, une petite ville côtière des États-Unis, aspire à remplacer le juge en poste et ainsi accéder à la fonction de juge fédéral. Lors d’une audi",
-   "duree_minutes": 85,
-   "date": "2024-01-30T17:00:00Z",
-   "miniature": "https://i.ytimg.com/vi/0MMTRaTp23I/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
-   "chaine": "My Digital Channel - Films Complets"
   },
   {
    "id": "LUu4Tidttas",
@@ -45917,6 +45884,20 @@
    "chaine": "Boxoffice | DRAMES | Films Complets"
   },
   {
+   "id": "HfWsdivBr_U",
+   "titre": "Les Chroniques de Mars",
+   "titre_youtube": "Les Chroniques de Mars - Film Fantastique Complet en Français | Mark Atkins & Traci Lords",
+   "description": "Dans cette adaptation moderne du roman d'Edgar Rice Burroughs, le soldat américain John Carter se retrouve transporté sur Mars sans explication au milieu d'une guerre entre deux races d'extra-terrestres.\n\navec Antonio Sabato Jr., Traci Lords, Matt Lasky & Chacko Vadaketh\nréalisé par Mark Atkins\n\nEnjoy ! 😜\n\nAbonne-toi à notre chaîne si tu veux découvrir pleins d’autres supers nanars !\n🔔 https://bit.ly/3cOJFIM\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n˃ CinéMovies : https",
+   "duree_minutes": 86,
+   "date": "2022-08-26T16:00:25Z",
+   "miniature": "https://i.ytimg.com/vi/HfWsdivBr_U/maxresdefault.jpg",
+   "genre": "Nanar",
+   "genres": [
+    "Nanar"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français"
+  },
+  {
    "id": "9lEMT-zRak4",
    "titre": "Air Strike",
    "titre_youtube": "Air Strike  | Film Complet en Français | Guerre, Action",
@@ -52938,7 +52919,7 @@
   },
   {
    "id": "hddeR3Ywnow",
-   "titre": "Pink Floyd : l'histoire d'un groupe de Rock légendaire - Documentaire en Français",
+   "titre": "Pink Floyd",
    "titre_youtube": "Pink Floyd : l'histoire d'un groupe de Rock légendaire - Documentaire en Français",
    "description": "Avec plus de 200 millions de disques vendus dans le monde entier, Pink Floyd a produit plusieurs des musiques les plus célèbres de l'histoire du rock\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PL5YIdP7ffs2thTnywk5hqGCertSB3UmTX\n\nGenre : Film Entier Gratuit , Musique, Documentaire\n2017 - 2018 - Tous Droits Réservés #FilmComplet",
    "duree_minutes": 77,
@@ -52946,7 +52927,8 @@
    "miniature": "https://i.ytimg.com/vi/hddeR3Ywnow/maxresdefault.jpg",
    "genre": "",
    "genres": [],
-   "chaine": "Allociné Films Complets"
+   "chaine": "Allociné Films Complets",
+   "titre_accroche": "Pink Floyd : l'histoire d'un groupe de Rock légendaire - Documentaire en Français"
   },
   {
    "id": "0H2n3ORQfQI",
@@ -53716,348 +53698,369 @@
    "titre": "Head Hunter",
    "date": "2026-11-17",
    "regle": 6
+  },
+  "No8UmXSbx2Y": {
+   "id": null,
+   "langue": null,
+   "titre": "Casino : Assaut Final",
+   "date": "2026-11-17",
+   "regle": 6
+  },
+  "pJ0nlhmk5-c": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Nuit avec un DJ",
+   "date": "2026-11-17",
+   "regle": 6
+  },
+  "M9VE5CqpIWk": {
+   "id": null,
+   "langue": null,
+   "titre": "Escapade pour Noël",
+   "date": "2026-11-17",
+   "regle": 6
   }
  },
  "titres_trouves": {
   "7SLNdGvhzPo": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "D4fIbRONtns": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "izkDpFEgsVE": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "EXCXi43mUuo": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "UHKZ_SxGRlE": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "hddeR3Ywnow": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "UMpW97A6RCY": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "ovbp8UqE1To": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "pqYtAWEqtNM": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "LCavQqPDgNY": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "zodcgmRjCSk": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "eCfuqmVMQBI": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "aqiVJBZmd_0": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "MHLV7WL8Q5s": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "0Iu9aPmsDsQ": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "FTFKjoaEh_g": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "6VOG8wEybAI": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "CVY5kjA13vs": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "cHWeXfsTrJo": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "DtLTeJfANTs": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "Z1n4RIKw1gc": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "h6H8IXWMa-U": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "sRMQPaoYH20": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "y4aAxlAIjOI": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "pbNhW9lq6Ec": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "NlSwzz1upsc": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "oOt1k40Der8": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "hmHtz01mGzU": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "aF7VUgjs0Xg": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "naZzfc4SLpk": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "Ej5wnLMzsAM": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "Qb8l2nD9mnc": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "-TbiTW6WxTI": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "LAD1S1jWa48": {
    "titre": "Clayton l'Implacable",
-   "date": "2026-11-17"
-  },
-  "hn7x3_ZAwjY": {
-   "titre": null,
-   "date": "2026-11-17"
-  },
-  "TTLu5xr4Z5U": {
-   "titre": "Leçons de vie",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "XvpWd1sO6Ug": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "kkA7wEhBEJU": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "sr6PnL03qJU": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "issn6oZGOG4": {
    "titre": "False Pretenses",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "LKS6buqpTxA": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "7ofvjBw4F6Y": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "f2AE9p8Th9A": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "glxqtAZbYWk": {
    "titre": "Père et Fille",
-   "date": "2026-11-17"
-  },
-  "EbtE6TlVHF0": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wRq3nxLIcks": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "FlFjS0VrE2g": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wqddWYn8Nus": {
-   "titre": "Don't Wake Mommy",
-   "date": "2026-11-17"
+   "titre": null,
+   "date": "2026-11-17",
+   "regle": 2
   },
   "ovMYBF4Ixq8": {
    "titre": "Best of the Best 3",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "uCZF__P8Qvk": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "HdJmx2B8edg": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "Hb7pxRPM9Rg": {
    "titre": "La Fugitive",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wGiezrqnStg": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "PBt8wh-DvEQ": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "D5OmGyuKBIQ": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "_NgPVHlLAKQ": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "oZyRoiWHI8U": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "JQomSwDd7xs": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "xTd6pVSAPYs": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wzVY9t3pZUc": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "ejSv7ZEUN-s": {
    "titre": "Osiris, la 9ème planète",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "k-tmISn1jO8": {
-   "titre": "Christmas Bounty",
-   "date": "2026-11-17"
+   "titre": null,
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wKGbPgjFpf0": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "4Aulpl_BdVA": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "bmDwA2ZMezA": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "gbKaaL65rDc": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "qDUq5umBl-Q": {
-   "titre": "Collision fatale",
-   "date": "2026-11-17"
-  },
-  "qaZoac4z5_8": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "wtOvAq74Eew": {
-   "titre": "Special Forces",
-   "date": "2026-11-17"
+   "titre": null,
+   "date": "2026-11-17",
+   "regle": 2
   },
   "M0c1HJh0Lbc": {
    "titre": "Showdown in Manila",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "F6NdXt5QJH8": {
    "titre": "Welcome to Acapulco",
-   "date": "2026-11-17"
-  },
-  "2ak_-eT4-nw": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "FBY1lnFqQag": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "FJJPUwMZeNI": {
-   "titre": "Le Protecteur",
-   "date": "2026-11-17"
-  },
-  "tf8OIZKzvO4": {
-   "titre": "Les Chroniques de Mars",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "rImJHGpCAmg": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "EoJ9Gd86Gt8": {
    "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "8-oRzGlvszs": {
    "titre": null,
-   "date": "2026-11-17"
-  },
-  "nGUOH8_4QMQ": {
-   "titre": "Death Al Dente: A Gourmet Detective Mystery",
-   "date": "2026-11-17"
-  },
-  "saybiW89cd8": {
-   "titre": "L'Attaque du requin à six têtes",
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "eeZZfsQea7o": {
    "titre": "Incoming",
-   "date": "2026-11-17"
-  },
-  "xONgviiz_5Q": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   },
   "xzprfE7GHes": {
    "titre": "Hwayi",
-   "date": "2026-11-17"
-  },
-  "kUe3qvxbb_8": {
-   "titre": null,
-   "date": "2026-11-17"
-  },
-  "pDyeKijKSL4": {
-   "titre": null,
-   "date": "2026-11-17"
+   "date": "2026-11-17",
+   "regle": 2
   }
  }
 }
