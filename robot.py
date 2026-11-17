@@ -380,21 +380,62 @@ def sans_doublons(films):
     return resultat
 
 
+# « Titre : Exeter » dans la description (pas « Titre original : … »).
+TITRE_DESCRIPTION = re.compile(
+    r"^[^\w\n]*titre(?:\s+(?:du\s+film|fran[cç]ais|vf))?\s*:\s*(.+?)\s*$",
+    flags=re.IGNORECASE | re.MULTILINE,
+)
+
+
+def titre_dans_description(description):
+    """Vrai titre écrit par la chaîne dans sa description, ou None."""
+    m = TITRE_DESCRIPTION.search(description or "")
+    if not m:
+        return None
+    titre = sans_emojis(m.group(1)).strip(" «»\"'“”.-–—|")
+    if not titre or len(titre) > 80 or len(titre.split()) > 12:
+        return None
+    return titre
+
+
+def genres_des_hashtags(description):
+    """« #Horreur #ScienceFiction » -> ["Horreur", "Science-fiction"]
+    (seulement des genres connus, les autres hashtags sont ignorés)."""
+    genres = []
+    for tag in re.findall(r"#([^\W\d_][\w-]*)", description or ""):
+        tag = re.sub(r"(?<=[a-zà-ÿ])(?=[A-Z])", " ", tag).replace("_", " ")
+        genre = genre_normalise(tag, strict=True)
+        if genre and genre not in genres:
+            genres.append(genre)
+    return genres
+
+
 def fiche_film(video, chaine):
     snippet = video["snippet"]
-    # Les genres du titre sont les plus précis. Le genre de la chaîne est ajouté
-    # en plus, sauf « Animation » : la chaîne Animation publie aussi des films
-    # avec de vrais acteurs (ex. « Le Monstre des Sables »).
-    genres = genres_du_titre(snippet.get("title", ""))
+    description = snippet.get("description", "")
+    # Les genres du titre sont les plus précis. Sinon, ceux des hashtags de la
+    # description (#Horreur). Le genre de la chaîne est ajouté en plus, sauf
+    # « Animation » : la chaîne Animation publie aussi des films avec de vrais
+    # acteurs (ex. « Le Monstre des Sables »).
+    genres = genres_du_titre(snippet.get("title", "")) or genres_des_hashtags(description)
     genre_chaine = chaine.get("genre", "")
     if genre_chaine and genre_chaine not in genres:
         if not genres:
             genres.append(genre_chaine)
         elif genre_chaine != "Animation":
             genres.append(genre_chaine)
+    titre = titre_propre(snippet.get("title", ""))
+    fiche_titre = {}
+    vrai_titre = titre_dans_description(description)
+    if vrai_titre and normalise(vrai_titre) != normalise(titre):
+        # La chaîne a mis une accroche dans le titre YouTube, mais le vrai nom
+        # du film dans la description : « Titre : Exeter ».
+        fiche_titre = {"titre_accroche": titre}
+        titre = vrai_titre
     return {
+        **fiche_titre,
         "id": video["id"],
-        "titre": titre_propre(snippet.get("title", "")),
+        "titre": titre,
         "titre_youtube": snippet.get("title", ""),
         "description": snippet.get("description", "")[:500],
         "duree_minutes": duree_en_minutes(video["contentDetails"].get("duration")),
