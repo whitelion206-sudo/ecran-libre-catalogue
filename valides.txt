@@ -1,0 +1,3 @@
+# Bandes-annonces vérifiées à la main : le robot les garde même sans preuve.
+# Une ligne par film : son titre exact dans l'appli (ou l'id de la bande-annonce).
+Rouge rubis

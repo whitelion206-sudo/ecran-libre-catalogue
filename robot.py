@@ -47,6 +47,8 @@ DUREE_MIN_MINUTES = 60
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 FICHIER_CHAINES = os.path.join(DOSSIER, "chaines.json")
 FICHIER_EXCLUS = os.path.join(DOSSIER, "exclus.txt")
+# Bandes-annonces vérifiées à la main : gardées même sans preuve.
+FICHIER_VALIDES = os.path.join(DOSSIER, "valides.txt")
 FICHIER_CATALOGUE = os.path.join(DOSSIER, "catalogue.json")
 FICHIER_CLASSIQUES = os.path.join(DOSSIER, "classiques.json")
 
@@ -711,7 +713,7 @@ MAX_RECHERCHES = 70
 # à sa mise en ligne sur YouTube (« © 2026 »…) : ce n'est pas l'année du film.
 # Changer ce numéro efface toutes les recherches faites avec l'ancienne règle
 # (trouvées ou non) : elles sont refaites avec la nouvelle.
-REGLE_BA = 6
+REGLE_BA = 6   # (règle 7 « preuve obligatoire » : appliquée sans tout effacer, voir bandes_annonces)
 REESSAI_JOURS = 90          # film sans bande-annonce : on recherche après 90 jours
 DUREE_MAX_BA_MINUTES = 6
 
@@ -805,7 +807,7 @@ def meme_film(texte_film, texte_ba, titre_film, annee_mise_en_ligne=None):
 
 
 STATS_BA = {"pas_francais": 0, "autre_langue": 0, "conflit": 0, "avec_preuve": 0,
-            "sans_preuve": 0}
+            "sans_preuve": 0, "sans_indice": 0, "retirees": []}
 EXEMPLES_REFUSES = []
 
 
@@ -905,10 +907,30 @@ def langue_pas_francaise(video):
     return bool(audio) and not audio.startswith("fr")
 
 
-def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
+def a_des_indices(texte_film, titre_film, annee_mise_en_ligne):
+    """Vrai si la description du film donne de quoi prouver qu'une
+    bande-annonce est la bonne : un nom (acteur, réalisateur) ou une année."""
+    annees, noms = preuves(texte_film, set(normalise(titre_film).split()))
+    if annee_mise_en_ligne:
+        annees = {a for a in annees if int(a) < annee_mise_en_ligne}
+    return bool(annees or noms)
+
+
+def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films, valides=frozenset()):
     """Ajoute « bande_annonce » aux films et renvoie la mémoire des recherches.
-    textes_films : {id du film: titre + description complète sur YouTube}."""
+    textes_films : {id du film: titre + description complète sur YouTube}.
+    Règle 7 : une bande-annonce n'est choisie qu'avec une preuve (même acteur
+    ou même année que le film), sauf si elle figure dans valides.txt."""
     aujourd_hui = datetime.now(timezone.utc).date()
+    titres_valides = {normalise(v) for v in valides}
+
+    def texte_et_annee(film):
+        texte = textes_films.get(film["id"]) or (film["titre_youtube"] + "\n" + film["description"])
+        annee = int(film["date"][:4]) if str(film.get("date", ""))[:4].isdigit() else None
+        return texte, annee
+
+    def est_valide(film, id_ba):
+        return id_ba in valides or normalise(film["titre"]) in titres_valides
     memoire = {fid: r for fid, r in ancien_catalogue.get("recherches_bandes_annonces", {}).items()
                if fid in films and r.get("regle") == REGLE_BA}
     # Titre corrigé depuis la dernière recherche (phrase d'accroche) : la
@@ -927,6 +949,20 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
         for fid, id_ba in deja.items():
             if id_ba not in encore_bonnes:
                 del memoire[fid]  # supprimée ou bloquée : on cherchera une autre
+                continue
+            # Choisie autrefois sans preuve : on la retire, sauf si elle a été
+            # vérifiée à la main (valides.txt).
+            film = films[fid]
+            if est_valide(film, id_ba):
+                continue
+            snippet = encore_bonnes[id_ba].get("snippet", {})
+            texte_ba = snippet.get("title", "") + "\n" + snippet.get("description", "")
+            texte_film, annee_film = texte_et_annee(film)
+            verdict, _ = meme_film(texte_film, texte_ba, film["titre"], annee_film)
+            if verdict != "preuve":
+                STATS_BA["retirees"].append(f"{film['titre']} (id : {id_ba})")
+                memoire[fid] = {"id": None, "titre": film["titre"],
+                                "date": aujourd_hui.isoformat(), "regle": REGLE_BA}
     except RuntimeError as erreur:
         print(f"Vérification des bandes-annonces impossible aujourd'hui : {erreur}")
 
@@ -942,8 +978,17 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
         except ValueError:
             return True
 
-    file_attente = [f for f in sorted(films.values(), key=lambda f: f["date"], reverse=True)
-                    if a_chercher(f["id"])]
+    # Inutile de chercher (et de dépenser du quota) pour un film dont la
+    # description ne donne ni acteur ni année : on ne pourrait rien prouver.
+    file_attente = []
+    for f in sorted(films.values(), key=lambda f: f["date"], reverse=True):
+        if not a_chercher(f["id"]):
+            continue
+        texte_film, annee_film = texte_et_annee(f)
+        if a_des_indices(texte_film, f["titre"], annee_film) or normalise(f["titre"]) in titres_valides:
+            file_attente.append(f)
+        else:
+            STATS_BA["sans_indice"] += 1
     candidats = {}
     for film in file_attente[:MAX_RECHERCHES]:
         try:
@@ -963,8 +1008,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
             pour_enfants[id_ba] = bool(video.get("status", {}).get("madeForKids", False))
         for fid, liste in candidats.items():
             film = films[fid]
-            texte_film = textes_films.get(fid) or (film["titre_youtube"] + "\n" + film["description"])
-            annee_film = int(film["date"][:4]) if str(film.get("date", ""))[:4].isdigit() else None
+            texte_film, annee_film = texte_et_annee(film)
             gardees = []
             for id_ba, titre_ba, langue in liste:
                 video = lisibles.get(id_ba)
@@ -983,12 +1027,15 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
                     if len(EXEMPLES_REFUSES) < 10:
                         EXEMPLES_REFUSES.append(f"{film['titre']} → {titre_ba} ({detail})")
                     continue
+                if verdict != "preuve" and not est_valide(film, id_ba):
+                    STATS_BA["sans_preuve"] += 1  # même titre, mais rien ne prouve que c'est le même film
+                    continue
                 rang = (0 if langue == "VF" else 1, 0 if verdict == "preuve" else 1)
-                gardees.append((rang, id_ba, titre_ba, langue, detail or "sans preuve"))
+                gardees.append((rang, id_ba, titre_ba, langue, detail or "vérifiée à la main"))
             choix, langue_choisie = None, None
             if gardees:
                 rang, choix, titre_ba, langue_choisie, detail = min(gardees)
-                STATS_BA["avec_preuve" if rang[1] == 0 else "sans_preuve"] += 1
+                STATS_BA["avec_preuve"] += 1
                 trouvees.append(f"{film['titre']} → {titre_ba} [{langue_choisie} · {detail}] "
                                 f"(id : {choix})")
             memoire[fid] = {"id": choix, "langue": langue_choisie, "titre": film["titre"],
@@ -1009,9 +1056,13 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films):
     print(f"Bandes-annonces : {len(candidats)} recherches aujourd'hui, "
           f"{avec} films en ont une (dont {vostfr} en VOSTFR), {reste} films restent à chercher.")
     print(f"Refusées : {STATS_BA['pas_francais']} ni VF ni VOSTFR, {STATS_BA['autre_langue']} "
-          f"« VF » mais son dans une autre langue, {STATS_BA['conflit']} d'une autre année.")
-    print(f"Choisies aujourd'hui : {STATS_BA['avec_preuve']} avec preuve (même acteur ou "
-          f"même année), {STATS_BA['sans_preuve']} sans preuve.")
+          f"« VF » mais son dans une autre langue, {STATS_BA['conflit']} d'une autre année, "
+          f"{STATS_BA['sans_preuve']} sans preuve que c'est le même film.")
+    print(f"Choisies aujourd'hui : {STATS_BA['avec_preuve']} (même acteur ou même année). "
+          f"Films non cherchés faute d'indice (ni acteur ni année) : {STATS_BA['sans_indice']}.")
+    if STATS_BA["retirees"]:
+        print(f"Retirées car choisies sans preuve : {len(STATS_BA['retirees'])} "
+              f"(ex. : {', '.join(STATS_BA['retirees'][:6])})")
     if trouvees:
         print("Nouvelles bandes-annonces (pour en bloquer une, ajouter son id dans exclus.txt) :")
         for ligne in trouvees:
@@ -1127,12 +1178,23 @@ def classiques(ancien_catalogue):
     return liste
 
 
-def lire_exclus():
-    if not os.path.exists(FICHIER_EXCLUS):
+def lire_liste(chemin):
+    """Une valeur par ligne ; ce qui suit « # » est un commentaire."""
+    if not os.path.exists(chemin):
         return set()
-    with open(FICHIER_EXCLUS, encoding="utf-8") as f:
+    with open(chemin, encoding="utf-8") as f:
         lignes = (ligne.split("#")[0].strip() for ligne in f)
         return {ligne for ligne in lignes if ligne}
+
+
+def lire_exclus():
+    return lire_liste(FICHIER_EXCLUS)
+
+
+def lire_valides():
+    """valides.txt : titres de films (comme dans l'appli) ou ids de
+    bandes-annonces vérifiées à la main."""
+    return lire_liste(FICHIER_VALIDES)
 
 
 def main():
@@ -1173,7 +1235,7 @@ def main():
     memoire_titres = vrais_titres(films, textes_films, ancien)
     films = sans_doublons(films)
 
-    memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films)
+    memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
