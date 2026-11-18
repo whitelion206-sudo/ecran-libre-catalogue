@@ -140,12 +140,37 @@ def _mot_en_minuscules(mot, debut):
     return "-".join(parties)
 
 
+def _debut_en_majuscules(titre):
+    """« LES CONTES DE MAUPASSANT Le Père Amable » -> « Les Contes de Maupassant –
+    Le Père Amable ». Seulement quand le titre COMMENCE par au moins 3 mots tout
+    en majuscules (« FBI : Mission » ou « SOS Fantômes » ne changent pas)."""
+    mots = titre.split(" ")
+    n = 0
+    for mot in mots:
+        coeur = re.sub(r"\W", "", mot)
+        if len(coeur) >= 2 and coeur.isupper() and any(c.isalpha() for c in coeur):
+            n += 1
+        elif coeur in ("A", "À", "Y", "D", "L"):   # « À », « Y » seuls
+            n += 1
+        else:
+            break
+    if n < 3 or n == len(mots):
+        return titre
+    debut = sans_majuscules(" ".join(mots[:n]))
+    reste = " ".join(mots[n:])
+    if not re.search(r"[:–—\-|]\s*$", debut) and not re.match(r"^\s*[:–—\-|(]", reste):
+        debut += " –"   # un tiret, pas « : » (sinon la règle des deux-points couperait le titre)
+    return debut + " " + reste
+
+
 def sans_majuscules(titre):
     """« UNE SECONDE POUR MOURIR » -> « Une Seconde pour Mourir ». Les titres qui
     ont déjà des minuscules, ou trop courts (« DJ »), ne changent pas."""
     lettres = [c for c in titre if c.isalpha()]
-    if len(lettres) < 4 or any(c.islower() for c in lettres):
+    if len(lettres) < 4:
         return titre
+    if any(c.islower() for c in lettres):
+        return _debut_en_majuscules(titre)
     resultat = []
     debut = True
     for morceau in re.split(r"(\s+)", titre):
@@ -668,6 +693,14 @@ def titre_avant_deux_points(titre):
     return None
 
 
+def suite_en_minuscule(titre):
+    """« Evasive Action : un convoi de détenus pris d'assaut » : après « : », une
+    phrase qui commence par une minuscule décrit le film (un vrai sous-titre
+    commence par une majuscule : « Astérix et Obélix : Mission Cléopâtre »)."""
+    m = re.match(r"^(.{2,60}?)\s+:\s+(.+)$", titre)
+    return bool(m) and m.group(2)[:1].islower()
+
+
 def deja_le_bon_titre(titre_youtube, titre_wikidata):
     """Vrai si Wikidata renvoie en fait le même titre (« Ciakmull, le bâtard
     de Dodge City » / « Ciak Mull ») : la chaîne avait déjà le vrai nom."""
@@ -791,13 +824,15 @@ def vrais_titres(films, textes_films, ancien_catalogue):
                 raise
 
     for fid, film in films.items():
-        if not est_une_accroche(film["titre"]):
-            continue
+        accroche = est_une_accroche(film["titre"])
         avant = titre_avant_deux_points(film["titre"])
-        if avant:  # le vrai titre est déjà là, avant « : »
+        if avant and (accroche or suite_en_minuscule(film["titre"])):
+            # le vrai titre est déjà là, avant « : »
             STATS_TITRES["deux_points"] += 1
             film["titre_accroche"] = film["titre"]
             film["titre"] = sans_majuscules(avant)
+            continue
+        if not accroche:
             continue
         r = ancienne.get(fid)
         if r is not None and r.get("regle") != REGLE_TITRES:
