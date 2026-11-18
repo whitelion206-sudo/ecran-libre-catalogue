@@ -1,7 +1,22 @@
 {
- "mis_a_jour": "2026-11-18T19:53:04Z",
+ "mis_a_jour": "2026-11-18T20:03:02Z",
  "nombre_de_films": 3877,
  "films": [
+  {
+   "id": "HFTuzgOg0Pw",
+   "titre": "Blood Queen",
+   "titre_youtube": "Blood Queen | Film Complet en Français | Horreur",
+   "description": "Après une tragédie au lycée, une adolescente infiltre l’équipe de pom-pom girls pour régler ses comptes, avant qu’un événement étrange ne change tout.\n\n🔥 Plus de nouveautés ICI ➤ https://www.youtube.com/playlist?list=PLpPy9e-Nyh3uAgehMbGGP9XehzyCttJhy\n\nGenre : Film Horreur, Thriller, Suspense\n© Tous Droits Réservés\n#FilmHorreurFR #FilmComplet",
+   "duree_minutes": 87,
+   "date": "2026-11-18T20:00:27Z",
+   "miniature": "https://i.ytimg.com/vi/HFTuzgOg0Pw/maxresdefault.jpg",
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "pour_enfants": false
+  },
   {
    "id": "cIX8uUiufyI",
    "titre": "Attaque au Lycée",
@@ -230,7 +245,7 @@
   },
   {
    "id": "oZyRoiWHI8U",
-   "titre": "LES CONTES DE MAUPASSANT Aux Champs + Le Petit Fût",
+   "titre": "Les Contes de Maupassant – Aux Champs + Le Petit Fût",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 Aux Champs + Le Petit Fût | Films complets d'époque en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\nCOMPILATION\n\n00:00 - Aux Champs - Chez Maupassant - S02 EP03 (2008)\n55:28 - Le Petit Fût - Chez Maupassant - S02 EP04 (2008)\n\n► Synopsis\n\nDeux nouvelles de Guy de Maupassant, deux drames normands où l’argent dicte sa loi, portés par Olivier Schatzky et Claude Chabrol.\n\nAUX CHAMPS\n\nDans la campagne normande, les Tuvache et les Vallin vivent côte à côte dans deux chaumières, élevant huit enfants à eux deux dans une misère partagée mais solidaire. Un jour, Mathilde et Henri d’Hubi",
    "duree_minutes": 82,
@@ -778,7 +793,7 @@
   },
   {
    "id": "rta2mTPrWPo",
-   "titre": "BROTHERS IN ARMS : Frères de gâchette 2005",
+   "titre": "Brothers in Arms : Frères de gâchette 2005",
    "titre_youtube": "BROTHERS IN ARMS : Frères de gâchette 🤠 2005 | Film complet Western contemporain en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\nBrothers in Arms (2005)\n\n► Synopsis\n\nDans les territoires poussiéreux du Nouveau-Mexique, Linc et Zane Malone sont deux frères hors-la-loi dont la réputation fait trembler les autorités. Recherchés pour leurs nombreux méfaits, ils partagent surtout une haine profonde envers Driscoll, un riche propriétaire sans scrupules qui règne en maître sur la petite ville de Corazon. Cet homme impitoyable contrôle les affaires locales, la banque et une grande partie du pouvoir politique. Po",
    "duree_minutes": 83,
@@ -827,7 +842,7 @@
   },
   {
    "id": "XV2Dc_CpaRY",
-   "titre": "Yeti : survivre au crash, puis à la bête",
+   "titre": "Yeti",
    "titre_youtube": "Yeti : survivre au crash, puis à la bête | Film de Thriller complet en Français | Aventure",
    "description": "►SYNOPSIS\nAu-dessus de l'Himalaya, une équipe de football universitaire vole vers le Japon. Le match le plus attendu de la saison les attend, mais une violente tempête précipite l'avion contre la montagne. Pour les rescapés, l'épreuve ne fait que commencer : un froid glacial, trois barres vitaminées à partager, une poignée d'allumettes et un émetteur de secours resté dans la queue de l'appareil, à des kilomètres de là. Tandis que leur capitaine tente de garder le groupe uni, la faim attise les r",
    "duree_minutes": 82,
@@ -838,7 +853,8 @@
     "Aventure"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Yeti : survivre au crash, puis à la bête"
   },
   {
    "id": "Hqv8iVaHcwY",
@@ -896,7 +912,7 @@
   },
   {
    "id": "JQomSwDd7xs",
-   "titre": "LES CONTES DE MAUPASSANT Le Rosier de Madame Husson + L'Ami Joseph",
+   "titre": "Les Contes de Maupassant – Le Rosier de Madame Husson + L'Ami Joseph",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 Le Rosier de Madame Husson + L'Ami Joseph | Films complets en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\nCOMPILATION\n\nChez Maupassant - S02 EP01 - Le Rosier de Madame Husson (2008)\nChez Maupassant - S02 EP02 - L'Ami Joseph (2008)\n\n► Synopsis\n\nDans la France du XIXe siècle, derrière les bonnes manières et les grands principes moraux, les passions humaines réservent bien des surprises. À travers deux adaptations des nouvelles de Guy de Maupassant, cette compilation explore avec humour et ironie les travers d'une société obsédée par la respectabilité, les conventions et les apparence",
    "duree_minutes": 82,
@@ -1197,7 +1213,7 @@
   },
   {
    "id": "u6Hu41pTTSc",
-   "titre": "Windfighters : duel mortel au-dessus de Séoul",
+   "titre": "Windfighters",
    "titre_youtube": "Windfighters : duel mortel au-dessus de Séoul | Film d'Action complet en Français | Action, Guerre",
    "description": "►SYNOPSIS\nSur une base aérienne sud-coréenne, le capitaine Jung est exclu de la patrouille acrobatique Black Eagles après une figure interdite en plein meeting. Muté dans le 21e escadron de combat, il doit composer avec le major Lee, pilote inflexible qui n'a jamais perdu un exercice, et avec le sergent Yoo, mécanicienne brillante qui garde ses distances. Entre compétition de tir au sol, rivalités de vestiaire et rapprochements inattendus, la routine de la base bascule le jour où un chasseur nor",
    "duree_minutes": 106,
@@ -1210,7 +1226,8 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Windfighters : duel mortel au-dessus de Séoul"
   },
   {
    "id": "ispnYv3F8Ds",
@@ -1655,7 +1672,7 @@
   },
   {
    "id": "VLeReHPXe28",
-   "titre": "LES CONTES DE MAUPASSANT Miss Harriet + Toine",
+   "titre": "Les Contes de Maupassant – Miss Harriet + Toine",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 Miss Harriet + Toine | 2007 | Films complets en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\n*COMPILATION*\n\nChez Maupassant - S01 EP07 - Miss Harriet (2007)\nChez Maupassant - S01 EP08 - Toine (2007)\n\n► Synopsis\n\nDeux histoires normandes, deux regards sur les sentiments et les faiblesses humaines. Dans cette compilation qui clôture la première saison de Chez Maupassant, l'univers de Guy de Maupassant prend tour à tour les couleurs d'un drame sentimental et d'une comédie rurale mordante.\n\n*MISS HARRIET*\n\nDevenu un peintre reconnu, Chenal se remémore une rencontre qui a p",
    "duree_minutes": 82,
@@ -1951,7 +1968,7 @@
   },
   {
    "id": "sQhHm0xY27w",
-   "titre": "Together : un prodige du violon à Pékin",
+   "titre": "Together",
    "titre_youtube": "Together : un prodige du violon à Pékin | Film Drame complet en Français | Drame familial",
    "description": "►SYNOPSIS\nDans une petite ville du sud de la Chine, un cuisinier élève seul son fils de treize ans. Xiaochun joue du violon depuis l'âge de trois ans, sur l'instrument que sa mère lui aurait laissé. Persuadé que ce don mérite mieux, son père l'emmène à Pékin et se démène pour lui trouver un professeur. Il y a d'abord un musicien solitaire entouré de chats errants, qui lui apprend à jouer avec le cœur. Il y a Lili, une voisine flamboyante qui l'entraîne dans son univers. Puis un maître renommé du",
    "duree_minutes": 117,
@@ -1960,7 +1977,8 @@
    "genre": "",
    "genres": [],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Together : un prodige du violon à Pékin"
   },
   {
    "id": "Nt9-Q-5KvgI",
@@ -2454,7 +2472,7 @@
   },
   {
    "id": "xTd6pVSAPYs",
-   "titre": "LES CONTES DE MAUPASSANT Le Père Amable + Hautot père et fils",
+   "titre": "Les Contes de Maupassant – Le Père Amable + Hautot père et fils",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 Le Père Amable + Hautot père et fils | 2007 | Film complet en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\n*COMPILATION*\n\nChez Maupassant - S01 EP05 - Le Père Amable (2007)\nChez Maupassant - S01 EP06 - Hautot père et fils (2007)\n\n► Synopsis\n\nPlongez dans la France rurale du XIXe siècle à travers deux adaptations des nouvelles de Guy de Maupassant, où les liens familiaux, l'orgueil et les secrets du passé bouleversent le destin des personnages.\n\n*LE PÈRE AMABLE*\n\nDans une ferme normande, Césaire épouse Céleste, une jeune femme déjà mère d'un enfant, malgré l'opposition farouche de so",
    "duree_minutes": 89,
@@ -3052,7 +3070,7 @@
   },
   {
    "id": "Ot7iI0JcowI",
-   "titre": "Evasive Action : un convoi de détenus pris d'assaut",
+   "titre": "Evasive Action",
    "titre_youtube": "Evasive Action : un convoi de détenus pris d'assaut | Film d'Action complet en Français",
    "description": "►SYNOPSIS\nUn train de voyageurs auquel on a accroché un wagon cellulaire. À bord, cinq détenus parmi les plus lourdement condamnés du pays, dont un parrain de la côte ouest à qui il reste près de trois siècles à purger. Les autres passagers ignorent tout de ce transfert. Luc Saint-Clair, condamné pour avoir abattu l'homme qui avait détruit sa famille et que le tribunal avait relaxé, voyage avec eux et refuse depuis douze ans de signer la déclaration qui lui vaudrait une libération. Peu après le ",
    "duree_minutes": 85,
@@ -3063,7 +3081,8 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Evasive Action : un convoi de détenus pris d'assaut"
   },
   {
    "id": "0jFQJyrh54w",
@@ -3179,7 +3198,7 @@
   },
   {
    "id": "Ev4Hs_bbwo0",
-   "titre": "LES CONTES DE MAUPASSANT L'Héritage + Deux amis",
+   "titre": "Les Contes de Maupassant – L'Héritage + Deux amis",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 L'Héritage + Deux amis | 2007 | Films complets en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\n*COMPILATION*\n\nChez Maupassant - S01 EP03 - L'Héritage (2007)\nChez Maupassant - S01 EP04 - Deux amis (2007)\n\n► Synopsis\n\nRetrouvez deux adaptations de Guy de Maupassant dans cette compilation de la collection CHEZ MAUPASSANT, diffusée en 2007. Deux histoires qui plongent au cœur de la société française du XIXe siècle, entre ambitions familiales, cupidité, amitié et tragédie.\n\n*L'HÉRITAGE*\n\nÀ Paris, César Cachelin, modeste employé de ministère, rêve de voir sa fille Coralie épou",
    "duree_minutes": 88,
@@ -3624,7 +3643,7 @@
   },
   {
    "id": "MPxj4Yh-T40",
-   "titre": "Her Best Move : une ado sous pression",
+   "titre": "Her Best Move",
    "titre_youtube": "Her Best Move : une ado sous pression | Film complet en Français | Famille | Comédie",
    "description": "►SYNOPSIS\nUn réveil en retard, un petit déjeuner brûlé, un match à neuf heures. Sarah Davis a quinze ans et joue au football depuis toujours. Son père l'entraîne, filme ses matchs, analyse ses déplacements et parle déjà de l'équipe nationale junior comme d'une formalité. Quand la sélection ne la retient pas, un espace s'ouvre pour la première fois : une amie qui la ramène au cours de danse, des auditions pour le spectacle du lycée, un appareil photo, un bal de printemps dont tout le monde parle.",
    "duree_minutes": 93,
@@ -3635,7 +3654,8 @@
     "Famille"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Her Best Move : une ado sous pression"
   },
   {
    "id": "gYt4aNEZ6p4",
@@ -3877,7 +3897,7 @@
   },
   {
    "id": "wzVY9t3pZUc",
-   "titre": "LES CONTES DE MAUPASSANT Histoire d'une fille de ferme + La Parure",
+   "titre": "Les Contes de Maupassant – Histoire d'une fille de ferme + La Parure",
    "titre_youtube": "LES CONTES DE MAUPASSANT 📚 Histoire d'une fille de ferme + La Parure | 2007 | Films en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\n*COMPILATION*\n\nChez Maupassant - S01 EP01 - Histoire d'une fille de ferme (2007)\nChez Maupassant - S01 EP02 - La Parure (2007)\n\n► Synopsis\n\n*HISTOIRE D'UNE FILLE DE FERME*\n\nDans la campagne française du XIXe siècle, Rose, une jeune domestique agricole, tombe enceinte d'un ouvrier saisonnier qui l'abandonne. Pour échapper au jugement de son entourage, elle dissimule sa grossesse, accouche en secret et confie son enfant à une amie. Déterminée à subvenir aux besoins de son fils, e",
    "duree_minutes": 83,
@@ -6402,7 +6422,7 @@
   },
   {
    "id": "VmeF18O9aVg",
-   "titre": "Enlevée : une mère face à l'impensable",
+   "titre": "Enlevée",
    "titre_youtube": "Enlevée : une mère face à l'impensable | Film de Thriller complet en Français | Suspense",
    "description": "►SYNOPSIS\nEn voyage d'affaires à l'étranger, une famille américaine savoure quelques jours de rêve. Le temps d'un dîner, Kaitlin et son mari laissent leur petite fille Joselyn seule dans leur chambre d'hôtel. À leur retour, l'enfant a disparu, et le cauchemar commence. Dans un pays qu'ils connaissent mal, les parents se heurtent aux soupçons de la police, à la barrière de la langue et à une enquête qui piétine. Rongée par la culpabilité, Kaitlin refuse d'attendre les bras croisés et mène ses pro",
    "duree_minutes": 87,
@@ -6413,7 +6433,8 @@
     "Thriller"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Enlevée : une mère face à l'impensable"
   },
   {
    "id": "AmOktZPgcZo",
@@ -7007,7 +7028,7 @@
   },
   {
    "id": "3ixpa_ck3b0",
-   "titre": "L'HISTOIRE DE GEORGE SAND apprendre pour être libre",
+   "titre": "L'Histoire de George Sand – apprendre pour être libre",
    "titre_youtube": "L'HISTOIRE DE GEORGE SAND ✒️ apprendre pour être libre | Film d'Époque, Drame complet en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\nGeorge et Fanchette (2010)\n\n► Synopsis\n\nÀ Nohant, durant l’été 1846, George Sand mène une existence entourée de sa famille et d’artistes lorsqu’elle rencontre Fanchette, une jeune paysanne pauvre venue chercher du travail. Touchée par son dénuement, l’écrivaine la prend à son service puis décide de lui apprendre à lire et à écrire. D’abord rebelle, Fanchette découvre progressivement que l’instruction peut devenir une voie vers l’indépendance.\n\nUne relation presque filiale se dé",
    "duree_minutes": 168,
@@ -7146,7 +7167,7 @@
   },
   {
    "id": "P_28DZxe42A",
-   "titre": "LE FAUTEUIL HANTÉ Au Siècle de Maupassant",
+   "titre": "Le Fauteuil Hanté – Au Siècle de Maupassant",
    "titre_youtube": "LE FAUTEUIL HANTÉ 🪑 Au Siècle de Maupassant | 2010 | Film complet en FRANÇAIS 🇫🇷 | Michel Duchaussoy",
    "description": "► Titre original\n\nAu siècle de Maupassant : Contes et nouvelles du XIXe siècle - S02 EP02 - Le fauteuil hanté (2010)\n\n► Synopsis\n\nÀ l’Académie française, un fauteuil laissé vacant semble frappé d’une étrange malédiction : les candidats susceptibles de l’occuper meurent brutalement les uns après les autres. La presse s’empare de l’affaire et la peur gagne cette respectable institution.\n\nLe journaliste Isidor Fandor décide d’enquêter et trouve un allié inattendu en Gaspard Lalouette, antiquaire et",
    "duree_minutes": 60,
@@ -7681,7 +7702,7 @@
   },
   {
    "id": "qB0EbVN5_c4",
-   "titre": "Témoin sans Protection : elle en sait trop",
+   "titre": "Témoin sans Protection",
    "titre_youtube": "Témoin sans Protection : elle en sait trop | Film de Thriller complet en Français | Suspense",
    "description": "►SYNOPSIS\nHabituée à photographier les secrets des autres, une détective privée va payer cher un cliché. Mère célibataire prête à tout pour offrir un bel avenir à sa fille, Sam enchaîne les filatures et les affaires d'infidélité sans trop d'états d'âme. Mais lors d'une planque de routine, son objectif capte bien plus qu'une simple liaison : une scène compromettante qui fait d'elle un témoin bien trop gênant. Très vite, tout se retourne contre elle. Une arme surgit chez elle, ses preuves disparai",
    "duree_minutes": 85,
@@ -7692,7 +7713,8 @@
     "Thriller"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Témoin sans Protection : elle en sait trop"
   },
   {
    "id": "B4zUek4dIS8",
@@ -8042,7 +8064,7 @@
   },
   {
    "id": "GSjzTxWb5s0",
-   "titre": "Cerberus : le gardien à trois têtes",
+   "titre": "Cerberus",
    "titre_youtube": "Cerberus : le gardien à trois têtes | Film Fantastique complet en Français",
    "description": "►SYNOPSIS\nSelon la légende, Attila le Hun fut enseveli avec une épée aux pouvoirs surnaturels. Cette « épée de Mars », censée rendre invincible celui qui la porte, repose dans les entrailles de la terre, gardée par Cerbère, un colossal chien à trois têtes doté d'un serpent en guise de queue, qui dévore quiconque ose l'approcher. Des siècles plus tard, la légende attise la convoitise d'un impitoyable seigneur de guerre, déjà maître d'un arsenal nucléaire et persuadé que la relique le rendra invin",
    "duree_minutes": 83,
@@ -8053,11 +8075,12 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Cerberus : le gardien à trois têtes"
   },
   {
    "id": "AhUUmY8gp_A",
-   "titre": "Parfaitement Célibataire : la quarantaine sans mari",
+   "titre": "Parfaitement Célibataire",
    "titre_youtube": "Parfaitement Célibataire : la quarantaine sans mari | Film complet en Français | Comédie romantique",
    "description": "►SYNOPSIS\nÀ l'aube de ses quarante ans, une femme brillante souffle ses bougies... seule. Edie a tout réussi : une belle carrière, une indépendance financière et un cœur toujours grand ouvert au romantisme. Il ne lui manque qu'une chose aux yeux de son entourage : un mari. Entre une mère insistante, des amies bien intentionnées qui multiplient les rendez-vous arrangés et des couples qui étalent leurs propres déboires conjugaux, la pression monte à l'approche de son anniversaire. Fidèle à ses rom",
    "duree_minutes": 99,
@@ -8068,7 +8091,8 @@
     "Comédie romantique"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Parfaitement Célibataire : la quarantaine sans mari"
   },
   {
    "id": "xV98zzXe4K8",
@@ -8428,7 +8452,7 @@
   },
   {
    "id": "MpX-pCZUWA4",
-   "titre": "Terrapocalypse : la Terre arrachée à son système solaire",
+   "titre": "Terrapocalypse",
    "titre_youtube": "Terrapocalypse : la Terre arrachée à son système solaire | Film de Sci-Fi complet en Français",
    "description": "►SYNOPSIS\nUn soir de Nouvel An, un cataclysme sans précédent frappe la Terre. Quand Colin reprend connaissance, près d'un an s'est écoulé. Amnésique, il apprend d'une poignée de survivants que la planète a été arrachée à son système solaire et projetée dans un autre : un ciel désormais éclairé par deux soleils et plusieurs lunes. Des milliards de victimes, un monde dévasté, et seulement quelques îlots d'humanité encore debout. À mesure que sa mémoire lui revient, Colin découvre qu'il pourrait êt",
    "duree_minutes": 78,
@@ -8439,7 +8463,8 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Terrapocalypse : la Terre arrachée à son système solaire"
   },
   {
    "id": "F1bQt4GnjyY",
@@ -10828,7 +10853,7 @@
   },
   {
    "id": "deCAV0PPvYU",
-   "titre": "SOUS HAUTE PROTECTION (Steven Seagal)",
+   "titre": "Sous Haute Protection (Steven Seagal)",
    "titre_youtube": "SOUS HAUTE PROTECTION (Steven Seagal) | Film d'Action complet en Français | Action, Thriller",
    "description": "►SYNOPSIS\nDans une petite ville du Texas, la loi appartient à un seul homme. Un ancien policier, vingt-cinq ans de carrière derrière lui, vient rendre visite à un vieil ami et découvre une cité verrouillée par Jason Cross, un baron du crime aussi puissant qu'impitoyable qui a acheté la police locale. Lorsque les hommes de Cross s'en prennent aux proches de son ami et à une jeune femme prise dans l'engrenage, le vétéran refuse de détourner le regard. Seul face à une organisation qui contrôle les ",
    "duree_minutes": 85,
@@ -11121,7 +11146,7 @@
   },
   {
    "id": "oyPi3EMobv4",
-   "titre": "KUNG FU YOGA (Jackie Chan)",
+   "titre": "Kung Fu Yoga (Jackie Chan)",
    "titre_youtube": "KUNG FU YOGA (Jackie Chan) | Film d'Aventure complet en Français | Aventure, Kung-Fu",
    "description": "►SYNOPSIS\nUne carte millénaire mène à un trésor perdu entre la Chine et l'Inde. Jack, célèbre professeur d'archéologie chinois, est approché par Ashmita, une archéologue indienne qui détient un plan vieux de mille ans conduisant au fabuleux trésor disparu du royaume de Magadha, évanoui depuis une guerre ancienne entre la dynastie des Tang et l'Inde. Intrigué, Jack réunit son équipe et se lance dans l'expédition. Leur quête les entraîne d'une caverne prise dans les glaces du Tibet aux déserts de ",
    "duree_minutes": 103,
@@ -11273,7 +11298,7 @@
   },
   {
    "id": "Xf5X4YCVt-U",
-   "titre": "KILL THE PRESIDENT (Vinnie Jones)",
+   "titre": "Kill the President (Vinnie Jones)",
    "titre_youtube": "KILL THE PRESIDENT (Vinnie Jones) | Film d'Action complet en Français",
    "description": "►SYNOPSIS\nAux États-Unis, un projet de loi sur la vie privée met le pouvoir en ébullition. John Nils mène une existence tranquille de courtier en assurance, entre sa femme et son fils. Mais son passé le rattrape : ancien agent de renseignement, il est enlevé par une faction clandestine baptisée Opération Jack Knife. Ces hommes veulent saboter la réforme voulue par le président en organisant son assassinat, et Nils est l'exécutant parfait, insoupçonnable, que l'on écartera une fois le travail acc",
    "duree_minutes": 80,
@@ -11662,7 +11687,7 @@
   },
   {
    "id": "UEBMIAGY8oo",
-   "titre": "LE CHASSEUR DE PRIMES aucun homme est innocent...",
+   "titre": "Le Chasseur de Primes – aucun homme est innocent...",
    "titre_youtube": "LE CHASSEUR DE PRIMES 🤠 aucun homme est innocent... | 1969 | Film complet Western en FRANÇAIS 🇫🇷",
    "description": "► Titre original\n\nLa taglia è tua... l'uomo l'ammazzo io (1969)\n\n► Synopsis\n\nDans l'Ouest sauvage, la promesse d'une importante récompense transforme les chasseurs de primes, hors-la-loi et pistoleros en ennemis mortels. Lorsqu'un homme devient la cible de tous, chaque rencontre peut se transformer en duel et chaque alliance en trahison.\n\nEntre villages poussiéreux, saloons enfumés et immenses étendues désertiques, la cupidité pousse chacun à dépasser ses limites pour s'emparer de la prime.\n\nDan",
    "duree_minutes": 86,
@@ -14477,7 +14502,7 @@
   },
   {
    "id": "A7spOFYI8Yg",
-   "titre": "BOULE DE SUIF Chez Maupassant",
+   "titre": "Boule de Suif – Chez Maupassant",
    "titre_youtube": "BOULE DE SUIF 🥖 Chez Maupassant | 2011 | Film complet en FRANÇAIS | avec Marilou Berry",
    "description": "► Titre original\n\nChez Maupassant - S03 E01 - Boule de suif (2011)\n\n► Synopsis\n\nPendant l'occupation prussienne, neuf notables et une prostituée, dite «Boule de suif», effectuent un voyage en diligence. Malheureusement, à leur première étape, un officier prussien réclame les faveurs de la prostituée, seule condition leur permettant de continuer leur chemin. Les neuf notables obligent la prostituée, malgré sa réticence «patriotique», à céder. En guise de remerciement, elle n'obtient que leur déda",
    "duree_minutes": 60,
@@ -15571,7 +15596,7 @@
   },
   {
    "id": "AfRJfXKNetA",
-   "titre": "LE BOURGEOIS GENTILHOMME de Molière",
+   "titre": "Le Bourgeois Gentilhomme – de Molière",
    "titre_youtube": "LE BOURGEOIS GENTILHOMME 🎭 de Molière | 2009 | Film complet en FRANÇAIS 🇫🇷 | Christian Clavier",
    "description": "► Titre original\n\nLe Bourgeois Gentilhomme (2009)\n\n► Synopsis\n\nEn tant que bourgeois, Monsieur Jourdain est déterminé à acquérir les manière d'un homme de qualité. Il décide donc de s'entourer de plusieurs professeurs (maniement des armes, apprentissage de la musique, de la philosophie...). Amoureux de la Marquise Dorimène, Jourdain est néanmoins utilisé comme un pantin par le Comte Dorante qui profite de cette situation pour voler le bourgeois...\n\n► Acteurs\n\nChristian Clavier, Michèle Bernier, ",
    "duree_minutes": 97,
@@ -18310,7 +18335,7 @@
   },
   {
    "id": "OXAa5lOwh8E",
-   "titre": "Tarragone : du paradis à l’enfer",
+   "titre": "Tarragone",
    "titre_youtube": "Tarragone : du paradis à l’enfer - film complet HD en français (Action, Catastrophe)",
    "description": "NOUVEAUTÉ FILM HISTOIRE VRAIE, ACCIDENT – film entier 2026 HD et VF : 🚚☢️🏄Été 1978. Sous le soleil de Tarragone, personne n’imagine que quelques secondes vont suffire à tout faire basculer. Un camion-citerne perd le contrôle… et l’impensable se produit.\n\nInspirés de faits réels, à Tarragone, plusieurs familles se croisent le temps d’un été dans un camping en bord de mer. Entre amitiés naissantes et rêves d’évasion, la vie semble suspendue… Jusqu’à ce qu’une explosion embrase les lieux et déclenc",
    "duree_minutes": 180,
@@ -18322,7 +18347,8 @@
     "Catastrophe"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Tarragone : du paradis à l’enfer"
   },
   {
    "id": "C_lWVmujM2I",
@@ -18955,7 +18981,7 @@
   },
   {
    "id": "52PIcuCSINg",
-   "titre": "GEORGE ET FANCHETTE Partie 2",
+   "titre": "George et Fanchette – Partie 2",
    "titre_youtube": "GEORGE ET FANCHETTE ✒️👒 Partie 2 | 2010 | Film complet d'Époque en FRANÇAIS 🇫🇷 | Anaïs Demoustier",
    "description": "► Titre original\n\nGeorge et Fanchette partie 2 (2010)\n\n► Synopsis\n\nJuin 1848. L'insurrection ouvrière échoue. Inquiétée par ses opinions politiques, George se refugie à Nohant, accompagnée de Fanchette et d'Emile, un jeune ouvrier au chômage. A Paris, les insurrections populaires se multiplient. Afin de rassurer George, Emile retourne à la capitale pour y chercher Maurice. Celui-ci revient, accompagné de son camarade Manceau, mais sans Emile, fusillé le matin même sur une barricade.\n\n► Acteurs\n\n",
    "duree_minutes": 85,
@@ -19373,7 +19399,7 @@
   },
   {
    "id": "97QoJlYqvhY",
-   "titre": "GEORGE ET FANCHETTE Partie 1",
+   "titre": "George et Fanchette – Partie 1",
    "titre_youtube": "GEORGE ET FANCHETTE ✒️👒 Partie 1 | 2010 | Film complet d'Époque en FRANÇAIS 🇫🇷 | Anaïs Demoustier",
    "description": "► Titre original\n\nGeorge et Fanchette (2010)\n\n► Synopsis\n\nJuin 1848. L'insurrection ouvrière échoue. Inquiétée par ses opinions politiques, George se refugie à Nohant, accompagnée de Fanchette et d'Emile, un jeune ouvrier au chômage. A Paris, les insurrections populaires se multiplient. Afin de rassurer George, Emile retourne à la capitale pour y chercher Maurice. Celui-ci revient, accompagné de son camarade Manceau, mais sans Emile, fusillé le matin même sur une barricade.\n\n► Acteurs\n\nDenis Pod",
    "duree_minutes": 84,
@@ -21191,7 +21217,7 @@
   },
   {
    "id": "zLD7pRLHv3s",
-   "titre": "TÉMOINS DE L'ENFER 84 Charlie Mopic",
+   "titre": "Témoins de l'Enfer – 84 Charlie Mopic",
    "titre_youtube": "TÉMOINS DE L'ENFER 💥 84 Charlie Mopic 🪖 | 1989 | Film Documentaire complet en FRANÇAIS 🇫🇷 | Guerre",
    "description": "► Titre original\n\n84C MoPic (1989)\n\n► Synopsis\n\nLe titre fait référence à l'ancien MOS (code d'emploi) de l'armée américaine pour un caméraman de combat. L'histoire suit une unité de G.I. américains au Viêt Nam, tous avec des antécédents et des motivations différentes, à travers l'objectif de sa caméra.\n\n► Acteurs\n\nJonathan Emerson, Nicholas Cascone, Jason Tomlins\n\n► Réalisé par\n\nPatrick Sheane Duncan\n\nAbonne-toi à notre chaîne si tu veux être informé des prochains films !\n🔔 https://bit.ly/3YyDZ",
    "duree_minutes": 87,
@@ -25133,7 +25159,7 @@
   },
   {
    "id": "DAsKxsJql5I",
-   "titre": "LA NUIT D’HALLOWEEN : Compil de 2 films d'HORREUR",
+   "titre": "La Nuit d’Halloween : Compil de 2 films d'HORREUR",
    "titre_youtube": "LA NUIT D’HALLOWEEN : Compil de 2 films d'HORREUR – Film complet 2025 HD en VF",
    "description": "2 NOUVEAUTÉS INÉDITES, HORREUR , EPOUVANTE – film entier 2025 HD et VF :\n\nPOSSÉDÉS : L'EXORCISME\nUn exorciste chevronné prend sous son aile un jeune prêtre. Ensemble, ils affrontent des forces démoniaques, mais découvrent que le mal peut aussi sommeiller en eux…\n\nESCAPE ROOM : Six amis relèvent un Escape Game réputé pour son réalisme… mais le jeu tourne vite au cauchemar. Chaque énigme devient un piège mortel. Survivront-ils à ce labyrinthe sadique ?\n\n#halloween #Horreur #EscapeRoom #Survie #Sur",
    "duree_minutes": 172,
@@ -39043,7 +39069,7 @@
   },
   {
    "id": "EQviS20pXHY",
-   "titre": "A Dark Tale : la Belle et la Bête",
+   "titre": "A Dark Tale",
    "titre_youtube": "A Dark Tale : la Belle et la Bête | Film Fantastique Complet en Français | Estella Warren",
    "description": "Dans ce  Film Fantastique Complet en Français vous découvrirez une version plus sombre du conte sur l'amour interdit entre Belle et la redoutable Bête de la forêt. \nAlors que les villageois sont brutalement assassinés et que la Bête est traquée comme le responsable de ce désordre, Belle et Bête font équipe pour vaincre le véritable tueur, le troll malveillant d'une sorcière avide de pouvoir.\n\nAvec Estella Warren, Rhett Giles, Victor Parascos & Vanessa Gray\n\nRéalisé par David Lister\n\nEnjoy ! 😜\n\nA",
    "duree_minutes": 86,
@@ -39055,7 +39081,8 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "A Dark Tale : la Belle et la Bête"
   },
   {
    "id": "i0qBgenN-9k",
@@ -39455,7 +39482,7 @@
   },
   {
    "id": "l-wG5tZB1BA",
-   "titre": "Chasse au tueur : crie si tu l'oses",
+   "titre": "Chasse au tueur",
    "titre_youtube": "Chasse au tueur : crie si tu l'oses 🗡️| Film Complet en Français |Thriller | Alexandra Neldel (2010)",
    "description": "Anna (Alexandra Neldel) reçoit un appel téléphonique de son nouvel associé Philipp Rothkamm (Maximilian von Pufendorf) : Dans une université d'élite, une jeune femme (Emily Cox) prétend avoir été abusée sexuellement sous l'influence de gouttes d'eau lors d'une fête des débutants. Mais après un entretien personnel, ses doutes surgissent. \n\n►ACTEURS\nAlexandra Neldel\nClemens Schick\nMaximilian von Pufendorf\n\n►Réalisation\nElmar Fischer\n\nKillerjagd: Schrei, wenn du dich traust\n\nAbonne-toi à notre chaî",
    "duree_minutes": 86,
@@ -39466,7 +39493,8 @@
     "Thriller"
    ],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Chasse au tueur : crie si tu l'oses"
   },
   {
    "id": "eknGrtM_DrA",
@@ -49075,7 +49103,7 @@
   },
   {
    "id": "D4fIbRONtns",
-   "titre": "WELCOME TO DEATH ROW - Snoop Dogg Tupac Dr Dre Eazy E Suge Knight",
+   "titre": "Welcome to Death Row - Snoop Dogg Tupac Dr Dre Eazy E Suge Knight",
    "titre_youtube": "WELCOME TO DEATH ROW - Snoop Dogg Tupac Dr Dre Eazy E Suge Knight | Documentaire complet en Français",
    "description": "En 1993, le label Death Row Records a conquis le monde entier en produisant des stars comme Dr. Dre, Snoop Dogg ou Tupac. Ce documentaire fascinant retrace son ascension et sa chute.\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PL5YIdP7ffs2thTnywk5hqGCertSB3UmTX\n\nGenre : Nouveautés, Film Complet, Documentaire\n#FilmComplet",
    "duree_minutes": 101,
@@ -51328,7 +51356,7 @@
   },
   {
    "id": "Zkr6T4I2vhM",
-   "titre": "Little Shelly : un Teckel pas comme les autres",
+   "titre": "Little Shelly",
    "titre_youtube": "Little Shelly : un Teckel pas comme les autres | Film Complet en Français | Famille",
    "description": "Danny, qui vient de perdre sa mère, est inconsolable. Pour son anniversaire, son père lui offre Shelly, un petit teckel adorable.\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n#UnFilmTropBien #FilmComplet\nGenre: Nouveauté,  Famille.\n© 2022 - Tous Droits Réservés",
    "duree_minutes": 84,
@@ -51339,7 +51367,8 @@
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Little Shelly : un Teckel pas comme les autres"
   },
   {
    "id": "iAl2InUrSjA",
@@ -52717,21 +52746,6 @@
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
    "pour_enfants": false
-  },
-  {
-   "id": "euonxDsupOw",
-   "titre": "Boonie Bears : le Monde des Glaces",
-   "titre_youtube": "Boonie Bears : le Monde des Glaces | Dessin Animé Complet en Français | Aventure",
-   "description": "Les ours doivent faire face à l'hiver le plus glacial jamais connu. Et un ennemi menace de détruire leur montagne !\n© 2021 - Tous Droits Réservés \n#AnimationFR #DessinAniméComplet",
-   "duree_minutes": 92,
-   "date": "2021-12-05T08:00:11Z",
-   "miniature": "https://i.ytimg.com/vi/euonxDsupOw/maxresdefault.jpg",
-   "genre": "Aventure",
-   "genres": [
-    "Aventure"
-   ],
-   "chaine": "Boxoffice Animation | Films Complets",
-   "pour_enfants": true
   },
   {
    "id": "z43CTNADo6M",
@@ -57659,7 +57673,7 @@
   },
   {
    "id": "EvqBoAgpla4",
-   "titre": "Puppy : le chien Pop Star",
+   "titre": "Puppy",
    "titre_youtube": "Puppy : le chien Pop Star - Film Complet en Francais (Famille, Chien)",
    "description": "Le talent de ce mignon petit chien ? Il sait chanter... jusqu'à gagner un grand concours ? \n🔴 Plus de films complets ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy #UnFilmTropBien #FilmComplet",
    "duree_minutes": 77,
@@ -57670,7 +57684,8 @@
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "titre_accroche": "Puppy : le chien Pop Star"
   },
   {
    "id": "9Wmsy29oaK0",
@@ -58016,7 +58031,7 @@
   },
   {
    "id": "3LQOfQOiaFw",
-   "titre": "VERY BAD CAT Film Complet en Français (Comédie, Action)",
+   "titre": "Very Bad Cat – Film Complet en Français (Comédie, Action)",
    "titre_youtube": "VERY BAD CAT Film Complet en Français (Comédie, Action)",
    "description": "Une comédie irrévérencieuse avec un chat qui n'a pas sa langue dans sa poche ! \n💥 Plein d'autres films d'ACTION ➤ ici https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nFilm ENTIER en Français\nGenre : Action, Film Complet\n© 2018 - Tous Droits Réservés #FilmComplet #FilmAction",
    "duree_minutes": 78,
@@ -58149,7 +58164,7 @@
   },
   {
    "id": "Fqs-anCJWcw",
-   "titre": "INTO THE STORM Film Complet en Français (Film Catastrophe)",
+   "titre": "Into the Storm – Film Complet en Français (Film Catastrophe)",
    "titre_youtube": "INTO THE STORM Film Complet en Français (Film Catastrophe)",
    "description": "Une tempête géante menace de tout détruire sur son passage. Comment échapper à un cyclone d'une telle envergure ?\n💥 Plein d'autres films d'ACTION ➤ ici https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nFilm ENTIER en Français\nGenre : Action, Film Complet\n© 2018 - Toute reproduction interdite. #FilmComplet #FilmAction",
    "duree_minutes": 68,
@@ -59486,13 +59501,6 @@
    "date": "2026-11-18",
    "regle": 6
   },
-  "XV2Dc_CpaRY": {
-   "id": null,
-   "langue": null,
-   "titre": "Yeti : survivre au crash, puis à la bête",
-   "date": "2026-11-18",
-   "regle": 6
-  },
   "Hqv8iVaHcwY": {
    "id": "LyCy2wmob-k",
    "langue": "VF",
@@ -59641,13 +59649,6 @@
    "id": null,
    "langue": null,
    "titre": "La Maîtresse du Mal",
-   "date": "2026-11-18",
-   "regle": 6
-  },
-  "u6Hu41pTTSc": {
-   "id": null,
-   "langue": null,
-   "titre": "Windfighters : duel mortel au-dessus de Séoul",
    "date": "2026-11-18",
    "regle": 6
   },
@@ -59996,6 +59997,16 @@
   "ovbp8UqE1To": {
    "titre": null,
    "date": "2026-11-17",
+   "regle": 2
+  },
+  "3LQOfQOiaFw": {
+   "titre": null,
+   "date": "2026-11-18",
+   "regle": 2
+  },
+  "Fqs-anCJWcw": {
+   "titre": null,
+   "date": "2026-11-18",
    "regle": 2
   },
   "pqYtAWEqtNM": {
