@@ -1,6 +1,6 @@
 {
- "mis_a_jour": "2026-11-18T13:07:56Z",
- "nombre_de_films": 3871,
+ "mis_a_jour": "2026-11-18T15:16:10Z",
+ "nombre_de_films": 3872,
  "films": [
   {
    "id": "PKVnOh8g11g",
@@ -35,8 +35,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Naufragé dans l'espace, il refuse d'être sauvé (Solis)",
    "id": "WFtrGXzRFX0",
-   "titre": "Naufragé dans l'espace, il refuse d'être sauvé (Solis)",
+   "titre": "Solis",
    "titre_youtube": "Naufragé dans l'espace, il refuse d'être sauvé (Solis) | Sci-Fi, Drame",
    "description": "►SYNOPSIS\nPrès de Mercure, une plateforme minière exploite des astéroïdes riches en métaux rares. Après une explosion sur le site de forage, l'ingénieur Troy Holloway se réveille seul à bord d'une capsule de sauvetage endommagée, privée de propulsion et dérivant droit vers le Soleil. Ses deux coéquipiers n'ont pas survécu. Son seul lien avec l'extérieur est une liaison radio fragile avec la commandante Roberts, pilote d'un vaisseau lancé à sa rencontre. Froid extrême puis chaleur écrasante, oxyg",
    "duree_minutes": 88,
@@ -49,7 +50,10 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "4B-dze7hNSk",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false
   },
   {
    "id": "NRMg4q9eEKA",
@@ -4464,8 +4468,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin)",
    "id": "qDUq5umBl-Q",
-   "titre": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin)",
+   "titre": "Stephen Baldwin",
    "titre_youtube": "On envoie un mec du BTP réparer la Lune avec des bombes (Stephen Baldwin) | Catastrophe",
    "description": "►SYNOPSIS\nUn astéroïde non répertorié percute la face cachée de la Lune. Les premières analyses se veulent rassurantes, jusqu'à ce que des fragments prennent la direction de la Terre et que de profondes fissures apparaissent à la surface du satellite. Une astrophysicienne comprend la première que la Lune se disloque et que les effets sur Terre seront immédiats, tempêtes, séismes et marées hors de contrôle. L'agence spatiale opte pour une solution radicale : une navette chargée de têtes nucléaire",
    "duree_minutes": 81,
@@ -6588,15 +6593,15 @@
    "genre": "Romance",
    "genres": [
     "Romance",
-    "Drame",
-    "Thriller"
+    "Drame"
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Hors de portée : un ex-agent au secours d'une enfant enlevée (Steven Seagal)",
    "id": "FJJPUwMZeNI",
-   "titre": "Hors de portée",
+   "titre": "Steven Seagal",
    "titre_youtube": "Hors de portée : un ex-agent au secours d'une enfant enlevée (Steven Seagal) | Film en Français",
    "description": "►SYNOPSIS\nRetiré du monde, un ancien agent d'élite mène une vie paisible auprès d'animaux blessés. Son seul véritable lien avec le monde, c'est Kasia, une jeune orpheline qu'il parraine dans un foyer d'Europe de l'Est. Tous deux s'écrivent, et leurs lettres cachent de petits codes et des jeux, un langage rien qu'à eux. Mais un jour, les lettres cessent d'arriver. William apprend bientôt l'affreuse vérité : Kasia a été enlevée par un réseau de trafic d'enfants qui s'en prend aux orphelins et dépl",
    "duree_minutes": 82,
@@ -6607,8 +6612,7 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false,
-   "titre_accroche": "Hors de portée : un ex-agent au secours d'une enfant enlevée (Steven Seagal)"
+   "pour_enfants": false
   },
   {
    "id": "3p1XuSK2qSI",
@@ -9288,8 +9292,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "La prison spatiale tombe entre leurs mains de terroristes anti-Russie (j'adore ce job)",
    "id": "eeZZfsQea7o",
-   "titre": "Incoming",
+   "titre": "j'adore ce job",
    "titre_youtube": "La prison spatiale tombe entre leurs mains de terroristes anti-Russie (j'adore ce job) | Sci-Fi",
    "description": "►SYNOPSIS\nDans un futur proche, la Station spatiale internationale a été transformée en prison secrète. En orbite, loin de toute juridiction terrestre, on y enferme et interroge les terroristes les plus dangereux de la planète. Lorsqu'une médecin monte à bord pour examiner les détenus, un agent de la CIA supervise l'opération, sans se douter que les prisonniers ont un plan. Épaulés depuis le sol par un réseau terroriste qui vient de frapper le cœur de l'Occident, ils déclenchent une prise de con",
    "duree_minutes": 84,
@@ -9301,8 +9306,7 @@
     "Nanar"
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false,
-   "titre_accroche": "La prison spatiale tombe entre leurs mains de terroristes anti-Russie (j'adore ce job)"
+   "pour_enfants": false
   },
   {
    "id": "tyBoT1LMeVQ",
@@ -18204,21 +18208,6 @@
    "pour_enfants": false
   },
   {
-   "id": "12WXJXzK6Is",
-   "titre": "SOLIS",
-   "titre_youtube": "SOLIS  | Film complet d'Action en FRANÇAIS  | Steven Ogg",
-   "description": "►SYNOPSIS\n\n\n►ACTEURS\nSteven Ogg, Alice Lowe, Sid Phoenix\n\n►Réalisation\nCarl Strathie\n\nAbonne-toi à notre chaîne si tu veux être informé des prochains films !\n🔔 https://bit.ly/3hJYi25\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n\n►Ciné Movies : https://bit.ly/3Z7TQRA\n►Ciné Nanar: https://bit.ly/3cOJFIM\n►Ciné Comédie : http://bit.ly/3pHpKlq\n►Ciné Classics : https://bit.ly/36mxwIX\n►Cine Del Oeste : https://bit.ly/3PbxUAi\n►Ciné Western FR : https://bit.ly/3eIIyvX \n►Cine Wester",
-   "duree_minutes": 88,
-   "date": "2026-03-18T18:00:01Z",
-   "miniature": "https://i.ytimg.com/vi/12WXJXzK6Is/sddefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
-  },
-  {
    "id": "SvBjANg1W24",
    "titre": "UN FLIC VOIT ROUGE",
    "titre_youtube": "UN FLIC VOIT ROUGE 🤠👊🏻 | 1975 | Film Drame / Crime complet en FRANÇAIS 🇫🇷 | John Richardson",
@@ -20162,8 +20151,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Lost Letter Mysteries: Vive les mariés - Téléfilm complet HD en français (Énigmes, Romance)",
    "id": "CVY5kjA13vs",
-   "titre": "Lost Letter Mysteries: Vive les mariés - Téléfilm complet HD en français (Énigmes, Romance)",
+   "titre": "Énigmes, Romance",
    "titre_youtube": "Lost Letter Mysteries: Vive les mariés - Téléfilm complet HD en français (Énigmes, Romance)",
    "description": "NOUVEAUTÉ FILM ENQUÊTE, MYSTÈRE  – Téléfilm entier 2026 HD et VF : LA DERNIÈRE AVENTURE DE LA SAGA ! 🥹\nAu bureau des lettres perdues, l’équipe est une nouvelle fois plongée au cœur d’une énigme !\n\nTandis que le mariage de Rita et Norman se fait attendre, les détectives mettent la main sur une lettre mystérieuse, porteuse d’indices sur la disparition de la mère d’une jeune fille…\n\nUne lettre, une disparition… et un mystère qui ne demande qu’à être résolu.\n\n#Enquête #Enigme #Mariage #Lettre\n\nRetro",
    "duree_minutes": 85,
@@ -20653,8 +20643,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Lost Letter Mysteries: En route vers le mariage - Téléfilm complet HD en français (Énigme, Romance)",
    "id": "cHWeXfsTrJo",
-   "titre": "Lost Letter Mysteries: En route vers le mariage - Téléfilm complet HD en français (Énigme, Romance)",
+   "titre": "Énigme, Romance",
    "titre_youtube": "Lost Letter Mysteries: En route vers le mariage - Téléfilm complet HD en français (Énigme, Romance)",
    "description": "NOUVEAUTÉ FILM ROAD–TRIP, ENQUÊTE – Téléfilm entier 2026 HD et VF : Au bureau des lettres perdues, l’équipe se retrouve de nouveau confrontée à résoudre une énigme … qui prend cette fois-ci des allures de road-trip ! \n\nNorman et Rita découvrent une vieille caméra remplie de photos mystérieuses qui les met sur une piste d’un petit garçon qui aurait été kidnappé .. Les voilà partis en quête de réponses dans un voyage à travers le Colorado !\n\nLeur recherche va s’accompagner de péripéties pleines de",
    "duree_minutes": 84,
@@ -22130,8 +22121,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Un Noël sous les projecteurs – Téléfilm complet HD en français (Romance, Noël)",
    "id": "DtLTeJfANTs",
-   "titre": "Un Noël sous les projecteurs – Téléfilm complet HD en français (Romance, Noël)",
+   "titre": "Romance, Noël",
    "titre_youtube": "Un Noël sous les projecteurs – Téléfilm complet HD en français (Romance, Noël)",
    "description": "NOUVEAUTÉ TÉLÉFILM HIVER, COMÉDIE, NOËL – film entier 2025 HD et VF : Une comédie de Noël comme on les aime ! 💖🎄✨\n\nLiz Livingstone, PDG d’une société spécialisée dans l'événementiel, prend sa retraite et choisit sa fille pour lui succéder. Cependant, la jeune femme fraîchement recrutée a peur de ne pas être à la hauteur de sa mère…\n\nPour montrer de quoi elle est capable, elle part à Cedar Falls organiser une fête en l’honneur de Steve Ryan, un soldat qui rentre du front pour la trêve de Noël. Ma",
    "duree_minutes": 83,
@@ -22140,7 +22132,8 @@
    "genre": "Romance",
    "genres": [
     "Romance",
-    "Noël"
+    "Noël",
+    "Musical"
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
@@ -22310,8 +22303,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Noël dans les montagnes – Téléfilm complet HD en français (Comédie romantique, Noël)",
    "id": "Z1n4RIKw1gc",
-   "titre": "Noël dans les montagnes – Téléfilm complet HD en français (Comédie romantique, Noël)",
+   "titre": "Comédie romantique, Noël",
    "titre_youtube": "Noël dans les montagnes – Téléfilm complet HD en français (Comédie romantique, Noël)",
    "description": "NOUVEAUTÉ FILM ROMANCE, PASSION, MONTAGNES  – film entier 2025 HD et VF : Un téléfilm sentimental irrésistible et réconfortant autour de la difficulté à tenir bon même lorsque tout vacille.. Et en prime, de superbes paysages qui font rêver ! ✨🎄 🎅\n\nL’équilibre de vie de Shelby Haygood et ses parents est menacé lorsqu’un promoteur immobilier se décide à venir en pleine période de Noël avec le projet de racheter toutes les terres de leur exploitation familiale… Mais en plus de devoir sauver la ferm",
    "duree_minutes": 84,
@@ -22321,7 +22315,8 @@
    "genres": [
     "Romance",
     "Noël",
-    "Famille"
+    "Famille",
+    "Comédie"
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
@@ -22458,23 +22453,6 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "pour_enfants": false
-  },
-  {
-   "id": "h6H8IXWMa-U",
-   "titre": "Un mariage en hiver – Téléfilm complet HD en français (Comédie Romantique, Noël)",
-   "titre_youtube": "Un mariage en hiver – Téléfilm complet HD en français (Comédie Romantique, Noël)",
-   "description": "NOUVEAUTÉ FILM ROMANCE, COUPLE, HUMOUR – film entier 2025 HD et VF : Vivez la frénésie de l’organisation de mariage de June, qui rêve de vivre un conte de fées 🩷​… mais qui voit son mariage virer au cauchemar ! 😵\n\nJune vie le parfait amour avec Alex. Quand ce dernier lui fait sa demande, June est aux anges ! Elle rêve d’un mariage féérique, sous le soleil du mois de juin. ☀️\nMalheureusement, la date du mariage doit être décalée… en plein mois de décembre ! Entre le soleil remplacé par la neige e",
-   "duree_minutes": 85,
-   "date": "2025-12-21T15:01:23Z",
-   "miniature": "https://i.ytimg.com/vi/h6H8IXWMa-U/maxresdefault.jpg",
-   "genre": "Romance",
-   "genres": [
-    "Romance",
-    "Comédie",
-    "Famille"
-   ],
-   "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
   },
   {
@@ -22764,23 +22742,6 @@
    "pour_enfants": false
   },
   {
-   "id": "sRMQPaoYH20",
-   "titre": "Sur un air de Noël – Téléfilm complet HD en français (Romance, Noël)",
-   "titre_youtube": "Sur un air de Noël – Téléfilm complet HD en français (Romance, Noël)",
-   "description": "NOUVEAUTÉ FILM TÉLÉFILM, ÉMOTION, MUSICAL – film entier 2025 HD et VF : Un téléfilm réconfortant idéal pour échapper au blues hivernal qui sévit dans toutes les chaumières ! 🎄🎅\n\nLyndsey et Wes sont deux musiciens que tout oppose mais un concours de circonstances va les forcer à passer du temps ensemble.. Finiront-ils par s’entendre malgré leurs caractères opposés ? \nLeur passion commune va leur permettre de se rapprocher … \n\n#romance #noël #musique #téléfilm\n\nRetrouvez tous nos films entiers ICI",
-   "duree_minutes": 86,
-   "date": "2025-12-16T17:01:34Z",
-   "miniature": "https://i.ytimg.com/vi/sRMQPaoYH20/maxresdefault.jpg",
-   "genre": "Romance",
-   "genres": [
-    "Romance",
-    "Noël",
-    "Musical"
-   ],
-   "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false
-  },
-  {
    "id": "hYLleC8PM50",
    "titre": "Le Petit Inventeur",
    "titre_youtube": "Le Petit Inventeur | David Mazouz (Gotham) | Film Complet en Français | Famille, Teen",
@@ -22840,8 +22801,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Le secret de mes 16 ans – Téléfilm complet HD en français (Thriller, Mystère)",
    "id": "y4aAxlAIjOI",
-   "titre": "Le secret de mes 16 ans – Téléfilm complet HD en français (Thriller, Mystère)",
+   "titre": "Thriller, Mystère",
    "titre_youtube": "Le secret de mes 16 ans – Téléfilm complet HD en français (Thriller, Mystère)",
    "description": "NOUVEAUTÉ FILM TÉLÉFILM, SUSPENSE   – film entier 2025 HD et VF : Un thriller sous haute tension où les apparences sont parfois bien trompeuses… \n\nPour l'ouverture de sa nouvelle galerie d’art et la fête d’anniversaire de sa fille Kerry, Kayla embauche Lindy, une organisatrice de fêtes. Mais celle-ci s’immisce un peu trop rapidement dans leur vie… \nDes secrets finissent par éclater au grand jour … \n\n#tension #suspense #menace #secrets\n\nRetrouvez tous nos films entiers ICI 👉 \nhttps://www.youtube.",
    "duree_minutes": 89,
@@ -23162,8 +23124,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Lost Letter Mysteries: La lettre au Père Noël – Téléfilm complet HD en français (Comédie, Noël)",
    "id": "NlSwzz1upsc",
-   "titre": "Lost Letter Mysteries: La lettre au Père Noël – Téléfilm complet HD en français (Comédie, Noël)",
+   "titre": "Comédie, Noël",
    "titre_youtube": "Lost Letter Mysteries: La lettre au Père Noël – Téléfilm complet HD en français (Comédie, Noël)",
    "description": "NOUVEAUTÉ FILM MYSTÈRE, ENQUÊTE, AVENTURE   – film entier 2025 HD et VF : Avis aux amateurs de films avec une happy ending !  ​💫​​\n\nNotre quatuor de détectives préféré est de retour ! Cette fois-ci, l’équipe doit s’occuper de trier toutes les lettres des enfants au Père Noël mais il va falloir faire vite pour que chaque enfant reçoive ses cadeaux à temps ! 🎄​✨​​\nMais l’une des lettres n’est pas tout à fait comme les autres… C’est la petite Hannah qui ne l’a pas adressée au Père Noël mais à quelq",
    "duree_minutes": 84,
@@ -25287,8 +25250,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Plus jamais cela – Téléfilm complet HD en français (Thriller, Suspense)",
    "id": "oOt1k40Der8",
-   "titre": "Plus jamais cela – Téléfilm complet HD en français (Thriller, Suspense)",
+   "titre": "Thriller, Suspense",
    "titre_youtube": "Plus jamais cela – Téléfilm complet HD en français (Thriller, Suspense)",
    "description": "__\nNOUVEAUTÉ TÉLÉFILM PSYCHOLOGIQUE, TENSION – téléfilm entier 2025 HD et VF : ✍️ Quand les mots destinés à protéger deviennent une cible… et que la peur frappe à votre porte. ⚠️\nUne écrivaine renommée, dont les ouvrages encouragent les femmes à ne pas subir de relations violentes, se retrouve elle-même traquée et harcelée par un individu instable. Ce qu’elle croyait être un simple admirateur ou un lecteur passionné se transforme en menace constante, et chaque instant devient une course contre l",
    "duree_minutes": 89,
@@ -25376,8 +25340,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Les Lumières de Noël – Téléfilm complet HD en français (Romance, Familial, Noël)",
    "id": "hmHtz01mGzU",
-   "titre": "Les Lumières de Noël – Téléfilm complet HD en français (Romance, Familial, Noël)",
+   "titre": "Romance, Familial, Noël",
    "titre_youtube": "Les Lumières de Noël – Téléfilm complet HD en français (Romance, Familial, Noël)",
    "description": "__\nNOUVEAUTÉ FILM ROMANTIQUE, FAMILLE, NOËL – téléfilm entier 2025 HD et VF : 🎄 Quand la tristesse laisse place à l’amour… et que Noël devient le théâtre d’un nouveau départ. ✨❤️\nLe jour de Noël, Matt, mari de Gina et père de Sam et Drew, meurt tragiquement. Peu après, Cathy, la femme de Michael et mère de Charlotte, Jack et Danny, succombe à une tumeur au cerveau. Deux familles plongées dans le deuil se rapprochent pour surmonter leur douleur et trouver du réconfort ensemble.\nDans ce contexte b",
    "duree_minutes": 86,
@@ -25465,6 +25430,24 @@
     "Drame"
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "titre_accroche": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)",
+   "id": "aF7VUgjs0Xg",
+   "titre": "Mystère, Romance",
+   "titre_youtube": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)",
+   "description": "__\nNOUVEAUTÉ FILM MYSTÈRE, ROMANCE, DRAME – téléfilm entier 2025 HD et VF :  ✉️ Une lettre oubliée… un secret bouleversant… et des vies qui basculent. 🌪️💌\nL’équipe d’Oliver, détectives postaux spécialisés dans la livraison de lettres perdues, se voit confier une mission intrigante : enquêter sur une lettre datant de 2005, arrivée par hasard sur le bureau de feue Eleonor.\nAu fur et à mesure de leur enquête, ils découvrent que cette lettre cache un secret bouleversant qui pourrait changer le desti",
+   "duree_minutes": 84,
+   "date": "2025-10-19T14:00:01Z",
+   "miniature": "https://i.ytimg.com/vi/aF7VUgjs0Xg/maxresdefault.jpg",
+   "genre": "Thriller",
+   "genres": [
+    "Thriller",
+    "Romance",
+    "Drame"
+   ],
+   "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
   },
   {
@@ -25740,6 +25723,22 @@
     "Biopic"
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "id": "6u7EGpfi9u8",
+   "titre": "INCOMING",
+   "titre_youtube": "INCOMING | FILM COMPLET EN FRANÇAIS | Scott Adkins",
+   "description": "►SYNOPSIS\nDans le futur, la Station Spatiale Internationale a été transformée en une prison de très haute sécurité d'où il est impossible de s'échapper. Sauf que des terroristes qui y étaient emprisonnés ont réussi à s'en emparer. Leur but : faire de cette station-prison un missile pointé sur Moscou.\n\n►ACTEURS\nScott Adkins, Aaron McCusker, Michelle Lehane\n\n►Réalisation\nEric Zaragoza\n\nAbonne-toi à notre chaîne si tu veux être informé des prochains films !\n🔔 https://bit.ly/3hJYi25\n\nEnvie de découv",
+   "duree_minutes": 84,
+   "date": "2025-10-10T17:00:10Z",
+   "miniature": "https://i.ytimg.com/vi/6u7EGpfi9u8/maxresdefault.jpg",
+   "genre": "Nanar",
+   "genres": [
+    "Nanar",
+    "Science-fiction"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false
   },
   {
@@ -30893,8 +30892,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "La Nuit du Danger - Compil 2 Films complets HD en français (Action, Explosion, Adrénaline)",
    "id": "Ej5wnLMzsAM",
-   "titre": "La Nuit du Danger - Compil 2 Films complets HD en français (Action, Explosion, Adrénaline)",
+   "titre": "Action, Explosion, Adrénaline",
    "titre_youtube": "La Nuit du Danger 💥 - Compil 2 Films complets HD en français (Action, Explosion, Adrénaline)",
    "description": "NOUVEAUTÉ COMPILATION SUSPENSE, INTENSE, FRISSONS film entier 2025 HD et VF : Plongez dans les univers intense de 2 films d’action, où danger permanent et suspense haletant vous embarquent dans un tourbillon d’adrénaline 💥🎬\n\nDECIBEL : Un ancien commandant de la marine reçoit un inquiétant appel anonyme. L’homme au bout du fil affirme avoir placé des bombes dans des lieux publics très fréquentés, notamment un stade de football et un parc aquatique. Il s’agit de \"bombes sonores\". Si les sons à pro",
    "duree_minutes": 196,
@@ -38137,8 +38137,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)",
    "id": "Qb8l2nD9mnc",
-   "titre": "Retour à Cedar Cove",
+   "titre": "Comédie, Romantique",
    "titre_youtube": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)",
    "description": "NOUVEAUTÉ SÉRIE 2024 COMÉDIE, ROMANTIQUE, PARTIE 2 en HD et VF : Après le film éponyme disponible sur notre chaîne, retrouvez Olivia interprétée par Andie MacDowell (UN JOUR SANS FIN, QUATRE MARIAGES ET UN ENTERREMENT) dans cette série touchante aux sous-tons romantiques. Découvrez la suite dans cette nouvelle partie ! \n\nOlivia qui est juge à Cedar Cove, une ville chaleureuse le long des côtes, aspire à être promue en tant que juge fédéral. Déterminée à atteindre son but, elle tombe néanmoins so",
    "duree_minutes": 84,
@@ -38150,8 +38151,7 @@
     "Drame"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false,
-   "titre_accroche": "Retour à Cedar Cove : Saison 1 Partie 2 - Série HD en français (Comédie, Romantique)"
+   "pour_enfants": false
   },
   {
    "id": "crmiVgHhfEU",
@@ -42853,6 +42853,22 @@
    "pour_enfants": false
   },
   {
+   "id": "0MMTRaTp23I",
+   "titre": "Retour à Cedar Cove",
+   "titre_youtube": "Retour à Cedar Cove - Film complet HD en français (Comédie, Romance)",
+   "description": "NOUVEAUTÉ FILM COMÉDIE, ÉMOTION, ROMANCE, film entier 2023 HD et VF : Adaptation de la série à succès éponyme diffusée sur TF1, et portée par Andie McDowell (UN JOUR SANS FIN, QUATRE MARIAGES ET UN ENTERREMENT), cette comédie dramatique touchante et presque hors du temps saura ravir les fans du genre. \n\nOlivia, magistrate à la cour municipale de Cedar Cove, une petite ville côtière des États-Unis, aspire à remplacer le juge en poste et ainsi accéder à la fonction de juge fédéral. Lors d’une audi",
+   "duree_minutes": 85,
+   "date": "2024-01-30T17:00:00Z",
+   "miniature": "https://i.ytimg.com/vi/0MMTRaTp23I/maxresdefault.jpg",
+   "genre": "Comédie",
+   "genres": [
+    "Comédie",
+    "Drame"
+   ],
+   "chaine": "My Digital Channel - Films Complets",
+   "pour_enfants": false
+  },
+  {
    "id": "LUu4Tidttas",
    "titre": "Blackmailed",
    "titre_youtube": "Blackmailed 🔫 | Film d'Action Complet en Français | Ray Liotta, Dominic Purcell",
@@ -43851,6 +43867,19 @@
     "Animation"
    ],
    "chaine": "Boxoffice Animation | Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "id": "z6p0DBRXSH8",
+   "titre": "Noël dans les montagnes",
+   "titre_youtube": "Noël dans les montagnes🎄| Film de Noël Complet en Français | Sarah Lancaster (2015)",
+   "description": "Christmas in the Smokies' est un classique de Noël des temps modernes qui se déroule dans les magnifiques Smoky Mountains. Il raconte l'histoire du voyage d'une famille pour sauver sa ferme historique de petits fruits contre vents et marées au cours d'une période des Fêtes des plus fatidiques.\n\n►ACTEURS\nSarah Lancaster\nBarry Corbin\nAlan Powell\n\n►Réalisation\nGary Wheeler\n\nTitre original : Christmas in the Smokies\n\nAbonne-toi à notre chaîne si tu veux être informé des prochaines films !\n🔔 https://",
+   "duree_minutes": 84,
+   "date": "2023-12-24T09:00:09Z",
+   "miniature": "https://i.ytimg.com/vi/z6p0DBRXSH8/maxresdefault.jpg",
+   "genre": "",
+   "genres": [],
+   "chaine": "Ciné Movies - Films Complets",
    "pour_enfants": false
   },
   {
@@ -57217,8 +57246,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "DVD Complet du Spectacle de Titoff au Casino de Paris (Humour, Sketchs)",
    "id": "UHKZ_SxGRlE",
-   "titre": "DVD Complet du Spectacle de Titoff au Casino de Paris (Humour, Sketchs)",
+   "titre": "Humour, Sketchs",
    "titre_youtube": "DVD Complet du Spectacle de Titoff au Casino de Paris (Humour, Sketchs)",
    "description": "★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PL5YIdP7ffs2thTnywk5hqGCertSB3UmTX\n\n\nGenre : Spectacle, Humour, Comédie, Sketch, Standup\n2017 - 2018 - Tous Droits Réservés #FilmComplet",
    "duree_minutes": 91,
@@ -58288,8 +58318,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Pour l’Amour d’un Enfant - Film ENTIER Gratuit en Français (Drame, Triste)",
    "id": "-TbiTW6WxTI",
-   "titre": "Pour l’Amour d’un Enfant - Film ENTIER Gratuit en Français (Drame, Triste)",
+   "titre": "Drame, Triste",
    "titre_youtube": "Pour l’Amour d’un Enfant - Film ENTIER Gratuit en Français (Drame, Triste)",
    "description": "Jusqu'où irait un papa pour l'amour de son enfant ?Jusqu'à réaliser son rêve impossible ? \n😢Plus de films complets Émouvants ICI ➤ https://www.youtube.com/playlist?list=PLzkWqINg6oUEuTQPyPmN5Fz0jlUmUS2fd\n\nGenre : Film Complet, Film Entier, Emotion, Drame, Emouvant\n© 2018 - Tous Droits Réservés\n\n⚠️ Salut à tous ⚠️ \n\n1- Quelle note vous mettez  à ce film ? (pour le conseiller, ou non, à ceux qui lisent les commentaires)\n2- Quels autres films (pas trop récents SVP) vous aimeriez sur la chaine ? #Fi",
    "duree_minutes": 110,
@@ -58891,8 +58922,9 @@
    "pour_enfants": false
   },
   {
+   "titre_accroche": "Film complet en français Action - Kung Fu - Art Martiaux (Bonne qualité)",
    "id": "UMpW97A6RCY",
-   "titre": "Film complet en français Action - Kung Fu - Art Martiaux (Bonne qualité)",
+   "titre": "Bonne qualité",
    "titre_youtube": "Film complet en français ★ Action - Kung Fu - Art Martiaux (Bonne qualité)",
    "description": "Un jeune homme, maître de Kung Fu mais aussi un peu... \"simple d'esprit\". \nPlus de films COMPLETS à voir ICI ► https://www.youtube.com/playlist?list=PL5YIdP7ffs2thTnywk5hqGCertSB3UmTX\n\nGenre : Action , Film Complet En Français \n☉  Tous Droits Réservés #FilmComplet",
    "duree_minutes": 89,
@@ -58987,13 +59019,6 @@
    "id": null,
    "langue": null,
    "titre": "Mon Toutou Virtuel",
-   "date": "2026-11-18",
-   "regle": 6
-  },
-  "WFtrGXzRFX0": {
-   "id": null,
-   "langue": null,
-   "titre": "Naufragé dans l'espace, il refuse d'être sauvé (Solis)",
    "date": "2026-11-18",
    "regle": 6
   },
@@ -59607,6 +59632,97 @@
    "titre": "Survivre à une partie de paintball quand l'adversaire a de vraies armes",
    "date": "2026-11-18",
    "regle": 6
+  },
+  "WFtrGXzRFX0": {
+   "id": "4B-dze7hNSk",
+   "langue": "VF",
+   "titre": "Solis",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "VLeReHPXe28": {
+   "id": null,
+   "langue": null,
+   "titre": "LES CONTES DE MAUPASSANT Miss Harriet + Toine",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "nbR-88QLygw": {
+   "id": null,
+   "langue": null,
+   "titre": "La Jumelle Perdue",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "92wLEJCvpOw": {
+   "id": null,
+   "langue": null,
+   "titre": "Nightmare Visions",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "Fb3kGP35XZw": {
+   "id": null,
+   "langue": null,
+   "titre": "Un ange sous le sapin",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "EIjIU-EDdUo": {
+   "id": null,
+   "langue": null,
+   "titre": "Navire Mortel",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "eq5dt_A1irQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Cop vs Mafia",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "1zqY6VPHALM": {
+   "id": null,
+   "langue": null,
+   "titre": "Jeunesse sacrifiée",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "IOVfWVSjKSQ": {
+   "id": null,
+   "langue": null,
+   "titre": "LE RESCAPÉ DE LA VALLÉE DE LA MORT 1973",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "mde72DlUNWo": {
+   "id": null,
+   "langue": null,
+   "titre": "Un Chien pour Noël",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "xaHvsV3XEbo": {
+   "id": null,
+   "langue": null,
+   "titre": "Un papa en or (Bernhard Schir)",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "mzQla0v1p4s": {
+   "id": null,
+   "langue": null,
+   "titre": "Dur, Dur d'être un Garçon",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "PxasvxRrYVE": {
+   "id": null,
+   "langue": null,
+   "titre": "Rituel Maudit",
+   "date": "2026-11-18",
+   "regle": 6
   }
  },
  "titres_trouves": {
@@ -59626,16 +59742,6 @@
    "regle": 2
   },
   "EXCXi43mUuo": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "UHKZ_SxGRlE": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "UMpW97A6RCY": {
    "titre": null,
    "date": "2026-11-17",
    "regle": 2
@@ -59665,72 +59771,12 @@
    "date": "2026-11-17",
    "regle": 2
   },
-  "CVY5kjA13vs": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "cHWeXfsTrJo": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "DtLTeJfANTs": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "Z1n4RIKw1gc": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "h6H8IXWMa-U": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "sRMQPaoYH20": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "y4aAxlAIjOI": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
   "pbNhW9lq6Ec": {
    "titre": null,
    "date": "2026-11-17",
    "regle": 2
   },
-  "NlSwzz1upsc": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "oOt1k40Der8": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "hmHtz01mGzU": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
   "naZzfc4SLpk": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "Ej5wnLMzsAM": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "-TbiTW6WxTI": {
    "titre": null,
    "date": "2026-11-17",
    "regle": 2
@@ -59875,11 +59921,6 @@
    "date": "2026-11-17",
    "regle": 2
   },
-  "qDUq5umBl-Q": {
-   "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
   "wtOvAq74Eew": {
    "titre": null,
    "date": "2026-11-17",
@@ -59912,11 +59953,6 @@
   },
   "8-oRzGlvszs": {
    "titre": null,
-   "date": "2026-11-17",
-   "regle": 2
-  },
-  "eeZZfsQea7o": {
-   "titre": "Incoming",
    "date": "2026-11-17",
    "regle": 2
   },
