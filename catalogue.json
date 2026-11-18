@@ -1,21 +1,38 @@
 {
- "mis_a_jour": "2026-11-18T05:07:43Z",
- "nombre_de_films": 3876,
+ "mis_a_jour": "2026-11-18T12:53:03Z",
+ "nombre_de_films": 3870,
  "films": [
   {
-   "id": "jvZHtXoOc14",
-   "titre": "Rouge Rubis : voyageuse du temps malgré elle",
-   "titre_youtube": "Rouge Rubis : voyageuse du temps malgré elle | Film complet en Français | Fantastique, Aventure",
-   "description": "►SYNOPSIS\nÀ Londres, Gwendoline grandit dans l'ombre d'une famille aux secrets bien gardés. Depuis toujours, tout le monde attend que sa cousine Charlotte hérite d'un gène rare qui permet de voyager dans le temps. Mais le jour où Gwendoline se retrouve soudain projetée dans les rues d'une autre époque, tout bascule : c'est elle le Rubis, l'ultime voyageuse du Cercle. Accueillie avec méfiance par une loge secrète fondée par le mystérieux comte de Saint-Germain, elle doit faire équipe avec Gidéon,",
-   "duree_minutes": 117,
-   "date": "2026-11-18T05:00:20Z",
-   "miniature": "https://i.ytimg.com/vi/jvZHtXoOc14/maxresdefault.jpg",
-   "genre": "Fantastique",
+   "id": "7Fw98aUX6SU",
+   "titre": "Mon Toutou Virtuel",
+   "titre_youtube": "Mon Toutou Virtuel | Film Complet en Français | Famille, Aventure",
+   "description": "Entre fuite, courage et découverte, un garçon et son chien robot affrontent leurs peurs dans une aventure palpitante et pleine d’émotion.\n\n\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n\n#UnFilmTropBien #FilmComplet\nFilm en Français Complet, Film pour Enfants, Cinéma\n© Tous Droits Réservés",
+   "duree_minutes": 89,
+   "date": "2026-11-18T09:00:27Z",
+   "miniature": "https://i.ytimg.com/vi/7Fw98aUX6SU/maxresdefault.jpg",
+   "genre": "Famille",
    "genres": [
-    "Fantastique",
+    "Famille",
     "Aventure"
    ],
-   "chaine": "Ciné Movies - Films Complets",
+   "chaine": "Boxoffice Animation | Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "id": "WFtrGXzRFX0",
+   "titre": "Naufragé dans l'espace, il refuse d'être sauvé (Solis)",
+   "titre_youtube": "Naufragé dans l'espace, il refuse d'être sauvé (Solis) | Sci-Fi, Drame",
+   "description": "►SYNOPSIS\nPrès de Mercure, une plateforme minière exploite des astéroïdes riches en métaux rares. Après une explosion sur le site de forage, l'ingénieur Troy Holloway se réveille seul à bord d'une capsule de sauvetage endommagée, privée de propulsion et dérivant droit vers le Soleil. Ses deux coéquipiers n'ont pas survécu. Son seul lien avec l'extérieur est une liaison radio fragile avec la commandante Roberts, pilote d'un vaisseau lancé à sa rencontre. Froid extrême puis chaleur écrasante, oxyg",
+   "duree_minutes": 88,
+   "date": "2026-11-18T07:00:34Z",
+   "miniature": "https://i.ytimg.com/vi/WFtrGXzRFX0/maxresdefault.jpg",
+   "genre": "Science-fiction",
+   "genres": [
+    "Science-fiction",
+    "Drame",
+    "Nanar"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false
   },
   {
@@ -734,10 +751,14 @@
    "genres": [
     "Thriller",
     "Fantastique",
+    "Aventure",
     "Nanar"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "LyCy2wmob-k",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false
   },
   {
    "id": "OmbpVzUWB7M",
@@ -845,7 +866,10 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "3_VU8UNYAVk",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false
   },
   {
    "titre_accroche": "Noël sous le signe de la compétition !",
@@ -910,7 +934,10 @@
     "Ados"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "-Vdjkpws2Xs",
+   "bande_annonce_langue": "VOSTFR",
+   "bande_annonce_pour_enfants": false
   },
   {
    "id": "x-_ICXOI5Ig",
@@ -1003,7 +1030,10 @@
     "Aventure"
    ],
    "chaine": "Allociné Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "-3W8EExeYF0",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false
   },
   {
    "id": "rLF8jzWghyQ",
@@ -1114,7 +1144,10 @@
     "Drame"
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "QQBCI4yqwHM",
+   "bande_annonce_langue": "VOSTFR",
+   "bande_annonce_pour_enfants": false
   },
   {
    "titre_accroche": "Il doit sauver sa fille avant qu’il ne soit trop tard…",
@@ -1131,7 +1164,10 @@
     "Thriller"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false
+   "pour_enfants": false,
+   "bande_annonce": "sl7YM_FQlAU",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false
   },
   {
    "id": "q5B8KrUAwRo",
@@ -2941,7 +2977,8 @@
    "miniature": "https://i.ytimg.com/vi/0jFQJyrh54w/maxresdefault.jpg",
    "genre": "Action",
    "genres": [
-    "Action"
+    "Action",
+    "Nanar"
    ],
    "chaine": "Ciné Movies - Films Complets",
    "pour_enfants": false
@@ -6550,7 +6587,8 @@
    "genre": "Romance",
    "genres": [
     "Romance",
-    "Drame"
+    "Drame",
+    "Thriller"
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false
@@ -11720,7 +11758,8 @@
    "miniature": "https://i.ytimg.com/vi/OaeLcmj5ph8/maxresdefault.jpg",
    "genre": "Guerre",
    "genres": [
-    "Guerre"
+    "Guerre",
+    "Nanar"
    ],
    "chaine": "Ciné Movies - Films Complets",
    "pour_enfants": false
@@ -13403,21 +13442,6 @@
    "genre": "",
    "genres": [],
    "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
-  },
-  {
-   "id": "ezVdDrkVLbk",
-   "titre": "LE DERNIER DRAGON",
-   "titre_youtube": "LE DERNIER DRAGON | FILM COMPLET EN FRANÇAIS | Christopher Murney",
-   "description": "►SYNOPSIS\nLeroy Green est un jeune maître en arts martiaux en quête de perfection spirituelle. Timide mais redoutable combattant, il voit sa vie basculer lorsqu'une séduisante animatrice de télévision devient la cible d'un redoutable chef de gang. Pour la sauver, Leroy devra affronter le légendaire \"Shogun de Harlem\" et découvrir la véritable puissance qui sommeille en lui.\n\n►ACTEURS\nTaimak, Vanity, Christopher Murney\n\n►Réalisation\nMichael Schultz\n\nAbonne-toi à notre chaîne si tu veux être infor",
-   "duree_minutes": 104,
-   "date": "2026-06-07T17:00:23Z",
-   "miniature": "https://i.ytimg.com/vi/ezVdDrkVLbk/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false
   },
   {
@@ -24363,21 +24387,6 @@
    "pour_enfants": false
   },
   {
-   "id": "QhO2Stoe6ak",
-   "titre": "ROBOCROC",
-   "titre_youtube": "ROBOCROC | FILM COMPLET EN FRANÇAIS | Corin Nemec",
-   "description": "►SYNOPSIS\nUne fusée expérimentale atterrit près d'un habitat où vit un crocodile appelé  Stella . La charge utile est une nanotechnologie expérimentale programmée pour survivre à tout prix. Très vite,  Stella  découvre la nanotechnologie dans sa nourriture, ce qui la transforme lentement, au grand désarroi de ses gardiens. L'armée arrive rapidement sur les lieux et prend le contrôle alors que le combat entre l'homme et le Robocroc s'intensifie, celui-ci dévorant tout sur son passage, des adolesc",
-   "duree_minutes": 81,
-   "date": "2025-11-12T18:00:26Z",
-   "miniature": "https://i.ytimg.com/vi/QhO2Stoe6ak/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
-   "pour_enfants": false
-  },
-  {
    "id": "NtvDCYnvHHk",
    "titre": "Né Pour Tuer",
    "titre_youtube": "Né Pour Tuer | Vinnie Jones, Dolph Lundgren | Film Complet en Français | Action, Thriller💎",
@@ -25456,24 +25465,6 @@
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets",
    "pour_enfants": false
-  },
-  {
-   "id": "aF7VUgjs0Xg",
-   "titre": "Lost Letter Mysteries",
-   "titre_youtube": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)",
-   "description": "__\nNOUVEAUTÉ FILM MYSTÈRE, ROMANCE, DRAME – téléfilm entier 2025 HD et VF :  ✉️ Une lettre oubliée… un secret bouleversant… et des vies qui basculent. 🌪️💌\nL’équipe d’Oliver, détectives postaux spécialisés dans la livraison de lettres perdues, se voit confier une mission intrigante : enquêter sur une lettre datant de 2005, arrivée par hasard sur le bureau de feue Eleonor.\nAu fur et à mesure de leur enquête, ils découvrent que cette lettre cache un secret bouleversant qui pourrait changer le desti",
-   "duree_minutes": 84,
-   "date": "2025-10-19T14:00:01Z",
-   "miniature": "https://i.ytimg.com/vi/aF7VUgjs0Xg/maxresdefault.jpg",
-   "genre": "Thriller",
-   "genres": [
-    "Thriller",
-    "Romance",
-    "Drame"
-   ],
-   "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false,
-   "titre_accroche": "Lost Letter Mysteries : Comme un ouragan – Téléfilm complet HD en français (Mystère, Romance)"
   },
   {
    "id": "6xSaa8OsNcM",
@@ -27582,21 +27573,6 @@
     "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets",
-   "pour_enfants": false
-  },
-  {
-   "id": "s4vLiq-uWxU",
-   "titre": "TERRAPOCALYPSE",
-   "titre_youtube": "TERRAPOCALYPSE | FILM COMPLET EN FRANÇAIS | Greg Grungerg & Neil Grayston",
-   "description": "►SYNOPSIS\nUn groupe de fanatiques de l’Apocalypse doit utiliser ses connaissances des films apocalyptiques pour sauver le monde d’une éruption solaire dévastatrice.\n\n►ACTEURS\nGreg Grunberg, Neil Grayston, Caroline Cave\n\n►Réalisation\nSteven R. Monroe\n\nAbonne-toi à notre chaîne si tu veux être informé des prochains films !\n🔔 https://bit.ly/3hJYi25\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n\n►Ciné Movies : https://bit.ly/3Z7TQRA\n►Ciné Nanar: https://bit.ly/3cOJFIM\n►Ciné Com",
-   "duree_minutes": 76,
-   "date": "2025-08-15T22:00:54Z",
-   "miniature": "https://i.ytimg.com/vi/s4vLiq-uWxU/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false
   },
   {
@@ -33227,21 +33203,6 @@
     "Drame"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false
-  },
-  {
-   "id": "E0pa5UTn4nI",
-   "titre": "American Soldiers",
-   "titre_youtube": "American Soldiers | Film Complet en Français | Curtis Morgan",
-   "description": "►SYNOPSIS\nUn groupe de soldats américains défie leur pays en libérant des prisonniers maltraités.\n\n►ACTEURS\nCurtis Morgan, Zan Calabretta, Jordan Brown\n\n►REALISATEUR\nSidney J. Furie\n\nEnjoy ! 😜\n\nAbonne-toi à notre chaîne si tu veux découvrir pleins d’autres supers nanars !\n🔔 https://bit.ly/3cOJFIM\n\nEnvie de découvrir d’autres genres ? Nous avons ce qu’il te faut !\n@CineMoviesFilmsComplets \n@CineClassicsFilmsComplets \n@CineWesternFilmsComplets \n@CineHorrorFilmsComplets \n@BestOfKids\n@CrimeVidéoFR  ",
-   "duree_minutes": 94,
-   "date": "2025-01-19T18:00:08Z",
-   "miniature": "https://i.ytimg.com/vi/E0pa5UTn4nI/maxresdefault.jpg",
-   "genre": "Nanar",
-   "genres": [
-    "Nanar"
-   ],
-   "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false
   },
   {
@@ -43892,19 +43853,6 @@
    "pour_enfants": false
   },
   {
-   "id": "z6p0DBRXSH8",
-   "titre": "Noël dans les montagnes",
-   "titre_youtube": "Noël dans les montagnes🎄| Film de Noël Complet en Français | Sarah Lancaster (2015)",
-   "description": "Christmas in the Smokies' est un classique de Noël des temps modernes qui se déroule dans les magnifiques Smoky Mountains. Il raconte l'histoire du voyage d'une famille pour sauver sa ferme historique de petits fruits contre vents et marées au cours d'une période des Fêtes des plus fatidiques.\n\n►ACTEURS\nSarah Lancaster\nBarry Corbin\nAlan Powell\n\n►Réalisation\nGary Wheeler\n\nTitre original : Christmas in the Smokies\n\nAbonne-toi à notre chaîne si tu veux être informé des prochaines films !\n🔔 https://",
-   "duree_minutes": 84,
-   "date": "2023-12-24T09:00:09Z",
-   "miniature": "https://i.ytimg.com/vi/z6p0DBRXSH8/maxresdefault.jpg",
-   "genre": "",
-   "genres": [],
-   "chaine": "Ciné Movies - Films Complets",
-   "pour_enfants": false
-  },
-  {
    "id": "k596jKceyHk",
    "titre": "Ma Meilleure Amie",
    "titre_youtube": "Ma Meilleure Amie | Film Complet en Français | Comédie",
@@ -48267,22 +48215,6 @@
     "Famille"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "pour_enfants": false
-  },
-  {
-   "id": "uxdsFNAguKE",
-   "titre": "Poison Land : Une Famille en Danger",
-   "titre_youtube": "🔥 Poison Land : Une Famille en Danger | Film Complet en Français | Drame, Epouvante",
-   "description": "Un père cherche désespérément à sauver sa famille et ses concitoyens d'une force sinistre qui sommeillait depuis longtemps sous leurs pieds... \n😢Plus de films complets émouvants ici ➤ https://www.youtube.com/playlist?list=PLzkWqINg6oUEuTQPyPmN5Fz0jlUmUS2fd\n\nGenre : Film Complet Entier, Film Triste , Drame, Emouvant\n©  2022 - Tous Droits Réservés #FilmDrame #FilmComplet",
-   "duree_minutes": 83,
-   "date": "2023-04-25T17:00:33Z",
-   "miniature": "https://i.ytimg.com/vi/uxdsFNAguKE/maxresdefault.jpg",
-   "genre": "Drame",
-   "genres": [
-    "Drame",
-    "Horreur"
-   ],
-   "chaine": "Boxoffice | DRAMES | Films Complets",
    "pour_enfants": false
   },
   {
@@ -59050,10 +58982,493 @@
    "date": "2026-11-17",
    "regle": 6
   },
-  "jvZHtXoOc14": {
+  "7Fw98aUX6SU": {
    "id": null,
    "langue": null,
-   "titre": "Rouge Rubis : voyageuse du temps malgré elle",
+   "titre": "Mon Toutou Virtuel",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "WFtrGXzRFX0": {
+   "id": null,
+   "langue": null,
+   "titre": "Naufragé dans l'espace, il refuse d'être sauvé (Solis)",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "LefhrGzOwUM": {
+   "id": null,
+   "langue": null,
+   "titre": "Exeter",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "uwZyqd8rXAI": {
+   "id": null,
+   "langue": null,
+   "titre": "Last Round",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "V3NdU6ZdF2k": {
+   "id": null,
+   "langue": null,
+   "titre": "Bikers Gang",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "5BlpM9WgkmA": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Instinct d'une Mère",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "mnbarC6EdgU": {
+   "id": null,
+   "langue": null,
+   "titre": "L'APACHE BLANC 1987",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "cOzmqkjykgc": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Chevaliers du Froid",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "Hc1xLwGakdQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Comète (Emmy Rossum, Justin Long)",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "VmewMT5nIjA": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Rêve de Kelli",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "VGKb64eA6z4": {
+   "id": null,
+   "langue": null,
+   "titre": "Ancient Devil",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "yybVB9R4ENA": {
+   "id": null,
+   "langue": null,
+   "titre": "The Forbidden Warrior",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "wCdHIc1AfaE": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Bouc Émissaire",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "0wQVczTXx-s": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Aventuriers du Ciel",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "blE4y3E-_N0": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Monstre des Sables",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "lKxLJS-uWF0": {
+   "id": null,
+   "langue": null,
+   "titre": "Pterodactyl",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "hn7x3_ZAwjY": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Chant des sirènes",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "96VTFHMcsE0": {
+   "id": null,
+   "langue": null,
+   "titre": "La Fugue",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "M9QkzXX6Gys": {
+   "id": null,
+   "langue": null,
+   "titre": "SATANIC",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "wO5cmlJvysQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Possédés : L’Exorcisme",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "dCgRl27A_uA": {
+   "id": null,
+   "langue": null,
+   "titre": "The Killing Arena",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "mQ2KLlli6W8": {
+   "id": null,
+   "langue": null,
+   "titre": "WINNETOU ET LE TRÉSOR DES MONTAGNES BLEUES 1964",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "9S0pjuIGD48": {
+   "id": null,
+   "langue": null,
+   "titre": "Spy Hunter",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "ALz78xPK4p4": {
+   "id": null,
+   "langue": null,
+   "titre": "Mon Chien a des Super Pouvoirs",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "gPLXUn__Has": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Instrument de la vengeance",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "TTLu5xr4Z5U": {
+   "id": null,
+   "langue": null,
+   "titre": "School of Life",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "h0Z1xNJC0Lo": {
+   "id": null,
+   "langue": null,
+   "titre": "Money Crime",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "4v8V3OwD2ss": {
+   "id": null,
+   "langue": null,
+   "titre": "Femme de Pouvoir",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "gvn_mHtiZ8c": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Derniers Chevaliers de Camelot",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "W99_ks_Ezkw": {
+   "id": null,
+   "langue": null,
+   "titre": "Retomber amoureux",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "CCHY8R_zY5k": {
+   "id": null,
+   "langue": null,
+   "titre": "The Man Downstairs",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "57JaX3Wtm9U": {
+   "id": null,
+   "langue": null,
+   "titre": "Time Rebels",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "yDAf5-I9U9o": {
+   "id": null,
+   "langue": null,
+   "titre": "LA VIE DE BOHÈME 1945",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "vL-JN9d91Gk": {
+   "id": null,
+   "langue": null,
+   "titre": "High School Reunion",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "rta2mTPrWPo": {
+   "id": null,
+   "langue": null,
+   "titre": "BROTHERS IN ARMS : Frères de gâchette 2005",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "tfZHLVx542Q": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Poupées de Chiffon",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "k-tmISn1jO8": {
+   "id": null,
+   "langue": null,
+   "titre": "Quand une prof tranquille redevient chasseuse de primes pour Noël",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "XV2Dc_CpaRY": {
+   "id": null,
+   "langue": null,
+   "titre": "Yeti : survivre au crash, puis à la bête",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "Hqv8iVaHcwY": {
+   "id": "LyCy2wmob-k",
+   "langue": "VF",
+   "titre": "Rouge rubis",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "OmbpVzUWB7M": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Trésor ou la Mort",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "t4K1I2ONYoM": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Corbeau Blanc",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "JQomSwDd7xs": {
+   "id": null,
+   "langue": null,
+   "titre": "LES CONTES DE MAUPASSANT Le Rosier de Madame Husson + L'Ami Joseph",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "edG16VQsOQc": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Piège des Innocents",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "f3YFfdXZSv0": {
+   "id": null,
+   "langue": null,
+   "titre": "Underwater Predator",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "bMe6zl4T0Sw": {
+   "id": null,
+   "langue": null,
+   "titre": "Apocalypse Fighter",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "1iXZCbBUTqY": {
+   "id": "3_VU8UNYAVk",
+   "langue": "VF",
+   "titre": "La Doublure",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "RWyU74IEQ6w": {
+   "id": null,
+   "langue": null,
+   "titre": "The Christmas Classic",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "wG7tLxOtn9E": {
+   "id": null,
+   "langue": null,
+   "titre": "Complot à la Cour",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "6DFExdak6A4": {
+   "id": null,
+   "langue": null,
+   "titre": "LA MORT ÉTAIT AU RENDEZ-VOUS 1967",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "lK6Re_Swjl8": {
+   "id": "-Vdjkpws2Xs",
+   "langue": "VOSTFR",
+   "titre": "Robot Dog",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "x-_ICXOI5Ig": {
+   "id": null,
+   "langue": null,
+   "titre": "Un Fantôme Pas Très Effrayant",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "XvpWd1sO6Ug": {
+   "id": null,
+   "langue": null,
+   "titre": "Endettée, elle doit sauver sa ferme avec l'ex qui l'a abandonnée",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "8q6bsM05Jk0": {
+   "id": null,
+   "langue": null,
+   "titre": "Teen Squad",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "F6dEqLY3BYc": {
+   "id": null,
+   "langue": null,
+   "titre": "The Blood Eater",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "7AJBcZ5agVQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Blade Warrior",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "lYe-RUNFKoA": {
+   "id": "-3W8EExeYF0",
+   "langue": "VF",
+   "titre": "Le Royaume Magique",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "rLF8jzWghyQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Coup pour coup",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "u4JxKYXCZuw": {
+   "id": null,
+   "langue": null,
+   "titre": "BRASSENS, LE TEMPS DES REBELLES 2011",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "9IB6WrwJw6A": {
+   "id": null,
+   "langue": null,
+   "titre": "Héro à Quatre Pattes",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "9ecDTXUWvLM": {
+   "id": null,
+   "langue": null,
+   "titre": "La Maîtresse du Mal",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "u6Hu41pTTSc": {
+   "id": null,
+   "langue": null,
+   "titre": "Windfighters : duel mortel au-dessus de Séoul",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "ispnYv3F8Ds": {
+   "id": null,
+   "langue": null,
+   "titre": "Survivre seul quand la guerre vous a tout pris",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "KVKQmSF4fRY": {
+   "id": "QQBCI4yqwHM",
+   "langue": "VOSTFR",
+   "titre": "La Taupe",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "zodcgmRjCSk": {
+   "id": "sl7YM_FQlAU",
+   "langue": "VF",
+   "titre": "Eliminators",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "q5B8KrUAwRo": {
+   "id": null,
+   "langue": null,
+   "titre": "Ultimate Sacrifice",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "nZ5LlHRMUWc": {
+   "id": null,
+   "langue": null,
+   "titre": "LA VENGEANCE DU SAMOURAÏ 2007",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "IpoPRf0xbZg": {
+   "id": null,
+   "langue": null,
+   "titre": "LE SERMENT DE WYATT EARP 2012",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "wOVP1cV9H2w": {
+   "id": null,
+   "langue": null,
+   "titre": "Un Témoin à Eliminer",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "ncTwNU6LcSA": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Aventure en Pleine Nature",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "tfPwL-dZgjM": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Dernier Chasseur de Vampires",
    "date": "2026-11-18",
    "regle": 6
   }
