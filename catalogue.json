@@ -1,7 +1,23 @@
 {
- "mis_a_jour": "2026-11-18T12:53:03Z",
- "nombre_de_films": 3870,
+ "mis_a_jour": "2026-11-18T13:07:56Z",
+ "nombre_de_films": 3871,
  "films": [
+  {
+   "id": "PKVnOh8g11g",
+   "titre": "Le Héros des Sables",
+   "titre_youtube": "Le Héros des Sables | Film Complet en Français | Famille, Animation",
+   "description": "Arraché à sa famille, un jeune rêve de devenir guerrier. Dans un monde cruel, il ose se rebeller pour briser ses chaînes et celles des autres.\n\n\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n#UnFilmTropBien #FilmComplet\nGenre: Nouveauté, Film en Français, Famille.\n©  Tous Droits Réservés",
+   "duree_minutes": 110,
+   "date": "2026-11-18T13:00:23Z",
+   "miniature": "https://i.ytimg.com/vi/PKVnOh8g11g/maxresdefault.jpg",
+   "genre": "Famille",
+   "genres": [
+    "Famille",
+    "Animation"
+   ],
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "pour_enfants": false
+  },
   {
    "id": "7Fw98aUX6SU",
    "titre": "Mon Toutou Virtuel",
@@ -866,10 +882,7 @@
     "Thriller"
    ],
    "chaine": "Allociné Films Complets",
-   "pour_enfants": false,
-   "bande_annonce": "3_VU8UNYAVk",
-   "bande_annonce_langue": "VF",
-   "bande_annonce_pour_enfants": false
+   "pour_enfants": false
   },
   {
    "titre_accroche": "Noël sous le signe de la compétition !",
@@ -934,10 +947,7 @@
     "Ados"
    ],
    "chaine": "Boxoffice | FAMILLE | Films Complets",
-   "pour_enfants": false,
-   "bande_annonce": "-Vdjkpws2Xs",
-   "bande_annonce_langue": "VOSTFR",
-   "bande_annonce_pour_enfants": false
+   "pour_enfants": false
   },
   {
    "id": "x-_ICXOI5Ig",
@@ -1030,10 +1040,7 @@
     "Aventure"
    ],
    "chaine": "Allociné Films Complets",
-   "pour_enfants": false,
-   "bande_annonce": "-3W8EExeYF0",
-   "bande_annonce_langue": "VF",
-   "bande_annonce_pour_enfants": false
+   "pour_enfants": false
   },
   {
    "id": "rLF8jzWghyQ",
@@ -1144,10 +1151,7 @@
     "Drame"
    ],
    "chaine": "Boxoffice | DRAMES | Films Complets",
-   "pour_enfants": false,
-   "bande_annonce": "QQBCI4yqwHM",
-   "bande_annonce_langue": "VOSTFR",
-   "bande_annonce_pour_enfants": false
+   "pour_enfants": false
   },
   {
    "titre_accroche": "Il doit sauver sa fille avant qu’il ne soit trop tard…",
@@ -1164,10 +1168,7 @@
     "Thriller"
    ],
    "chaine": "My Digital Channel - Films Complets",
-   "pour_enfants": false,
-   "bande_annonce": "sl7YM_FQlAU",
-   "bande_annonce_langue": "VF",
-   "bande_annonce_pour_enfants": false
+   "pour_enfants": false
   },
   {
    "id": "q5B8KrUAwRo",
@@ -59298,8 +59299,7 @@
    "regle": 6
   },
   "1iXZCbBUTqY": {
-   "id": "3_VU8UNYAVk",
-   "langue": "VF",
+   "id": null,
    "titre": "La Doublure",
    "date": "2026-11-18",
    "regle": 6
@@ -59326,8 +59326,7 @@
    "regle": 6
   },
   "lK6Re_Swjl8": {
-   "id": "-Vdjkpws2Xs",
-   "langue": "VOSTFR",
+   "id": null,
    "titre": "Robot Dog",
    "date": "2026-11-18",
    "regle": 6
@@ -59368,8 +59367,7 @@
    "regle": 6
   },
   "lYe-RUNFKoA": {
-   "id": "-3W8EExeYF0",
-   "langue": "VF",
+   "id": null,
    "titre": "Le Royaume Magique",
    "date": "2026-11-18",
    "regle": 6
@@ -59417,15 +59415,13 @@
    "regle": 6
   },
   "KVKQmSF4fRY": {
-   "id": "QQBCI4yqwHM",
-   "langue": "VOSTFR",
+   "id": null,
    "titre": "La Taupe",
    "date": "2026-11-18",
    "regle": 6
   },
   "zodcgmRjCSk": {
-   "id": "sl7YM_FQlAU",
-   "langue": "VF",
+   "id": null,
    "titre": "Eliminators",
    "date": "2026-11-18",
    "regle": 6
@@ -59469,6 +59465,146 @@
    "id": null,
    "langue": null,
    "titre": "Le Dernier Chasseur de Vampires",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "PKVnOh8g11g": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Héros des Sables",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "Zq7k6emJQ_8": {
+   "id": null,
+   "langue": null,
+   "titre": "Célibataire, elle tombe amoureuse des mots d'un autre homme",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "jUjFCOGxAJ0": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Années qui nous Séparent",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "FxRGnPzMlNE": {
+   "id": null,
+   "langue": null,
+   "titre": "La Traque de l'Immortel",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "trlwDEA9VSs": {
+   "id": null,
+   "langue": null,
+   "titre": "Élevé par un gang de braqueurs",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "kkA7wEhBEJU": {
+   "id": null,
+   "langue": null,
+   "titre": "Deux enfants complotent pour réunir leurs parents divorcés le temps d'un Noël",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "YtPFarWZ4AM": {
+   "id": null,
+   "langue": null,
+   "titre": "Revenge at Home",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "LMJ8Bb_OIBQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Nos Destins Parallèles",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "y2tzKANxJGQ": {
+   "id": null,
+   "langue": null,
+   "titre": "LES PIRATES DE SHERWOOD 1960",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "11G5z8s67w4": {
+   "id": null,
+   "langue": null,
+   "titre": "DJANGO, PRÉPARE TON EXECUTION 1968",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "QsfT2dmKH5w": {
+   "id": null,
+   "langue": null,
+   "titre": "L'homme du Président",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "LW-EbOEzHLk": {
+   "id": null,
+   "langue": null,
+   "titre": "Connie et le Secret du Chat Miaou",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "zj8Dg_tobrE": {
+   "id": null,
+   "langue": null,
+   "titre": "A la Recherche de l'Or Perdu",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "zPdlckj__Uw": {
+   "id": null,
+   "langue": null,
+   "titre": "Prince Yaroslav (2010)",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "sr6PnL03qJU": {
+   "id": null,
+   "langue": null,
+   "titre": "Enceinte, elle doit choisir entre le père paniqué et le voisin idéal",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "rcC0LkQ7200": {
+   "id": null,
+   "langue": null,
+   "titre": "Commis d’office",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "_6ZAKS4Hur0": {
+   "id": null,
+   "langue": null,
+   "titre": "Kid Gang",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "logmQ5Ao1Iw": {
+   "id": null,
+   "langue": null,
+   "titre": "Week-End Mortel",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "1H7dlUx0sjg": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Apprentis Chasseurs",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "wKGbPgjFpf0": {
+   "id": null,
+   "langue": null,
+   "titre": "Survivre à une partie de paintball quand l'adversaire a de vraies armes",
    "date": "2026-11-18",
    "regle": 6
   }
