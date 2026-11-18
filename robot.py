@@ -109,6 +109,59 @@ def titre_propre(titre):
     return morceau or titre.strip()
 
 
+# Titres écrits tout en majuscules (« SATANIC », « UNE SECONDE POUR MOURIR… ») :
+# remis en minuscules, avec une majuscule à chaque mot important, comme les
+# autres titres du catalogue. Les sigles (FBI…) et chiffres romains (II…) restent.
+PETITS_MOTS = {
+    "de", "du", "des", "la", "le", "les", "un", "une", "et", "à", "a", "au", "aux", "en",
+    "pour", "par", "sur", "sous", "dans", "avec", "sans", "ou", "ni", "chez", "contre", "vers",
+    "of", "the", "and", "in", "on", "at", "to", "for", "an",
+}
+SIGLES = {"FBI", "CIA", "KGB", "NYPD", "SWAT", "CSI", "USA", "UK", "URSS", "ADN", "OVNI",
+          "VIP", "DJ", "NSA", "MI5", "MI6", "SOS", "TV", "NY", "SS", "OK"}
+CHIFFRE_ROMAIN = re.compile(r"^(?=[IVX]{2,}$)X{0,3}(?:IX|IV|V?I{0,3})$")
+ELISIONS = {"l", "d", "j", "m", "n", "s", "t", "c", "qu"}
+
+
+def _mot_en_minuscules(mot, debut):
+    """Un mot (sans ponctuation autour) : « L'ENTRAÎNEMENT » -> « L'Entraînement »."""
+    if mot in SIGLES or CHIFFRE_ROMAIN.match(mot):
+        return mot
+    parties = []
+    for i, partie in enumerate(mot.lower().split("-")):   # « SAINT-TROPEZ » -> « Saint-Tropez »
+        m = re.match(r"^(\w+)(['’])(.+)$", partie)
+        if m and m.group(1) in ELISIONS:                  # l', d', qu'…
+            avant = m.group(1).capitalize() if (debut and i == 0) else m.group(1)
+            parties.append(avant + m.group(2) + m.group(3)[:1].upper() + m.group(3)[1:])
+        elif partie in PETITS_MOTS and not (debut and i == 0):
+            parties.append(partie)
+        else:
+            parties.append(partie[:1].upper() + partie[1:])
+    return "-".join(parties)
+
+
+def sans_majuscules(titre):
+    """« UNE SECONDE POUR MOURIR » -> « Une Seconde pour Mourir ». Les titres qui
+    ont déjà des minuscules, ou trop courts (« DJ »), ne changent pas."""
+    lettres = [c for c in titre if c.isalpha()]
+    if len(lettres) < 4 or any(c.islower() for c in lettres):
+        return titre
+    resultat = []
+    debut = True
+    for morceau in re.split(r"(\s+)", titre):
+        if not morceau or morceau.isspace():
+            resultat.append(morceau)
+            continue
+        m = re.match(r"^(\W*)(.*?)(\W*)$", morceau)
+        avant, coeur, apres = m.groups()
+        resultat.append(avant + (_mot_en_minuscules(coeur, debut) if coeur else "") + apres)
+        if coeur:
+            debut = False
+        if re.search(r"[:–—]$", morceau) or morceau in ("-", "–", "—", ":"):
+            debut = True   # « FBI : MISSION » -> « FBI : Mission »
+    return "".join(resultat)
+
+
 MOTS_INTERDITS = re.compile(
     r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b",
     flags=re.IGNORECASE,
@@ -489,6 +542,7 @@ def fiche_film(video, chaine):
             STATS_TITRES["parentheses"] += 1
             fiche_titre = {"titre_accroche": titre}
             titre = entre_parentheses
+    titre = sans_majuscules(titre)
     return {
         **fiche_titre,
         "id": video["id"],
@@ -679,7 +733,7 @@ def vrais_titres(films, textes_films, ancien_catalogue):
         if avant:  # le vrai titre est déjà là, avant « : »
             STATS_TITRES["deux_points"] += 1
             film["titre_accroche"] = film["titre"]
-            film["titre"] = avant
+            film["titre"] = sans_majuscules(avant)
             continue
         r = ancienne.get(fid)
         if r is not None and r.get("regle") != REGLE_TITRES:
