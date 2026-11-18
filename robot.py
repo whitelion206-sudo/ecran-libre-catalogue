@@ -421,6 +421,34 @@ def titre_dans_description(description):
     return titre
 
 
+# « Naufragé dans l'espace, il refuse d'être sauvé (Solis) » : une accroche,
+# puis le vrai nom du film entre parenthèses.
+TITRE_ENTRE_PARENTHESES = re.compile(r"^(.+?)\s*[(\[]\s*([^()\[\]]{2,40}?)\s*[)\]]\s*$")
+PHRASE_AVEC_PRONOM = re.compile(r",\s*(?:il|elle|ils|elles|on)\b", flags=re.IGNORECASE)
+PAS_UN_TITRE = re.compile(
+    r"\b(?:vf|vostfr|version|fran[cç]ais|complet|int[ée]gral|in[ée]dit|hd|4k|"
+    r"remaster|restaur|colori|director|cut|partie|[ée]pisode|saison|part)\b|^\d+$|\b(?:19|20)\d\d\b",
+    flags=re.IGNORECASE,
+)
+
+
+def titre_entre_parentheses(titre):
+    """« Naufragé dans l'espace, il refuse d'être sauvé (Solis) » -> « Solis ».
+    Seulement si ce qui est avant est une vraie phrase d'accroche : « Il était
+    une fois dans l'Ouest (C'era una volta il West) » garde son titre français."""
+    m = TITRE_ENTRE_PARENTHESES.match(titre)
+    if not m:
+        return None
+    avant, dedans = m.group(1).strip(" -–—,"), m.group(2).strip()
+    if not 1 <= len(dedans.split()) <= 6 or PAS_UN_TITRE.search(dedans):
+        return None
+    phrase = (PHRASE_AVEC_PRONOM.search(avant) or VERBE_ACCROCHE.search(avant)
+              or len(avant.split()) >= 9)
+    if len(avant.split()) < 4 or not phrase:
+        return None
+    return dedans
+
+
 def genres_des_hashtags(description):
     """« #Horreur #ScienceFiction » -> ["Horreur", "Science-fiction"]
     (seulement des genres connus, les autres hashtags sont ignorés)."""
@@ -455,6 +483,12 @@ def fiche_film(video, chaine):
         # du film dans la description : « Titre : Exeter ».
         fiche_titre = {"titre_accroche": titre}
         titre = vrai_titre
+    else:
+        entre_parentheses = titre_entre_parentheses(titre)
+        if entre_parentheses:
+            STATS_TITRES["parentheses"] += 1
+            fiche_titre = {"titre_accroche": titre}
+            titre = entre_parentheses
     return {
         **fiche_titre,
         "id": video["id"],
@@ -488,7 +522,7 @@ REESSAI_TITRE_JOURS = 30      # film non trouvé : on redemande après 30 jours
 REGLE_TITRES = 2              # changer ce numéro fait tout redemander à Wikidata
 TOLERANCE_DUREE_MINUTES = 15  # durée Wikidata trop différente : ce n'est pas le même film
 STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0, "sans_reponse": 0,
-                "deux_points": 0}
+                "deux_points": 0, "parentheses": 0}
 
 VERBE_ACCROCHE = re.compile(
     r"\b(?:il|elle|ils|elles|on)\s+(?:va|vont|doit|doivent|devra|devront|veut|veulent|"
@@ -684,6 +718,7 @@ def vrais_titres(films, textes_films, ancien_catalogue):
     gardes = sum(1 for f in films.values() if f.get("titre_accroche"))
     print(f"Vrais titres : {gardes} films avec une phrase d'accroche corrigée "
           f"({STATS_TITRES['deux_points']} grâce au titre écrit avant « : », "
+          f"{STATS_TITRES['parentheses']} grâce au titre écrit entre parenthèses, "
           f"{len(STATS_TITRES['trouves'])} trouvés aujourd'hui sur Wikidata, "
           f"{STATS_TITRES['pas_trouves']} inconnus de Wikidata, "
           f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description, "
