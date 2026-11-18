@@ -536,6 +536,36 @@ def sans_acteurs_entre_parentheses(titre):
     return avant or titre
 
 
+# « (Nanar) Un chalutier spatial harponne… » : la chaîne met le genre entre
+# parenthèses au début du titre. On le retire (le genre est déjà dans la fiche).
+ETIQUETTE_DEBUT = re.compile(r"^\s*[(\[]\s*([^()\[\]]{2,25}?)\s*[)\]]\s*[-–—:|]?\s*(.+)$")
+
+
+def sans_etiquette_de_genre(titre):
+    """« (Nanar) Un chalutier spatial… » -> « Un chalutier spatial… ».
+    Seulement si ce qui est entre parenthèses est un genre connu."""
+    m = ETIQUETTE_DEBUT.match(titre)
+    if m and len(m.group(2)) >= 2 and genre_normalise(m.group(1), strict=True):
+        return m.group(2).strip()
+    return titre
+
+
+# « Titre original : Space Whale » dans la description : dernier recours quand
+# le titre YouTube est une phrase d'accroche et que Wikidata ne connaît pas le film.
+TITRE_ORIGINAL = re.compile(r"^[^\w\n]*titre\s+original\s*:\s*(.+?)\s*$",
+                            flags=re.IGNORECASE | re.MULTILINE)
+
+
+def titre_original(texte):
+    m = TITRE_ORIGINAL.search(texte or "")
+    if not m:
+        return None
+    titre = sans_emojis(m.group(1)).strip(" «»\"'“”.-–—|")
+    if not titre or len(titre) > 80 or len(titre.split()) > 12:
+        return None
+    return titre
+
+
 def genres_des_hashtags(description):
     """« #Horreur #ScienceFiction » -> ["Horreur", "Science-fiction"]
     (seulement des genres connus, les autres hashtags sont ignorés)."""
@@ -562,7 +592,7 @@ def fiche_film(video, chaine):
             genres.append(genre_chaine)
         elif genre_chaine != "Animation":
             genres.append(genre_chaine)
-    titre = titre_propre(snippet.get("title", ""))
+    titre = sans_etiquette_de_genre(titre_propre(snippet.get("title", "")))
     fiche_titre = {}
     vrai_titre = titre_dans_description(description)
     if vrai_titre and normalise(vrai_titre) != normalise(titre):
@@ -610,7 +640,7 @@ REESSAI_TITRE_JOURS = 30      # film non trouvé : on redemande après 30 jours
 REGLE_TITRES = 2              # changer ce numéro fait tout redemander à Wikidata
 TOLERANCE_DUREE_MINUTES = 15  # durée Wikidata trop différente : ce n'est pas le même film
 STATS_TITRES = {"trouves": [], "pas_trouves": 0, "sans_equipe": 0, "sans_reponse": 0,
-                "deux_points": 0, "parentheses": 0}
+                "deux_points": 0, "parentheses": 0, "titre_original": 0}
 
 VERBE_ACCROCHE = re.compile(
     r"\b(?:il|elle|ils|elles|on)\s+(?:va|vont|doit|doivent|devra|devront|veut|veulent|"
@@ -803,10 +833,17 @@ def vrais_titres(films, textes_films, ancien_catalogue):
         if r and r.get("titre"):
             film["titre_accroche"] = film["titre"]
             film["titre"] = r["titre"]
+        elif not film.get("titre_accroche"):
+            original = titre_original(textes_films.get(fid, ""))
+            if original:
+                STATS_TITRES["titre_original"] += 1
+                film["titre_accroche"] = film["titre"]
+                film["titre"] = sans_majuscules(original)
     gardes = sum(1 for f in films.values() if f.get("titre_accroche"))
     print(f"Vrais titres : {gardes} films avec une phrase d'accroche corrigée "
           f"({STATS_TITRES['deux_points']} grâce au titre écrit avant « : », "
           f"{STATS_TITRES['parentheses']} grâce au titre écrit entre parenthèses, "
+          f"{STATS_TITRES['titre_original']} grâce au « Titre original » de la description, "
           f"{len(STATS_TITRES['trouves'])} trouvés aujourd'hui sur Wikidata, "
           f"{STATS_TITRES['pas_trouves']} inconnus de Wikidata, "
           f"{STATS_TITRES['sans_equipe']} sans acteurs dans la description, "
