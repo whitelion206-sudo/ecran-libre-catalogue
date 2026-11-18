@@ -1,7 +1,23 @@
 {
- "mis_a_jour": "2026-11-17T19:35:53Z",
- "nombre_de_films": 3875,
+ "mis_a_jour": "2026-11-18T05:07:43Z",
+ "nombre_de_films": 3876,
  "films": [
+  {
+   "id": "jvZHtXoOc14",
+   "titre": "Rouge Rubis : voyageuse du temps malgré elle",
+   "titre_youtube": "Rouge Rubis : voyageuse du temps malgré elle | Film complet en Français | Fantastique, Aventure",
+   "description": "►SYNOPSIS\nÀ Londres, Gwendoline grandit dans l'ombre d'une famille aux secrets bien gardés. Depuis toujours, tout le monde attend que sa cousine Charlotte hérite d'un gène rare qui permet de voyager dans le temps. Mais le jour où Gwendoline se retrouve soudain projetée dans les rues d'une autre époque, tout bascule : c'est elle le Rubis, l'ultime voyageuse du Cercle. Accueillie avec méfiance par une loge secrète fondée par le mystérieux comte de Saint-Germain, elle doit faire équipe avec Gidéon,",
+   "duree_minutes": 117,
+   "date": "2026-11-18T05:00:20Z",
+   "miniature": "https://i.ytimg.com/vi/jvZHtXoOc14/maxresdefault.jpg",
+   "genre": "Fantastique",
+   "genres": [
+    "Fantastique",
+    "Aventure"
+   ],
+   "chaine": "Ciné Movies - Films Complets",
+   "pour_enfants": false
+  },
   {
    "id": "NRMg4q9eEKA",
    "titre": "La Chute du Lieutenant",
@@ -59032,6 +59048,13 @@
    "langue": null,
    "titre": "La Chute du Lieutenant",
    "date": "2026-11-17",
+   "regle": 6
+  },
+  "jvZHtXoOc14": {
+   "id": null,
+   "langue": null,
+   "titre": "Rouge Rubis : voyageuse du temps malgré elle",
+   "date": "2026-11-18",
    "regle": 6
   }
  },
