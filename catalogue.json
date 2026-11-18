@@ -1,7 +1,22 @@
 {
- "mis_a_jour": "2026-11-18T17:58:21Z",
- "nombre_de_films": 3876,
+ "mis_a_jour": "2026-11-18T19:39:55Z",
+ "nombre_de_films": 3877,
  "films": [
+  {
+   "id": "cIX8uUiufyI",
+   "titre": "Attaque au Lycée",
+   "titre_youtube": "Attaque au Lycée | Film Complet en Français | Drame",
+   "description": "À Bruxelles, des détonations retentissent dans le hall d'un lycée, les élèves s'écroulent sous les coups de feu tirés par deux jeunes lourdement armés.\n\n\n🔥Plus de films complets ici ➤ https://www.youtube.com/playlist?list=PLzkWqINg6oUEuTQPyPmN5Fz0jlUmUS2fd\n\nGenre : Film en Français, Drame, Emotion, Cinéma\n©  Tous Droits Réservés #FilmDrame #FilmComplet",
+   "duree_minutes": 78,
+   "date": "2026-11-18T18:30:24Z",
+   "miniature": "https://i.ytimg.com/vi/cIX8uUiufyI/maxresdefault.jpg",
+   "genre": "Drame",
+   "genres": [
+    "Drame"
+   ],
+   "chaine": "Boxoffice | DRAMES | Films Complets",
+   "pour_enfants": false
+  },
   {
    "id": "OkeTNcV4hMc",
    "titre": "Combat à Mort",
@@ -2143,7 +2158,7 @@
   },
   {
    "id": "4Aulpl_BdVA",
-   "titre": "(Nanar) Un chalutier spatial harponne une baleine cinq fois trop grande",
+   "titre": "Un chalutier spatial harponne une baleine cinq fois trop grande",
    "titre_youtube": "(Nanar) Un chalutier spatial harponne une baleine cinq fois trop grande | Sci-Fi, Créatures",
    "description": "►SYNOPSIS\nUn futur où l'on pêche dans l'espace comme on pêchait autrefois en mer. Des équipages sillonnent les systèmes pour ramener les créatures dont l'industrie alimentaire tire ses produits. Une chasseuse de primes se fait engager sous une fausse identité comme observatrice de la fédération à bord d'un vieux harponneur russe reconverti. L'équipage traîne des casiers judiciaires et des dettes, le capitaine a été exclu de l'armée, et personne à bord ne sait qu'elle traque un spécimen précis. S",
    "duree_minutes": 90,
@@ -59805,6 +59820,13 @@
    "id": null,
    "langue": null,
    "titre": "Killer Kid 1967",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "cIX8uUiufyI": {
+   "id": null,
+   "langue": null,
+   "titre": "Attaque au Lycée",
    "date": "2026-11-18",
    "regle": 6
   }
