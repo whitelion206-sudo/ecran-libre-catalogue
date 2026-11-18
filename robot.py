@@ -897,7 +897,10 @@ def vrais_titres(films, textes_films, ancien_catalogue):
 # Chaque jour, les bandes-annonces déjà trouvées sont revérifiées (1 point
 # par paquet de 50) : une vidéo supprimée ou bloquée disparaît de l'appli.
 
-MAX_RECHERCHES = 70
+MAX_RECHERCHES = int(os.environ.get("MAX_RECHERCHES", "60"))
+# Les passages rapides de la journée (toutes les 4 heures) mettent 0 : ils
+# ajoutent les nouveaux films sans toucher au quota de recherche, gardé pour
+# le grand passage du matin.
 # Version de la règle de choix. 2 = titre exact ; 3 = + VF écrite dans le titre
 # + preuve que c'est le même film (acteurs, réalisateur ou année) ;
 # 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF ;
@@ -1441,6 +1444,13 @@ def main():
         "recherches_bandes_annonces": memoire_ba,
         "titres_trouves": memoire_titres,
     }
+    # Rien de nouveau depuis le dernier passage : on garde l'ancienne date, pour
+    # que le fichier ne change pas. L'appli voit alors qu'il n'y a rien à
+    # retélécharger (pas de données mobiles gaspillées).
+    sans_date = lambda c: {k: v for k, v in c.items() if k != "mis_a_jour"}
+    if ancien.get("mis_a_jour") and sans_date(ancien) == json.loads(json.dumps(sans_date(catalogue))):
+        catalogue["mis_a_jour"] = ancien["mis_a_jour"]
+        print("Aucun changement depuis le dernier passage : catalogue identique.")
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
     print(f"Catalogue écrit : {len(films)} films YouTube et {len(liste_classiques)} classiques.")
