@@ -351,23 +351,44 @@ def details_des_videos(ids, cle):
     return details
 
 
+def titre_principal(titre):
+    """« Rouge Rubis : voyageuse du temps malgré elle » -> « rouge rubis ».
+    None si le titre n'a pas de sous-titre."""
+    morceaux = re.split(r"\s+[:–—-]\s+", titre, maxsplit=1)
+    if len(morceaux) < 2:
+        return None
+    principal = normalise(morceaux[0])
+    return principal if len(principal) >= 4 else None
+
+
 def sans_doublons(films):
     """Un même film peut être publié par plusieurs chaînes. On garde la copie
     de la chaîne qui vient en premier dans chaines.json (ou la plus ancienne),
     et on lui ajoute les genres des autres copies. Deux films de même titre
-    mais de durées très différentes (un remake…) sont gardés tous les deux."""
-    gardes = {}        # titre normalisé -> fiches gardées
+    mais de durées très différentes (un remake…) sont gardés tous les deux.
+    « Rouge rubis » et « Rouge Rubis : voyageuse du temps malgré elle » sont le
+    même film s'ils durent presque pareil (2 minutes d'écart au plus) ; mais
+    « Harry Potter : A » et « Harry Potter : B » restent deux films."""
+    gardes = {}           # titre normalisé -> fiches gardées
+    par_principal = {}    # titre sans sous-titre -> fiches gardées qui ont un sous-titre
     resultat = {}
     retires = []
+
+    def proche(a, b, ecart):
+        return abs(a["duree_minutes"] - b["duree_minutes"]) <= ecart
+
     for fid, film in films.items():           # dans l'ordre des chaînes
         cle_titre = normalise(film["titre"])
-        double = None
-        for autre in gardes.get(cle_titre, []):
-            if abs(film["duree_minutes"] - autre["duree_minutes"]) <= 5:
-                double = autre
-                break
+        principal = titre_principal(film["titre"])
+        double = next((a for a in gardes.get(cle_titre, []) if proche(film, a, 5)), None)
+        if double is None and principal:      # « Rouge Rubis : … » après « Rouge rubis »
+            double = next((a for a in gardes.get(principal, []) if proche(film, a, 2)), None)
+        if double is None:                    # « Rouge rubis » après « Rouge Rubis : … »
+            double = next((a for a in par_principal.get(cle_titre, []) if proche(film, a, 2)), None)
         if double is None:
             gardes.setdefault(cle_titre, []).append(film)
+            if principal:
+                par_principal.setdefault(principal, []).append(film)
             resultat[fid] = film
             continue
         for genre in film["genres"]:
