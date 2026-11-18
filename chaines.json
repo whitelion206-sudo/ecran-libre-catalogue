@@ -1,15 +1,70 @@
 [
- {"nom": "Allociné Films Complets", "id": "UCMQMViObVfaALDRtFnmUWgA", "genre": ""},
- {"nom": "Boxoffice | ACTION | Films Complets", "id": "UCo4GrGKoYsBmlAQhXWgEU-w", "genre": "Action"},
- {"nom": "Boxoffice | HORREUR | Films Complets", "id": "UCrqQ9blKZGUbIoxkgt5mjQA", "genre": "Horreur"},
- {"nom": "Boxoffice | FAMILLE | Films Complets", "id": "UC1GJOmIrsa-OmUt2yYHfAKQ", "genre": "Famille"},
- {"nom": "Boxoffice | TEEN MOVIES | Films Complets", "id": "UC48_JVww4eqOPmmkDni-xEA", "genre": "Ados"},
- {"nom": "Boxoffice Animation | Films Complets", "id": "UC7oJmPW2GF1TCSjoKq7ybZg", "genre": "Animation"},
- {"nom": "V Français - Films Complets", "id": "UCYXEXhyT3n_rcXhrqjBGd_Q", "genre": ""},
- {"nom": "My Digital Channel - Films Complets", "id": "UCZFGH22U_Iv6C5_zNdsxLXQ", "genre": "", "vf_seulement": true},
- {"nom": "Boxoffice | DRAMES | Films Complets", "id": "UCFpXESwoWagEfrk-lkM5aig", "genre": "Drame"},
- {"nom": "Ciné Western - Films Complets en Français", "handle": "@CineWesternFilmsComplets", "genre": "Western"},
- {"nom": "Ciné Movies - Films Complets", "handle": "@CineMoviesFilmsComplets", "genre": "", "vf_seulement": true},
- {"nom": "Ciné Classics - Films Complets", "handle": "@CineClassicsFilmsComplets", "genre": "", "vf_seulement": true},
- {"nom": "Ciné Nanar - Films Complets en Français", "id": "UCQck1eAT_665Vn31P7qSzXQ", "genre": "Nanar"}
+  {
+    "nom": "Allociné Films Complets",
+    "id": "UCMQMViObVfaALDRtFnmUWgA",
+    "genre": ""
+  },
+  {
+    "nom": "Boxoffice | ACTION | Films Complets",
+    "id": "UCo4GrGKoYsBmlAQhXWgEU-w",
+    "genre": "Action"
+  },
+  {
+    "nom": "Boxoffice | HORREUR | Films Complets",
+    "id": "UCrqQ9blKZGUbIoxkgt5mjQA",
+    "genre": "Horreur"
+  },
+  {
+    "nom": "Boxoffice | FAMILLE | Films Complets",
+    "id": "UC1GJOmIrsa-OmUt2yYHfAKQ",
+    "genre": "Famille"
+  },
+  {
+    "nom": "Boxoffice | TEEN MOVIES | Films Complets",
+    "id": "UC48_JVww4eqOPmmkDni-xEA",
+    "genre": "Ados"
+  },
+  {
+    "nom": "Boxoffice Animation | Films Complets",
+    "id": "UC7oJmPW2GF1TCSjoKq7ybZg",
+    "genre": "Animation"
+  },
+  {
+    "nom": "V Français - Films Complets",
+    "id": "UCYXEXhyT3n_rcXhrqjBGd_Q",
+    "genre": ""
+  },
+  {
+    "nom": "My Digital Channel - Films Complets",
+    "id": "UCZFGH22U_Iv6C5_zNdsxLXQ",
+    "genre": "",
+    "vf_seulement": true
+  },
+  {
+    "nom": "Boxoffice | DRAMES | Films Complets",
+    "id": "UCFpXESwoWagEfrk-lkM5aig",
+    "genre": "Drame"
+  },
+  {
+    "nom": "Ciné Western - Films Complets en Français",
+    "handle": "@CineWesternFilmsComplets",
+    "genre": "Western"
+  },
+  {
+    "nom": "Ciné Movies - Films Complets",
+    "handle": "@CineMoviesFilmsComplets",
+    "genre": "",
+    "vf_seulement": true
+  },
+  {
+    "nom": "Ciné Classics - Films Complets",
+    "handle": "@CineClassicsFilmsComplets",
+    "genre": "Drame",
+    "vf_seulement": true
+  },
+  {
+    "nom": "Ciné Nanar - Films Complets en Français",
+    "id": "UCQck1eAT_665Vn31P7qSzXQ",
+    "genre": "Nanar"
+  }
 ]
