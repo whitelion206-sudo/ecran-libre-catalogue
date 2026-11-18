@@ -2,7 +2,8 @@ name: Mise à jour du catalogue
 
 on:
   schedule:
-    - cron: "17 4 * * *"
+    - cron: "17 4 * * *"      # grand passage du matin (avec recherche des bandes-annonces)
+    - cron: "47 */4 * * *"    # passages rapides toutes les 4 heures (nouveaux films seulement)
   workflow_dispatch:
 
 permissions:
@@ -17,6 +18,7 @@ jobs:
       - name: Récupérer les films
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          MAX_RECHERCHES: ${{ github.event.schedule == '47 */4 * * *' && '0' || '60' }}
         run: python3 robot.py
 
       - name: Enregistrer le catalogue
