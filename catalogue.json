@@ -1,7 +1,70 @@
 {
- "mis_a_jour": "2026-11-18T15:16:10Z",
- "nombre_de_films": 3872,
+ "mis_a_jour": "2026-11-18T17:35:57Z",
+ "nombre_de_films": 3876,
  "films": [
+  {
+   "id": "OkeTNcV4hMc",
+   "titre": "Combat à Mort",
+   "titre_youtube": "Combat à Mort | Film Complet en Français | Action",
+   "description": "Condamné à perpétuité pour protéger son fils, un ancien gangster doit renouer avec son passé violent lorsqu’un ennemi redoutable fait accuser son autre fils de meurtre.\n\n🔥  Les films et nouveautés ACTION ici ➤ https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nGenre  : Action, Film en Français, Nouveauté, Suspense, Cinéma\n© Tous Droits Réservés\n#FilmComplet #FilmAction",
+   "duree_minutes": 89,
+   "date": "2026-11-18T17:00:28Z",
+   "miniature": "https://i.ytimg.com/vi/OkeTNcV4hMc/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action"
+   ],
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "id": "6sn5_bC0J2k",
+   "titre": "DON CÉSAR DE BAZAN",
+   "titre_youtube": "DON CÉSAR DE BAZAN ⚔️ | 1942 | Son épée fera justice ! | Film complet d'Aventure en FRANÇAIS 🇫🇷",
+   "description": "► Titre original\n\nDon Cesare di Bazan (1942)\n\n► Synopsis\n\nDans l'Espagne du XVIIe siècle, Don César de Bazan, un noble désargenté au tempérament fougueux, mène une existence faite d'aventures, de duels et de bravoure. Malgré sa situation précaire, cet homme d'honneur refuse de renoncer à ses principes. Mais lorsqu'il se retrouve entraîné dans les intrigues de la cour royale, son destin bascule et le voilà confronté à de puissants adversaires prêts à tout pour parvenir à leurs fins.\n\nEntre complo",
+   "duree_minutes": 74,
+   "date": "2026-11-18T16:30:24Z",
+   "miniature": "https://i.ytimg.com/vi/6sn5_bC0J2k/maxresdefault.jpg",
+   "genre": "Aventure",
+   "genres": [
+    "Aventure",
+    "Comédie"
+   ],
+   "chaine": "Ciné Classics - Films Complets",
+   "pour_enfants": false
+  },
+  {
+   "id": "1CvpelZd194",
+   "titre": "KILLER KID 1967",
+   "titre_youtube": "KILLER KID 🤠🌵 1967 | Un tueur sans pitié ! | Film complet Western en FRANÇAIS 🇫🇷 | Anthony Steffen",
+   "description": "► Titre original\n\nKiller Kid (1967)\n\n► Synopsis\n\nEn pleine révolution mexicaine, la frontière devient le théâtre d'un dangereux trafic d'armes entre les États-Unis et les insurgés. Pour mettre fin à ces opérations clandestines, le capitaine Morrison reçoit une mission particulièrement risquée : infiltrer les rangs des révolutionnaires en usurpant l'identité de Killer Kid, un redoutable hors-la-loi. Sous cette fausse identité, il pénètre dans un univers impitoyable où les alliances se nouent au r",
+   "duree_minutes": 100,
+   "date": "2026-11-18T16:30:01Z",
+   "miniature": "https://i.ytimg.com/vi/1CvpelZd194/maxresdefault.jpg",
+   "genre": "Western",
+   "genres": [
+    "Western",
+    "Drame",
+    "Romance"
+   ],
+   "chaine": "Ciné Western - Films Complets en Français",
+   "pour_enfants": false
+  },
+  {
+   "id": "ytiU74eu9W0",
+   "titre": "A La Recherche de son Père",
+   "titre_youtube": "A La Recherche de son Père | Barbie Ferreira (Euphoria) | Film Complet en Français | Comédie",
+   "description": "Une rencontre virtuelle avec un inconnu au même nom que son père transforme la vie d’une jeune femme solitaire.\n\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PLWuoXqy3Dr_rA5EIsbakEUIhBP2UF3tD2\n\nGenre : Nouveautés, Film Cinéma, Film en Français Complet, Cinéma\n©  Tous Droits Réservés #FilmComplet",
+   "duree_minutes": 101,
+   "date": "2026-11-18T16:00:18Z",
+   "miniature": "https://i.ytimg.com/vi/ytiU74eu9W0/maxresdefault.jpg",
+   "genre": "Comédie",
+   "genres": [
+    "Comédie"
+   ],
+   "chaine": "Allociné Films Complets",
+   "pour_enfants": false
+  },
   {
    "id": "PKVnOh8g11g",
    "titre": "Le Héros des Sables",
@@ -285,7 +348,7 @@
     "Famille"
    ],
    "chaine": "Boxoffice Animation | Films Complets",
-   "pour_enfants": false
+   "pour_enfants": true
   },
   {
    "id": "Hc1xLwGakdQ",
@@ -59721,6 +59784,20 @@
    "id": null,
    "langue": null,
    "titre": "Rituel Maudit",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "OkeTNcV4hMc": {
+   "id": null,
+   "langue": null,
+   "titre": "Combat à Mort",
+   "date": "2026-11-18",
+   "regle": 6
+  },
+  "6sn5_bC0J2k": {
+   "id": null,
+   "langue": null,
+   "titre": "DON CÉSAR DE BAZAN",
    "date": "2026-11-18",
    "regle": 6
   }
