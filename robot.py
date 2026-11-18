@@ -502,6 +502,40 @@ def titre_entre_parentheses(titre):
     return dedans
 
 
+# « Comète (Emmy Rossum, Justin Long) » : la chaîne a mis les acteurs entre
+# parenthèses à la fin du titre. On les retire : « Comète ».
+PARTICULES_NOMS = {"de", "du", "des", "da", "di", "van", "von", "der", "den", "le", "la",
+                   "el", "al", "bin", "ben", "mc", "st", "jr", "jr."}
+NOM_DE_PERSONNE = re.compile(r"^[A-ZÀ-ÖØ-Þ][\w'’.\-]*$")
+
+
+def est_un_nom(texte):
+    """« Emmy Rossum », « Jean-Claude Van Damme » : 2 à 4 mots à majuscule."""
+    mots = texte.split()
+    if not 2 <= len(mots) <= 4 or any(c.isdigit() for c in texte):
+        return False
+    return all(NOM_DE_PERSONNE.match(m) or m.lower() in PARTICULES_NOMS for m in mots) \
+        and bool(NOM_DE_PERSONNE.match(mots[0])) and bool(NOM_DE_PERSONNE.match(mots[-1]))
+
+
+def sans_acteurs_entre_parentheses(titre):
+    """« Comète (Emmy Rossum, Justin Long) » -> « Comète ». Il faut au moins deux
+    noms de personnes (ou « avec … ») : « Le Bon, la Brute et le Truand (Il buono,
+    il brutto, il cattivo) » ne bouge pas."""
+    m = re.match(r"^(.{2,}?)\s*[(\[]\s*([^()\[\]]+?)\s*[)\]]\s*$", titre)
+    if not m:
+        return titre
+    avant, dedans = m.group(1).strip(" -–—,"), m.group(2)
+    avec = re.match(r"^(?:avec|with)\s+(.+)$", dedans, flags=re.IGNORECASE)
+    noms_trouves = [n.strip(" .") for n in re.split(r",|&|\set\s|\sand\s", avec.group(1) if avec else dedans)]
+    noms_trouves = [n for n in noms_trouves if n]
+    if not noms_trouves or not all(est_un_nom(n) for n in noms_trouves):
+        return titre
+    if len(noms_trouves) < 2 and not avec:
+        return titre
+    return avant or titre
+
+
 def genres_des_hashtags(description):
     """« #Horreur #ScienceFiction » -> ["Horreur", "Science-fiction"]
     (seulement des genres connus, les autres hashtags sont ignorés)."""
@@ -542,7 +576,7 @@ def fiche_film(video, chaine):
             STATS_TITRES["parentheses"] += 1
             fiche_titre = {"titre_accroche": titre}
             titre = entre_parentheses
-    titre = sans_majuscules(titre)
+    titre = sans_majuscules(sans_acteurs_entre_parentheses(titre))
     return {
         **fiche_titre,
         "id": video["id"],
