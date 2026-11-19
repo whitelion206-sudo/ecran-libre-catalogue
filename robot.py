@@ -422,9 +422,10 @@ def details_des_videos(ids, cle):
     details = []
     for debut in range(0, len(ids), 50):
         paquet = ids[debut:debut + 50]
+        # « statistics » (j'aime, vues) ne coûte rien de plus : 1 unité par appel.
         reponse = appel_api(
             "videos",
-            {"part": "snippet,contentDetails,status", "id": ",".join(paquet)},
+            {"part": "snippet,contentDetails,status,statistics", "id": ",".join(paquet)},
             cle,
         )
         details += reponse.get("items", [])
@@ -647,7 +648,40 @@ def fiche_film(video, chaine):
         # Statut « conçu pour les enfants » de YouTube : l'appli doit couper tout
         # suivi pour ces vidéos (règles des API YouTube, III.E.4.j).
         "pour_enfants": bool(video.get("status", {}).get("madeForKids", False)),
+        **statistiques(video),
     }
+
+
+def statistiques(video):
+    """Nombre de vues et de « j'aime » sur YouTube. « jaime » est absent quand
+    la chaîne cache ses j'aime."""
+    stats = video.get("statistics", {})
+    resultat = {}
+    for cle_youtube, cle_catalogue in (("viewCount", "vues"), ("likeCount", "jaime")):
+        valeur = str(stats.get(cle_youtube, ""))
+        if valeur.isdigit():
+            resultat[cle_catalogue] = int(valeur)
+    return resultat
+
+
+def stats_du_jour(films, ancien):
+    """Les j'aime et les vues ne sont mis à jour qu'une fois par jour (premier
+    passage de la journée) : sinon le catalogue changerait à chaque passage et
+    l'appli le retéléchargerait pour rien. Les nouveaux films ont tout de suite
+    leurs chiffres. Renvoie la date des chiffres (« statistiques_du »)."""
+    aujourd_hui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    if ancien.get("statistiques_du") != aujourd_hui:
+        return aujourd_hui
+    anciens = {film.get("id"): film for film in ancien.get("films", [])}
+    for film in films.values():
+        avant = anciens.get(film["id"])
+        if avant is None or "vues" not in avant:
+            continue
+        for cle in ("vues", "jaime"):
+            film.pop(cle, None)
+            if cle in avant:
+                film[cle] = avant[cle]
+    return aujourd_hui
 
 
 # --- Vrais titres (Wikidata) -------------------------------------------------
@@ -1434,6 +1468,7 @@ def main():
     films = sans_doublons(films)
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
+    date_stats = stats_du_jour(films, ancien)
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1443,6 +1478,7 @@ def main():
         "classiques": liste_classiques,
         "recherches_bandes_annonces": memoire_ba,
         "titres_trouves": memoire_titres,
+        "statistiques_du": date_stats,
     }
     # Rien de nouveau depuis le dernier passage : on garde l'ancienne date, pour
     # que le fichier ne change pas. L'appli voit alors qu'il n'y a rien à
