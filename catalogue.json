@@ -1,7 +1,24 @@
 {
- "mis_a_jour": "2026-11-19T05:12:32Z",
- "nombre_de_films": 3878,
+ "mis_a_jour": "2026-11-19T09:40:58Z",
+ "nombre_de_films": 3879,
  "films": [
+  {
+   "id": "V9SfiHXhaVg",
+   "titre": "L'empire des requins",
+   "titre_youtube": "L'empire des requins | Film d'Action complet en Français | Action, Créatures",
+   "description": "►SYNOPSIS\nVingt ans après la grande submersion, l'océan a englouti presque toutes les terres. Depuis sa forteresse, le seigneur des mers règne sur ce monde aquatique et commande une armée de requins. Les tribus doivent lui verser un impôt en échange d'eau potable, et ses hommes enlèvent les plus robustes pour faire tourner sa machine à dessaler. Lorsque Willow, une jeune fille de Corotoa, est emmenée de force, le pêcheur Timor jure de la ramener. Il s'allie à une équipe improbable de marginaux, ",
+   "duree_minutes": 89,
+   "date": "2026-11-19T07:00:10Z",
+   "miniature": "https://i.ytimg.com/vi/V9SfiHXhaVg/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action",
+    "Horreur",
+    "Nanar"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "pour_enfants": false
+  },
   {
    "id": "LH3q0t5yC7o",
    "titre": "Un toit pour Noël",
