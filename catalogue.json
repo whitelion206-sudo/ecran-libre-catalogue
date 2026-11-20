@@ -1,7 +1,26 @@
 {
- "mis_a_jour": "2026-11-20T05:07:12Z",
- "nombre_de_films": 3883,
+ "mis_a_jour": "2026-11-20T07:56:22Z",
+ "nombre_de_films": 3884,
  "films": [
+  {
+   "id": "RpYfiWBj3UY",
+   "titre": "Geo-Disaster",
+   "titre_youtube": "Geo-Disaster | Film Catastrophe complet en Français | Catastrophe, Action",
+   "description": "►SYNOPSIS\nDans un observatoire, des scientifiques repèrent une masse de matière noire fonçant vers la Terre. Il reste moins de huit heures avant l'impact, et les autorités choisissent de ne pas prévenir la population. Pendant ce temps, Matt emmène son fils Rick camper en montagne. Il espère renouer avec cet adolescent qui rejette sa nouvelle épouse, Johanna, restée à Los Angeles avec ses deux filles, Kelly et Cassie. Lorsque l'objet frappe le nord de l'Alaska et traverse la planète, un séisme d'",
+   "duree_minutes": 80,
+   "date": "2026-11-20T07:00:23Z",
+   "miniature": "https://i.ytimg.com/vi/RpYfiWBj3UY/maxresdefault.jpg",
+   "genre": "Catastrophe",
+   "genres": [
+    "Catastrophe",
+    "Action",
+    "Nanar"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "pour_enfants": false,
+   "vues": 125,
+   "jaime": 8
+  },
   {
    "id": "C5Ksqykm2LY",
    "titre": "Les Dents de la mort",
