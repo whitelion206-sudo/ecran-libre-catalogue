@@ -1429,6 +1429,55 @@ def lire_valides():
     return lire_liste(FICHIER_VALIDES)
 
 
+# --- Date d'arrivée dans l'appli ----------------------------------------------
+#
+# « date » est la date de mise en ligne sur YouTube. « ajoute_le » est le jour
+# où le film est entré dans Écran Libre : c'est elle que l'appli utilise pour
+# la rangée « Nouveautés ». Un vieux film d'une chaîne qu'on vient d'ajouter
+# apparaît ainsi comme nouveau.
+#
+# Premier passage avec cette règle : les films déjà présents reçoivent leur date
+# YouTube (rien ne bouge), sauf ceux des chaînes ajoutées le 20 novembre 2026,
+# qui comptent comme arrivés ce soir-là.
+CHAINES_AJOUTEES_LE_20_NOVEMBRE = {
+    "Boxoffice | ROMANCES | Films Complets",
+    "Boxoffice | 4K | Films Complets",
+    "Boxoffice | Films TV",
+}
+SOIREE_DU_20_NOVEMBRE = "2026-11-20T19:20:00Z"
+
+
+def dates_d_ajout(films, ancien):
+    """Donne à chaque film sa date « ajoute_le ». Renvoie le nombre de films
+    arrivés à ce passage."""
+    maintenant = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:00Z")
+    anciens = {film.get("id"): film for film in ancien.get("films", [])}
+    # Même film gardé sous une autre copie (doublon) : on le retrouve par son titre.
+    par_titre = {}
+    for film in anciens.values():
+        if film.get("ajoute_le"):
+            par_titre.setdefault(normalise(film.get("titre", "")), []).append(film)
+    nouveaux = 0
+    for film in films.values():
+        avant = anciens.get(film["id"])
+        if avant is not None:
+            if avant.get("ajoute_le"):
+                film["ajoute_le"] = avant["ajoute_le"]
+            elif avant.get("chaine") in CHAINES_AJOUTEES_LE_20_NOVEMBRE:
+                film["ajoute_le"] = SOIREE_DU_20_NOVEMBRE
+            else:
+                film["ajoute_le"] = film.get("date") or maintenant
+            continue
+        meme = next((a for a in par_titre.get(normalise(film["titre"]), [])
+                     if abs((a.get("duree_minutes") or 0) - film["duree_minutes"]) <= 5), None)
+        if meme is not None:
+            film["ajoute_le"] = meme["ajoute_le"]
+            continue
+        film["ajoute_le"] = maintenant
+        nouveaux += 1
+    return nouveaux
+
+
 def main():
     cle = os.environ.get("YOUTUBE_API_KEY")
     if not cle:
@@ -1469,6 +1518,8 @@ def main():
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
     date_stats = stats_du_jour(films, ancien)
+    arrives = dates_d_ajout(films, ancien)
+    print(f"Arrivés dans l'appli à ce passage : {arrives} films.")
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
