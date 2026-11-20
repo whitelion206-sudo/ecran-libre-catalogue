@@ -1,7 +1,22 @@
 {
- "mis_a_jour": "2026-11-20T01:53:50Z",
- "nombre_de_films": 3882,
+ "mis_a_jour": "2026-11-20T05:07:12Z",
+ "nombre_de_films": 3883,
  "films": [
+  {
+   "id": "C5Ksqykm2LY",
+   "titre": "Les Dents de la mort",
+   "titre_youtube": "Les Dents de la mort (Lou Diamond Phillips, Kristy Swanson) | Film de Thriller complet en Français",
+   "description": "►SYNOPSIS\nDans les bayous de Louisiane, un requin bouledogue remonte les eaux douces de l'Atchafalaya. John Sanders est un ancien foreur devenu pêcheur. Criblé de dettes, il risque de perdre son bateau. Pour s'en sortir, il accepte de conduire une équipe pétrolière jusqu'à une réserve protégée. Son ex-femme Kelly, biologiste, y surveille un forage contesté. Sur place, d'étranges plongeurs fouillent déjà le fond de la rivière. Ce sont des truands venus récupérer trois millions de dollars englouti",
+   "duree_minutes": 89,
+   "date": "2026-11-20T05:00:18Z",
+   "miniature": "https://i.ytimg.com/vi/C5Ksqykm2LY/maxresdefault.jpg",
+   "genre": "",
+   "genres": [],
+   "chaine": "Ciné Movies - Films Complets",
+   "pour_enfants": false,
+   "vues": 4,
+   "jaime": 0
+  },
   {
    "id": "B5vJOLmyfvM",
    "titre": "Dans la Peau d'un Menteur",
@@ -2246,6 +2261,9 @@
    ],
    "chaine": "Ciné Classics - Films Complets",
    "pour_enfants": false,
+   "bande_annonce": "c_t13YVP4d4",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 45021,
    "jaime": 489
   },
@@ -2921,6 +2939,9 @@
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false,
+   "bande_annonce": "kCJEGGC8oh8",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 185899,
    "jaime": 1277
   },
@@ -67812,6 +67833,426 @@
    "langue": null,
    "titre": "Attaque au Lycée",
    "date": "2026-11-18",
+   "regle": 6
+  },
+  "C5Ksqykm2LY": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Dents de la mort",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "B5vJOLmyfvM": {
+   "id": null,
+   "langue": null,
+   "titre": "Dans la Peau d'un Menteur",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "cxQ7q7ZLDYU": {
+   "id": null,
+   "langue": null,
+   "titre": "The Killing Machine",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "sOd15GEJmL4": {
+   "id": null,
+   "langue": null,
+   "titre": "911 Emergency",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "V9SfiHXhaVg": {
+   "id": null,
+   "langue": null,
+   "titre": "L'empire des requins",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "LH3q0t5yC7o": {
+   "id": null,
+   "langue": null,
+   "titre": "Un toit pour Noël",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "HFTuzgOg0Pw": {
+   "id": null,
+   "langue": null,
+   "titre": "Blood Queen",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "ytiU74eu9W0": {
+   "id": null,
+   "langue": null,
+   "titre": "A La Recherche de son Père",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "XV2Dc_CpaRY": {
+   "id": null,
+   "langue": null,
+   "titre": "Yeti",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "u6Hu41pTTSc": {
+   "id": null,
+   "langue": null,
+   "titre": "Windfighters",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "k7e3xRxfbZM": {
+   "id": null,
+   "langue": null,
+   "titre": "Force de Frappe",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "YLIpkR4FJiw": {
+   "id": null,
+   "langue": null,
+   "titre": "Soirée Déchaînée",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "WUBoI1U3m6s": {
+   "id": null,
+   "langue": null,
+   "titre": "Enterre-le",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "XxZOZUDb_I8": {
+   "id": "c_t13YVP4d4",
+   "langue": "VF",
+   "titre": "Les Aventures du Baron de Munchausen 1988",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "uJ_KXY3R3BE": {
+   "id": null,
+   "langue": null,
+   "titre": "Opération Papa & Maman",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "sx6PAMSWeT4": {
+   "id": null,
+   "langue": null,
+   "titre": "Mission Planète Sauvage",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "sXaiL78RhE4": {
+   "id": null,
+   "langue": null,
+   "titre": "The Eye 3 : L'Au-delà",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "sQhHm0xY27w": {
+   "id": null,
+   "langue": null,
+   "titre": "Together",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "Nt9-Q-5KvgI": {
+   "id": null,
+   "langue": null,
+   "titre": "Vampire Huntress",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "dJ3ypxakvv8": {
+   "id": null,
+   "langue": null,
+   "titre": "La Révolutionnaire",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "eCfuqmVMQBI": {
+   "id": null,
+   "langue": null,
+   "titre": "Périmètre mortel",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "2d9TrAAU1GA": {
+   "id": null,
+   "langue": null,
+   "titre": "Night Hunt",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "_CiYgJFrbGA": {
+   "id": null,
+   "langue": null,
+   "titre": "10.000 Dollars pour Tuer 1967",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "MAOwPQmkuio": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Justicier de l'Enfer 1973",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "ON6kusOM-WA": {
+   "id": null,
+   "langue": null,
+   "titre": "La Vallée de la Mort",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "UtQY8ZMCHEs": {
+   "id": null,
+   "langue": null,
+   "titre": "Super Wombat",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "2PhGyt2AjDc": {
+   "id": null,
+   "langue": null,
+   "titre": "Un requin a infiltré mon rez-de-chaussée",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "eOtxzaZbeVI": {
+   "id": null,
+   "langue": null,
+   "titre": "Sa demi-sœur est obsédée par son mari",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "IVF2ScXyJFs": {
+   "id": null,
+   "langue": null,
+   "titre": "Abomination",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "SYcyU09bzq8": {
+   "id": null,
+   "langue": null,
+   "titre": "Point of impact",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "4g1wKn-l2sA": {
+   "id": null,
+   "langue": null,
+   "titre": "Bulletproof",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "4Aulpl_BdVA": {
+   "id": null,
+   "langue": null,
+   "titre": "Un chalutier spatial harponne une baleine cinq fois trop grande",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "issn6oZGOG4": {
+   "id": null,
+   "langue": null,
+   "titre": "False Pretenses",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "kqYg-62DGzM": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Copines d'abord",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "u7s_s1St6cE": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Enfant des Ténèbres",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "mmQJzYw6GUg": {
+   "id": null,
+   "langue": null,
+   "titre": "Vérité Cachée",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "vsLqodvSORQ": {
+   "id": null,
+   "langue": null,
+   "titre": "King : La Vengeance d'Un Pistolero 1971",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "RmUNN-eJpYs": {
+   "id": null,
+   "langue": null,
+   "titre": "Robinson Crusoé 2003",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "iIeBS4E5ISo": {
+   "id": null,
+   "langue": null,
+   "titre": "Prison Desire",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "E7AC75a2SaM": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Famille à Adopter",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "x9LKU0EEVSs": {
+   "id": null,
+   "langue": null,
+   "titre": "La Fabrique à Mouches",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "7KOPNWPBgkQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Risen (2021)",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "3VKIPECFvMY": {
+   "id": null,
+   "langue": null,
+   "titre": "Jeux dangereux",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "bq6VfCdNTOU": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Pilote Piégé",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "HnveiZBOy1o": {
+   "id": null,
+   "langue": null,
+   "titre": "Escape or Die",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "_5fztJPXsaQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Secret Stalker : Kidnapping Lacy",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "H5JQWgrPJVQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Fille à Problèmes",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "C2WUD8SSe1k": {
+   "id": null,
+   "langue": null,
+   "titre": "Xibalba La Malédiction Maya",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "T0VpSVB6ZYQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Représailles",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "xTd6pVSAPYs": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Contes de Maupassant – Le Père Amable + Hautot père et fils",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "egM3FQYWnuc": {
+   "id": null,
+   "langue": null,
+   "titre": "Ghost Twin",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "aqiVJBZmd_0": {
+   "id": "kCJEGGC8oh8",
+   "langue": "VF",
+   "titre": "Revolt",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "gBvbrzv-pKs": {
+   "id": null,
+   "langue": null,
+   "titre": "Rencontre Nocturne",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "OgFN_Dt4EP8": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Enfant du Divorce",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "KqA1z57F2WE": {
+   "id": null,
+   "langue": null,
+   "titre": "La Mort au Bout du Colt 1968",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "O_JCMOgt2RM": {
+   "id": null,
+   "langue": null,
+   "titre": "Vaillant, Pigeon de Combat",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "lfqlUBLzmtA": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Héros des Abysses",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "_X2rxW0MSVg": {
+   "id": null,
+   "langue": null,
+   "titre": "Lettres à Clara (Al Pacino)",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "dC4HnRYyVTU": {
+   "id": null,
+   "langue": null,
+   "titre": "Bêtes Voraces",
+   "date": "2026-11-20",
+   "regle": 6
+  },
+  "kJWPNgT54Jk": {
+   "id": null,
+   "langue": null,
+   "titre": "New York Teens",
+   "date": "2026-11-20",
    "regle": 6
   }
  },
