@@ -66,5 +66,21 @@
     "nom": "Ciné Nanar - Films Complets en Français",
     "id": "UCQck1eAT_665Vn31P7qSzXQ",
     "genre": "Nanar"
+  },
+  {
+    "nom": "Boxoffice | ROMANCES | Films Complets",
+    "id": "UCLiIAj3UhRvfHSXndkgxl3g",
+    "genre": "Romance"
+  },
+  {
+    "nom": "Boxoffice | 4K | Films Complets",
+    "id": "UCSE5n4XCVfHmerDydpRymjA",
+    "genre": ""
+  },
+  {
+    "nom": "Boxoffice | Films TV",
+    "id": "UCyclbiz4hz9ZR5hQsJC__9A",
+    "genre": "",
+    "vf_seulement": true
   }
 ]
