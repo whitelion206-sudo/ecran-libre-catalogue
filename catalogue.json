@@ -1,7 +1,44 @@
 {
- "mis_a_jour": "2026-11-21T15:27:02Z",
- "nombre_de_films": 4840,
+ "mis_a_jour": "2026-11-21T17:25:04Z",
+ "nombre_de_films": 4842,
  "films": [
+  {
+   "id": "NtbJg7_B4l4",
+   "titre": "A Bout Portant",
+   "titre_youtube": "A Bout Portant | Film Complet en Français | Action",
+   "description": "À peine sortie de prison, une mère retrouve sa fille. Mais le retour d’un ex violent menace leur avenir : elle doit l’écarter sans se faire prendre.\n\n🔥  Les films et nouveautés ACTION ici ➤ https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nGenre  : Action, Film en Français, Nouveauté, Suspense, Cinéma\n© Tous Droits Réservés\n#FilmComplet #FilmAction",
+   "duree_minutes": 90,
+   "date": "2026-11-21T17:00:36Z",
+   "miniature": "https://i.ytimg.com/vi/NtbJg7_B4l4/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action"
+   ],
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "pour_enfants": false,
+   "vues": 155,
+   "jaime": 10,
+   "ajoute_le": "2026-11-21T17:25:00Z"
+  },
+  {
+   "id": "23-cWb0AKr8",
+   "titre": "After the Impact",
+   "titre_youtube": "After the Impact | Film Complet en Français | Drame, Film Catastrophe",
+   "description": "Après le crash d'un avion de ligne, la femme du pilote refuse de croire à une erreur humaine et affronte les autorités pour faire éclater la vérité.\n\n\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PLWuoXqy3Dr_rA5EIsbakEUIhBP2UF3tD2\n\nGenre : Nouveautés, Film Cinéma, Film en Français Complet, Cinéma\n©  Tous Droits Réservés #FilmComplet",
+   "duree_minutes": 91,
+   "date": "2026-11-21T16:00:19Z",
+   "miniature": "https://i.ytimg.com/vi/23-cWb0AKr8/maxresdefault.jpg",
+   "genre": "Drame",
+   "genres": [
+    "Drame",
+    "Catastrophe"
+   ],
+   "chaine": "Allociné Films Complets",
+   "pour_enfants": false,
+   "vues": 143,
+   "jaime": 6,
+   "ajoute_le": "2026-11-21T17:25:00Z"
+  },
   {
    "id": "tlGqUkeFmbI",
    "titre": "Les Ennemis 1962",
