@@ -1,7 +1,26 @@
 {
- "mis_a_jour": "2026-11-21T05:36:52Z",
- "nombre_de_films": 4836,
+ "mis_a_jour": "2026-11-21T07:53:26Z",
+ "nombre_de_films": 4837,
  "films": [
+  {
+   "id": "KkrQB_zKFFw",
+   "titre": "Pris pour un fou, il traque le monstre caché sous New York",
+   "titre_youtube": "Pris pour un fou, il traque le monstre caché sous New York | Horreur, Créatures",
+   "description": "►SYNOPSIS\nNew York se prépare aux grandes festivités du 4 juillet. Dans le port, des touristes disparaissent dans des circonstances inexpliquées, puis un remorqueur s'embrase en pleine nuit. Nick Hartfield, jeune inspecteur de la police portuaire déjà dans le collimateur de sa hiérarchie, enquête avec Walter, son partenaire, à quelques jours de son transfert. Un témoin affirme avoir vu une gigantesque créature aux longs tentacules surgir de l'eau, mais personne ne prend cette version au sérieux.",
+   "duree_minutes": 91,
+   "date": "2026-11-21T07:00:31Z",
+   "miniature": "https://i.ytimg.com/vi/KkrQB_zKFFw/maxresdefault.jpg",
+   "genre": "Horreur",
+   "genres": [
+    "Horreur",
+    "Nanar"
+   ],
+   "chaine": "Ciné Nanar - Films Complets en Français",
+   "pour_enfants": false,
+   "vues": 152,
+   "jaime": 4,
+   "ajoute_le": "2026-11-21T07:53:00Z"
+  },
   {
    "id": "euwVwVes3x0",
    "titre": "Unwanted Guest",
@@ -16,9 +35,9 @@
    ],
    "chaine": "Ciné Movies - Films Complets",
    "pour_enfants": false,
+   "titre_accroche": "Unwanted Guest : une invitée trop parfaite",
    "vues": 168,
    "jaime": 7,
-   "titre_accroche": "Unwanted Guest : une invitée trop parfaite",
    "ajoute_le": "2026-11-21T05:36:00Z"
   },
   {
@@ -90273,6 +90292,11 @@
   "wzVY9t3pZUc": {
    "titre": null,
    "date": "2026-11-17",
+   "regle": 2
+  },
+  "KkrQB_zKFFw": {
+   "titre": null,
+   "date": "2026-11-21",
    "regle": 2
   },
   "ejSv7ZEUN-s": {
