@@ -86,11 +86,21 @@ def duree_en_minutes(iso):
 
 
 # « | Film Complet en Français », « - Film COMPLET en VF »,
-# « 🐎| Film Western Complet en Français », « - Film Western Complet - Acteur (1973) »
+# « 🐎| Film Western Complet en Français », « - Film Western Complet - Acteur (1973) »,
+# et aussi sans séparateur (« Guéri par l'Amour Film Complet en Français »),
+# « – Téléfilm complet HD », « - Drame Complet en Français ».
 FIN_DE_TITRE = re.compile(
-    r"\s*[|\-–—•]\s*(?:films?|dessins?\s+anim[ée]s?)\b(?:\s+[\w'’]+){0,3}?\s+complets?\b",
+    r"\s*(?:[|\-–—•]\s*)?\b(?:t[ée]l[ée])?(?:films?|dessins?\s+anim[ée]s?|drame|com[ée]die)\b"
+    r"(?:\s+[\w'’]+){0,3}?\s+complets?\b",
     flags=re.IGNORECASE,
 )
+# « Traque dans la Jungle 🌀 4K » : la qualité n'est pas dans le nom du film.
+QUALITE_EN_FIN = re.compile(r"\s+(?:4K|UHD|HD|ᴴᴰ)\s*$", flags=re.IGNORECASE)
+# « Killer Kid 1967 », « Risen (2021) » -> l'année n'est pas dans le nom du film.
+# Mais « Belfast, 1941 » (virgule) et « 2012 » (le titre entier) restent.
+ANNEE_EN_FIN = re.compile(r"(?<![,\d])\s+\(?(?:19[2-9]\d|20[0-2]\d)\)?\s*$")
+# « Horizons lointains | Partie 1 | Film Complet » : on garde « Partie 1 ».
+PARTIE = re.compile(r"\b(partie|volume|vol\.)\s*(\d+)\b", flags=re.IGNORECASE)
 
 
 def sans_emojis(texte):
@@ -102,11 +112,34 @@ def sans_emojis(texte):
 
 
 def titre_propre(titre):
-    """Garde seulement le nom du film, sans « Film complet… » ni emojis."""
+    """Garde seulement le nom du film, sans « Film complet… », emojis, « 4K »
+    ni année à la fin."""
     morceau = FIN_DE_TITRE.split(titre)[0]
     morceau = re.split(r"\s*\|\s*", morceau)[0]
     morceau = sans_emojis(morceau).strip(" |-–—•")
-    return morceau or titre.strip()
+    for _ in range(2):   # « Titre 2017 4K », « Titre 4K 2017 »
+        morceau = QUALITE_EN_FIN.sub("", morceau)
+        sans_annee = ANNEE_EN_FIN.sub("", morceau)
+        if len(re.sub(r"\W", "", sans_annee)) >= 3:
+            morceau = sans_annee
+        morceau = morceau.strip(" |-–—•(")
+    if not morceau:
+        return titre.strip()
+    partie = PARTIE.search(titre)
+    if partie and not PARTIE.search(morceau):
+        morceau += f" – {partie.group(1).capitalize()} {partie.group(2)}"
+    return morceau
+
+
+SANS_NOM = []   # titres YouTube écartés faute de nom de film (affichés dans le journal)
+
+
+def sans_nom_de_film(titre):
+    """Vrai si le titre YouTube ne contient pas le nom du film :
+    « 💥 Film d'Action Complet en Français (Jean Claude Van Damme) »,
+    « Film Complet en Français - Action, SF ». Ces vidéos sont écartées."""
+    debut = sans_emojis(FIN_DE_TITRE.split(titre)[0]).strip(" |-–—•")
+    return not re.sub(r"\W", "", debut) and bool(FIN_DE_TITRE.search(titre))
 
 
 # Titres écrits tout en majuscules (« SATANIC », « UNE SECONDE POUR MOURIR… ») :
@@ -188,7 +221,11 @@ def sans_majuscules(titre):
 
 
 MOTS_INTERDITS = re.compile(
-    r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b",
+    r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b"
+    # Séries (« Saison 1 », « Série Complète », « Série … en entier ») : pas des films.
+    r"|\bsaison\s*\d|\bs[ée]rie\s+(?:hd|tv|compl[eè]te)\b|\bs[ée]rie\b[^|]*\ben\s+entier\b"
+    # Compilations de plusieurs films dans une seule vidéo.
+    r"|\bcompil",
     flags=re.IGNORECASE,
 )
 
@@ -292,7 +329,26 @@ GENRES_RENOMMES = {
     "anime": "Animation", "manga": "Animation",
     "formula 1": "Sport", "formule 1": "Sport", "f1": "Sport", "skate": "Sport",
     "course": "Sport", "courses": "Sport", "voiture": "Action", "voitures": "Action",
+    # Vus le 21/11/2026 (chaînes Romances, 4K, Films TV)
+    "moyen-age": "Historique", "moyen age": "Historique", "epoque": "Historique",
+    "film d'epoque": "Historique", "cape et d'epee": "Aventure", "cape et epee": "Aventure",
+    "dystopique": "Science-fiction", "dystopie": "Science-fiction",
+    "apocalypse": "Science-fiction", "apocalyptique": "Science-fiction",
+    "post-apocalyptique": "Science-fiction", "burlesque": "Comédie", "mma": "Sport",
 }
+
+# Mots qui ne sont pas des genres, à ignorer sans les noter dans le journal :
+# « Thriller, Téléfilm », « Genre : Cinéma, Film en 4K, Nouveauté, Drame ».
+MOTS_NEUTRES = {
+    "telefilm", "telefilms", "film", "films", "cinema", "nouveaute", "nouveautes",
+    "film complet", "films complets", "film entier", "film entier gratuit", "film en 4k",
+    "4k", "hd", "uhd", "film en francais", "film en francais complet",
+    "film cinema complet", "bonne qualite", "inedit", "exclusivite", "gratuit",
+}
+
+
+def est_neutre(mot):
+    return sans_accents(nettoie_genre(mot)) in MOTS_NEUTRES
 
 GENRES_IGNORES = {}  # genre inconnu -> nombre de fois vu (affiché dans le journal)
 
@@ -336,26 +392,64 @@ def genre_normalise(genre, strict=False):
     return None
 
 
+def genres_d_une_liste(texte, strict=False):
+    """« Thriller, Polar / Téléfilm » -> ["Thriller", "Policier"] (mots neutres ignorés)."""
+    genres = []
+    for partie in re.split(r"[,/&;]|\bet\b|\s[-–]\s", texte):
+        if not nettoie_genre(partie) or est_neutre(partie):
+            continue
+        genre = genre_normalise(partie, strict=strict)
+        if genre and genre not in genres:
+            genres.append(genre)
+    return genres
+
+
+# « Film Thriller Complet », « Film d'Action complet », « Film de Sci-Fi complet »
+GENRE_DANS_FILM_COMPLET = re.compile(
+    r"\b(?:t[ée]l[ée])?films?\s+(?:d['’]\s*|de\s+)?([^\W\d][\w\s'’-]{1,25}?)\s+complets?\b",
+    flags=re.IGNORECASE)
+
+
 def genres_du_titre(titre):
-    """Lit les genres écrits après « Film Complet en Français | » dans le titre YouTube."""
+    """Lit les genres du titre YouTube : après « Film Complet en Français | »,
+    entre parenthèses (« - Film complet HD (Thriller, Polar) »), ou dans
+    « Film Horreur Complet »."""
     morceaux = [m.strip() for m in titre.split("|")]
     for i, morceau in enumerate(morceaux):
-        if re.search(r"(?:films?|dessins?\s+anim[ée]s?)\s+complets?", morceau, flags=re.IGNORECASE) \
-                and i + 1 < len(morceaux):
-            genres = []
-            for genre in re.split(r"[,/&]|\bet\b", morceaux[i + 1]):
-                genre = genre_normalise(genre)
-                if genre and genre not in genres:
-                    genres.append(genre)
+        if not FIN_DE_TITRE.search(morceau) and not re.search(
+                r"(?:films?|dessins?\s+anim[ée]s?)\s+complets?", morceau, flags=re.IGNORECASE):
+            continue
+        genres = []
+        dans = GENRE_DANS_FILM_COMPLET.search(morceau)
+        if dans and not est_neutre(dans.group(1)):
+            genres += genres_d_une_liste(dans.group(1), strict=True)
+        fin = FIN_DE_TITRE.search(morceau)
+        apres = morceau[fin.end():] if fin else ""
+        for entre in re.findall(r"\(([^()]*)\)", apres):
+            genres += genres_d_une_liste(entre)
+        if i + 1 < len(morceaux):
+            genres += genres_d_une_liste(morceaux[i + 1])
+        genres = list(dict.fromkeys(genres))
+        if genres or i + 1 < len(morceaux):
             return genres
-    # Pas de « Film complet » dans le titre (« Accroche | Sci-Fi, Action ») :
-    # on prend un morceau suivant s'il ne contient QUE des genres connus.
+        break
+    # Genres placés ailleurs (« Accroche | Sci-Fi, Action », « Titre | Thriller, Téléfilm |
+    # Film Complet ») : on prend un morceau s'il ne contient QUE des genres connus
+    # (et des mots neutres comme « Téléfilm »).
     for morceau in morceaux[1:]:
-        parties = [p for p in re.split(r"[,/&]|\bet\b", morceau) if nettoie_genre(p)]
+        parties = [p for p in re.split(r"[,/&]|\bet\b", morceau)
+                   if nettoie_genre(p) and not est_neutre(p)]
         genres = [genre_normalise(p, strict=True) for p in parties]
         if parties and all(genres):
             return list(dict.fromkeys(genres))
     return []
+
+
+def genres_de_la_description(description):
+    """La ligne « Genre : Cinéma, Drame, Histoire Vraie » de la description."""
+    m = re.search(r"^[^\w\n]*genres?\s*:\s*(.+)$", description or "",
+                  flags=re.IGNORECASE | re.MULTILINE)
+    return genres_d_une_liste(m.group(1)) if m else []
 
 
 def autorise_en_france(details):
@@ -611,7 +705,8 @@ def fiche_film(video, chaine):
     # description (#Horreur). Le genre de la chaîne est ajouté en plus, sauf
     # « Animation » : la chaîne Animation publie aussi des films avec de vrais
     # acteurs (ex. « Le Monstre des Sables »).
-    genres = genres_du_titre(snippet.get("title", "")) or genres_des_hashtags(description)
+    genres = (genres_du_titre(snippet.get("title", "")) or genres_de_la_description(description)
+              or genres_des_hashtags(description))
     genre_chaine = chaine.get("genre", "")
     if genre_chaine and genre_chaine not in genres:
         if not genres:
@@ -1497,6 +1592,9 @@ def main():
             if chaine.get("vf_seulement") and not est_en_francais(video):
                 continue
             snippet = video.get("snippet", {})
+            if sans_nom_de_film(snippet.get("title", "")):
+                SANS_NOM.append(snippet.get("title", ""))
+                continue
             textes_films[video["id"]] = snippet.get("title", "") + "\n" + snippet.get("description", "")
             fiche = fiche_film(video, chaine)
             deja = films.get(video["id"])
@@ -1541,6 +1639,9 @@ def main():
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
         json.dump(catalogue, f, ensure_ascii=False, indent=1)
     print(f"Catalogue écrit : {len(films)} films YouTube et {len(liste_classiques)} classiques.")
+    if SANS_NOM:
+        print(f"Écartés car le titre YouTube ne donne pas le nom du film : {len(SANS_NOM)} "
+              f"(ex. : {' ; '.join(SANS_NOM[:3])})")
     toutes = sorted({g for film in films.values() for g in film["genres"]})
     print(f"Catégories ({len(toutes)}) : {', '.join(toutes)}")
     if GENRES_IGNORES:
