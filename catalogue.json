@@ -1,7 +1,25 @@
 {
- "mis_a_jour": "2026-11-21T07:53:26Z",
- "nombre_de_films": 4837,
+ "mis_a_jour": "2026-11-21T09:29:11Z",
+ "nombre_de_films": 4838,
  "films": [
+  {
+   "id": "eFptUmkd8a8",
+   "titre": "Le Lièvre Contre la Tortue",
+   "titre_youtube": "Le Lièvre Contre la Tortue | Dessin Animé en Français | Animation",
+   "description": "Une nouvelle génération reprend le duel légendaire : familles réunies, lièvre et tortue s’engagent dans une course périlleuse où vitesse et persévérance s’affrontent à nouveau.\n\n\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n\n#UnFilmTropBien #FilmComplet\nFilm en Français Complet, Film pour Enfants, Cinéma\n© Tous Droits Réservés",
+   "duree_minutes": 73,
+   "date": "2026-11-21T09:00:21Z",
+   "miniature": "https://i.ytimg.com/vi/eFptUmkd8a8/maxresdefault.jpg",
+   "genre": "Animation",
+   "genres": [
+    "Animation"
+   ],
+   "chaine": "Boxoffice Animation | Films Complets",
+   "pour_enfants": false,
+   "vues": 60,
+   "jaime": 3,
+   "ajoute_le": "2026-11-21T09:29:00Z"
+  },
   {
    "id": "KkrQB_zKFFw",
    "titre": "Pris pour un fou, il traque le monstre caché sous New York",
