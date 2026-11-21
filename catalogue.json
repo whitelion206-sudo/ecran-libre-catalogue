@@ -1,7 +1,26 @@
 {
- "mis_a_jour": "2026-11-21T05:00:19Z",
- "nombre_de_films": 4835,
+ "mis_a_jour": "2026-11-21T05:36:52Z",
+ "nombre_de_films": 4836,
  "films": [
+  {
+   "id": "euwVwVes3x0",
+   "titre": "Unwanted Guest",
+   "titre_youtube": "Unwanted Guest : une invitée trop parfaite | Film de Thriller complet en Français | Suspense",
+   "description": "►SYNOPSIS\nLes fêtes approchent sur un campus endeuillé par la chute fatale d'un étudiant. Pour ne pas laisser son amie Emy seule pendant les vacances, Christine l'invite chez sa mère Anna et son beau-père Charles, un avocat réputé. Serviable, attentionnée, toujours prête à cuisiner ou à soigner, l'invitée semble irréprochable. Mais très vite, Christine tombe malade et son état empire de jour en jour. Le hamster de la maison disparaît, puis Anna se retrouve clouée au lit après une chute aussi sou",
+   "duree_minutes": 87,
+   "date": "2026-11-21T05:00:22Z",
+   "miniature": "https://i.ytimg.com/vi/euwVwVes3x0/maxresdefault.jpg",
+   "genre": "Thriller",
+   "genres": [
+    "Thriller"
+   ],
+   "chaine": "Ciné Movies - Films Complets",
+   "pour_enfants": false,
+   "vues": 168,
+   "jaime": 7,
+   "titre_accroche": "Unwanted Guest : une invitée trop parfaite",
+   "ajoute_le": "2026-11-21T05:36:00Z"
+  },
   {
    "id": "iibUfISnnGM",
    "titre": "Au Cœur du Reich",
