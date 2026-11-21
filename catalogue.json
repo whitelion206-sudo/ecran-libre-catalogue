@@ -1,7 +1,45 @@
 {
- "mis_a_jour": "2026-11-21T19:29:22Z",
- "nombre_de_films": 4789,
+ "mis_a_jour": "2026-11-21T21:20:21Z",
+ "nombre_de_films": 4792,
  "films": [
+  {
+   "id": "Ps-WyIzuXVA",
+   "titre": "Earth Last Defender",
+   "titre_youtube": "Earth Last Defender | Film Complet en Français 🌀 4K | Action, SF",
+   "description": "Des extraterrestres s'attaquent à la Terre en utilisant des créatures gigantesques et des catastrophes naturelles.\n\n\n🌀 Plus de Films en 4K ici ➜ https://www.youtube.com/playlist?list=PLWuoXqy3Dr_rA5EIsbakEUIhBP2UF3tD2\n\nGenre : Cinéma, Film en français complet, Film en 4K, Nouveauté\n© Tous Droits Réservés\n#FilmComplet4K #FilmComplet",
+   "duree_minutes": 74,
+   "date": "2026-11-21T20:00:13Z",
+   "miniature": "https://i.ytimg.com/vi/Ps-WyIzuXVA/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action",
+    "Science-fiction"
+   ],
+   "chaine": "Boxoffice | 4K | Films Complets",
+   "pour_enfants": false,
+   "vues": 307,
+   "jaime": 8,
+   "ajoute_le": "2026-11-21T21:20:00Z"
+  },
+  {
+   "id": "3TW_KkUuVnY",
+   "titre": "Le Jeu Interdit",
+   "titre_youtube": "Le Jeu Interdit | Film Complet en Français | Aventure, Adolescents",
+   "description": "Un adolescent trouve par hasard un jeu vidéo et découvre que des enfants de son village y sont piégés. Il part à la recherche du créateur qui se cache derrière ce terrible jeu...\n\n\n🔥 Plus de Films à voir ICI ➤ https://www.youtube.com/playlist?list=PLe082mCHNqiCVKSMIv_2uAluvvzhsyjcD\n💛 Snapchat ➤ https://www.snapchat.com/p/1684933092515270\n\n\n#famille #feelgood #adolescent\nGenre : Nouveautés, Film en français complet, Film Adolescent, Famille, Comédie\n© Tous Droits Réservés",
+   "duree_minutes": 99,
+   "date": "2026-11-21T19:30:21Z",
+   "miniature": "https://i.ytimg.com/vi/3TW_KkUuVnY/maxresdefault.jpg",
+   "genre": "Aventure",
+   "genres": [
+    "Aventure",
+    "Ados"
+   ],
+   "chaine": "Boxoffice | TEEN MOVIES | Films Complets",
+   "pour_enfants": false,
+   "vues": 353,
+   "jaime": 16,
+   "ajoute_le": "2026-11-21T21:20:00Z"
+  },
   {
    "id": "LDJu2KJajjM",
    "titre": "La Dame Blanche",
@@ -19,6 +57,24 @@
    "vues": 183,
    "jaime": 5,
    "ajoute_le": "2026-11-21T19:29:00Z"
+  },
+  {
+   "id": "GNBt777oG1Q",
+   "titre": "La Ville Maudite",
+   "titre_youtube": "La Ville Maudite | Saoirse Ronan, Matt Smith (The Crown) | Film Complet en Français | Drame",
+   "description": "Dans une ville en ruine, un jeune garçon découvre une route menant à une cité engloutie, tandis que sa mère se retrouve piégée dans un univers sombre.\n\n🔥Plus de films complets ici ➤ https://www.youtube.com/playlist?list=PLzkWqINg6oUEuTQPyPmN5Fz0jlUmUS2fd\n\nGenre : Film en Français, Drame, Emotion, Cinéma\n©  Tous Droits Réservés #FilmDrame #FilmComplet",
+   "duree_minutes": 93,
+   "date": "2026-11-21T18:30:09Z",
+   "miniature": "https://i.ytimg.com/vi/GNBt777oG1Q/maxresdefault.jpg",
+   "genre": "Drame",
+   "genres": [
+    "Drame"
+   ],
+   "chaine": "Boxoffice | DRAMES | Films Complets",
+   "pour_enfants": false,
+   "vues": 231,
+   "jaime": 7,
+   "ajoute_le": "2026-11-21T21:20:00Z"
   },
   {
    "id": "NtbJg7_B4l4",
