@@ -1,7 +1,44 @@
 {
- "mis_a_jour": "2026-11-22T17:26:27Z",
- "nombre_de_films": 4799,
+ "mis_a_jour": "2026-11-22T19:32:53Z",
+ "nombre_de_films": 4801,
  "films": [
+  {
+   "id": "8_dIhpp4q9A",
+   "titre": "Daddy's Girl",
+   "titre_youtube": "Daddy's Girl | Film Complet en Français | Horreur",
+   "description": "Derrière son sourire angélique, une fillette adoptée cache une obsession meurtrière pour son père. Prête à tout pour rester auprès de lui, elle élimine ceux qui menacent son bonheur.\n\n🔥 Plus de nouveautés ICI ➤ https://www.youtube.com/playlist?list=PLpPy9e-Nyh3uAgehMbGGP9XehzyCttJhy\n\nGenre : Film Horreur, Thriller, Suspense\n© Tous Droits Réservés\n#FilmHorreurFR #FilmComplet",
+   "duree_minutes": 88,
+   "date": "2026-11-22T19:15:20Z",
+   "miniature": "https://i.ytimg.com/vi/8_dIhpp4q9A/maxresdefault.jpg",
+   "genre": "Horreur",
+   "genres": [
+    "Horreur"
+   ],
+   "chaine": "Boxoffice | HORREUR | Films Complets",
+   "pour_enfants": false,
+   "vues": 89,
+   "jaime": 3,
+   "ajoute_le": "2026-11-22T19:32:00Z"
+  },
+  {
+   "id": "AuLb1cAA64s",
+   "titre": "In Love with a Prince",
+   "titre_youtube": "In Love with a Prince | Film Complet en Français | Comédie, Romance",
+   "description": "À Noël, une jeune cheffe tente de sauver son restaurant en cuisinant pour un prince. Mais entre amour, jalousie et traditions royales, tout se complique !\n\n❤️ Plus de films romantiques ICI ➤ https://www.youtube.com/playlist?list=PL1gGbalXSLnOw0efNTL2L2asTp8mA_hAQ\n💛 Snapchat ➤ https://www.snapchat.com/p/1684933092515270\n\nGenre : Film romantique en Français, Nouveauté, Romance, Comédie Romantique, Film d'Amour, Cinéma, Emotion\n\n©  Tous Droits Réservés\n#FilmRomantique #FilmComplet",
+   "duree_minutes": 87,
+   "date": "2026-11-22T18:00:33Z",
+   "miniature": "https://i.ytimg.com/vi/AuLb1cAA64s/maxresdefault.jpg",
+   "genre": "Comédie",
+   "genres": [
+    "Comédie",
+    "Romance"
+   ],
+   "chaine": "Boxoffice | ROMANCES | Films Complets",
+   "pour_enfants": false,
+   "vues": 319,
+   "jaime": 13,
+   "ajoute_le": "2026-11-22T19:32:00Z"
+  },
   {
    "id": "oK4P-Kzs1HY",
    "titre": "Korea Under Attack",
