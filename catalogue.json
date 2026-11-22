@@ -1,7 +1,43 @@
 {
- "mis_a_jour": "2026-11-22T15:26:43Z",
- "nombre_de_films": 4797,
+ "mis_a_jour": "2026-11-22T17:26:27Z",
+ "nombre_de_films": 4799,
  "films": [
+  {
+   "id": "oK4P-Kzs1HY",
+   "titre": "Korea Under Attack",
+   "titre_youtube": "Korea Under Attack | Film Complet en Français | Action",
+   "description": "Deux rivaux partagent un rêve sportif, jusqu’à ce que la guerre bouleverse leur destin. Capturés puis séparés, ils traversent ensemble une aventure extraordinaire.\n\n🔥  Les films et nouveautés ACTION ici ➤ https://www.youtube.com/playlist?list=PL2mmBC4NntuljWb1-Rmipxqg9LjDB_Ioh\n\nGenre  : Action, Film en Français, Nouveauté, Suspense, Cinéma\n© Tous Droits Réservés\n#FilmComplet #FilmAction",
+   "duree_minutes": 136,
+   "date": "2026-11-22T17:00:17Z",
+   "miniature": "https://i.ytimg.com/vi/oK4P-Kzs1HY/maxresdefault.jpg",
+   "genre": "Action",
+   "genres": [
+    "Action"
+   ],
+   "chaine": "Boxoffice | ACTION | Films Complets",
+   "pour_enfants": false,
+   "vues": 76,
+   "jaime": 5,
+   "ajoute_le": "2026-11-22T17:26:00Z"
+  },
+  {
+   "id": "PDUBD7ZMIDQ",
+   "titre": "Cauchemar à domicile",
+   "titre_youtube": "Cauchemar à domicile | Film Complet en Français | Thriller",
+   "description": "Rentrés chez eux après des vacances, une famille découvre que leur maison a été cambriolée. Une fois le désordre nettoyé, ils ne se doutent pas que leur cauchemar ne fait que commencer.\n\n\n★ Plus de films complets à voir ICI ► https://www.youtube.com/playlist?list=PLWuoXqy3Dr_rA5EIsbakEUIhBP2UF3tD2\n\nGenre : Nouveautés, Film Cinéma, Film en Français Complet, Cinéma\n©  Tous Droits Réservés #FilmComplet",
+   "duree_minutes": 82,
+   "date": "2026-11-22T16:00:05Z",
+   "miniature": "https://i.ytimg.com/vi/PDUBD7ZMIDQ/maxresdefault.jpg",
+   "genre": "Thriller",
+   "genres": [
+    "Thriller"
+   ],
+   "chaine": "Allociné Films Complets",
+   "pour_enfants": false,
+   "vues": 283,
+   "jaime": 12,
+   "ajoute_le": "2026-11-22T17:26:00Z"
+  },
   {
    "id": "Nmk0PtfAndk",
    "titre": "Survivante",
