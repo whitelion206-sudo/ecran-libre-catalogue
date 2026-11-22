@@ -1,7 +1,82 @@
 {
- "mis_a_jour": "2026-11-22T11:26:03Z",
- "nombre_de_films": 4794,
+ "mis_a_jour": "2026-11-22T15:26:43Z",
+ "nombre_de_films": 4797,
  "films": [
+  {
+   "id": "Nmk0PtfAndk",
+   "titre": "Survivante",
+   "titre_youtube": "SURVIVANTE | Film Complet en Français | Drame",
+   "description": "Un monteur de lignes hanté par la mort de son frère, protège sa nièce. Face à une tempête mortelle, son équipe affronte les éléments pour sauver le réseau électrique.\n\n🔥Plus de films complets ici ➤ https://www.youtube.com/playlist?list=PLzkWqINg6oUEuTQPyPmN5Fz0jlUmUS2fd\n\nGenre : Film en Français, Drame, Emotion, Cinéma\n©  Tous Droits Réservés #FilmDrame #FilmComplet",
+   "duree_minutes": 93,
+   "date": "2026-11-22T15:00:33Z",
+   "miniature": "https://i.ytimg.com/vi/Nmk0PtfAndk/maxresdefault.jpg",
+   "genre": "Drame",
+   "genres": [
+    "Drame"
+   ],
+   "chaine": "Boxoffice | DRAMES | Films Complets",
+   "pour_enfants": false,
+   "vues": 50,
+   "jaime": 3,
+   "ajoute_le": "2026-11-22T15:26:00Z"
+  },
+  {
+   "id": "19uIN5Xyf38",
+   "titre": "Mission royale pour Noël",
+   "titre_youtube": "Mission royale pour Noël - film complet HD en français (Romance, Noël)",
+   "description": "NOUVEAUTÉ FILM ROYAUTÉ, COMÉDIE – film entier 2026 HD et VF : 🎄👑 Plongez dans une comédie de Noël pleine de charme où une experte des fêtes s’attaque à son plus grand défi : faire retrouver la magie de Noël à un homme d’affaires qui n’y croit plus !\n\nLauren et Colleen ont fait de la magie de Noël leur métier ! Engagées par une famille issue de la royauté britannique, elles sont chargées de transformer leur immense manoir pour les fêtes. Mais Lauren se donne une mission bien plus personnelle : fa",
+   "duree_minutes": 81,
+   "date": "2026-11-22T15:00:05Z",
+   "miniature": "https://i.ytimg.com/vi/19uIN5Xyf38/maxresdefault.jpg",
+   "genre": "Romance",
+   "genres": [
+    "Romance",
+    "Noël"
+   ],
+   "chaine": "My Digital Channel - Films Complets",
+   "pour_enfants": false,
+   "vues": 173,
+   "jaime": 9,
+   "ajoute_le": "2026-11-22T15:26:00Z"
+  },
+  {
+   "id": "DolcMqgkN6I",
+   "titre": "Cat Ballou",
+   "titre_youtube": "CAT BALLOU 🤠 1965 | Jane Fonda & Lee Marvin | Film complet Western parodique / Comédie FRANÇAIS 🇫🇷",
+   "description": "► Titre original\n\nCat Ballou (1965)\n\n► Synopsis\n\nDans l'Ouest américain, Catherine « Cat » Ballou, une jeune institutrice au caractère bien trempé, revient dans sa ville natale du Wyoming pour retrouver son père, un éleveur menacé par une puissante compagnie ferroviaire.\n\nLorsque son père est assassiné par un redoutable tueur à gages, Cat décide de se venger. Elle rassemble alors une bande de hors-la-loi aussi attachants que maladroits, parmi lesquels Kid Shelleen, un ancien pistolero devenu alc",
+   "duree_minutes": 92,
+   "date": "2026-11-22T14:00:04Z",
+   "miniature": "https://i.ytimg.com/vi/DolcMqgkN6I/maxresdefault.jpg",
+   "genre": "Western",
+   "genres": [
+    "Western",
+    "Comédie",
+    "Drame"
+   ],
+   "chaine": "Ciné Western - Films Complets en Français",
+   "pour_enfants": false,
+   "vues": 432,
+   "jaime": 22,
+   "ajoute_le": "2026-09-11T15:30:32Z"
+  },
+  {
+   "id": "LJau1t21awI",
+   "titre": "Un amour de chien",
+   "titre_youtube": "Un amour de chien | Film Complet en Français | Famille ⏫💎",
+   "description": "Début du XXe siècle, à New York. Un couple de chiens part à la recherche d'un précieux diadème qui s'est mystérieusement volatilisé du Metropolitan Opera.\n\n\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n#UnFilmTropBien #FilmComplet\nGenre: Nouveauté, Film en Français, Famille.\n©  Tous Droits Réservés",
+   "duree_minutes": 75,
+   "date": "2026-11-22T13:00:08Z",
+   "miniature": "https://i.ytimg.com/vi/LJau1t21awI/maxresdefault.jpg",
+   "genre": "Famille",
+   "genres": [
+    "Famille"
+   ],
+   "chaine": "Boxoffice | FAMILLE | Films Complets",
+   "pour_enfants": false,
+   "vues": 575,
+   "jaime": 31,
+   "ajoute_le": "2026-11-22T15:26:00Z"
+  },
   {
    "id": "QuHrNiSi51E",
    "titre": "Destination : Le Monde Magique",
@@ -10444,26 +10519,6 @@
    "vues": 607832,
    "jaime": 3969,
    "ajoute_le": "2026-09-11T16:00:32Z"
-  },
-  {
-   "id": "NPp8kFkGTZk",
-   "titre": "Cat Ballou",
-   "titre_youtube": "CAT BALLOU 🤠 | 1965 primé aux Oscars 🏆 Jane Fonda & Lee Marvin | Film complet Western en FRANÇAIS 🇫🇷",
-   "description": "► Titre original\n\nCat Ballou (1965)\n\n► Synopsis\n\nDans le Wyoming, Catherine “Cat” Ballou, jeune institutrice, rentre auprès de son père et découvre que des hommes cherchent à s'emparer de ses terres. Pour le protéger, elle engage Kid Shelleen, un ancien tireur d'élite devenu alcoolique et très loin de sa réputation légendaire.\n\nLorsque son père est assassiné, Cat abandonne sa vie rangée et se transforme en hors-la-loi. Entourée d'une bande aussi attachante qu'improbable, elle se lance dans une a",
-   "duree_minutes": 92,
-   "date": "2026-09-11T15:30:32Z",
-   "miniature": "https://i.ytimg.com/vi/NPp8kFkGTZk/maxresdefault.jpg",
-   "genre": "Western",
-   "genres": [
-    "Western",
-    "Comédie",
-    "Drame"
-   ],
-   "chaine": "Ciné Classics - Films Complets",
-   "pour_enfants": false,
-   "vues": 38725,
-   "jaime": 279,
-   "ajoute_le": "2026-09-11T15:30:32Z"
   },
   {
    "id": "fEWTUIAj0PI",
