@@ -1,7 +1,27 @@
 {
- "mis_a_jour": "2026-11-22T01:52:24Z",
- "nombre_de_films": 4792,
+ "mis_a_jour": "2026-11-22T05:03:37Z",
+ "nombre_de_films": 4793,
  "films": [
+  {
+   "id": "ATpxyyheaMc",
+   "titre": "Christmas Wedding",
+   "titre_youtube": "Christmas Wedding : la course folle d'une mariée | Film de Comédie complet en Français | Romance",
+   "description": "►SYNOPSIS\nTout a commencé sur une patinoire, un jour de Noël. Deux ans plus tard, Émilie, perfectionniste jusqu'au bout des ongles, s'apprête à épouser Ben à la même date. Tout est prévu, coché, consigné sur des fiches. Mais son patron l'envoie conclure un contrat décisif sur une île au large de la Floride, à quelques semaines de la cérémonie. Resté seul à Denver, Ben, écrivain rêveur, voit les préparatifs s'effondrer un à un : l'organiste, la salle de réception, les fleurs, sans compter une fut",
+   "duree_minutes": 85,
+   "date": "2026-11-22T05:00:28Z",
+   "miniature": "https://i.ytimg.com/vi/ATpxyyheaMc/maxresdefault.jpg",
+   "genre": "Comédie",
+   "genres": [
+    "Comédie",
+    "Romance"
+   ],
+   "chaine": "Ciné Movies - Films Complets",
+   "pour_enfants": false,
+   "vues": 1,
+   "jaime": 0,
+   "titre_accroche": "Christmas Wedding : la course folle d'une mariée",
+   "ajoute_le": "2026-11-22T05:03:00Z"
+  },
   {
    "id": "Ps-WyIzuXVA",
    "titre": "Earth Last Defender",
@@ -6433,6 +6453,9 @@
    "chaine": "Ciné Movies - Films Complets",
    "pour_enfants": false,
    "titre_accroche": "Un écrivain se bat pour élever sa fille après avoir tout perdu",
+   "bande_annonce": "NVYX8udkRrU",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 138845,
    "jaime": 843,
    "ajoute_le": "2026-10-11T04:00:33Z"
@@ -90673,6 +90696,300 @@
    "langue": null,
    "titre": "Le Visage du Traître",
    "date": "2026-11-21",
+   "regle": 6
+  },
+  "ATpxyyheaMc": {
+   "id": null,
+   "langue": null,
+   "titre": "Christmas Wedding",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "Ps-WyIzuXVA": {
+   "id": null,
+   "langue": null,
+   "titre": "Earth Last Defender",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "3TW_KkUuVnY": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Jeu Interdit",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "LDJu2KJajjM": {
+   "id": null,
+   "langue": null,
+   "titre": "La Dame Blanche",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "GNBt777oG1Q": {
+   "id": null,
+   "langue": null,
+   "titre": "La Ville Maudite",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "4c-Rhk5l2Hw": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Monstre en Toi",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "E9hyV98EBes": {
+   "id": null,
+   "langue": null,
+   "titre": "Fin du Monde Imminente",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "7fzeYOYb-Dc": {
+   "id": null,
+   "langue": null,
+   "titre": "Il y a plus dangereux que de simples soldats...",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "98m8cTeMTu8": {
+   "id": null,
+   "langue": null,
+   "titre": "La Guerre qui nous Sépare",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "3nP7riSoaN4": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Or de Curly",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "qPKo8c9oCDM": {
+   "id": null,
+   "langue": null,
+   "titre": "Trois Aventuriers en Mission",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "6bveVxAiWhA": {
+   "id": null,
+   "langue": null,
+   "titre": "Cœur de Guerrier",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "glxqtAZbYWk": {
+   "id": "NVYX8udkRrU",
+   "langue": "VF",
+   "titre": "Père et Fille",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "RIDqDw0GMMY": {
+   "id": null,
+   "langue": null,
+   "titre": "Mission Top Secrète",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "O1NZ1kdK8_U": {
+   "id": null,
+   "langue": null,
+   "titre": "Soul Eater",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "dLpkKQCpEhk": {
+   "id": null,
+   "langue": null,
+   "titre": "Black Love",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "mYXl_UqCZe8": {
+   "id": null,
+   "langue": null,
+   "titre": "Fearless Fighter",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "Ez73NZ2MfbA": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Cible à Abattre",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "azhBOf7FXcE": {
+   "id": null,
+   "langue": null,
+   "titre": "Tranches d'amour",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "asGXmXJA1u0": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Espion aux Trois Visages",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "KoXwJHxAHcA": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Vilain Petit Canard",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "eGmPoAfE8oE": {
+   "id": null,
+   "langue": null,
+   "titre": "Lethal",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "l-xzezjz9mI": {
+   "id": null,
+   "langue": null,
+   "titre": "La Coupable idéale",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "1dQUPSE-lfw": {
+   "id": null,
+   "langue": null,
+   "titre": "La Vraie Nature d'un Homme",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "n0QwEgR2fQY": {
+   "id": null,
+   "langue": null,
+   "titre": "Un tueur insaisissable",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "ipLCinNshqc": {
+   "id": null,
+   "langue": null,
+   "titre": "Escape from North Korea",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "8--PGCG3fgw": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Retour de Ciak Mull",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "r9kyFRkR2ck": {
+   "id": null,
+   "langue": null,
+   "titre": "Je Vais Je Tire et Je Reviens",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "TwIh8lItIBw": {
+   "id": null,
+   "langue": null,
+   "titre": "Archives Maudites",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "dBoPnSu9D_s": {
+   "id": null,
+   "langue": null,
+   "titre": "La Vengeance d'une Mère",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "gbKaaL65rDc": {
+   "id": null,
+   "langue": null,
+   "titre": "Mission: sauver sa sœur dans un labyrinthe rempli de crocodiles",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "n6rboOLG67A": {
+   "id": null,
+   "langue": null,
+   "titre": "Un élève décide que sa professeure lui appartient",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "xU3LJ-7M3yU": {
+   "id": null,
+   "langue": null,
+   "titre": "Colombian Hunt",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "owMYgOEmxjE": {
+   "id": null,
+   "langue": null,
+   "titre": "La Furie d'un Homme",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "pIJtzbVug4M": {
+   "id": null,
+   "langue": null,
+   "titre": "Bigfoot",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "agCGb06F9tA": {
+   "id": null,
+   "langue": null,
+   "titre": "Bons baisers de Grece",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "McFrPWau-H8": {
+   "id": null,
+   "langue": null,
+   "titre": "La Loi du Plus Fort",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "MSr6G994hrI": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Evadés",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "qbPFMMPybNg": {
+   "id": null,
+   "langue": null,
+   "titre": "Haunted",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "QRiSFeC_6Mg": {
+   "id": null,
+   "langue": null,
+   "titre": "L'Homme que J'aimais",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "BdWr2jISCG8": {
+   "id": null,
+   "langue": null,
+   "titre": "Winnetou le Guerrier Apache",
+   "date": "2026-11-22",
+   "regle": 6
+  },
+  "Sn2Zky5TEgM": {
+   "id": null,
+   "langue": null,
+   "titre": "Chinese Godfather",
+   "date": "2026-11-22",
    "regle": 6
   }
  },
