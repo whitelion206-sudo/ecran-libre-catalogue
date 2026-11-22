@@ -1,7 +1,25 @@
 {
- "mis_a_jour": "2026-11-22T05:03:37Z",
- "nombre_de_films": 4793,
+ "mis_a_jour": "2026-11-22T11:26:03Z",
+ "nombre_de_films": 4794,
  "films": [
+  {
+   "id": "QuHrNiSi51E",
+   "titre": "Destination : Le Monde Magique",
+   "titre_youtube": "Destination : Le Monde Magique | Dessin Animé en Français | Animation",
+   "description": "Une courageuse fillette explore un royaume fantastique rempli d’animaux magiques. Pour rentrer chez elle, elle devra affronter un redoutable tigre et sauver ses nouveaux amis.\n\n🔥  Plus de FILMS complets à voir ICI ► https://www.youtube.com/playlist?list=PLrIayymbIXKwQB6_TL9ujt7TWY6zygLNy\n\n\n#UnFilmTropBien #FilmComplet\nFilm en Français Complet, Film pour Enfants, Cinéma\n© Tous Droits Réservés",
+   "duree_minutes": 80,
+   "date": "2026-11-22T10:00:13Z",
+   "miniature": "https://i.ytimg.com/vi/QuHrNiSi51E/maxresdefault.jpg",
+   "genre": "Animation",
+   "genres": [
+    "Animation"
+   ],
+   "chaine": "Boxoffice Animation | Films Complets",
+   "pour_enfants": false,
+   "vues": 329,
+   "jaime": 7,
+   "ajoute_le": "2026-11-22T11:26:00Z"
+  },
   {
    "id": "ATpxyyheaMc",
    "titre": "Christmas Wedding",
