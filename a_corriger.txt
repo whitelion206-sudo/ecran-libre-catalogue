@@ -1,7 +1,7 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 35 film(s).
+# 34 film(s).
 
 # Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
 Avant qu'il ne soit trop tard => 
@@ -95,9 +95,6 @@ Survivre à des araignées géantes quand on est coincé sur les pistes =>
 
 # Ciné Nanar - Films Complets en Français · 1 h 26 · https://www.youtube.com/watch?v=wKGbPgjFpf0
 Survivre à une partie de paintball quand l'adversaire a de vraies armes => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 30 · https://www.youtube.com/watch?v=4Aulpl_BdVA
-Un chalutier spatial harponne une baleine cinq fois trop grande => 
 
 # Ciné Nanar - Films Complets en Français · 1 h 30 · https://www.youtube.com/watch?v=wtOvAq74Eew
 Une île saturée de gaz oblige les commandos à se battre à mains nues => 
