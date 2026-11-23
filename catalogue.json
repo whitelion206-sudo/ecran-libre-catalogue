@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-23T16:28:15Z",
+ "mis_a_jour": "2026-11-23T16:44:42Z",
  "nombre_de_films": 4805,
  "films": [
   {
@@ -92294,6 +92294,20 @@
    "id": null,
    "langue": null,
    "titre": "Un rencontre qui change tout !",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "5GZkJ5WTw2c": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Justiciers de l’Ave Maria",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "vam9nrIOONQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Silent Intrusion",
    "date": "2026-11-23",
    "regle": 6
   }
