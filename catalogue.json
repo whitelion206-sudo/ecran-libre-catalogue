@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-23T15:44:12Z",
+ "mis_a_jour": "2026-11-23T15:49:30Z",
  "nombre_de_films": 4803,
  "films": [
   {
@@ -9272,6 +9272,9 @@
    ],
    "chaine": "Ciné Nanar - Films Complets en Français",
    "pour_enfants": false,
+   "bande_annonce": "AQWPm_byTks",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 12093,
    "jaime": 73,
    "ajoute_le": "2026-09-23T06:00:08Z"
@@ -92014,6 +92017,83 @@
    "id": null,
    "langue": null,
    "titre": "La Grande Course",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "m_4tZtsjCQY": {
+   "id": null,
+   "langue": null,
+   "titre": "Mission Décollage",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "2vEvgfQ4KnA": {
+   "id": "AQWPm_byTks",
+   "langue": "VF",
+   "titre": "The eXtremists",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "Lz0ctXQs738": {
+   "id": null,
+   "langue": null,
+   "titre": "Entre Deux Mondes",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "wCRNU0yfXb8": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Femme Insaisissable",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "5Uxdkl0F3BU": {
+   "id": null,
+   "langue": null,
+   "titre": "Vengeance Armée",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "6VOG8wEybAI": {
+   "id": null,
+   "langue": null,
+   "titre": "Elle a choisi la révolte ! Rose’s War",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "S9WojbnRVgQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Vade Retro Satanas",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "0XNj3IlJfTE": {
+   "id": null,
+   "langue": null,
+   "titre": "The Terminators",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "YBpdlkuLv2I": {
+   "id": null,
+   "langue": null,
+   "titre": "Une I.A. Hors de Contrôle",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "Yt9LFJkxfGo": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Jour de l'Execution",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "oWsgiOyERT4": {
+   "id": null,
+   "langue": null,
+   "titre": "La Femme du Pilote",
    "date": "2026-11-23",
    "regle": 6
   }
