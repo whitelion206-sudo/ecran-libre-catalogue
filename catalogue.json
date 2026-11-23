@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-23T16:03:36Z",
+ "mis_a_jour": "2026-11-23T16:28:15Z",
  "nombre_de_films": 4805,
  "films": [
   {
@@ -9850,6 +9850,9 @@
    ],
    "chaine": "Ciné Western - Films Complets en Français",
    "pour_enfants": false,
+   "bande_annonce": "ieQxWhArSSA",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 37721,
    "jaime": 162,
    "ajoute_le": "2026-09-18T18:00:12Z"
@@ -92263,6 +92266,34 @@
    "id": null,
    "langue": null,
    "titre": "La police et la mafia le traque en même temps",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "BSbNlmSGVsA": {
+   "id": null,
+   "langue": null,
+   "titre": "Starship Troopers : Le Traître de Mars",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "QsfGXJy8Dm4": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Cauchemar d'un Père",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "KMYSdPsopQY": {
+   "id": "ieQxWhArSSA",
+   "langue": "VF",
+   "titre": "Trinita va tout casser",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "4R2nMqp8nPM": {
+   "id": null,
+   "langue": null,
+   "titre": "Un rencontre qui change tout !",
    "date": "2026-11-23",
    "regle": 6
   }
