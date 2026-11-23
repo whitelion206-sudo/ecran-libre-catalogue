@@ -18,7 +18,11 @@ jobs:
   catalogue:
     runs-on: ubuntu-latest
     steps:
+      # Toujours la dernière version de main : un passage qui attendait la fin du
+      # précédent repart de ce que celui-ci vient d'enregistrer (sinon « push » refusé).
       - uses: actions/checkout@v5
+        with:
+          ref: main
 
       - name: Récupérer les films
         env:
