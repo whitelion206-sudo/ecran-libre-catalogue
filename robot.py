@@ -75,19 +75,28 @@ def appel_api(methode, parametres, cle, fatal=True):
     """
     parametres = dict(parametres, key=cle)
     url = API + methode + "?" + urllib.parse.urlencode(parametres)
-    try:
-        with urllib.request.urlopen(url, timeout=30) as reponse:
-            return json.load(reponse)
-    except urllib.error.HTTPError as erreur:
-        detail = erreur.read().decode("utf-8", "replace")
-        message = f"Erreur de l'API YouTube ({erreur.code}) sur {methode} : {detail[:300]}"
-        if fatal:
-            sys.exit(message)
-        raise RuntimeError(message)
-    except (urllib.error.URLError, TimeoutError) as erreur:
-        if fatal:
-            sys.exit(f"Connexion impossible à l'API YouTube sur {methode} : {erreur}")
-        raise RuntimeError(str(erreur))
+    # Un « hoquet » passager des serveurs de YouTube (erreur 500, 503, coupure) :
+    # on réessaie 2 fois avant d'abandonner. Le quota épuisé (403) n'est pas réessayé.
+    for essai in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as reponse:
+                return json.load(reponse)
+        except urllib.error.HTTPError as erreur:
+            if erreur.code >= 500 and essai < 2:
+                time.sleep(3 * (essai + 1))
+                continue
+            detail = erreur.read().decode("utf-8", "replace")
+            message = f"Erreur de l'API YouTube ({erreur.code}) sur {methode} : {detail[:300]}"
+            if fatal:
+                sys.exit(message)
+            raise RuntimeError(message)
+        except (urllib.error.URLError, TimeoutError) as erreur:
+            if essai < 2:
+                time.sleep(3 * (essai + 1))
+                continue
+            if fatal:
+                sys.exit(f"Connexion impossible à l'API YouTube sur {methode} : {erreur}")
+            raise RuntimeError(str(erreur))
 
 
 def duree_en_minutes(iso):
