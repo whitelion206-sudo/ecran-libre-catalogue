@@ -454,6 +454,37 @@ def genres_de_la_description(description):
     return genres_d_une_liste(m.group(1)) if m else []
 
 
+# Pays francophones où l'appli pourrait être publiée. Pour chaque film, le robot
+# note ceux où YouTube le bloque (« pays_bloques ») : l'appli le cache là-bas.
+# La France reste obligatoire (un film bloqué en France n'est jamais gardé).
+PAYS_FRANCOPHONES = {
+    # Europe et Amérique du Nord
+    "BE": "Belgique", "CH": "Suisse", "LU": "Luxembourg", "MC": "Monaco", "CA": "Canada",
+    # Outre-mer
+    "RE": "Réunion", "GP": "Guadeloupe", "MQ": "Martinique", "GF": "Guyane", "YT": "Mayotte",
+    "NC": "Nouvelle-Calédonie", "PF": "Polynésie française", "PM": "Saint-Pierre-et-Miquelon",
+    "BL": "Saint-Barthélemy", "MF": "Saint-Martin", "WF": "Wallis-et-Futuna",
+    # Afrique et océan Indien
+    "CI": "Côte d'Ivoire", "SN": "Sénégal", "CM": "Cameroun", "CD": "RD Congo", "CG": "Congo",
+    "ML": "Mali", "BF": "Burkina Faso", "NE": "Niger", "BJ": "Bénin", "TG": "Togo",
+    "GN": "Guinée", "GA": "Gabon", "TD": "Tchad", "CF": "Centrafrique", "BI": "Burundi",
+    "RW": "Rwanda", "DJ": "Djibouti", "KM": "Comores", "MG": "Madagascar", "MU": "Maurice",
+    "SC": "Seychelles", "MR": "Mauritanie", "MA": "Maroc", "DZ": "Algérie", "TN": "Tunisie",
+    # Caraïbes
+    "HT": "Haïti",
+}
+
+
+def pays_bloques(video):
+    """Pays francophones où YouTube bloque la vidéo (liste triée, vide si aucun)."""
+    restriction = video.get("contentDetails", {}).get("regionRestriction", {}) or {}
+    bloques = set()
+    if "allowed" in restriction:
+        bloques |= set(PAYS_FRANCOPHONES) - set(restriction["allowed"])
+    bloques |= set(PAYS_FRANCOPHONES) & set(restriction.get("blocked", []))
+    return sorted(bloques)
+
+
 def autorise_en_france(details):
     restriction = details.get("contentDetails", {}).get("regionRestriction", {})
     if "allowed" in restriction and PAYS not in restriction["allowed"]:
@@ -746,6 +777,7 @@ def fiche_film(video, chaine):
         # suivi pour ces vidéos (règles des API YouTube, III.E.4.j).
         "pour_enfants": bool(video.get("status", {}).get("madeForKids", False)),
         **statistiques(video),
+        **({"pays_bloques": pays_bloques(video)} if pays_bloques(video) else {}),
     }
 
 
@@ -1815,6 +1847,12 @@ def main():
     if SANS_NOM:
         print(f"Écartés car le titre YouTube ne donne pas le nom du film : {len(SANS_NOM)} "
               f"(ex. : {' ; '.join(SANS_NOM[:3])})")
+    if films:
+        par_pays = sorted(((sum(1 for f in films.values() if code not in f.get("pays_bloques", [])), code)
+                           for code in PAYS_FRANCOPHONES), key=lambda x: (-x[0], x[1]))
+        bloques_partout = sum(1 for f in films.values() if f.get("pays_bloques"))
+        print(f"Films visibles par pays (sur {len(films)}, dont {bloques_partout} bloqués dans au moins un pays) :")
+        print("  " + " · ".join(f"{PAYS_FRANCOPHONES[c]} {n}" for n, c in par_pays))
     toutes = sorted({g for film in films.values() for g in film["genres"]})
     print(f"Catégories ({len(toutes)}) : {', '.join(toutes)}")
     if GENRES_IGNORES:
