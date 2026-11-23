@@ -1,5 +1,5 @@
 {
- "mis_a_jour": "2026-11-23T05:26:27Z",
+ "mis_a_jour": "2026-11-23T15:44:12Z",
  "nombre_de_films": 4803,
  "films": [
   {
@@ -8522,6 +8522,9 @@
    ],
    "chaine": "My Digital Channel - Films Complets",
    "pour_enfants": false,
+   "bande_annonce": "FoMZPSmN0Os",
+   "bande_annonce_langue": "VF",
+   "bande_annonce_pour_enfants": false,
    "vues": 60449,
    "jaime": 416,
    "ajoute_le": "2026-09-27T14:00:40Z"
@@ -91591,6 +91594,426 @@
    "id": null,
    "langue": null,
    "titre": "La Défense de l'Avocat",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "Way06LWsQVA": {
+   "id": null,
+   "langue": null,
+   "titre": "The Secret Commando",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "ZhVut9R_uzs": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Seconde pour Mourir, une Minute pour Prier",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "jZ8qevLbYPs": {
+   "id": null,
+   "langue": null,
+   "titre": "Haunted Asylum",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "RdCZIcBYQ10": {
+   "id": null,
+   "langue": null,
+   "titre": "Destins Brisés",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "d69fFQpxSQY": {
+   "id": null,
+   "langue": null,
+   "titre": "Max & Co",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "3mHM1x573rI": {
+   "id": null,
+   "langue": null,
+   "titre": "La Rencontre d'une Vie",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "wkjp4_VloKo": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Tueur venu du futur",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "Yl3TNb0vFg8": {
+   "id": null,
+   "langue": null,
+   "titre": "Un tireur d'élite doit éliminer son meilleur ami",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "FTFKjoaEh_g": {
+   "id": null,
+   "langue": null,
+   "titre": "Elle n'est pas seule chez elle …",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "ncOoD0ITyw4": {
+   "id": null,
+   "langue": null,
+   "titre": "Criminal Target",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "EUg_AAa9cSM": {
+   "id": null,
+   "langue": null,
+   "titre": "Target : Washington",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "wtOvAq74Eew": {
+   "id": null,
+   "langue": null,
+   "titre": "Une île saturée de gaz oblige les commandos à se battre à mains nues",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "lYsavltVd80": {
+   "id": null,
+   "langue": null,
+   "titre": "Bad Girl",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "P8BnXkoEbA4": {
+   "id": null,
+   "langue": null,
+   "titre": "Underwater",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "ARztT7WjCAQ": {
+   "id": null,
+   "langue": null,
+   "titre": "Beauté Fatale",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "tQqPeptCFu0": {
+   "id": null,
+   "langue": null,
+   "titre": "Avant la Fin de ma Vie",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "tI4QSZTPSZI": {
+   "id": null,
+   "langue": null,
+   "titre": "Avenger's Shadow",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "eUxkj2dH23c": {
+   "id": null,
+   "langue": null,
+   "titre": "Une Famille a Protéger",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "TiOF8aQ0d9M": {
+   "id": null,
+   "langue": null,
+   "titre": "Un Coeur à la Plage",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "3JiZuzV-zO4": {
+   "id": null,
+   "langue": null,
+   "titre": "Irak Mission",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "J5AkWmJ7ubE": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Fiancés Maudits",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "cqn6tPGUyP4": {
+   "id": "FoMZPSmN0Os",
+   "langue": "VF",
+   "titre": "Sharknado",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "VuBn7hv7UAE": {
+   "id": null,
+   "langue": null,
+   "titre": "Cible Collatérale",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "eOuLNc9GU_s": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Butin des Traîtres",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "rVjAfObq798": {
+   "id": null,
+   "langue": null,
+   "titre": "Serpent Blanc",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "RAWz58sjVls": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Guerrier Panda",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "M0c1HJh0Lbc": {
+   "id": null,
+   "langue": null,
+   "titre": "Showdown in Manila",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "PeSBCUFRqns": {
+   "id": null,
+   "langue": null,
+   "titre": "Un couple endeuillé recueille une adolescente livrée à elle-même",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "3u31vnau1Zo": {
+   "id": null,
+   "langue": null,
+   "titre": "Chaos à l'Ecole",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "RJpqaD9I0-o": {
+   "id": null,
+   "langue": null,
+   "titre": "Ghost House",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "uK6UwEXMFBg": {
+   "id": null,
+   "langue": null,
+   "titre": "Mission Séduction",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "fsJhCkOLpNI": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Mystère du Vatican",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "sdXUzF4ZIXA": {
+   "id": null,
+   "langue": null,
+   "titre": "Marked for Death",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "CY-J_D0QZ5c": {
+   "id": null,
+   "langue": null,
+   "titre": "Victime de son Succès",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "f-VP5rLqQ4s": {
+   "id": null,
+   "langue": null,
+   "titre": "Jeux stupides",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "pFhfebL-ME8": {
+   "id": null,
+   "langue": null,
+   "titre": "L’Héritier de Cléopâtre",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "_2Vkxm85KIY": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Super Bébés",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "LBA4dMUdgOU": {
+   "id": null,
+   "langue": null,
+   "titre": "Les Aventures du Numéro 9",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "ph5EDtMccFA": {
+   "id": null,
+   "langue": null,
+   "titre": "Shark Season",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "qTkVKo1Ft_M": {
+   "id": null,
+   "langue": null,
+   "titre": "Alliance forcée à Jakarta (Mickey Rourke)",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "KROyjE61C04": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Fils Fragile",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "MDeLHg5DzuI": {
+   "id": null,
+   "langue": null,
+   "titre": "Lutte de Pouvoir",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "8COayTyU9sM": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Mousquetaire",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "BL9j3cs6SpE": {
+   "id": null,
+   "langue": null,
+   "titre": "Le passé trouble de mon mari",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "TsZkFsI688s": {
+   "id": null,
+   "langue": null,
+   "titre": "DJANGO vs SARTANA",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "oPed8zybLhk": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Justicier à la Carabine",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "5oJdmeGPAz8": {
+   "id": null,
+   "langue": null,
+   "titre": "La Traque de Mr Grey",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "Ubrhi4cOLPg": {
+   "id": null,
+   "langue": null,
+   "titre": "Négociations à Haut Risque",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "F6NdXt5QJH8": {
+   "id": null,
+   "langue": null,
+   "titre": "Welcome to Acapulco",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "FlFjS0VrE2g": {
+   "id": null,
+   "langue": null,
+   "titre": "Elle piège un prédateur qui se cache derrière une appli de transport",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "kJEX70ROO5w": {
+   "id": null,
+   "langue": null,
+   "titre": "Wasteland",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "vL1c2mssdzY": {
+   "id": null,
+   "langue": null,
+   "titre": "Comme au Lycée",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "0r243xpe1wE": {
+   "id": null,
+   "langue": null,
+   "titre": "le Dernier Souvenir",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "SHSpdvOjMo4": {
+   "id": null,
+   "langue": null,
+   "titre": "One Last Mission",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "MYfhROxewCU": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Tueur de Tombstone",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "j2QAuueC44k": {
+   "id": null,
+   "langue": null,
+   "titre": "Kung-Fu à Harlem",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "BXbNo5Rb0uA": {
+   "id": null,
+   "langue": null,
+   "titre": "Le Désespoir d'un Homme",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "uU_gpd5PQU8": {
+   "id": null,
+   "langue": null,
+   "titre": "Jeunesse Brisée",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "JxWmlYWF1WU": {
+   "id": null,
+   "langue": null,
+   "titre": "Un Détective en Russie",
+   "date": "2026-11-23",
+   "regle": 6
+  },
+  "nlqA790GO_c": {
+   "id": null,
+   "langue": null,
+   "titre": "La Grande Course",
    "date": "2026-11-23",
    "regle": 6
   }
