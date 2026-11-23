@@ -1,0 +1,86 @@
+name: Compter les films de nouvelles chaînes
+
+# Se lance seulement à la main (Actions > Compter les films de nouvelles chaînes > Run workflow).
+# Ne touche pas au catalogue : il utilise les mêmes filtres que robot.py et affiche
+# combien de films chaque chaîne ajouterait (sans les films déjà dans l'appli), par genre.
+on:
+  workflow_dispatch:
+
+jobs:
+  compter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Compter les films
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'FIN'
+          import json, os, sys
+          from collections import Counter
+          sys.path.insert(0, os.getcwd())
+          import robot
+
+          CANDIDATES = [
+              {"nom": "Boxoffice | THRILLERS | Films Complets", "id": "UCejAJAuoB5J4xk7UU1fz7Xg",
+               "genre": "Thriller", "vf_seulement": True},
+              {"nom": "Ciné Comédie - Films Complets en Français", "handle": "@CineComedieFilmsComplets",
+               "genre": "Comédie"},
+              {"nom": "Film&Clips en Français", "handle": "@FilmsCompletsFrancais",
+               "genre": "", "vf_seulement": True},
+          ]
+          cle = os.environ["YOUTUBE_API_KEY"]
+          exclus = robot.lire_exclus()
+          with open("catalogue.json", encoding="utf-8") as f:
+              deja = json.load(f).get("films", [])
+          connus = {}
+          for film in deja:
+              connus.setdefault(robot.normalise(film.get("titre", "")), []).append(film.get("duree_minutes") or 0)
+          avant = Counter(g for film in deja for g in film.get("genres", []))
+
+          def deja_la(fiche):
+              return any(abs(d - fiche["duree_minutes"]) <= 5 for d in connus.get(robot.normalise(fiche["titre"]), []))
+
+          lignes = ["## Ce que les nouvelles chaînes ajouteraient", ""]
+          gain_total = Counter()
+          total_nouveaux = 0
+          for chaine in CANDIDATES:
+              ids = robot.videos_de_la_chaine(chaine, cle)
+              utilisables, nouveaux, exemples = 0, [], []
+              for video in robot.details_des_videos(ids, cle):
+                  if not robot.est_utilisable(video, exclus):
+                      continue
+                  if chaine.get("vf_seulement") and not robot.est_en_francais(video):
+                      continue
+                  if robot.sans_nom_de_film(video["snippet"].get("title", "")):
+                      continue
+                  utilisables += 1
+                  fiche = robot.fiche_film(video, chaine)
+                  if deja_la(fiche):
+                      continue
+                  nouveaux.append(fiche)
+                  # pas de doublon entre les nouvelles chaînes elles-mêmes
+                  connus.setdefault(robot.normalise(fiche["titre"]), []).append(fiche["duree_minutes"])
+              genres = Counter(g for f in nouveaux for g in f["genres"])
+              gain_total.update(genres)
+              total_nouveaux += len(nouveaux)
+              lignes += [f"### {chaine['nom']}",
+                         f"- Vidéos sur la chaîne : **{len(ids)}**",
+                         f"- Films gardés par les filtres du robot : **{utilisables}**",
+                         f"- **Nouveaux films (pas déjà dans l'appli) : {len(nouveaux)}**",
+                         "- Par genre : " + (", ".join(f"{g} +{n}" for g, n in genres.most_common()) or "aucun"),
+                         "- Exemples : " + " ; ".join(f["titre"] for f in nouveaux[:8]), ""]
+          lignes += ["## Total", f"- **{total_nouveaux} nouveaux films** (catalogue actuel : {len(deja)})", "",
+                     "### Genres qui grandiraient (avant → après)"]
+          for g, n in sorted(gain_total.items(), key=lambda x: -x[1]):
+              lignes.append(f"- {g} : {avant.get(g, 0)} → {avant.get(g, 0) + n} (+{n})")
+          texte = "\n".join(lignes)
+          print(texte)
+          resume = os.environ.get("GITHUB_STEP_SUMMARY")
+          if resume:
+              with open(resume, "a", encoding="utf-8") as f:
+                  f.write(texte + "\n")
+          FIN
