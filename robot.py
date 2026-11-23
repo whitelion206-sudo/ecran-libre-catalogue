@@ -12,6 +12,19 @@ Un film est gardé s'il :
 - n'est pas dans exclus.txt ;
 - pour les chaînes marquées « vf_seulement », a un titre qui dit qu'il est en français.
 
+Chaînes de documentaires (option « documentaires » dans chaines.json, ex. ARTE) :
+- « duree_min » remplace DUREE_MIN_MINUTES (50 min pour ARTE) ;
+- « titre_finit_par » : seuls les titres qui finissent par « | ARTE » sont gardés
+  (les émissions, jeux et directs d'ARTE ne finissent pas comme ça) ;
+- le titre est nettoyé (« | Documentaire | ARTE » enlevés, « 2/3 » gardé) et le
+  genre est celui de la chaîne seulement ;
+- pas de recherche de bande-annonce, ni de vrai titre sur Wikidata ;
+- « import_discret » : au premier passage, les vidéos gardent leur date YouTube
+  (elles n'envahissent pas les Nouveautés) ;
+- « lecture_rapide » : les passages rapides ne lisent que les nouvelles vidéos et
+  les vidéos déjà gardées (videos_ecartees.json retient celles déjà écartées) ;
+  le grand passage du matin relit toute la chaîne.
+
 Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
 complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
 
@@ -50,6 +63,7 @@ FICHIER_EXCLUS = os.path.join(DOSSIER, "exclus.txt")
 # Bandes-annonces vérifiées à la main : gardées même sans preuve.
 FICHIER_VALIDES = os.path.join(DOSSIER, "valides.txt")
 FICHIER_CATALOGUE = os.path.join(DOSSIER, "catalogue.json")
+FICHIER_ECARTEES = os.path.join(DOSSIER, "videos_ecartees.json")
 FICHIER_CLASSIQUES = os.path.join(DOSSIER, "classiques.json")
 
 
@@ -507,7 +521,7 @@ LIGNE_INUTILE = re.compile(
     r"\b(?:sur|on)\s+(?:snapchat|instagram|facebook|tiktok|twitter)\b|plus de films|playlist|"
     r"^\W*(?:titre original|synopsis|r[ée]alisation|r[ée]alisateur|acteurs?|casting|avec|sc[ée]nario)\W*$|"
     r"envie de d[ée]couvrir|nous avons ce qu|^\W*films? (?:complets?|entiers?)\b[\w\s,]*$|"
-    r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\|",
+    r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\||disponible\s+jusqu",
     flags=re.IGNORECASE)
 LIMITE_DESCRIPTION = 400
 
@@ -542,18 +556,20 @@ def autorise_en_france(details):
     return True
 
 
-def est_utilisable(video, exclus):
+def est_utilisable(video, exclus, duree_min=DUREE_MIN_MINUTES):
     statut = video.get("status", {})
     contenu = video.get("contentDetails", {})
     if video["id"] in exclus:
         return False
     if MOTS_INTERDITS.search(video.get("snippet", {}).get("title", "")):
         return False
+    if video.get("snippet", {}).get("liveBroadcastContent") in ("live", "upcoming"):
+        return False
     if statut.get("privacyStatus") != "public" or not statut.get("embeddable", False):
         return False
     if contenu.get("contentRating", {}).get("ytRating") == "ytAgeRestricted":
         return False
-    if duree_en_minutes(contenu.get("duration")) < DUREE_MIN_MINUTES:
+    if duree_en_minutes(contenu.get("duration")) < duree_min:
         return False
     return autorise_en_france(video)
 
@@ -591,6 +607,81 @@ def videos_de_la_chaine(chaine, cle):
         page = reponse.get("nextPageToken")
         if not page:
             return ids
+
+
+def uploads_de_la_chaine(chaine, cle):
+    if chaine.get("id"):
+        parametres = {"part": "contentDetails", "id": chaine["id"]}
+    else:
+        parametres = {"part": "contentDetails", "forHandle": chaine.get("handle", "")}
+    reponse = appel_api("channels", parametres, cle)
+    if not reponse.get("items"):
+        return None
+    return reponse["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
+
+def nouvelles_videos(chaine, cle, connues, pages_max=10):
+    """Lecture rapide : les vidéos les plus récentes d'abord, jusqu'à la
+    première page qui contient une vidéo déjà connue (le reste est plus ancien)."""
+    liste = uploads_de_la_chaine(chaine, cle)
+    if not liste:
+        return []
+    nouvelles, page = [], None
+    for _ in range(pages_max):
+        parametres = {"part": "contentDetails", "playlistId": liste, "maxResults": 50}
+        if page:
+            parametres["pageToken"] = page
+        reponse = appel_api("playlistItems", parametres, cle)
+        ids = [item["contentDetails"]["videoId"] for item in reponse.get("items", [])]
+        nouvelles += [i for i in ids if i not in connues]
+        page = reponse.get("nextPageToken")
+        if not page or any(i in connues for i in ids):
+            break
+    return nouvelles
+
+
+def lire_ecartees():
+    try:
+        with open(FICHIER_ECARTEES, encoding="utf-8") as f:
+            return {nom: set(ids) for nom, ids in json.load(f).items()}
+    except (OSError, ValueError):
+        return {}
+
+
+def ecrire_ecartees(ecartees):
+    lignes = [f"{json.dumps(nom, ensure_ascii=False)}:{json.dumps(sorted(ids))}"
+              for nom, ids in sorted(ecartees.items())]
+    with open(FICHIER_ECARTEES, "w", encoding="utf-8") as f:
+        f.write("{\n" + ",\n".join(lignes) + "\n}\n")
+
+
+# --- Documentaires (ARTE…) --------------------------------------------------------
+DOCUMENTAIRES = set()   # identifiants des vidéos venues d'une chaîne « documentaires »
+ETIQUETTE_DOC = re.compile(
+    r"^(?:arte|documentaire|docu-?fiction|s[ée]rie documentaire|scope|reportage|arte reportage|"
+    r"arte regards|doc)$", flags=re.IGNORECASE)
+NUMERO_DE_PARTIE = re.compile(r"^\(?\s*(\d+)\s*/\s*(\d+)\s*\)?$")
+
+
+def titre_documentaire(titre):
+    """« USA, la révolution conservatrice | Nixonland (1968-1974) | 2/3 | Documentaire | ARTE »
+    -> « USA, la révolution conservatrice – Nixonland (1968-1974) (2/3) »."""
+    morceaux = [m.strip() for m in re.split(r"\s*\|\s*", sans_emojis(titre)) if m.strip()]
+    gardes, parties = [], []
+    for morceau in morceaux:
+        if ETIQUETTE_DOC.match(morceau):
+            continue
+        numero = NUMERO_DE_PARTIE.match(morceau)
+        if numero:
+            parties.append(f"({numero.group(1)}/{numero.group(2)})")
+            continue
+        gardes.append(morceau)
+    propre = " – ".join(gardes) or titre.strip()
+    return " ".join([propre] + parties)
+
+
+def finit_par(titre, fin):
+    return bool(re.search(r"\|\s*" + re.escape(fin) + r"\s*$", titre or ""))
 
 
 def details_des_videos(ids, cle):
@@ -794,21 +885,30 @@ def fiche_film(video, chaine):
             genres.append(genre_chaine)
         elif genre_chaine != "Animation":
             genres.append(genre_chaine)
-    titre = sans_etiquette_de_genre(titre_propre(snippet.get("title", "")))
     fiche_titre = {}
-    vrai_titre = titre_dans_description(description)
+    if chaine.get("documentaires"):
+        # Documentaires : le titre YouTube est le bon, une fois nettoyé ; le genre
+        # est celui de la chaîne (« Documentaire »), pas « Guerre » ou « Historique ».
+        genres = [genre_chaine] if genre_chaine else []
+        titre = titre_documentaire(snippet.get("title", ""))
+        vrai_titre = entre_parentheses = None
+    else:
+        titre = sans_etiquette_de_genre(titre_propre(snippet.get("title", "")))
+        vrai_titre = titre_dans_description(description)
+        entre_parentheses = titre_entre_parentheses(titre)
     if vrai_titre and normalise(vrai_titre) != normalise(titre):
         # La chaîne a mis une accroche dans le titre YouTube, mais le vrai nom
         # du film dans la description : « Titre : Exeter ».
         fiche_titre = {"titre_accroche": titre}
         titre = vrai_titre
     else:
-        entre_parentheses = titre_entre_parentheses(titre)
         if entre_parentheses:
             STATS_TITRES["parentheses"] += 1
             fiche_titre = {"titre_accroche": titre}
             titre = entre_parentheses
-    titre = sans_majuscules(sans_acteurs_entre_parentheses(titre))
+    if not chaine.get("documentaires"):
+        titre = sans_acteurs_entre_parentheses(titre)
+    titre = sans_majuscules(titre)
     BLOQUES_TOUS[video["id"]] = pays_bloques(video)
     return {
         **fiche_titre,
@@ -1037,6 +1137,8 @@ def vrais_titres(films, textes_films, ancien_catalogue):
                 raise
 
     for fid, film in films.items():
+        if fid in DOCUMENTAIRES:   # le titre d'un documentaire est déjà le bon
+            continue
         accroche = est_une_accroche(film["titre"])
         avant = titre_avant_deux_points(film["titre"])
         if avant and (accroche or suite_en_minuscule(film["titre"])):
@@ -1393,7 +1495,7 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films, valides=
     # description ne donne ni acteur ni année : on ne pourrait rien prouver.
     file_attente = []
     for f in sorted(films.values(), key=lambda f: f["date"], reverse=True):
-        if not a_chercher(f["id"]):
+        if f["id"] in DOCUMENTAIRES or not a_chercher(f["id"]):
             continue
         texte_film, annee_film = texte_et_annee(f)
         if a_des_indices(texte_film, f["titre"], annee_film) or normalise(f["titre"]) in titres_valides:
@@ -1626,11 +1728,15 @@ CHAINES_AJOUTEES_LE_20_NOVEMBRE = {
 SOIREE_DU_20_NOVEMBRE = "2026-11-20T19:20:00Z"
 
 
-def dates_d_ajout(films, ancien):
+def dates_d_ajout(films, ancien, discretes=()):
     """Donne à chaque film sa date « ajoute_le ». Renvoie le nombre de films
-    arrivés à ce passage."""
+    arrivés à ce passage. Chaîne « import_discret » qui arrive pour la première
+    fois (aucun de ses films dans l'ancien catalogue) : ses vidéos gardent leur
+    date YouTube, pour ne pas envahir les Nouveautés."""
     maintenant = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:00Z")
     anciens = {film.get("id"): film for film in ancien.get("films", [])}
+    chaines_connues = {film.get("chaine") for film in anciens.values()}
+    premiere_fois = {c for c in discretes if c not in chaines_connues} if anciens else set()
     # Même film gardé sous une autre copie (doublon) : on le retrouve par son titre.
     par_titre = {}
     for film in anciens.values():
@@ -1651,6 +1757,9 @@ def dates_d_ajout(films, ancien):
                      if abs((a.get("duree_minutes") or 0) - film["duree_minutes"]) <= 5), None)
         if meme is not None:
             film["ajoute_le"] = meme["ajoute_le"]
+            continue
+        if film.get("chaine") in premiere_fois:
+            film["ajoute_le"] = film.get("date") or maintenant
             continue
         film["ajoute_le"] = maintenant
         nouveaux += 1
@@ -1828,28 +1937,6 @@ def main():
         chaines = json.load(f)
     exclus = lire_exclus()
 
-    films = {}
-    textes_films = {}  # titre + description complète, pour vérifier les bandes-annonces
-    for chaine in chaines:
-        ids = videos_de_la_chaine(chaine, cle)
-        gardes = 0
-        for video in details_des_videos(ids, cle):
-            if not est_utilisable(video, exclus):
-                continue
-            if chaine.get("vf_seulement") and not est_en_francais(video):
-                continue
-            snippet = video.get("snippet", {})
-            if sans_nom_de_film(snippet.get("title", "")):
-                SANS_NOM.append(snippet.get("title", ""))
-                continue
-            textes_films[video["id"]] = snippet.get("title", "") + "\n" + snippet.get("description", "")
-            fiche = fiche_film(video, chaine)
-            deja = films.get(video["id"])
-            if deja is None or (not deja["genre"] and fiche["genre"]):
-                films[video["id"]] = fiche
-            gardes += 1
-        print(f"{chaine['nom']} : {len(ids)} vidéos, {gardes} films gardés")
-
     ancien = {}
     if os.path.exists(FICHIER_CATALOGUE):
         try:
@@ -1857,6 +1944,54 @@ def main():
                 ancien = json.load(f)
         except ValueError:
             ancien = {}
+    ecartees_avant = lire_ecartees()
+    ecartees = {}
+    lecture_complete = MAX_RECHERCHES > 0   # grand passage du matin et lancements à la main
+
+    films = {}
+    textes_films = {}  # titre + description complète, pour vérifier les bandes-annonces
+    for chaine in chaines:
+        nom = chaine["nom"]
+        rapide = chaine.get("lecture_rapide") and not lecture_complete and nom in ecartees_avant
+        if rapide:
+            deja_gardes = [f["id"] for f in ancien.get("films", []) if f.get("chaine") == nom]
+            connues = set(deja_gardes) | ecartees_avant[nom]
+            ids = list(dict.fromkeys(nouvelles_videos(chaine, cle, connues) + deja_gardes))
+            ecartees[nom] = set(ecartees_avant[nom])
+        else:
+            ids = videos_de_la_chaine(chaine, cle)
+            if chaine.get("lecture_rapide"):
+                ecartees[nom] = set()
+        duree_min = chaine.get("duree_min", DUREE_MIN_MINUTES)
+        gardes = 0
+        for video in details_des_videos(ids, cle):
+            snippet = video.get("snippet", {})
+            titre_yt = snippet.get("title", "")
+            ok = est_utilisable(video, exclus, duree_min)
+            if ok and chaine.get("vf_seulement") and not est_en_francais(video):
+                ok = False
+            if ok and chaine.get("titre_finit_par") and not finit_par(titre_yt, chaine["titre_finit_par"]):
+                ok = False
+            if ok and sans_nom_de_film(titre_yt):
+                SANS_NOM.append(titre_yt)
+                ok = False
+            if not ok:
+                if nom in ecartees:
+                    ecartees[nom].add(video["id"])
+                continue
+            if nom in ecartees:
+                ecartees[nom].discard(video["id"])
+            if chaine.get("documentaires"):
+                DOCUMENTAIRES.add(video["id"])
+            textes_films[video["id"]] = titre_yt + "\n" + snippet.get("description", "")
+            fiche = fiche_film(video, chaine)
+            deja = films.get(video["id"])
+            if deja is None or (not deja["genre"] and fiche["genre"]):
+                films[video["id"]] = fiche
+            gardes += 1
+        print(f"{nom} : {len(ids)} vidéos lues{' (lecture rapide)' if rapide else ''}, {gardes} films gardés")
+    if ecartees:
+        ecrire_ecartees(ecartees)
 
     memoire_titres = vrais_titres(films, textes_films, ancien)
     corriges, sans_film = appliquer_corrections(films)
@@ -1868,7 +2003,7 @@ def main():
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
     date_stats = stats_du_jour(films, ancien)
-    arrives = dates_d_ajout(films, ancien)
+    arrives = dates_d_ajout(films, ancien, {c["nom"] for c in chaines if c.get("import_discret")})
     print(f"Arrivés dans l'appli à ce passage : {arrives} films.")
     nb_tendances = tendances(films, date_stats)
     print(f"Tendances de la semaine : {nb_tendances} films classés"

@@ -82,5 +82,15 @@
     "id": "UCyclbiz4hz9ZR5hQsJC__9A",
     "genre": "",
     "vf_seulement": true
+  },
+  {
+    "nom": "ARTE",
+    "handle": "@arte",
+    "genre": "Documentaire",
+    "documentaires": true,
+    "duree_min": 50,
+    "titre_finit_par": "ARTE",
+    "import_discret": true,
+    "lecture_rapide": true
   }
 ]
