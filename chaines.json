@@ -84,6 +84,20 @@
     "vf_seulement": true
   },
   {
+    "nom": "Boxoffice | THRILLERS | Films Complets",
+    "id": "UCejAJAuoB5J4xk7UU1fz7Xg",
+    "genre": "Thriller",
+    "vf_seulement": true,
+    "lecture_rapide": true
+  },
+  {
+    "nom": "Ciné Comédie - Films Complets en Français",
+    "handle": "@CineComedieFilmsComplets",
+    "genre": "Comédie",
+    "accroche_apres_tiret": true,
+    "lecture_rapide": true
+  },
+  {
     "nom": "ARTE",
     "handle": "@arte",
     "genre": "Documentaire",

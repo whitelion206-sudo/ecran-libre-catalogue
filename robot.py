@@ -23,7 +23,11 @@ Chaînes de documentaires (option « documentaires » dans chaines.json, ex. ART
   (elles n'envahissent pas les Nouveautés) ;
 - « lecture_rapide » : les passages rapides ne lisent que les nouvelles vidéos et
   les vidéos déjà gardées (videos_ecartees.json retient celles déjà écartées) ;
-  le grand passage du matin relit toute la chaîne.
+  le grand passage du matin relit toute la chaîne. (Marche aussi pour les
+  chaînes de films.)
+
+Option « accroche_apres_tiret » (chaînes de films, ex. Ciné Comédie) : la chaîne
+écrit « Titre – Phrase d'accroche » ; seul ce qui est avant le tiret est gardé.
 
 Les genres viennent du titre YouTube (ce qui suit « Film Complet en Français | »),
 complétés par le genre de la chaîne (sauf « Animation », voir fiche_film).
@@ -879,6 +883,15 @@ def genres_des_hashtags(description):
     return genres
 
 
+def titre_avant_tiret(titre):
+    """« L'Auberge de Noël – Cinq jours pour s'aimer » -> « L'Auberge de Noël »
+    (seulement pour les chaînes marquées « accroche_apres_tiret »)."""
+    m = re.match(r"^(.{2,70}?)\s+[–—-]\s+(.+)$", titre)
+    if m and 1 <= len(m.group(1).split()) <= 10 and len(m.group(2).split()) >= 2:
+        return m.group(1).strip()
+    return None
+
+
 def fiche_film(video, chaine):
     snippet = video["snippet"]
     description = snippet.get("description", "")
@@ -917,6 +930,11 @@ def fiche_film(video, chaine):
             titre = entre_parentheses
     if not chaine.get("documentaires"):
         titre = sans_acteurs_entre_parentheses(titre)
+    if chaine.get("accroche_apres_tiret") and not fiche_titre:
+        avant = titre_avant_tiret(titre)
+        if avant:
+            fiche_titre = {"titre_accroche": titre}
+            titre = avant
     titre = sans_majuscules(titre)
     BLOQUES_TOUS[video["id"]] = pays_bloques(video)
     return {
