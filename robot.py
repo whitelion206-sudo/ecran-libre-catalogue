@@ -475,6 +475,18 @@ PAYS_FRANCOPHONES = {
 }
 
 
+# Pays où l'appli est publiée (choisis le 23/11/2026 : presque tout le catalogue
+# y est visible). Seuls ceux-là sont écrits dans le catalogue ; le journal du
+# robot continue d'afficher les chiffres de tous les pays francophones.
+PAYS_PUBLIES = {
+    "BE", "CH", "LU", "MC",
+    "GP", "MQ", "GF", "RE", "NC", "PF", "MF", "BL", "PM",
+    "CI", "SN", "CM", "CD", "CG", "BJ", "TG", "GA", "GN", "CF", "RW", "BI", "MG", "MU",
+    "MA", "DZ", "TN", "HT",
+}
+BLOQUES_TOUS = {}   # id du film -> tous les pays francophones où il est bloqué (journal)
+
+
 def pays_bloques(video):
     """Pays francophones où YouTube bloque la vidéo (liste triée, vide si aucun)."""
     restriction = video.get("contentDetails", {}).get("regionRestriction", {}) or {}
@@ -483,6 +495,42 @@ def pays_bloques(video):
         bloques |= set(PAYS_FRANCOPHONES) - set(restriction["allowed"])
     bloques |= set(PAYS_FRANCOPHONES) & set(restriction.get("blocked", []))
     return sorted(bloques)
+
+
+# --- Description courte -------------------------------------------------------------
+#
+# L'appli n'affiche que le résumé : on retire les liens, « Genre : … », « © … »,
+# hashtags, appels à s'abonner, et on coupe proprement vers 400 caractères.
+# (Le robot garde la description complète pour ses propres recherches.)
+LIGNE_INUTILE = re.compile(
+    r"https?://|www\.|^\W*#|©|copyright|tous droits|^\W*genres?\s*:|abonne|subscribe|"
+    r"\b(?:sur|on)\s+(?:snapchat|instagram|facebook|tiktok|twitter)\b|plus de films|playlist|"
+    r"^\W*(?:titre original|synopsis|r[ée]alisation|r[ée]alisateur|acteurs?|casting|avec|sc[ée]nario)\W*$|"
+    r"envie de d[ée]couvrir|nous avons ce qu|^\W*films? (?:complets?|entiers?)\b[\w\s,]*$|"
+    r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\|",
+    flags=re.IGNORECASE)
+LIMITE_DESCRIPTION = 400
+
+
+def description_courte(description):
+    texte = description or ""
+    bloc = re.search(r"►\s*synopsis\s*:?\s*\n(.+?)(?:\n\s*►|\Z)", texte, flags=re.IGNORECASE | re.DOTALL)
+    if bloc and len(bloc.group(1).strip()) >= 60:
+        texte = bloc.group(1)
+    lignes = [sans_emojis(l).strip(" -–—•►*") for l in texte.splitlines()]
+    garde = [l for l in lignes if len(l) > 1 and not LIGNE_INUTILE.search(l)]
+    texte = re.sub(r"\s+", " ", " ".join(garde)).strip()
+    texte = re.sub(r"\.{2,}(?=\s|$)", ".", texte)
+    # « NOUVEAUTÉ FILM ÉMOTION – film entier 2026 HD et VF : … » / « … Film Complet en Français »
+    texte = re.sub(r"^[^:.!?]{0,90}\bfilms? (?:entiers?|complets?)\b[^:.!?]{0,40}:\s*", "", texte, flags=re.IGNORECASE)
+    texte = re.sub(r"\s*\bfilms? (?:complets?|entiers?) en fran[çc]ais\W*$", "", texte, flags=re.IGNORECASE).strip()
+    if len(texte) <= LIMITE_DESCRIPTION:
+        return texte
+    coupe = texte[:LIMITE_DESCRIPTION]
+    fin = max(coupe.rfind(". "), coupe.rfind("! "), coupe.rfind("? "))
+    if fin >= 150:
+        return coupe[:fin + 1]
+    return coupe[:coupe.rfind(" ")].rstrip(" ,;:") + "…"
 
 
 def autorise_en_france(details):
@@ -761,12 +809,13 @@ def fiche_film(video, chaine):
             fiche_titre = {"titre_accroche": titre}
             titre = entre_parentheses
     titre = sans_majuscules(sans_acteurs_entre_parentheses(titre))
+    BLOQUES_TOUS[video["id"]] = pays_bloques(video)
     return {
         **fiche_titre,
         "id": video["id"],
         "titre": titre,
         "titre_youtube": snippet.get("title", ""),
-        "description": snippet.get("description", "")[:500],
+        "description": description_courte(snippet.get("description", "")),
         "duree_minutes": duree_en_minutes(video["contentDetails"].get("duration")),
         "date": snippet.get("publishedAt", ""),
         "miniature": miniature(snippet),
@@ -777,7 +826,8 @@ def fiche_film(video, chaine):
         # suivi pour ces vidéos (règles des API YouTube, III.E.4.j).
         "pour_enfants": bool(video.get("status", {}).get("madeForKids", False)),
         **statistiques(video),
-        **({"pays_bloques": pays_bloques(video)} if pays_bloques(video) else {}),
+        **({"pays_bloques": [c for c in pays_bloques(video) if c in PAYS_PUBLIES]}
+           if any(c in PAYS_PUBLIES for c in pays_bloques(video)) else {}),
     }
 
 
@@ -1842,15 +1892,16 @@ def main():
         catalogue["mis_a_jour"] = ancien["mis_a_jour"]
         print("Aucun changement depuis le dernier passage : catalogue identique.")
     with open(FICHIER_CATALOGUE, "w", encoding="utf-8") as f:
-        json.dump(catalogue, f, ensure_ascii=False, indent=1)
+        json.dump(catalogue, f, ensure_ascii=False, separators=(",", ":"))
     print(f"Catalogue écrit : {len(films)} films YouTube et {len(liste_classiques)} classiques.")
     if SANS_NOM:
         print(f"Écartés car le titre YouTube ne donne pas le nom du film : {len(SANS_NOM)} "
               f"(ex. : {' ; '.join(SANS_NOM[:3])})")
     if films:
-        par_pays = sorted(((sum(1 for f in films.values() if code not in f.get("pays_bloques", [])), code)
+        bloques = {fid: BLOQUES_TOUS.get(fid, f.get("pays_bloques", [])) for fid, f in films.items()}
+        par_pays = sorted(((sum(1 for fid in films if code not in bloques[fid]), code)
                            for code in PAYS_FRANCOPHONES), key=lambda x: (-x[0], x[1]))
-        bloques_partout = sum(1 for f in films.values() if f.get("pays_bloques"))
+        bloques_partout = sum(1 for fid in films if bloques[fid])
         print(f"Films visibles par pays (sur {len(films)}, dont {bloques_partout} bloqués dans au moins un pays) :")
         print("  " + " · ".join(f"{PAYS_FRANCOPHONES[c]} {n}" for n, c in par_pays))
     toutes = sorted({g for film in films.values() for g in film["genres"]})
