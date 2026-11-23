@@ -1,0 +1,88 @@
+name: Compter les documentaires ARTE
+
+# Se lance seulement à la main (Actions > Compter les documentaires ARTE > Run workflow).
+# Ne touche pas au catalogue : il affiche juste des chiffres.
+on:
+  workflow_dispatch:
+
+jobs:
+  compter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compter les vidéos ARTE de 50 min ou plus
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'FIN'
+          import json, os, re, urllib.parse, urllib.request
+
+          CLE = os.environ["YOUTUBE_API_KEY"]
+          API = "https://www.googleapis.com/youtube/v3/"
+
+          def appel(ressource, **params):
+              params["key"] = CLE
+              url = API + ressource + "?" + urllib.parse.urlencode(params)
+              with urllib.request.urlopen(url, timeout=30) as r:
+                  return json.load(r)
+
+          def minutes(iso):
+              m = re.match(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
+              if not m:
+                  return 0
+              j, h, mi, s = (int(x or 0) for x in m.groups())
+              return j * 1440 + h * 60 + mi + s / 60
+
+          chaine = appel("channels", part="contentDetails,snippet", forHandle="@arte")["items"][0]
+          uploads = chaine["contentDetails"]["relatedPlaylists"]["uploads"]
+          print("Chaîne :", chaine["snippet"]["title"])
+
+          ids, page = [], None
+          while True:
+              p = {"part": "contentDetails", "playlistId": uploads, "maxResults": 50}
+              if page:
+                  p["pageToken"] = page
+              rep = appel("playlistItems", **p)
+              ids += [it["contentDetails"]["videoId"] for it in rep.get("items", [])]
+              page = rep.get("nextPageToken")
+              if not page:
+                  break
+
+          videos = []
+          for i in range(0, len(ids), 50):
+              rep = appel("videos", part="contentDetails,status,snippet", id=",".join(ids[i:i + 50]))
+              videos += rep.get("items", [])
+
+          def utilisable(v):
+              st, cd = v.get("status", {}), v.get("contentDetails", {})
+              rr = cd.get("regionRestriction", {})
+              bloque = "FR" in rr.get("blocked", []) or ("allowed" in rr and "FR" not in rr["allowed"])
+              return st.get("privacyStatus") == "public" and st.get("embeddable") and not bloque
+
+          def est_doc(v):
+              return "documentaire" in v["snippet"]["title"].lower()
+
+          d = lambda v: minutes(v["contentDetails"].get("duration"))
+          plus50 = [v for v in videos if d(v) >= 50]
+          ok50 = [v for v in plus50 if utilisable(v)]
+          ok50doc = [v for v in ok50 if est_doc(v)]
+          ok60 = [v for v in ok50 if d(v) >= 60]
+
+          lignes = [
+              "## Chaîne ARTE",
+              f"- Vidéos au total : **{len(videos)}**",
+              f"- 50 min ou plus : **{len(plus50)}**",
+              f"- 50 min ou plus, et lisibles dans l'appli en France : **{len(ok50)}**",
+              f"- … dont le titre contient « Documentaire » : **{len(ok50doc)}**",
+              f"- 60 min ou plus, lisibles dans l'appli : **{len(ok60)}**",
+              "",
+              "### Exemples (50 min ou plus, lisibles)",
+          ]
+          for v in sorted(ok50, key=lambda v: v["snippet"]["publishedAt"], reverse=True)[:25]:
+              lignes.append(f"- {round(d(v))} min — {v['snippet']['title']}")
+          texte = "\n".join(lignes)
+          print(texte)
+          resume = os.environ.get("GITHUB_STEP_SUMMARY")
+          if resume:
+              with open(resume, "a", encoding="utf-8") as f:
+                  f.write(texte + "\n")
+          FIN
