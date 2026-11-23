@@ -1,0 +1,12 @@
+# Corrections à la main des titres et des genres
+# ------------------------------------------------
+# Une correction par ligne :
+#     titre actuel dans l'appli => bon titre
+#     titre actuel dans l'appli => bon titre | Genre1, Genre2
+#     titre actuel dans l'appli => | Genre1, Genre2      (pour changer seulement les genres)
+#
+# Copie le titre tel qu'il s'affiche dans l'appli (majuscules et accents ne comptent pas).
+# Les lignes qui commencent par # sont ignorées.
+# Le robot applique les corrections à chaque passage.
+
+Pris pour un fou, il traque le monstre caché sous New York => Tentacules (Octopus 2)

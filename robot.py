@@ -117,12 +117,14 @@ def titre_propre(titre):
     morceau = FIN_DE_TITRE.split(titre)[0]
     morceau = re.split(r"\s*\|\s*", morceau)[0]
     morceau = sans_emojis(morceau).strip(" |-–—•")
+    # « (Nanar) Un chalutier spatial… » : petite étiquette au début, pas dans le nom.
+    morceau = re.sub(r"^[\(\[][^\)\]]{1,25}[\)\]]\s*", "", morceau)
     for _ in range(2):   # « Titre 2017 4K », « Titre 4K 2017 »
         morceau = QUALITE_EN_FIN.sub("", morceau)
         sans_annee = ANNEE_EN_FIN.sub("", morceau)
         if len(re.sub(r"\W", "", sans_annee)) >= 3:
             morceau = sans_annee
-        morceau = morceau.strip(" |-–—•(")
+        morceau = morceau.strip(" |-–—•").rstrip(" (")
     if not morceau:
         return titre.strip()
     partie = PARTIE.search(titre)
@@ -1643,6 +1645,64 @@ def tendances(films, aujourd_hui, jours=None):
     return min(len(gains), TAILLE_TENDANCES)
 
 
+# --- Corrections à la main --------------------------------------------------------
+#
+# corrections.txt (à la racine du dépôt), une correction par ligne :
+#     titre actuel dans l'appli => bon titre
+#     titre actuel dans l'appli => bon titre | Genre1, Genre2
+# Les lignes qui commencent par # sont ignorées. On peut aussi mettre
+# l'identifiant YouTube du film à gauche. Majuscules et accents ne comptent pas.
+FICHIER_CORRECTIONS = os.path.join(DOSSIER, "corrections.txt")
+
+
+def lire_corrections():
+    corrections = []
+    try:
+        with open(FICHIER_CORRECTIONS, encoding="utf-8") as f:
+            lignes = f.read().splitlines()
+    except OSError:
+        return corrections
+    for ligne in lignes:
+        ligne = ligne.strip()
+        if not ligne or ligne.startswith("#") or "=>" not in ligne:
+            continue
+        gauche, droite = (x.strip() for x in ligne.split("=>", 1))
+        titre, _, genres = (x.strip() for x in droite.partition("|"))
+        if gauche and (titre or genres):
+            corrections.append((gauche, titre, genres))
+    return corrections
+
+
+def appliquer_corrections(films, corrections=None):
+    """Applique corrections.txt. Renvoie (nombre de films corrigés, lignes sans film)."""
+    if corrections is None:
+        corrections = lire_corrections()
+    index = {}
+    for film in films.values():
+        for cle in (film["id"], normalise(film["titre"]), normalise(film.get("titre_youtube", ""))):
+            if cle:
+                index.setdefault(cle, []).append(film)
+    corriges, sans_film = 0, []
+    for gauche, titre, genres in corrections:
+        cibles = index.get(gauche) or index.get(normalise(gauche)) or []
+        if not cibles:
+            sans_film.append(gauche)
+            continue
+        liste = []
+        for g in re.split(r"[,/]", genres):
+            g = genre_normalise(g, strict=True) if nettoie_genre(g) else None
+            if g and g not in liste:
+                liste.append(g)
+        for film in cibles:
+            if titre:
+                film["titre"] = titre
+            if liste:
+                film["genres"] = liste
+                film["genre"] = liste[0]
+            corriges += 1
+    return corriges, sans_film
+
+
 def main():
     cle = os.environ.get("YOUTUBE_API_KEY")
     if not cle:
@@ -1682,6 +1742,10 @@ def main():
             ancien = {}
 
     memoire_titres = vrais_titres(films, textes_films, ancien)
+    corriges, sans_film = appliquer_corrections(films)
+    if corriges or sans_film:
+        print(f"Corrections à la main : {corriges} films corrigés"
+              + (f" ; introuvables : {' ; '.join(sans_film)}" if sans_film else "."))
     films = sans_doublons(films)
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
