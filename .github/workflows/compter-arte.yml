@@ -2,6 +2,7 @@ name: Compter les documentaires ARTE
 
 # Se lance seulement à la main (Actions > Compter les documentaires ARTE > Run workflow).
 # Ne touche pas au catalogue : il affiche juste des chiffres.
+# Version 2 : vérifie aussi la langue du son indiquée par YouTube.
 on:
   workflow_dispatch:
 
@@ -15,6 +16,7 @@ jobs:
         run: |
           python3 - <<'FIN'
           import json, os, re, urllib.parse, urllib.request
+          from collections import Counter
 
           CLE = os.environ["YOUTUBE_API_KEY"]
           API = "https://www.googleapis.com/youtube/v3/"
@@ -32,9 +34,14 @@ jobs:
               j, h, mi, s = (int(x or 0) for x in m.groups())
               return j * 1440 + h * 60 + mi + s / 60
 
+          # Les mêmes mots interdits que le robot du catalogue (VOST, VO, sous-titré, séries…)
+          MOTS_INTERDITS = re.compile(
+              r"\bvost(?:fr)?\b|\bvo\b|version originale|sous[- ]titr|bande[- ]annonce|\btrailer\b|\bteaser\b"
+              r"|\bsaison\s*\d|\bs[ée]rie\s+(?:hd|tv|compl[eè]te)\b|\bs[ée]rie\b[^|]*\ben\s+entier\b|\bcompil",
+              flags=re.IGNORECASE)
+
           chaine = appel("channels", part="contentDetails,snippet", forHandle="@arte")["items"][0]
           uploads = chaine["contentDetails"]["relatedPlaylists"]["uploads"]
-          print("Chaîne :", chaine["snippet"]["title"])
 
           ids, page = [], None
           while True:
@@ -49,7 +56,8 @@ jobs:
 
           videos = []
           for i in range(0, len(ids), 50):
-              rep = appel("videos", part="contentDetails,status,snippet", id=",".join(ids[i:i + 50]))
+              rep = appel("videos", part="contentDetails,status,snippet,liveStreamingDetails",
+                          id=",".join(ids[i:i + 50]))
               videos += rep.get("items", [])
 
           def utilisable(v):
@@ -58,27 +66,44 @@ jobs:
               bloque = "FR" in rr.get("blocked", []) or ("allowed" in rr and "FR" not in rr["allowed"])
               return st.get("privacyStatus") == "public" and st.get("embeddable") and not bloque
 
-          def est_doc(v):
-              return "documentaire" in v["snippet"]["title"].lower()
-
           d = lambda v: minutes(v["contentDetails"].get("duration"))
-          plus50 = [v for v in videos if d(v) >= 50]
-          ok50 = [v for v in plus50 if utilisable(v)]
-          ok50doc = [v for v in ok50 if est_doc(v)]
-          ok60 = [v for v in ok50 if d(v) >= 60]
+          titre = lambda v: v["snippet"]["title"]
+          audio = lambda v: (v["snippet"].get("defaultAudioLanguage") or "").lower()
+
+          base = [v for v in videos if d(v) >= 50 and utilisable(v)]
+          sans_vost = [v for v in base if not MOTS_INTERDITS.search(titre(v))]
+          directs = [v for v in sans_vost if "liveStreamingDetails" in v]
+          reste = [v for v in sans_vost if "liveStreamingDetails" not in v]
+
+          fr = [v for v in reste if audio(v).startswith("fr")]
+          autre = [v for v in reste if audio(v) and not audio(v).startswith("fr")]
+          vide = [v for v in reste if not audio(v)]
+          langues = Counter(audio(v) or "non indiquée" for v in reste)
 
           lignes = [
-              "## Chaîne ARTE",
-              f"- Vidéos au total : **{len(videos)}**",
-              f"- 50 min ou plus : **{len(plus50)}**",
-              f"- 50 min ou plus, et lisibles dans l'appli en France : **{len(ok50)}**",
-              f"- … dont le titre contient « Documentaire » : **{len(ok50doc)}**",
-              f"- 60 min ou plus, lisibles dans l'appli : **{len(ok60)}**",
+              "## ARTE : vidéos de 50 min ou plus, lisibles en France",
+              f"- Au départ : **{len(base)}**",
+              f"- Retirées car « VOST », « VO », « sous-titré »… dans le titre : **{len(base) - len(sans_vost)}**",
+              f"- Retirées car ce sont d'anciens directs (émissions, jeux) : **{len(directs)}**",
+              f"- **Reste : {len(reste)}**",
               "",
-              "### Exemples (50 min ou plus, lisibles)",
+              "### Langue du son indiquée par YouTube",
+              f"- Français : **{len(fr)}**",
+              f"- Autre langue : **{len(autre)}**",
+              f"- Non indiquée : **{len(vide)}**",
+              "- Détail : " + ", ".join(f"{k} = {n}" for k, n in langues.most_common()),
+              "",
+              "### Son dans une autre langue (toutes)",
           ]
-          for v in sorted(ok50, key=lambda v: v["snippet"]["publishedAt"], reverse=True)[:25]:
-              lignes.append(f"- {round(d(v))} min — {v['snippet']['title']}")
+          for v in sorted(autre, key=titre):
+              lignes.append(f"- [{audio(v)}] {round(d(v))} min — {titre(v)}")
+          lignes += ["", "### Langue non indiquée (30 exemples)"]
+          for v in sorted(vide, key=lambda v: v["snippet"]["publishedAt"], reverse=True)[:30]:
+              lignes.append(f"- {round(d(v))} min — {titre(v)}")
+          lignes += ["", "### Anciens directs retirés (10 exemples)"]
+          for v in directs[:10]:
+              lignes.append(f"- {round(d(v))} min — {titre(v)}")
+
           texte = "\n".join(lignes)
           print(texte)
           resume = os.environ.get("GITHUB_STEP_SUMMARY")
