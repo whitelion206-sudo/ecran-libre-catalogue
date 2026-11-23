@@ -1655,6 +1655,9 @@ def tendances(films, aujourd_hui, jours=None):
 FICHIER_CORRECTIONS = os.path.join(DOSSIER, "corrections.txt")
 
 
+CORRIGES = set()   # films touchés par corrections.txt (pas besoin de les relister)
+
+
 def lire_corrections():
     corrections = []
     try:
@@ -1674,7 +1677,8 @@ def lire_corrections():
 
 
 def appliquer_corrections(films, corrections=None):
-    """Applique corrections.txt. Renvoie (nombre de films corrigés, lignes sans film)."""
+    """Applique corrections.txt. Renvoie (nombre de films corrigés, lignes sans film).
+    Les identifiants des films corrigés sont ajoutés à CORRIGES."""
     if corrections is None:
         corrections = lire_corrections()
     index = {}
@@ -1694,6 +1698,7 @@ def appliquer_corrections(films, corrections=None):
             if g and g not in liste:
                 liste.append(g)
         for film in cibles:
+            CORRIGES.add(film["id"])
             if titre:
                 film["titre"] = titre
             if liste:
@@ -1701,6 +1706,36 @@ def appliquer_corrections(films, corrections=None):
                 film["genre"] = liste[0]
             corriges += 1
     return corriges, sans_film
+
+
+# --- Liste des titres à corriger ---------------------------------------------------
+#
+# a_corriger.txt : les films dont le titre est encore une phrase d'accroche (le
+# robot n'a pas trouvé le vrai titre), déjà au format de corrections.txt. Il suffit
+# de copier la ligne dans corrections.txt et d'écrire le vrai titre après « => ».
+FICHIER_A_CORRIGER = os.path.join(DOSSIER, "a_corriger.txt")
+
+
+def ecrire_a_corriger(films, memoire_titres):
+    liste = [f for fid, f in films.items()
+             if fid in memoire_titres and not (memoire_titres[fid] or {}).get("titre")
+             and fid not in CORRIGES]
+    lignes = [
+        "# Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).",
+        "# Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».",
+        "# Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.",
+        f"# {len(liste)} film(s).",
+        "",
+    ]
+    for f in sorted(liste, key=lambda f: (f.get("chaine", ""), f["titre"].lower())):
+        m = f.get("duree_minutes") or 0
+        duree = f"{m // 60} h {m % 60:02d}" if m >= 60 else f"{m} min"
+        lignes.append(f"# {f.get('chaine', '')} · {duree} · https://www.youtube.com/watch?v={f['id']}")
+        lignes.append(f"{f['titre']} => ")
+        lignes.append("")
+    with open(FICHIER_A_CORRIGER, "w", encoding="utf-8") as fichier:
+        fichier.write("\n".join(lignes))
+    return len(liste)
 
 
 def main():
@@ -1747,6 +1782,7 @@ def main():
         print(f"Corrections à la main : {corriges} films corrigés"
               + (f" ; introuvables : {' ; '.join(sans_film)}" if sans_film else "."))
     films = sans_doublons(films)
+    print(f"Titres encore à corriger (voir a_corriger.txt) : {ecrire_a_corriger(films, memoire_titres)}.")
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
     date_stats = stats_du_jour(films, ancien)
