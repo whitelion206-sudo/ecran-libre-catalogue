@@ -1283,17 +1283,19 @@ def vrais_titres(films, textes_films, ancien_catalogue):
 
 # --- Bandes-annonces ---------------------------------------------------------
 #
-# Une recherche YouTube coûte 100 points de quota sur 10 000 par jour.
-# Le robot en fait donc au plus MAX_RECHERCHES par jour, en commençant par les
-# films les plus récents, et retient le résultat dans catalogue.json
-# (« recherches_bandes_annonces ») pour ne pas chercher deux fois.
+# Google limite les recherches YouTube (search.list) à 100 par jour et par
+# projet, à part du quota de 10 000 points (remise à zéro à 9 h, heure de Paris).
+# Le robot en fait donc au plus MAX_RECHERCHES par jour, pendant le grand passage
+# qui suit la remise à zéro, en commençant par les films les plus vus, et retient
+# le résultat dans catalogue.json (« recherches_bandes_annonces ») pour ne pas
+# chercher deux fois. L'année de sortie trouvée (« annee ») sert aussi de preuve.
 # Chaque jour, les bandes-annonces déjà trouvées sont revérifiées (1 point
 # par paquet de 50) : une vidéo supprimée ou bloquée disparaît de l'appli.
 
-MAX_RECHERCHES = int(os.environ.get("MAX_RECHERCHES", "60"))
-# Les passages rapides de la journée (toutes les 4 heures) mettent 0 : ils
-# ajoutent les nouveaux films sans toucher au quota de recherche, gardé pour
-# le grand passage du matin.
+MAX_RECHERCHES = int(os.environ.get("MAX_RECHERCHES", "90"))
+# Les passages rapides de la journée (toutes les 2 heures) et les lancements à la
+# main mettent 0 : ils ajoutent les nouveaux films sans toucher aux recherches,
+# gardées pour le grand passage.
 # Version de la règle de choix. 2 = titre exact ; 3 = + VF écrite dans le titre
 # + preuve que c'est le même film (acteurs, réalisateur ou année) ;
 # 4 = comme 3, mais la VOSTFR est aussi acceptée quand il n'y a pas de VF ;
@@ -1517,6 +1519,8 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films, valides=
 
     def texte_et_annee(film):
         texte = textes_films.get(film["id"]) or (film["titre_youtube"] + "\n" + film["description"])
+        if film.get("annee"):   # année de sortie trouvée par le robot : une preuve de plus
+            texte += f"\n({film['annee']})"
         annee = int(film["date"][:4]) if str(film.get("date", ""))[:4].isdigit() else None
         return texte, annee
 
@@ -1572,7 +1576,9 @@ def bandes_annonces(films, ancien_catalogue, cle, exclus, textes_films, valides=
     # Inutile de chercher (et de dépenser du quota) pour un film dont la
     # description ne donne ni acteur ni année : on ne pourrait rien prouver.
     file_attente = []
-    for f in sorted(films.values(), key=lambda f: f["date"], reverse=True):
+    # Les films les plus vus d'abord : ce sont ceux qu'on voit le plus dans l'appli,
+    # et les plus connus ont plus souvent une bande-annonce sur YouTube.
+    for f in sorted(films.values(), key=lambda f: (f.get("vues") or 0, f["date"]), reverse=True):
         if f["id"] in DOCUMENTAIRES or not a_chercher(f["id"]):
             continue
         texte_film, annee_film = texte_et_annee(f)
