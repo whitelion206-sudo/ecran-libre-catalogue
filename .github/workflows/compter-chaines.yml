@@ -24,18 +24,15 @@ jobs:
           sys.path.insert(0, os.getcwd())
           import robot
 
-          # Chaînes candidates pour les genres où il manque des films.
-          # « video » : une vidéo de la chaîne, quand on ne connaît pas son identifiant.
+          # Boxoffice Nouveautés. Les chaînes SCIENCE-FICTION et COMÉDIES (ajoutées au robot
+          # mais peut-être pas encore lues) servent seulement à ne pas compter leurs films en double.
           CANDIDATES = [
-              {"nom": "Boxoffice | SCIENCE-FICTION | Films Complets", "handle": "@boxofficesf",
-               "genre": "Science-fiction", "vf_seulement": True},
+              {"nom": "Boxoffice | SCIENCE-FICTION | Films Complets", "id": "UCqWT6BzMgUOE0EwNUhiv9xQ",
+               "genre": "Science-fiction", "vf_seulement": True, "pour_doublons": True},
               {"nom": "Boxoffice | COMÉDIES | Films Complets", "handle": "@BoxOfficeCOMEDIES",
-               "genre": "Comédie", "vf_seulement": True},
-              {"nom": "myCINÉMA", "id": "UCBUtbekgLO36zIf00eMrIcg", "genre": "", "vf_seulement": True},
-              {"nom": "Program Store TV", "id": "UCN2-ATENoqb-U_OHoUd1ZjA", "genre": "", "vf_seulement": True},
-              {"nom": "Family Films - Films Complets en Français VF", "id": "UC5vLPAMFOnOTBJPWbjltjZQ",
+               "genre": "Comédie", "vf_seulement": True, "pour_doublons": True},
+              {"nom": "Boxoffice | Nouveautés & Films Complets", "handle": "@BoxOfficeFilmsCompletsFR",
                "genre": "", "vf_seulement": True},
-              {"nom": "Chaîne de films de Noël", "video": "mLIOxR5H0S0", "genre": "Noël", "vf_seulement": True},
           ]
           cle = os.environ["YOUTUBE_API_KEY"]
           exclus = robot.lire_exclus()
@@ -89,6 +86,8 @@ jobs:
                   nouveaux.append(fiche)
                   # pas de doublon entre les nouvelles chaînes elles-mêmes
                   connus.setdefault(robot.normalise(fiche["titre"]), []).append(fiche["duree_minutes"])
+              if chaine.get("pour_doublons"):
+                  continue
               genres = Counter(g for f in nouveaux for g in f["genres"])
               gain_total.update(genres)
               total_nouveaux += len(nouveaux)
