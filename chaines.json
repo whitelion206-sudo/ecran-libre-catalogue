@@ -112,6 +112,13 @@
     "lecture_rapide": true
   },
   {
+    "nom": "Boxoffice | Nouveautés & Films Complets",
+    "handle": "@BoxOfficeFilmsCompletsFR",
+    "genre": "",
+    "vf_seulement": true,
+    "lecture_rapide": true
+  },
+  {
     "nom": "ARTE",
     "handle": "@arte",
     "genre": "Documentaire",
