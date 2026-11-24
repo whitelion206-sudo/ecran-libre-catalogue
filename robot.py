@@ -633,6 +633,67 @@ def uploads_de_la_chaine(chaine, cle):
     return reponse["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 
+def chaines_partenaires(chaines, films, cle, ancien):
+    """Les chaînes d'où viennent les films, pour la page « Chaînes partenaires »
+    de l'appli : nom, nombre de films, genres principaux, photo de profil et
+    lien pour s'abonner. Coûte 1 point pour toutes les chaînes à identifiant,
+    plus 1 par chaîne connue seulement par son @nom."""
+    avant = {c.get("nom"): c for c in ancien.get("chaines", []) if isinstance(c, dict)}
+    infos = {}
+    try:
+        ids = [c["id"] for c in chaines if c.get("id")]
+        for i in range(0, len(ids), 50):
+            reponse = appel_api("channels", {"part": "snippet", "id": ",".join(ids[i:i + 50]),
+                                             "maxResults": 50}, cle, fatal=False)
+            for item in reponse.get("items", []):
+                if item.get("id"):
+                    infos[item["id"]] = item
+        for c in chaines:
+            if not c.get("id") and c.get("handle"):
+                reponse = appel_api("channels", {"part": "snippet", "forHandle": c["handle"]}, cle, fatal=False)
+                if reponse.get("items"):
+                    infos[c["handle"]] = reponse["items"][0]
+    except Exception as erreur:   # jamais bloquant : on garde les photos d'avant
+        print(f"Chaînes partenaires : photos non mises à jour ({erreur}).")
+    par_chaine = {}
+    for film in films.values():
+        par_chaine.setdefault(film.get("chaine", ""), []).append(film)
+    liste = []
+    for c in chaines:
+        ses_films = par_chaine.get(c["nom"], [])
+        if not ses_films:
+            continue
+        item = infos.get(c.get("id") or c.get("handle", ""))
+        ancienne = avant.get(c["nom"], {})
+        if item:
+            miniatures = item.get("snippet", {}).get("thumbnails", {})
+            avatar = (miniatures.get("medium") or miniatures.get("high") or miniatures.get("default") or {}).get("url", "")
+            id_chaine = item.get("id", "")
+        else:
+            avatar, id_chaine = ancienne.get("avatar", ""), ancienne.get("id", c.get("id", ""))
+        genres = {}
+        for film in ses_films:
+            for g in film.get("genres", []):
+                genres[g] = genres.get(g, 0) + 1
+        principaux = [g for g, _ in sorted(genres.items(), key=lambda x: -x[1])[:2]]
+        lien = (f"https://www.youtube.com/channel/{id_chaine}" if id_chaine
+                else f"https://www.youtube.com/{c.get('handle', '')}")
+        liste.append({
+            "nom": c["nom"],
+            "id": id_chaine,
+            "lien": lien,
+            "lien_abonnement": lien + "?sub_confirmation=1",
+            "avatar": avatar,
+            "films": len(ses_films),
+            "genres": principaux,
+            "documentaires": bool(c.get("documentaires")),
+        })
+    liste.sort(key=lambda x: -x["films"])
+    print(f"Chaînes partenaires : {len(liste)} chaînes, "
+          f"{sum(1 for x in liste if x['avatar'])} avec leur photo de profil.")
+    return liste
+
+
 def nouvelles_videos(chaine, cle, connues, pages_max=10):
     """Lecture rapide : les vidéos les plus récentes d'abord, jusqu'à la
     première page qui contient une vidéo déjà connue (le reste est plus ancien)."""
@@ -2359,6 +2420,7 @@ def main():
         "recherches_bandes_annonces": memoire_ba,
         "titres_trouves": memoire_titres,
         "statistiques_du": date_stats,
+        "chaines": chaines_partenaires(chaines, films, cle, ancien),
     }
     # Rien de nouveau depuis le dernier passage : on garde l'ancienne date, pour
     # que le fichier ne change pas. L'appli voit alors qu'il n'y a rien à
