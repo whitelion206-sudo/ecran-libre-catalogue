@@ -1120,7 +1120,7 @@ def requete_wikidata(realisateurs, acteurs):
         lien_realisateur = (f"VALUES ?nomReal {{ {valeurs(realisateurs)} }} "
                             "?real rdfs:label ?nomReal . ?film wdt:P57 ?real .")
     return f"""SELECT ?film (SAMPLE(?fr) AS ?titreFr) (SAMPLE(?en) AS ?titreEn)
-       (SAMPLE(?d) AS ?duree) (COUNT(DISTINCT ?acteur) AS ?n) WHERE {{
+       (SAMPLE(?d) AS ?duree) (MIN(?an) AS ?annee) (COUNT(DISTINCT ?acteur) AS ?n) WHERE {{
   {lien_realisateur}
   VALUES ?nomActeur {{ {valeurs(acteurs)} }}
   ?acteur rdfs:label ?nomActeur .
@@ -1128,6 +1128,7 @@ def requete_wikidata(realisateurs, acteurs):
   OPTIONAL {{ ?film rdfs:label ?fr . FILTER(LANG(?fr) = "fr") }}
   OPTIONAL {{ ?film rdfs:label ?en . FILTER(LANG(?en) = "en") }}
   OPTIONAL {{ ?film wdt:P2047 ?d }}
+  OPTIONAL {{ ?film wdt:P577 ?sortie . BIND(YEAR(?sortie) AS ?an) }}
 }} GROUP BY ?film ORDER BY DESC(?n) LIMIT 5"""
 
 
@@ -1143,6 +1144,13 @@ def appel_wikidata(requete):
 def chercher_vrai_titre(realisateurs, acteurs, duree_youtube=None):
     """Renvoie le titre du seul film qui réunit ce réalisateur et ces acteurs,
     ou None (rien trouvé, ou plusieurs films possibles)."""
+    film = chercher_film(realisateurs, acteurs, duree_youtube)
+    return film["titre"] if film else None
+
+
+def chercher_film(realisateurs, acteurs, duree_youtube=None):
+    """Le seul film Wikidata qui réunit ce réalisateur et ces acteurs :
+    {"titre", "annee"}, ou None (rien trouvé, ou plusieurs films possibles)."""
     lignes = appel_wikidata(requete_wikidata(realisateurs, acteurs))["results"]["bindings"]
     films = []
     for ligne in lignes:
@@ -1154,8 +1162,10 @@ def chercher_vrai_titre(realisateurs, acteurs, duree_youtube=None):
                 duree = duree / 60
         except ValueError:
             duree = None
+        annee = ligne.get("annee", {}).get("value", "")
+        annee = int(annee) if annee.lstrip("-").isdigit() else None
         if titre:
-            films.append((n, titre, duree))
+            films.append((n, titre, duree, annee))
     # Il faut deux acteurs en commun (un seul ne suffit pas : un réalisateur
     # tourne souvent plusieurs films avec le même acteur). Exception : la
     # description ne cite qu'un acteur, et le réalisateur est connu.
@@ -1164,10 +1174,10 @@ def chercher_vrai_titre(realisateurs, acteurs, duree_youtube=None):
         return None
     if len(films) > 1 and films[1][0] == films[0][0]:
         return None  # deux films aussi probables : on ne devine pas
-    n, titre, duree = films[0]
+    n, titre, duree, annee = films[0]
     if duree and duree_youtube and abs(duree - duree_youtube) > TOLERANCE_DUREE_MINUTES:
         return None  # pas la même durée : pas le même film
-    return titre
+    return {"titre": titre, "annee": annee}
 
 
 def vrais_titres(films, textes_films, ancien_catalogue):
@@ -1952,7 +1962,11 @@ def appliquer_corrections(films, corrections=None):
             sans_film.append(gauche)
             continue
         liste = []
+        annee = None
         for g in re.split(r"[,/]", genres):
+            if re.fullmatch(r"\s*(?:1[89]|20)\d\d\s*", g):   # « | 1988 » : l'année de sortie
+                annee = int(g)
+                continue
             g = genre_normalise(g, strict=True) if nettoie_genre(g) else None
             if g and g not in liste:
                 liste.append(g)
@@ -1963,8 +1977,232 @@ def appliquer_corrections(films, corrections=None):
             if liste:
                 film["genres"] = liste
                 film["genre"] = liste[0]
+            if annee:
+                film["annee_corrigee"] = annee
             corriges += 1
     return corriges, sans_film
+
+
+# --- Année de sortie des films ------------------------------------------------------
+#
+# Affichée sur la fiche du film (« 1 h 37 · 2019 »). Le robot la cherche :
+#   1) dans corrections.txt (« titre => | 1988 ») ;
+#   2) dans le nom du film sur YouTube : « Risen (2021) », « Killer Kid 1967 » ;
+#   3) dans une ligne de la description : « Année : 2015 », « Date de sortie : … 2015 » ;
+#   4) sinon sur Wikidata : avec le réalisateur et les acteurs de la description
+#      (comme pour les vrais titres), puis avec le titre exact du film. Dans les
+#      deux cas, la durée doit correspondre (à 10 min près pour le titre).
+# Pas d'année sûre : rien n'est affiché. Les réponses de Wikidata sont gardées
+# dans annees.json, pour ne pas redemander chaque fois.
+
+FICHIER_ANNEES = os.path.join(DOSSIER, "annees.json")
+MAX_DEMANDES_ANNEES = 80      # films demandés à Wikidata par passage
+REESSAI_ANNEE_JOURS = 60      # film non trouvé : on redemande après 60 jours
+REGLE_ANNEES = 1              # changer ce numéro fait tout redemander à Wikidata
+STATS_ANNEES = {"corrections": 0, "titre": 0, "description": 0, "wikidata": 0,
+                "deja_connues": 0, "pas_trouvees": 0, "sans_equipe": 0, "sans_reponse": 0}
+
+ANNEE_DESCRIPTION = re.compile(
+    r"(?:^|\n)[^\w\n]*(?:ann[ée]e(?:\s+de\s+(?:sortie|production|r[ée]alisation))?|"
+    r"date\s+de\s+sortie|sortie(?:\s+(?:en\s+salles?|au\s+cin[ée]ma|cin[ée]ma))?|sorti\s+en)"
+    r"\s*:?[^\n]{0,30}?\b((?:19|20)\d\d)\b"
+    r"|titre\s+original\s*:[^\n]*?\(\s*((?:19|20)\d\d)\s*\)",
+    flags=re.IGNORECASE,
+)
+# « The Musketeer (2001) » : une ligne seule avec le titre original et l'année
+# (chaînes Ciné Western, Ciné Classics, Ciné Movies…).
+LIGNE_TITRE_ANNEE = re.compile(r"^[^\S\n]*([^\n()]{2,80}?)\s*\(\s*((?:19|20)\d\d)\s*\)[^\S\n]*$",
+                               flags=re.MULTILINE)
+
+
+WIKIDATA_API = "https://www.wikidata.org/w/api.php"
+TOLERANCE_DUREE_TITRE = 10    # recherche par titre : durée à 10 min près
+# Ce qui compte comme un film sur Wikidata (« nature de l'élément »).
+CLASSES_FILM = {
+    "Q11424",     # film
+    "Q24869",     # long métrage
+    "Q506240",    # téléfilm
+    "Q202866",    # film d'animation
+    "Q29168811",  # long métrage d'animation
+    "Q20650540",  # film d'animation japonais
+    "Q226730",    # film muet
+    "Q229390",    # film en 3D
+}
+UNITES_MINUTES = {"Q7727": 1, "Q11574": 1 / 60, "Q25235": 60}   # minute, seconde, heure
+
+
+def appel_api_wikidata(parametres):
+    requete = urllib.request.Request(
+        WIKIDATA_API + "?" + urllib.parse.urlencode({**parametres, "format": "json"}),
+        headers={"User-Agent": USER_AGENT},
+    )
+    with urllib.request.urlopen(requete, timeout=30) as reponse:
+        return json.load(reponse)
+
+
+def valeurs_wikidata(entite, propriete):
+    return [c.get("mainsnak", {}).get("datavalue", {}).get("value")
+            for c in entite.get("claims", {}).get(propriete, [])
+            if c.get("mainsnak", {}).get("datavalue")]
+
+
+def annee_par_le_titre(titre, duree, limite):
+    """Cherche sur Wikidata un film qui porte exactement ce titre et qui a la
+    même durée (à 10 min près). Renvoie son année de sortie, ou None (rien
+    trouvé, durée inconnue, ou plusieurs films possibles d'années différentes)."""
+    if not duree:
+        return None
+    cible = normalise(titre)
+    resultats = appel_api_wikidata({"action": "wbsearchentities", "search": titre, "language": "fr",
+                                    "uselang": "fr", "type": "item", "limit": 10}).get("search", [])
+    ids = [r["id"] for r in resultats
+           if cible in (normalise(r.get("label", "")), normalise(r.get("match", {}).get("text", "")))]
+    if not ids:
+        return None
+    time.sleep(0.5)
+    entites = appel_api_wikidata({"action": "wbgetentities", "ids": "|".join(ids[:10]),
+                                  "props": "claims"}).get("entities", {})
+    annees = set()
+    for entite in entites.values():
+        classes = {(v or {}).get("id") for v in valeurs_wikidata(entite, "P31")}
+        if not classes & CLASSES_FILM:
+            continue
+        durees = []
+        for v in valeurs_wikidata(entite, "P2047"):
+            unite = str(v.get("unit", "")).rsplit("/", 1)[-1]
+            try:
+                durees.append(float(v.get("amount", "")) * UNITES_MINUTES[unite])
+            except (KeyError, ValueError):
+                pass
+        if not any(abs(d - duree) <= TOLERANCE_DUREE_TITRE for d in durees):
+            continue
+        sorties = [int(v["time"][1:5]) for v in valeurs_wikidata(entite, "P577")
+                   if isinstance(v, dict) and str(v.get("time", ""))[1:5].isdigit()]
+        sorties = [a for a in sorties if 1900 <= a <= limite]
+        if sorties:
+            annees.add(min(sorties))
+    return annees.pop() if len(annees) == 1 else None
+
+
+def annee_plausible(annee, film):
+    """Un film ne peut pas sortir après sa mise en ligne sur YouTube."""
+    if not annee:
+        return False
+    date_yt = str(film.get("date", ""))[:4]
+    limite = int(date_yt) if date_yt.isdigit() else datetime.now(timezone.utc).year
+    return 1900 <= annee <= limite
+
+
+def annee_dans_le_titre(titre_youtube, titre_film):
+    """« Risen (2021) | Film complet » -> 2021. Seulement dans le nom du film,
+    avant « Film complet » ou « | » (« Film d'action complet 2024 » est la date
+    de mise en ligne), et jamais une année qui fait partie du nom (« 1917 »)."""
+    nom = re.split(r"\s*\|\s*", FIN_DE_TITRE.split(titre_youtube or "")[0])[0]
+    dans_le_nom = set(normalise(titre_film).split())
+    annees = {int(a) for a in re.findall(r"(?<![\d,])\b((?:19|20)\d\d)\b", nom)
+              if a not in dans_le_nom}
+    return annees.pop() if len(annees) == 1 else None
+
+
+def annee_dans_la_description(texte):
+    m = ANNEE_DESCRIPTION.search(texte or "")
+    if m:
+        return int(m.group(1) or m.group(2))
+    # La 1re ligne est le titre YouTube : on ne la compte pas ici.
+    lignes = [m for m in LIGNE_TITRE_ANNEE.finditer((texte or "").split("\n", 1)[-1])
+              if len(m.group(1).split()) <= 12]
+    annees = {int(m.group(2)) for m in lignes}
+    return annees.pop() if len(annees) == 1 else None
+
+
+def annees_de_sortie(films, textes_films, ancienne):
+    """Ajoute « annee » aux films. Renvoie la mémoire des demandes à Wikidata."""
+    aujourd_hui = datetime.now(timezone.utc).date()
+    memoire = {}
+    deja_demande = {}
+    demandes = pannes = 0
+    for fid, film in films.items():
+        corrigee = film.pop("annee_corrigee", None)
+        film.pop("annee", None)
+        if corrigee:
+            film["annee"] = corrigee
+            STATS_ANNEES["corrections"] += 1
+            continue
+        if fid in DOCUMENTAIRES:
+            continue
+        texte = textes_films.get(fid, "")
+        annee = annee_dans_le_titre(film.get("titre_youtube", ""), film["titre"])
+        source = "titre"
+        if not annee_plausible(annee, film):
+            annee, source = annee_dans_la_description(texte), "description"
+        if annee_plausible(annee, film):
+            film["annee"] = annee
+            STATS_ANNEES[source] += 1
+            continue
+        r = ancienne.get(fid)
+        if r is not None and r.get("regle") != REGLE_ANNEES:
+            r = None
+        if r is not None:
+            memoire[fid] = r
+        a_demander = r is None
+        if r and not r.get("annee"):
+            try:
+                a_demander = (aujourd_hui - date.fromisoformat(r.get("date", ""))).days \
+                    >= REESSAI_ANNEE_JOURS
+            except ValueError:
+                a_demander = True
+        if a_demander and pannes < 3 and demandes < MAX_DEMANDES_ANNEES:
+            realisateurs, acteurs = equipe_du_film(texte)
+            duree = film.get("duree_minutes")
+            limite = int(str(film.get("date", ""))[:4] or 0) if str(film.get("date", ""))[:4].isdigit() \
+                else aujourd_hui.year
+            cle = (tuple(realisateurs), tuple(acteurs), normalise(film["titre"]), duree)
+            if cle in deja_demande:
+                annee = deja_demande[cle]
+            else:
+                try:
+                    demandes += 1
+                    annee = None
+                    if acteurs:
+                        annee = (chercher_film(realisateurs, acteurs, duree) or {}).get("annee")
+                        time.sleep(1)  # Wikidata demande de ne pas aller trop vite
+                    if not annee and not est_une_accroche(film["titre"]):
+                        annee = annee_par_le_titre(film["titre"], duree, limite)
+                        time.sleep(0.5)
+                except Exception as erreur:
+                    pannes += 1
+                    STATS_ANNEES["sans_reponse"] += 1
+                    if pannes >= 3:
+                        print(f"Wikidata indisponible ({erreur}) : années remises au prochain passage.")
+                    time.sleep(5)
+                    continue
+                deja_demande[cle] = annee
+                if not acteurs:
+                    STATS_ANNEES["sans_equipe"] += 1
+            if not annee_plausible(annee, film):
+                annee = None
+            r = memoire[fid] = {"annee": annee, "date": aujourd_hui.isoformat(), "regle": REGLE_ANNEES}
+            STATS_ANNEES["wikidata" if annee else "pas_trouvees"] += 1
+        elif r and r.get("annee"):
+            STATS_ANNEES["deja_connues"] += 1
+        if r and annee_plausible(r.get("annee"), film):
+            film["annee"] = r["annee"]
+    return memoire
+
+
+def lire_annees():
+    try:
+        with open(FICHIER_ANNEES, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def ecrire_annees(memoire):
+    lignes = [f"{json.dumps(fid)}:{json.dumps(memoire[fid], ensure_ascii=False, separators=(',', ':'))}"
+              for fid in sorted(memoire)]
+    with open(FICHIER_ANNEES, "w", encoding="utf-8") as f:
+        f.write("{\n" + ",\n".join(lignes) + "\n}\n")
 
 
 # --- Liste des titres à corriger ---------------------------------------------------
@@ -2086,6 +2324,10 @@ def main():
               + (f" ; introuvables : {' ; '.join(sans_film)}" if sans_film else "."))
     films = sans_doublons(films)
     print(f"Titres encore à corriger (voir a_corriger.txt) : {ecrire_a_corriger(films, memoire_titres)}.")
+    ecrire_annees(annees_de_sortie(films, textes_films, lire_annees()))
+    avec_annee = sum(1 for f in films.values() if f.get("annee"))
+    print(f"Années de sortie : {avec_annee} films sur {len(films)} ("
+          + ", ".join(f"{k} {v}" for k, v in STATS_ANNEES.items() if v) + ").")
 
     memoire_ba = bandes_annonces(films, ancien, cle, exclus, textes_films, lire_valides())
     date_stats = stats_du_jour(films, ancien)
