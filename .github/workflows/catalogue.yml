@@ -41,4 +41,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add catalogue.json historique_vues.json a_corriger.txt videos_ecartees.json annees.json
           git diff --cached --quiet || git commit -m "Mise à jour du catalogue"
-          git push
+          # Si un fichier a été envoyé sur GitHub pendant le passage, l'enregistrement
+          # est refusé : on récupère ces changements et on réessaie (3 fois au plus).
+          for essai in 1 2 3; do
+            git push && exit 0
+            echo "Enregistrement refusé (fichier envoyé pendant le passage) : nouvel essai."
+            sleep 5
+            git pull --rebase origin main || { git rebase --abort; exit 1; }
+          done
+          exit 1
