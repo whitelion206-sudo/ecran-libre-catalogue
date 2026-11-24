@@ -824,9 +824,10 @@ def est_un_nom(texte):
 
 
 def sans_acteurs_entre_parentheses(titre):
-    """« Comète (Emmy Rossum, Justin Long) » -> « Comète ». Il faut au moins deux
-    noms de personnes (ou « avec … ») : « Le Bon, la Brute et le Truand (Il buono,
-    il brutto, il cattivo) » ne bouge pas."""
+    """« Comète (Emmy Rossum, Justin Long) » -> « Comète » ; « Lettres à Clara
+    (Al Pacino) » -> « Lettres à Clara ». Chaque nom doit faire 2 à 4 mots à
+    majuscule : « Le Bon, la Brute et le Truand (Il buono, il brutto, il cattivo) »
+    et « Le Bourgeois Gentilhomme (Molière) » ne bougent pas."""
     m = re.match(r"^(.{2,}?)\s*[(\[]\s*([^()\[\]]+?)\s*[)\]]\s*$", titre)
     if not m:
         return titre
@@ -836,9 +837,48 @@ def sans_acteurs_entre_parentheses(titre):
     noms_trouves = [n for n in noms_trouves if n]
     if not noms_trouves or not all(est_un_nom(n) for n in noms_trouves):
         return titre
-    if len(noms_trouves) < 2 and not avec:
-        return titre
     return avant or titre
+
+
+# « Le Blob (Remake) », « Zombie (Version restaurée) », « Jade (Fantasy, Aventures) » :
+# la chaîne ajoute une mention ou des genres entre parenthèses à la fin du titre.
+MENTION_INUTILE = re.compile(
+    r"^(?:remake|nouvelle\s+version|version\s+(?:longue|courte|restaur[ée]e|remasteris[ée]e|"
+    r"remast[ée]ris[ée]e|int[ée]grale|cin[ée]ma|fran[cç]aise|originale\s+fran[cç]aise)|"
+    r"director'?s\s+cut|in[ée]dit|restaur[ée]|remasteris[ée]|remast[ée]ris[ée]|"
+    r"hd|full\s+hd|4k|uhd|vf|vff|film\s+complet|film\s+entier)$",
+    flags=re.IGNORECASE,
+)
+
+
+def sans_mention_entre_parentheses(titre):
+    """« Le Blob (Remake) » -> « Le Blob » ; « Jade (Fantasy, Aventures) » -> « Jade ».
+    Les vraies parenthèses du titre restent : « Une Relation (Presque) Parfaite »,
+    « Les Feux de l'Amour (ou Presque !) »."""
+    m = re.match(r"^(.{2,}?)\s*[(\[]\s*([^()\[\]]+?)\s*[)\]]\s*$", titre)
+    if not m:
+        return titre
+    avant, dedans = m.group(1).strip(" -–—,"), m.group(2).strip()
+    if not avant:
+        return titre
+    if MENTION_INUTILE.match(dedans):
+        return avant
+    morceaux = [x.strip() for x in re.split(r",|/|&|\set\s", dedans) if x.strip()]
+    if morceaux and all(genre_normalise(x, strict=True) for x in morceaux):
+        return avant
+    return titre
+
+
+# Titres qui ont peut-être encore quelque chose en trop : listés dans
+# a_corriger.txt pour qu'on les vérifie une fois (voir ecrire_a_corriger).
+SIGNES_A_VERIFIER = re.compile(
+    r"[()\[\]|#]|\b(?:films?|documentaire|complets?|vf|vostfr|remake|4k|hd|version\s+fran[cç]aise)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def titre_a_verifier(titre):
+    return bool(SIGNES_A_VERIFIER.search(titre))
 
 
 # « (Nanar) Un chalutier spatial harponne… » : la chaîne met le genre entre
@@ -929,7 +969,7 @@ def fiche_film(video, chaine):
             fiche_titre = {"titre_accroche": titre}
             titre = entre_parentheses
     if not chaine.get("documentaires"):
-        titre = sans_acteurs_entre_parentheses(titre)
+        titre = sans_mention_entre_parentheses(sans_acteurs_entre_parentheses(titre))
     if chaine.get("accroche_apres_tiret") and not fiche_titre:
         avant = titre_avant_tiret(titre)
         if avant:
@@ -1945,12 +1985,30 @@ def ecrire_a_corriger(films, memoire_titres):
         f"# {len(liste)} film(s).",
         "",
     ]
-    for f in sorted(liste, key=lambda f: (f.get("chaine", ""), f["titre"].lower())):
-        m = f.get("duree_minutes") or 0
-        duree = f"{m // 60} h {m % 60:02d}" if m >= 60 else f"{m} min"
-        lignes.append(f"# {f.get('chaine', '')} · {duree} · https://www.youtube.com/watch?v={f['id']}")
-        lignes.append(f"{f['titre']} => ")
-        lignes.append("")
+    def ajouter(liste_films):
+        for f in sorted(liste_films, key=lambda f: (f.get("chaine", ""), f["titre"].lower())):
+            m = f.get("duree_minutes") or 0
+            duree = f"{m // 60} h {m % 60:02d}" if m >= 60 else f"{m} min"
+            lignes.append(f"# {f.get('chaine', '')} · {duree} · https://www.youtube.com/watch?v={f['id']}")
+            lignes.append(f"{f['titre']} => ")
+            lignes.append("")
+    ajouter(liste)
+    # Deuxième liste : titres avec des parenthèses ou des mots en trop
+    # (« (Al Pacino) », « Documentaire en Français »…). À vérifier une seule fois.
+    deja = {f["id"] for f in liste}
+    douteux = [f for fid, f in films.items()
+               if fid not in deja and fid not in CORRIGES and fid not in DOCUMENTAIRES
+               and titre_a_verifier(f["titre"])]
+    lignes += [
+        "",
+        "# ------------------------------------------------------------------",
+        "# Titres à vérifier : parenthèses ou mots en trop (« (Al Pacino) », « Film complet »…).",
+        "# S'il faut le corriger : copie sa ligne dans corrections.txt et écris le bon titre après « => ».",
+        "# S'il est déjà bon : copie sa ligne dans corrections.txt et recopie le même titre après « => ».",
+        f"# {len(douteux)} film(s).",
+        "",
+    ]
+    ajouter(douteux)
     with open(FICHIER_A_CORRIGER, "w", encoding="utf-8") as fichier:
         fichier.write("\n".join(lignes))
     return len(liste)
