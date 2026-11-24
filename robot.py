@@ -1351,6 +1351,12 @@ septembre octobre novembre decembre realise realisateur realisatrice casting ave
 nationalite americain americaine francais anglais britannique version originale long metrage
 vost vostfr vostf vo st fr titre titres titree titrees
 """.split())
+# Les genres non plus : « Comédie Romantique » ou « Science Fiction » dans deux
+# vidéos ne prouvent pas que c'est le même film.
+MOTS_PAS_DES_NOMS |= {mot for g in GENRES_CONNUS for mot in re.split(r"[\s-]+", sans_accents(g).lower())} | set("""
+science fiction romantique dramatique epouvante suspense fantasy horror comedy romance drama
+thriller action adventure animated animation family christmas teen movie kids enfants
+""".split())
 
 
 def preuves(texte, mots_titre):
