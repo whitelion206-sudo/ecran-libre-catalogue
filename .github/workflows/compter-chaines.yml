@@ -24,13 +24,18 @@ jobs:
           sys.path.insert(0, os.getcwd())
           import robot
 
+          # Chaînes candidates pour les genres où il manque des films.
+          # « video » : une vidéo de la chaîne, quand on ne connaît pas son identifiant.
           CANDIDATES = [
-              {"nom": "Boxoffice | THRILLERS | Films Complets", "id": "UCejAJAuoB5J4xk7UU1fz7Xg",
-               "genre": "Thriller", "vf_seulement": True},
-              {"nom": "Ciné Comédie - Films Complets en Français", "handle": "@CineComedieFilmsComplets",
-               "genre": "Comédie"},
-              {"nom": "Film&Clips en Français", "handle": "@FilmsCompletsFrancais",
+              {"nom": "Boxoffice | SCIENCE-FICTION | Films Complets", "handle": "@boxofficesf",
+               "genre": "Science-fiction", "vf_seulement": True},
+              {"nom": "Boxoffice | COMÉDIES | Films Complets", "handle": "@BoxOfficeCOMEDIES",
+               "genre": "Comédie", "vf_seulement": True},
+              {"nom": "myCINÉMA", "id": "UCBUtbekgLO36zIf00eMrIcg", "genre": "", "vf_seulement": True},
+              {"nom": "Program Store TV", "id": "UCN2-ATENoqb-U_OHoUd1ZjA", "genre": "", "vf_seulement": True},
+              {"nom": "Family Films - Films Complets en Français VF", "id": "UC5vLPAMFOnOTBJPWbjltjZQ",
                "genre": "", "vf_seulement": True},
+              {"nom": "Chaîne de films de Noël", "video": "mLIOxR5H0S0", "genre": "Noël", "vf_seulement": True},
           ]
           cle = os.environ["YOUTUBE_API_KEY"]
           exclus = robot.lire_exclus()
@@ -48,7 +53,27 @@ jobs:
           gain_total = Counter()
           total_nouveaux = 0
           for chaine in CANDIDATES:
-              ids = robot.videos_de_la_chaine(chaine, cle)
+              try:
+                  if chaine.get("video"):
+                      rep = robot.appel_api("videos", {"part": "snippet", "id": chaine["video"]}, cle)
+                      if not rep.get("items"):
+                          lignes += [f"### {chaine['nom']}", "- Vidéo introuvable", ""]
+                          continue
+                      chaine["id"] = rep["items"][0]["snippet"]["channelId"]
+                  param = {"part": "snippet,statistics"}
+                  param.update({"id": chaine["id"]} if chaine.get("id") else {"forHandle": chaine["handle"]})
+                  rep = robot.appel_api("channels", param, cle)
+                  if not rep.get("items"):
+                      lignes += [f"### {chaine['nom']}", "- Chaîne introuvable", ""]
+                      continue
+                  item = rep["items"][0]
+                  chaine["id"] = item["id"]
+                  vrai_nom = item["snippet"]["title"]
+                  abonnes = int(item.get("statistics", {}).get("subscriberCount", 0))
+                  ids = robot.videos_de_la_chaine(chaine, cle)
+              except (SystemExit, Exception) as erreur:
+                  lignes += [f"### {chaine['nom']}", f"- Lecture impossible : {erreur}", ""]
+                  continue
               utilisables, nouveaux, exemples = 0, [], []
               for video in robot.details_des_videos(ids, cle):
                   if not robot.est_utilisable(video, exclus):
@@ -67,7 +92,8 @@ jobs:
               genres = Counter(g for f in nouveaux for g in f["genres"])
               gain_total.update(genres)
               total_nouveaux += len(nouveaux)
-              lignes += [f"### {chaine['nom']}",
+              lignes += [f"### {vrai_nom}",
+                         f"- Identifiant : {chaine['id']} · {abonnes:,} abonnés".replace(",", " "),
                          f"- Vidéos sur la chaîne : **{len(ids)}**",
                          f"- Films gardés par les filtres du robot : **{utilisables}**",
                          f"- **Nouveaux films (pas déjà dans l'appli) : {len(nouveaux)}**",
