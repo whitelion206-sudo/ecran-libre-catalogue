@@ -1,0 +1,196 @@
+name: Compter les bandes-annonces
+
+# Se lance seulement à la main (Actions > Compter les bandes-annonces > Run workflow).
+# Ne touche à rien : il lit les vidéos des chaînes officielles de bandes-annonces
+# (AlloCiné, FilmsActu…) et compte combien de films du catalogue en trouveraient une.
+# N'utilise aucune recherche YouTube (seulement la lecture des listes de vidéos).
+on:
+  workflow_dispatch:
+
+jobs:
+  compter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Compter les bandes-annonces
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'FIN'
+          import html, json, os, re, sys
+          from collections import Counter, defaultdict
+          sys.path.insert(0, os.getcwd())
+          import robot
+
+          # Chaînes qui publient des bandes-annonces officielles en français.
+          SOURCES = [
+              {"nom": "AlloCiné", "handle": "@allocine", "utilisateur": "allocine"},
+              {"nom": "AlloCiné Action", "utilisateur": "allocineaction"},
+              {"nom": "AlloCiné Frisson", "utilisateur": "allocinefrisson"},
+              {"nom": "AlloCiné Comédie", "utilisateur": "allocinecomedie"},
+              {"nom": "AlloCiné Fantastique", "utilisateur": "allocinefantastique"},
+              {"nom": "AlloCiné Kids", "utilisateur": "allocinekids"},
+              {"nom": "FilmsActu", "handle": "@FilmsActu", "utilisateur": "FilmsActu"},
+          ]
+          MAX_PAGES = 800          # au plus 40 000 vidéos lues par chaîne
+          cle = os.environ["YOUTUBE_API_KEY"]
+          exclus = robot.lire_exclus()
+          points = Counter()
+
+
+          def api(methode, parametres):
+              points[methode] += 1
+              return robot.appel_api(methode, parametres, cle, fatal=False)
+
+
+          def chaine_trouvee(source):
+              essais = []
+              if source.get("handle"):
+                  essais.append({"forHandle": source["handle"]})
+              if source.get("utilisateur"):
+                  essais.append({"forUsername": source["utilisateur"]})
+              for essai in essais:
+                  try:
+                      items = api("channels", dict(essai, part="contentDetails,snippet")).get("items") or []
+                  except RuntimeError:
+                      continue
+                  if items:
+                      return items[0]["contentDetails"]["relatedPlaylists"]["uploads"], items[0]["snippet"]["title"]
+              return None, None
+
+
+          def videos_de(playlist):
+              page, n = None, 0
+              while True:
+                  p = {"part": "snippet", "playlistId": playlist, "maxResults": 50}
+                  if page:
+                      p["pageToken"] = page
+                  try:
+                      r = api("playlistItems", p)
+                  except RuntimeError as erreur:
+                      print(f"  lecture arrêtée : {erreur}")
+                      return
+                  for item in r.get("items", []):
+                      sn = item.get("snippet", {})
+                      vid = sn.get("resourceId", {}).get("videoId")
+                      if vid:
+                          yield vid, html.unescape(sn.get("title", "")), sn.get("description", "")
+                  page, n = r.get("nextPageToken"), n + 1
+                  if not page or n >= MAX_PAGES:
+                      return
+
+
+          # Films du catalogue sans bande-annonce (hors documentaires), rangés par titre.
+          with open("catalogue.json", encoding="utf-8") as f:
+              catalogue = json.load(f).get("films", [])
+          films = [f for f in catalogue if "Documentaire" not in f.get("genres", []) and f.get("chaine") != "ARTE"]
+          deja = sum(1 for f in films if f.get("bande_annonce"))
+          index = defaultdict(list)
+          for f in films:
+              cle_titre = robot.normalise(f.get("titre", ""))
+              if not f.get("bande_annonce") and len(cle_titre) >= 2:
+                  index[cle_titre].append(f)
+
+          ANNEE = re.compile(r"(19|20)\d\d")
+          DECOUPE = re.compile(r"\s+[|/–—-]\s+|[|\[\]()«»\"“”]|\s:\s")
+
+
+          def titres_possibles(titre_video):
+              """Les morceaux du titre de la vidéo qui peuvent être le nom du film :
+              « Le Dernier Hiver Bande-annonce VF » -> « le dernier hiver »."""
+              cles = set()
+              for morceau in [titre_video] + DECOUPE.split(titre_video):
+                  mots = robot.normalise(morceau).split()
+                  autour = [m in robot.MOTS_AUTOUR_BA or bool(ANNEE.fullmatch(m)) for m in mots]
+                  for debut in range(len(mots)):
+                      if not all(autour[:debut]):
+                          break
+                      for fin in range(len(mots), debut, -1):
+                          if not all(autour[fin:]):
+                              break
+                          cles.add(" ".join(mots[debut:fin]))
+              return cles
+
+
+          candidats = defaultdict(list)      # id du film -> [(id vidéo, titre, description, langue)]
+          lignes = ["## Bandes-annonces qu'on trouverait sur les chaînes officielles", ""]
+          for source in SOURCES:
+              playlist, nom_yt = chaine_trouvee(source)
+              if not playlist:
+                  lignes.append(f"- **{source['nom']}** : chaîne introuvable, ignorée")
+                  continue
+              lues = vf = vostfr = trouvees = 0
+              for vid, titre, description in videos_de(playlist):
+                  lues += 1
+                  if not robot.MOTS_BA.search(titre) or robot.MOTS_BA_REFUSES.search(titre):
+                      continue
+                  langue = robot.langue_du_titre(titre)
+                  if langue is None:
+                      continue
+                  vf += langue == "VF"
+                  vostfr += langue == "VOSTFR"
+                  for cle_titre in titres_possibles(titre):
+                      for film in index.get(cle_titre, []):
+                          if vid not in {c[0] for c in candidats[film["id"]]} and vid != film["id"]:
+                              candidats[film["id"]].append((vid, titre, description, langue))
+                              trouvees += 1
+              lignes.append(f"- **{source['nom']}** ({nom_yt}) : {lues} vidéos lues, {vf} bandes-annonces VF, "
+                            f"{vostfr} VOSTFR, {trouvees} correspondent à un titre du catalogue")
+
+          # Vidéos lisibles en France dans l'appli (publiques, intégrables, 6 min au plus).
+          tous_ids = [c[0] for liste in candidats.values() for c in liste]
+          lisibles = robot.bandes_annonces_lisibles(tous_ids, cle, exclus) if tous_ids else {}
+          par_film = {f["id"]: f for f in films}
+          avec_preuve, sans_preuve, conflit = {}, {}, {}
+          for fid, liste in candidats.items():
+              film = par_film[fid]
+              texte_film = (film.get("titre_youtube", "") + "\n" + film.get("description", "")
+                            + (f"\n({film['annee']})" if film.get("annee") else ""))
+              annee_yt = int(str(film.get("date", ""))[:4]) if str(film.get("date", ""))[:4].isdigit() else None
+              for vid, titre, description, langue in sorted(liste, key=lambda c: c[3] != "VF"):
+                  video = lisibles.get(vid)
+                  if video is None or (langue == "VF" and robot.langue_pas_francaise(video)):
+                      continue
+                  texte_ba = titre + "\n" + (video.get("snippet", {}).get("description") or description)
+                  verdict, detail = robot.meme_film(texte_film, texte_ba, film["titre"], annee_yt)
+                  info = (film, titre, langue, detail)
+                  if verdict == "preuve":
+                      avec_preuve.setdefault(fid, info)
+                  elif verdict == "neutre":
+                      sans_preuve.setdefault(fid, info)
+                  else:
+                      conflit.setdefault(fid, info)
+          sans_preuve = {k: v for k, v in sans_preuve.items() if k not in avec_preuve}
+          conflit = {k: v for k, v in conflit.items() if k not in avec_preuve and k not in sans_preuve}
+
+          vf_ok = sum(1 for v in avec_preuve.values() if v[2] == "VF")
+          lignes += [
+              "", "## Résultat", "",
+              f"- Films (hors documentaires) : {len(films)}, dont {deja} ont déjà une bande-annonce",
+              f"- **Bandes-annonces sûres (même acteur ou même année) : {len(avec_preuve)} films** "
+              f"({vf_ok} en VF, {len(avec_preuve) - vf_ok} en VOSTFR)",
+              f"- Même titre, mais rien pour prouver que c'est le même film : {len(sans_preuve)} films (pas acceptées)",
+              f"- Même titre, mais une autre année (autre film) : {len(conflit)} films (refusées)",
+              "",
+              "### Bandes-annonces sûres, par chaîne du catalogue",
+          ]
+          for chaine, n in Counter(v[0].get("chaine", "") for v in avec_preuve.values()).most_common():
+              lignes.append(f"- {chaine} : {n}")
+          lignes += ["", "### Exemples de bandes-annonces sûres"]
+          for film, titre, langue, detail in list(avec_preuve.values())[:12]:
+              lignes.append(f"- {film['titre']} → {titre} [{langue} · {detail}]")
+          lignes += ["", "### Exemples sans preuve (pas acceptées)"]
+          for film, titre, langue, detail in list(sans_preuve.values())[:6]:
+              lignes.append(f"- {film['titre']} → {titre} [{langue}]")
+          lignes += ["", f"Quota utilisé : environ {sum(points.values()) + len(tous_ids) // 50 + 1} points sur 10 000 "
+                     f"(aucune recherche YouTube)."]
+
+          texte = "\n".join(lignes)
+          print(texte)
+          if os.environ.get("GITHUB_STEP_SUMMARY"):
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+                  f.write(texte + "\n")
+          FIN
