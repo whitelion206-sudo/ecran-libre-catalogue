@@ -98,6 +98,20 @@
     "lecture_rapide": true
   },
   {
+    "nom": "Boxoffice | SCIENCE-FICTION | Films Complets",
+    "id": "UCqWT6BzMgUOE0EwNUhiv9xQ",
+    "genre": "Science-fiction",
+    "vf_seulement": true,
+    "lecture_rapide": true
+  },
+  {
+    "nom": "Boxoffice | COMÉDIES | Films Complets",
+    "handle": "@BoxOfficeCOMEDIES",
+    "genre": "Comédie",
+    "vf_seulement": true,
+    "lecture_rapide": true
+  },
+  {
     "nom": "ARTE",
     "handle": "@arte",
     "genre": "Documentaire",
