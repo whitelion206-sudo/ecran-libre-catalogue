@@ -118,7 +118,7 @@ def duree_en_minutes(iso):
 # « – Téléfilm complet HD », « - Drame Complet en Français ».
 FIN_DE_TITRE = re.compile(
     r"\s*(?:[|\-–—•]\s*)?\b(?:t[ée]l[ée])?(?:films?|dessins?\s+anim[ée]s?|drame|com[ée]die)\b"
-    r"(?:\s+[\w'’]+){0,3}?\s+complets?\b",
+    r"(?:\s+[\w'’]+){0,3}?\s+(?:complets?|entiers?(?=\s+en\b))\b",
     flags=re.IGNORECASE,
 )
 # « Traque dans la Jungle 🌀 4K » : la qualité n'est pas dans le nom du film.
@@ -970,10 +970,11 @@ def fiche_film(video, chaine):
             titre = entre_parentheses
     if not chaine.get("documentaires"):
         titre = sans_mention_entre_parentheses(sans_acteurs_entre_parentheses(titre))
-    if chaine.get("accroche_apres_tiret") and not fiche_titre:
+    if chaine.get("accroche_apres_tiret"):
+        # Aussi quand le titre vient de la description (« Titre : … – accroche »).
         avant = titre_avant_tiret(titre)
         if avant:
-            fiche_titre = {"titre_accroche": titre}
+            fiche_titre = fiche_titre or {"titre_accroche": titre}
             titre = avant
     titre = sans_majuscules(titre)
     BLOQUES_TOUS[video["id"]] = pays_bloques(video)
