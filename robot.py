@@ -926,7 +926,8 @@ def genres_des_hashtags(description):
 def titre_avant_tiret(titre):
     """« L'Auberge de Noël – Cinq jours pour s'aimer » -> « L'Auberge de Noël »
     (seulement pour les chaînes marquées « accroche_apres_tiret »)."""
-    m = re.match(r"^(.{2,70}?)\s+[–—-]\s+(.+)$", titre)
+    # Tous les tirets : -, ‐, ‑, ‒, –, —, ―, − (la chaîne n'utilise pas toujours le même).
+    m = re.match(r"^(.{2,70}?)\s*[\-\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]\s+(.+)$", titre)
     if m and 1 <= len(m.group(1).split()) <= 10 and len(m.group(2).split()) >= 2:
         return m.group(1).strip()
     return None
