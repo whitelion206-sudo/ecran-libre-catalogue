@@ -1,7 +1,7 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 50 film(s).
+# 34 film(s).
 
 # Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
 Avant qu'il ne soit trop tard => 
@@ -12,8 +12,20 @@ Scandale et Sport Automobile - La Légende de Max Mosley =>
 # Allociné Films Complets · 1 h 41 · https://www.youtube.com/watch?v=D4fIbRONtns
 Welcome to Death Row - Snoop Dogg Tupac Dr Dre Eazy E Suge Knight => 
 
+# Boxoffice | COMÉDIES | Films Complets · 1 h 30 · https://www.youtube.com/watch?v=ihEaKosvNgs
+TITOFF au Casino de Paris - Spectacle COMPLET (One Man Show, Standup) => 
+
+# Boxoffice | COMÉDIES | Films Complets · 1 h 15 · https://www.youtube.com/watch?v=ajJNRXssglY
+TITOFF au Palais des Glaces - Spectacle COMPLET (One Man Show, Standup) => 
+
 # Boxoffice | Films TV · 1 h 23 · https://www.youtube.com/watch?v=OG9XHPxLvS0
 Ce Qu'on ne se dit Pas => 
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 21 · https://www.youtube.com/watch?v=qHB-l1vMMUE
+Le Manoir de Grockleton - Film Indé Horreur - Comédie => 
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 34 · https://www.youtube.com/watch?v=vvxoF6rEtII
+Ride Like A Girl - La Victoire à tout Prix => 
 
 # Boxoffice | ROMANCES | Films Complets · 1 h 26 · https://www.youtube.com/watch?v=sL-TRIcr8y4
 Aimer Avant qu'il ne Soit Trop Tard => 
@@ -81,56 +93,11 @@ Un Noël pour Trouver l'Amour – Un cœur à conquérir =>
 # Ciné Comédie - Films Complets en Français · 1 h 28 · https://www.youtube.com/watch?v=cBBfoBMuI_I
 Un Scénario Presque Parfait – Film Comédie / Romance complet en FRANÇAIS => 
 
-# Ciné Movies - Films Complets · 1 h 24 · https://www.youtube.com/watch?v=kkA7wEhBEJU
-Deux enfants complotent pour réunir leurs parents divorcés le temps d'un Noël => 
-
-# Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=FlFjS0VrE2g
-Elle piège un prédateur qui se cache derrière une appli de transport => 
-
-# Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=sr6PnL03qJU
-Enceinte, elle doit choisir entre le père paniqué et le voisin idéal => 
-
-# Ciné Movies - Films Complets · 1 h 20 · https://www.youtube.com/watch?v=XvpWd1sO6Ug
-Endettée, elle doit sauver sa ferme avec l'ex qui l'a abandonnée => 
-
-# Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=PBt8wh-DvEQ
-Et si celui qu'elle prenait pour un ennemi devenait l'amour de sa vie => 
-
-# Ciné Movies - Films Complets · 2 h 17 · https://www.youtube.com/watch?v=wGiezrqnStg
-Quand l'amour de l'argent l'emporte sur celui de ses propres enfants => 
-
-# Ciné Movies - Films Complets · 1 h 36 · https://www.youtube.com/watch?v=7ofvjBw4F6Y
-Quatre amies d'enfance disparaissent une à une et personne ne fait le lien => 
-
-# Ciné Movies - Films Complets · 1 h 50 · https://www.youtube.com/watch?v=HdJmx2B8edg
-Un magnat sans scrupules sacrifie tout, même les siens, pour de l'argent => 
-
-# Ciné Movies - Films Complets · 1 h 33 · https://www.youtube.com/watch?v=LKS6buqpTxA
-Un père cherche à comprendre ce que sa fille refuse de raconter => 
-
-# Ciné Movies - Films Complets · 1 h 25 · https://www.youtube.com/watch?v=_NgPVHlLAKQ
-Un éboueur solitaire refuse de croire à la mort accidentelle d'un enfant => 
-
-# Ciné Movies - Films Complets · 1 h 31 · https://www.youtube.com/watch?v=wRq3nxLIcks
-Une caméra cachée révèle ce que la baby-sitter fait vraiment à la maison => 
-
 # Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=uCZF__P8Qvk
 Une femme accro au travail croise un inconnu et rêve de le retrouver => 
 
 # Ciné Movies - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=wqddWYn8Nus
 Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 26 · https://www.youtube.com/watch?v=bmDwA2ZMezA
-Forcée à combattre dans un circuit clandestin pour sauver son frère => 
-
-# Ciné Nanar - Films Complets en Français · 2 h 08 · https://www.youtube.com/watch?v=FBY1lnFqQag
-La police et la mafia le traque en même temps => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 14 · https://www.youtube.com/watch?v=gbKaaL65rDc
-Mission: sauver sa sœur dans un labyrinthe rempli de crocodiles => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 10 · https://www.youtube.com/watch?v=k-tmISn1jO8
-Quand une prof tranquille redevient chasseuse de primes pour Noël => 
 
 # Ciné Nanar - Films Complets en Français · 1 h 20 · https://www.youtube.com/watch?v=rImJHGpCAmg
 Sauver ses enfants quand la planète entière part en morceaux => 
@@ -138,24 +105,21 @@ Sauver ses enfants quand la planète entière part en morceaux =>
 # Ciné Nanar - Films Complets en Français · 1 h 21 · https://www.youtube.com/watch?v=8-oRzGlvszs
 Survivre dans une jungle où hommes armés et esprits vous traquent => 
 
-# Ciné Nanar - Films Complets en Français · 1 h 23 · https://www.youtube.com/watch?v=EoJ9Gd86Gt8
-Survivre à des araignées géantes quand on est coincé sur les pistes => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 26 · https://www.youtube.com/watch?v=wKGbPgjFpf0
-Survivre à une partie de paintball quand l'adversaire a de vraies armes => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 30 · https://www.youtube.com/watch?v=wtOvAq74Eew
-Une île saturée de gaz oblige les commandos à se battre à mains nues => 
-
-# My Digital Channel - Films Complets · 1 h 38 · https://www.youtube.com/watch?v=6VOG8wEybAI
-Elle a choisi la révolte ! Rose’s War => 
-
-# My Digital Channel - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=FTFKjoaEh_g
-Elle n'est pas seule chez elle … => 
-
 
 # ------------------------------------------------------------------
 # Titres à vérifier : parenthèses ou mots en trop (« (Al Pacino) », « Film complet »…).
 # S'il faut le corriger : copie sa ligne dans corrections.txt et écris le bon titre après « => ».
 # S'il est déjà bon : copie sa ligne dans corrections.txt et recopie le même titre après « => ».
-# 0 film(s).
+# 4 film(s).
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 43 · https://www.youtube.com/watch?v=zi41_UqK0Jc
+Best F(r)iends => 
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 38 · https://www.youtube.com/watch?v=tdMqVSeI6qc
+Et (Beaucoup) Plus Si Affinités => 
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 34 · https://www.youtube.com/watch?v=MCWRY_sqsNA
+Mafia Connexion - Film Gratuit en Français => 
+
+# Boxoffice | Nouveautés & Films Complets · 1 h 08 · https://www.youtube.com/watch?v=4Mad0fQf3q4
+MEAT : Ces Animaux qu'on Mange - DOCUMENTAIRE COMPLET => 
