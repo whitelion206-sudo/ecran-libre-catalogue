@@ -1,7 +1,7 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 20 film(s).
+# 18 film(s).
 
 # Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
 Avant qu'il ne soit trop tard => 
@@ -20,12 +20,6 @@ TITOFF au Palais des Glaces - Spectacle COMPLET (One Man Show, Standup) =>
 
 # Boxoffice | Films TV · 1 h 23 · https://www.youtube.com/watch?v=OG9XHPxLvS0
 Ce Qu'on ne se dit Pas => 
-
-# Boxoffice | Nouveautés & Films Complets · 1 h 21 · https://www.youtube.com/watch?v=qHB-l1vMMUE
-Le Manoir de Grockleton - Film Indé Horreur - Comédie => 
-
-# Boxoffice | Nouveautés & Films Complets · 1 h 34 · https://www.youtube.com/watch?v=vvxoF6rEtII
-Ride Like A Girl - La Victoire à tout Prix => 
 
 # Boxoffice | ROMANCES | Films Complets · 1 h 26 · https://www.youtube.com/watch?v=sL-TRIcr8y4
 Aimer Avant qu'il ne Soit Trop Tard => 
@@ -68,16 +62,7 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Titres à vérifier : parenthèses ou mots en trop (« (Al Pacino) », « Film complet »…).
 # S'il faut le corriger : copie sa ligne dans corrections.txt et écris le bon titre après « => ».
 # S'il est déjà bon : copie sa ligne dans corrections.txt et recopie le même titre après « => ».
-# 4 film(s).
-
-# Boxoffice | Nouveautés & Films Complets · 1 h 43 · https://www.youtube.com/watch?v=zi41_UqK0Jc
-Best F(r)iends => 
+# 1 film(s).
 
 # Boxoffice | Nouveautés & Films Complets · 1 h 38 · https://www.youtube.com/watch?v=tdMqVSeI6qc
 Et (Beaucoup) Plus Si Affinités => 
-
-# Boxoffice | Nouveautés & Films Complets · 1 h 34 · https://www.youtube.com/watch?v=MCWRY_sqsNA
-Mafia Connexion - Film Gratuit en Français => 
-
-# Boxoffice | Nouveautés & Films Complets · 1 h 08 · https://www.youtube.com/watch?v=4Mad0fQf3q4
-MEAT : Ces Animaux qu'on Mange - DOCUMENTAIRE COMPLET => 
