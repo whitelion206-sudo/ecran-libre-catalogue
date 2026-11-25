@@ -534,7 +534,8 @@ LIGNE_INUTILE = re.compile(
     r"\b(?:sur|on)\s+(?:snapchat|instagram|facebook|tiktok|twitter)\b|plus de films|playlist|"
     r"^\W*(?:titre original|synopsis|r[ée]alisation|r[ée]alisateur|acteurs?|casting|avec|sc[ée]nario)\W*$|"
     r"envie de d[ée]couvrir|nous avons ce qu|^\W*films? (?:complets?|entiers?)\b[\w\s,]*$|"
-    r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\||disponible\s+jusqu",
+    r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\||disponible\s+jusqu|"
+    r"^\W*cat[ée]gor(?:ie|y)s?\s*:",
     flags=re.IGNORECASE)
 LIMITE_DESCRIPTION = 400
 FICHE_TECHNIQUE = re.compile(
@@ -575,6 +576,9 @@ def _resume_propre(texte):
     credits = re.search(r"\s(?:Avec|AVEC)\s*:?\s+[A-ZÉ][\w'-]+\s+[A-ZÉ]|\s(?i:r[ée]alis[ée] par)\s", texte)
     if credits and credits.start() >= 60:
         texte = texte[:credits.start()]
+    categorie = re.search(r"\s(?i:cat[ée]gor(?:ie|y)s?)\s*:", texte)
+    if categorie and categorie.start() >= 60:
+        texte = texte[:categorie.start()].rstrip(" -–—,;")
     texte = re.sub(r"\s*(?:\benjoy\b\s*!?|@\w+)", "", texte, flags=re.IGNORECASE).strip()
     if len(texte) <= LIMITE_DESCRIPTION:
         return texte
