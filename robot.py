@@ -537,6 +537,9 @@ LIGNE_INUTILE = re.compile(
     r"n'h[ée]sitez pas|commentaires|^\W*titre original\s*:|\||disponible\s+jusqu",
     flags=re.IGNORECASE)
 LIMITE_DESCRIPTION = 400
+FICHE_TECHNIQUE = re.compile(
+    r"^\W*(?:(?i:acteurs?|casting|distribution|r[ée]alisation|r[ée]alisateur|sc[ée]nario|titre original|genres?)\b"
+    r"|(?i:r[ée]alis[ée] par)\b|(?i:avec)\s*(?::|$|[A-ZÉ][\w'-]+\s+[A-ZÉ]))")
 
 
 def description_courte(description):
@@ -544,13 +547,35 @@ def description_courte(description):
     bloc = re.search(r"►\s*synopsis\s*:?\s*\n(.+?)(?:\n\s*►|\Z)", texte, flags=re.IGNORECASE | re.DOTALL)
     if bloc and len(bloc.group(1).strip()) >= 60:
         texte = bloc.group(1)
-    lignes = [sans_emojis(l).strip(" -–—•►*") for l in texte.splitlines()]
-    garde = [l for l in lignes if len(l) > 1 and not LIGNE_INUTILE.search(l)]
+    # My Digital Channel : la 1re ligne est publicitaire (« NOUVEAUTÉ FILM … film entier 2026 HD et VF :
+    # Avec … »), le vrai résumé vient après. On essaie sans elle, et on la garde si rien d'autre ne reste.
+    premiere, _, reste = texte.strip().partition("\n")
+    if reste.strip() and re.match(r"^[^:]{0,130}\bfilms? (?:entiers?|complets?)\b[^:]{0,40}:(?!//)", premiere, re.IGNORECASE):
+        sans_pub = _resume_propre(reste)
+        if len(sans_pub) >= 40:
+            return sans_pub
+    return _resume_propre(texte)
+
+
+def _resume_propre(texte):
+    garde = []
+    for ligne in texte.splitlines():
+        ligne = sans_emojis(ligne).strip(" -–—•►*")
+        # La fiche technique (acteurs, réalisation…) arrive après le résumé : on s'arrête là.
+        if FICHE_TECHNIQUE.match(ligne) and sum(len(l) for l in garde) >= 60:
+            break
+        if len(ligne) > 1 and not LIGNE_INUTILE.search(ligne):
+            garde.append(ligne)
     texte = re.sub(r"\s+", " ", " ".join(garde)).strip()
     texte = re.sub(r"\.{2,}(?=\s|$)", ".", texte)
     # « NOUVEAUTÉ FILM ÉMOTION – film entier 2026 HD et VF : … » / « … Film Complet en Français »
     texte = re.sub(r"^[^:.!?]{0,90}\bfilms? (?:entiers?|complets?)\b[^:.!?]{0,40}:\s*", "", texte, flags=re.IGNORECASE)
     texte = re.sub(r"\s*\bfilms? (?:complets?|entiers?) en fran[çc]ais\W*$", "", texte, flags=re.IGNORECASE).strip()
+    # Crédits collés au résumé : « … Avec Paul Sloan, Jake Weber… Réalisé par … »
+    credits = re.search(r"\s(?:Avec|AVEC)\s*:?\s+[A-ZÉ][\w'-]+\s+[A-ZÉ]|\s(?i:r[ée]alis[ée] par)\s", texte)
+    if credits and credits.start() >= 60:
+        texte = texte[:credits.start()]
+    texte = re.sub(r"\s*(?:\benjoy\b\s*!?|@\w+)", "", texte, flags=re.IGNORECASE).strip()
     if len(texte) <= LIMITE_DESCRIPTION:
         return texte
     coupe = texte[:LIMITE_DESCRIPTION]
