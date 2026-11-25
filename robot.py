@@ -1068,6 +1068,14 @@ def fiche_film(video, chaine):
             fiche_titre = fiche_titre or {"titre_accroche": titre}
             titre = avant
     titre = sans_majuscules(titre)
+    if chaine.get("accroche_apres_tiret"):
+        # La chaîne sépare parfois le titre de l'accroche par un emoji
+        # (« UN MARIAGE CHAOTIQUE 💍 Tout les oppose… ») : le tiret n'apparaît
+        # qu'une fois les majuscules remises (« Un Mariage Chaotique – Tout… »).
+        avant = titre_avant_tiret(titre)
+        if avant:
+            fiche_titre = fiche_titre or {"titre_accroche": titre}
+            titre = avant
     BLOQUES_TOUS[video["id"]] = pays_bloques(video)
     return {
         **fiche_titre,
