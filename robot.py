@@ -2352,6 +2352,76 @@ def ecrire_a_corriger(films, memoire_titres):
     return len(liste)
 
 
+# Suivi des films qui disparaissent du catalogue (mesure, avant l'idée « Le film
+# retrouvé »). Chaque film disparu est classé : retiré de YouTube (supprimé ou
+# privé : YouTube ne le renvoie plus), écarté par le robot (encore sur YouTube,
+# mais plus utilisable : bloqué en France, plus intégrable, plus en VF…),
+# doublon fusionné, ou chaîne enlevée de chaines.json. Seuls les films retirés
+# de YouTube sont gardés dans « films_retires » (180 jours), avec, s'il existe,
+# le même film sur une autre chaîne (même titre, durée à 5 minutes près).
+JOURS_SUIVI_RETIRES = 180
+
+
+def suivre_disparus(ancien, films, vus_youtube, avant_doublons, noms_chaines):
+    aujourd_hui = datetime.now(timezone.utc).date()
+    par_titre = {}
+    for film in films.values():
+        par_titre.setdefault(normalise(film["titre"]), []).append(film)
+
+    def ailleurs(titre, duree):
+        for autre in par_titre.get(normalise(titre), []):
+            if duree and autre.get("duree_minutes") and abs(autre["duree_minutes"] - duree) <= 5:
+                return autre["id"]
+        return None
+
+    raisons = {"youtube": 0, "robot": 0, "doublon": 0, "chaine": 0}
+    retires = {}
+    for entree in ancien.get("films_retires", []):
+        try:
+            age = (aujourd_hui - datetime.strptime(entree["retire_le"], "%Y-%m-%d").date()).days
+        except (KeyError, ValueError):
+            continue
+        if age <= JOURS_SUIVI_RETIRES and entree.get("id") not in films:
+            retires[entree["id"]] = dict(entree)
+    for film in ancien.get("films", []):
+        fid = film.get("id")
+        if not fid or fid in films:
+            continue
+        if film.get("chaine") not in noms_chaines:
+            raisons["chaine"] += 1
+        elif fid in avant_doublons:
+            raisons["doublon"] += 1
+        elif fid in vus_youtube:
+            raisons["robot"] += 1
+        else:
+            raisons["youtube"] += 1
+            retires.setdefault(fid, {
+                "id": fid, "titre": film.get("titre", ""), "duree_minutes": film.get("duree_minutes"),
+                "chaine": film.get("chaine", ""), "retire_le": aujourd_hui.isoformat()})
+    # Retrouvé ailleurs ? (vérifié à chaque passage : le film peut revenir plus tard)
+    for entree in retires.values():
+        autre = ailleurs(entree["titre"], entree.get("duree_minutes"))
+        if autre:
+            entree["retrouve"] = autre
+        else:
+            entree.pop("retrouve", None)
+    liste = sorted(retires.values(), key=lambda e: (e["retire_le"], e["id"]), reverse=True)
+
+    disparus = sum(raisons.values())
+    nouveaux = [e for e in liste if e["retire_le"] == aujourd_hui.isoformat()]
+    print(f"Films disparus à ce passage : {disparus} (retirés de YouTube : {raisons['youtube']}"
+          f"{', dont ' + str(sum(1 for e in nouveaux if e.get('retrouve'))) + ' retrouvés sur une autre chaîne' if raisons['youtube'] else ''}"
+          f" ; écartés par le robot : {raisons['robot']} ; doublons fusionnés : {raisons['doublon']}"
+          f" ; chaîne enlevée : {raisons['chaine']}).")
+    semaine = [e for e in liste if (aujourd_hui - datetime.strptime(e["retire_le"], "%Y-%m-%d").date()).days < 7]
+    print(f"Films retirés de YouTube ces 7 derniers jours : {len(semaine)} "
+          f"({sum(1 for e in semaine if e.get('retrouve'))} retrouvés ailleurs) ; "
+          f"suivis depuis le début : {len(liste)} ({sum(1 for e in liste if e.get('retrouve'))} retrouvés ailleurs).")
+    for e in nouveaux[:15]:
+        print(f"  - retiré : {e['titre']} ({e['chaine']})" + (" -> retrouvé ailleurs" if e.get("retrouve") else ""))
+    return liste
+
+
 def main():
     cle = os.environ.get("YOUTUBE_API_KEY")
     if not cle:
@@ -2373,6 +2443,7 @@ def main():
 
     films = {}
     textes_films = {}  # titre + description complète, pour vérifier les bandes-annonces
+    vus_youtube = set()  # vidéos que YouTube renvoie encore (même écartées)
     for chaine in chaines:
         nom = chaine["nom"]
         rapide = chaine.get("lecture_rapide") and not lecture_complete and nom in ecartees_avant
@@ -2388,6 +2459,7 @@ def main():
         duree_min = chaine.get("duree_min", DUREE_MIN_MINUTES)
         gardes = 0
         for video in details_des_videos(ids, cle):
+            vus_youtube.add(video["id"])
             snippet = video.get("snippet", {})
             titre_yt = snippet.get("title", "")
             ok = est_utilisable(video, exclus, duree_min)
@@ -2421,6 +2493,7 @@ def main():
     if corriges or sans_film:
         print(f"Corrections à la main : {corriges} films corrigés"
               + (f" ; introuvables : {' ; '.join(sans_film)}" if sans_film else "."))
+    avant_doublons = set(films)
     films = sans_doublons(films)
     print(f"Titres encore à corriger (voir a_corriger.txt) : {ecrire_a_corriger(films, memoire_titres)}.")
     ecrire_annees(annees_de_sortie(films, textes_films, lire_annees()))
@@ -2435,6 +2508,21 @@ def main():
     nb_tendances = tendances(films, date_stats)
     print(f"Tendances de la semaine : {nb_tendances} films classés"
           + ("." if nb_tendances else " (il faut 7 jours d'historique des vues)."))
+    # Sécurité : un film absent de la lecture des chaînes n'est déclaré « retiré » qu'après
+    # une vérification directe auprès de YouTube (si la lecture d'une chaîne s'est arrêtée
+    # en route, ses films ne doivent pas être comptés comme retirés).
+    noms_chaines = {c["nom"] for c in chaines}
+    a_verifier = [f["id"] for f in ancien.get("films", [])
+                  if f.get("id") and f["id"] not in films and f["id"] not in vus_youtube
+                  and f.get("chaine") in noms_chaines and f["id"] not in avant_doublons]
+    if a_verifier:
+        try:
+            for video in details_des_videos(a_verifier, cle):
+                if video.get("status", {}).get("privacyStatus") in ("public", "unlisted"):
+                    vus_youtube.add(video["id"])
+        except (Exception, SystemExit) as erreur:   # jamais bloquant : dans le doute, rien n'est déclaré retiré
+            print(f"Vérification des films disparus impossible ({erreur}) : rien n'est compté comme retiré.")
+            vus_youtube.update(a_verifier)
     liste_classiques = classiques(ancien)
     catalogue = {
         "mis_a_jour": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -2446,6 +2534,7 @@ def main():
         "titres_trouves": memoire_titres,
         "statistiques_du": date_stats,
         "chaines": chaines_partenaires(chaines, films, cle, ancien),
+        "films_retires": suivre_disparus(ancien, films, vus_youtube, avant_doublons, noms_chaines),
     }
     # Rien de nouveau depuis le dernier passage : on garde l'ancienne date, pour
     # que le fichier ne change pas. L'appli voit alors qu'il n'y a rien à
