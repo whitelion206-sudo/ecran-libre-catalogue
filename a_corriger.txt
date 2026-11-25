@@ -1,7 +1,7 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 34 film(s).
+# 20 film(s).
 
 # Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
 Avant qu'il ne soit trop tard => 
@@ -50,48 +50,6 @@ Les Contes de Maupassant – Le Rosier de Madame Husson + L'Ami Joseph =>
 
 # Ciné Comédie - Films Complets en Français · 1 h 28 · https://www.youtube.com/watch?v=UTSxol0FFqg
 40 ANS ET DE RETOUR AU LYCÉE Leur diplôme est annulé => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 31 · https://www.youtube.com/watch?v=PvJkUyt6qqQ
-Bob, Chien de Berger – 2 familles, une vieille rivalité => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 33 · https://www.youtube.com/watch?v=t926PWMucyw
-Deux Hommes pour une Femme – Une double vie parfaite => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 27 · https://www.youtube.com/watch?v=wcWW_P8aRDo
-L'Amour au Coeur de la Savane – rencontre au bout du monde => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 19 · https://www.youtube.com/watch?v=ihWhy7Dwr3A
-La Fille d’En Face – Une rencontre qui change tout => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 24 · https://www.youtube.com/watch?v=9-FZ7FDbHXI
-La Plus Belle Étoile de Noël – Un amour jamais oublié => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 18 · https://www.youtube.com/watch?v=Y11ykxe_1fE
-Les Aventuriers à Quatre Pattes – le trésor les attend => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 36 · https://www.youtube.com/watch?v=A_aX3yZta4M
-Les Rois de l’Arnaque – ils vendent tout et n'importe quoi ! => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 29 · https://www.youtube.com/watch?v=WYCILeHzxSc
-Mon Amie Masha – un lien plus fort que tout => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 25 · https://www.youtube.com/watch?v=ujE_XcE1Tak
-Noël Comme dans les Romans – Une rencontre va tout changer => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 16 · https://www.youtube.com/watch?v=hahYpTlCkT8
-On a Tué Notre Boss – un plan complètement fou => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 26 · https://www.youtube.com/watch?v=7F05QnvI-cI
-Un Amour de Jeunesse – quand le cœur hésite encore... => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 27 · https://www.youtube.com/watch?v=spDABXKVDvc
-Un Jackpot pour l'Amour – Le billet qui change tout => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 24 · https://www.youtube.com/watch?v=qEFkSHnj6do
-Un Noël pour Trouver l'Amour – Un cœur à conquérir => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 28 · https://www.youtube.com/watch?v=cBBfoBMuI_I
-Un Scénario Presque Parfait – Film Comédie / Romance complet en FRANÇAIS => 
 
 # Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=uCZF__P8Qvk
 Une femme accro au travail croise un inconnu et rêve de le retrouver => 
