@@ -119,6 +119,14 @@
     "lecture_rapide": true
   },
   {
+    "nom": "Boxoffice | NANARS & PÉPITES",
+    "id": "UCHSVy2OKJRx1CAndRiQ76uA",
+    "genre": "Nanar",
+    "vf_seulement": true,
+    "lecture_rapide": true,
+    "import_discret": true
+  },
+  {
     "nom": "ARTE",
     "handle": "@arte",
     "genre": "Documentaire",
