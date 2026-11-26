@@ -27,12 +27,8 @@ jobs:
           # Boxoffice Nouveautés. Les chaînes SCIENCE-FICTION et COMÉDIES (ajoutées au robot
           # mais peut-être pas encore lues) servent seulement à ne pas compter leurs films en double.
           CANDIDATES = [
-              {"nom": "Boxoffice | SCIENCE-FICTION | Films Complets", "id": "UCqWT6BzMgUOE0EwNUhiv9xQ",
-               "genre": "Science-fiction", "vf_seulement": True, "pour_doublons": True},
-              {"nom": "Boxoffice | COMÉDIES | Films Complets", "handle": "@BoxOfficeCOMEDIES",
-               "genre": "Comédie", "vf_seulement": True, "pour_doublons": True},
-              {"nom": "Boxoffice | Nouveautés & Films Complets", "handle": "@BoxOfficeFilmsCompletsFR",
-               "genre": "", "vf_seulement": True},
+              {"nom": "Boxoffice | NANARS & PÉPITES", "handle": "@BoxOfficeNanars",
+               "genre": "Nanar", "vf_seulement": True},
           ]
           cle = os.environ["YOUTUBE_API_KEY"]
           exclus = robot.lire_exclus()
@@ -67,6 +63,8 @@ jobs:
                   chaine["id"] = item["id"]
                   vrai_nom = item["snippet"]["title"]
                   abonnes = int(item.get("statistics", {}).get("subscriberCount", 0))
+                  presentation = " ".join(item["snippet"].get("description", "").split())[:400]
+                  creee = item["snippet"].get("publishedAt", "")[:10]
                   ids = robot.videos_de_la_chaine(chaine, cle)
               except (SystemExit, Exception) as erreur:
                   lignes += [f"### {chaine['nom']}", f"- Lecture impossible : {erreur}", ""]
@@ -93,6 +91,8 @@ jobs:
               total_nouveaux += len(nouveaux)
               lignes += [f"### {vrai_nom}",
                          f"- Identifiant : {chaine['id']} · {abonnes:,} abonnés".replace(",", " "),
+                         f"- Créée le : {creee}",
+                         f"- Présentation de la chaîne : {presentation or '(vide)'}",
                          f"- Vidéos sur la chaîne : **{len(ids)}**",
                          f"- Films gardés par les filtres du robot : **{utilisables}**",
                          f"- **Nouveaux films (pas déjà dans l'appli) : {len(nouveaux)}**",
