@@ -457,3 +457,7 @@ MCWRY_sqsNA => Mafia Connexion | Policier, Thriller
 nZnABOhSPaY => | Comédie
 XctyuhztsGY => | Comédie dramatique
 -YMtebF7dM8 => | Drame
+
+# Boxoffice NANARS & PÉPITES (26 novembre)
+zdXR3oSMC6E => Alien Battleship | Nanar, Science-fiction, Action
+jfJAgXURM9g => The Living and the Dead | Thriller, Drame
