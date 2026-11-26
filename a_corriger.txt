@@ -62,7 +62,10 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Titres à vérifier : parenthèses ou mots en trop (« (Al Pacino) », « Film complet »…).
 # S'il faut le corriger : copie sa ligne dans corrections.txt et écris le bon titre après « => ».
 # S'il est déjà bon : copie sa ligne dans corrections.txt et recopie le même titre après « => ».
-# 1 film(s).
+# 2 film(s).
+
+# Boxoffice | NANARS & PÉPITES · 1 h 09 · https://www.youtube.com/watch?v=jfJAgXURM9g
+The Living and the Dead (Pépite Indé - Thriller) => 
 
 # Boxoffice | Nouveautés & Films Complets · 1 h 38 · https://www.youtube.com/watch?v=tdMqVSeI6qc
 Et (Beaucoup) Plus Si Affinités => 
