@@ -241,7 +241,7 @@ hrQHLTruUeM => | Thriller
 oFH3r68oyzo => | Science-fiction, Action
 jpG7ajuUUi4 => | Thriller
 TBJy1P2P6UQ => | Romance, Historique
-b63EAbq99Vc => | Horreur
+b63EAbq99Vc => | Horreur, Fantastique, 2015
 -c8kMfmlFfs => | Thriller
 WAzn6xKIOhs => | Noël, Comédie
 torsf8rVyt8 => | Drame, Thriller
@@ -461,3 +461,6 @@ XctyuhztsGY => | Comédie dramatique
 # Boxoffice NANARS & PÉPITES (26 novembre)
 zdXR3oSMC6E => Alien Battleship | Nanar, Science-fiction, Action
 jfJAgXURM9g => The Living and the Dead | Thriller, Drame
+
+# Bible Zombies = Jeruzalem (2015), même film que sur Boxoffice Nouveautés
+QVMsO6G_LrQ => Jeruzalem | Horreur, Fantastique, 2015
