@@ -888,6 +888,14 @@ def sans_doublons(films):
                 par_principal.setdefault(principal, []).append(film)
             resultat[fid] = film
             continue
+        if film["id"] in TITRES_CORRIGES and double["id"] not in TITRES_CORRIGES:
+            # Le titre corrigé à la main l'emporte sur le titre de la copie gardée
+            # (« Aux Portes de l'Enfer » devient « Jeruzalem »).
+            double["titre"] = film["titre"]
+            TITRES_CORRIGES.add(double["id"])
+            gardes.setdefault(normalise(double["titre"]), []).append(double)
+        if film.get("annee_corrigee") and not double.get("annee_corrigee"):
+            double["annee_corrigee"] = film["annee_corrigee"]
         for genre in film["genres"]:
             if genre not in double["genres"]:
                 double["genres"].append(genre)
@@ -2085,6 +2093,7 @@ FICHIER_CORRECTIONS = os.path.join(DOSSIER, "corrections.txt")
 
 
 CORRIGES = set()   # films touchés par corrections.txt (pas besoin de les relister)
+TITRES_CORRIGES = set()   # films dont le titre vient de corrections.txt (prioritaires lors d'une fusion de doublons)
 
 
 def lire_corrections():
@@ -2134,6 +2143,7 @@ def appliquer_corrections(films, corrections=None):
             CORRIGES.add(film["id"])
             if titre:
                 film["titre"] = titre
+                TITRES_CORRIGES.add(film["id"])
             if liste:
                 film["genres"] = liste
                 film["genre"] = liste[0]
