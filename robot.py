@@ -55,6 +55,7 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 
 API = "https://www.googleapis.com/youtube/v3/"
@@ -811,6 +812,36 @@ def titre_principal(titre):
     return principal if len(principal) >= 4 else None
 
 
+# Doublons au même résumé : certaines chaînes republient le même film sous un
+# autre titre (« Danny le Génie » = « Monsters Academy »). Même durée (2 minutes
+# d'écart au plus) et résumé presque identique (80 % des mots en commun) = même
+# film. Les « Partie 1 / Partie 2 » et les suites numérotées restent séparées, et
+# un résumé passe-partout (le même texte sur plus de 4 films) n'est pas utilisé.
+MOTS_IGNORES_RESUME = set("""dans pour avec elle elles leur leurs mais plus tout tous toute toutes cette entre vers sont
+    sera etre faire fait font avoir avait aussi comme quand alors dont meme sans sous chez apres avant depuis encore
+    jamais toujours tres bien film films complet complets francais version gratuit""".split())
+PARTIE_OU_EPISODE = re.compile(r"\b(?:partie|part|episode|épisode|chapitre|volume|vol\.?|saison|tome)\b", re.IGNORECASE)
+
+
+def mots_du_resume(texte):
+    texte = "".join(ch for ch in unicodedata.normalize("NFD", (texte or "").lower()) if unicodedata.category(ch) != "Mn")
+    return frozenset(m for m in re.findall(r"[a-z]{4,}", texte) if m not in MOTS_IGNORES_RESUME)
+
+
+def meme_histoire(a, b, mots, chiffres):
+    if abs(a["duree_minutes"] - b["duree_minutes"]) > 2:
+        return False
+    ma, mb = mots.get(a["id"]), mots.get(b["id"])
+    if not ma or not mb:
+        return False
+    if PARTIE_OU_EPISODE.search(a["titre"]) or PARTIE_OU_EPISODE.search(b["titre"]):
+        return False
+    ca, cb = chiffres[a["id"]], chiffres[b["id"]]
+    if ca and cb and ca != cb:
+        return False
+    return len(ma & mb) / len(ma | mb) >= 0.8
+
+
 def sans_doublons(films):
     """Un même film peut être publié par plusieurs chaînes. On garde la copie
     de la chaîne qui vient en premier dans chaines.json (ou la plus ancienne),
@@ -823,6 +854,16 @@ def sans_doublons(films):
     par_principal = {}    # titre sans sous-titre -> fiches gardées qui ont un sous-titre
     resultat = {}
     retires = []
+    textes = Counter(" ".join((f.get("description") or "").split()).lower() for f in films.values())
+    mots, chiffres = {}, {}
+    for f in films.values():
+        texte = " ".join((f.get("description") or "").split()).lower()
+        m = mots_du_resume(f.get("description"))
+        if len(texte) >= 80 and len(m) >= 10 and textes[texte] <= 4 and not f["chaine"].startswith("ARTE"):
+            mots[f["id"]] = m
+        chiffres[f["id"]] = frozenset(re.findall(r"\d+", f["titre"]))
+    par_duree = {}        # durée -> fiches gardées (pour les doublons au même résumé)
+    meme_resume = []
 
     def proche(a, b, ecart):
         return abs(a["duree_minutes"] - b["duree_minutes"]) <= ecart
@@ -835,7 +876,13 @@ def sans_doublons(films):
             double = next((a for a in gardes.get(principal, []) if proche(film, a, 2)), None)
         if double is None:                    # « Rouge rubis » après « Rouge Rubis : … »
             double = next((a for a in par_principal.get(cle_titre, []) if proche(film, a, 2)), None)
+        if double is None and fid in mots:   # même résumé sous un autre titre
+            double = next((a for d in range(film["duree_minutes"] - 2, film["duree_minutes"] + 3)
+                           for a in par_duree.get(d, []) if meme_histoire(film, a, mots, chiffres)), None)
+            if double is not None:
+                meme_resume.append(f"{film['titre']} = {double['titre']}")
         if double is None:
+            par_duree.setdefault(film["duree_minutes"], []).append(film)
             gardes.setdefault(cle_titre, []).append(film)
             if principal:
                 par_principal.setdefault(principal, []).append(film)
@@ -848,6 +895,8 @@ def sans_doublons(films):
         retires.append(f"{film['titre']} ({film['chaine']})")
     if retires:
         print(f"Doublons retirés : {len(retires)} (ex. : {', '.join(retires[:5])})")
+    if meme_resume:
+        print(f"  dont {len(meme_resume)} repérés grâce au même résumé sous un autre titre (ex. : {' ; '.join(meme_resume[:5])})")
     return resultat
 
 
