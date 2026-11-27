@@ -2012,74 +2012,45 @@ def dates_d_ajout(films, ancien, discretes=()):
     return nouveaux
 
 
-# --- Tendances de la semaine ----------------------------------------------------
+# --- Tendances ---------------------------------------------------------------------
 #
-# Chaque jour, le robot note les vues YouTube de chaque film dans
-# historique_vues.json (8 derniers jours, un jour par ligne). Il compare avec
-# il y a 7 jours : les 20 films qui ont gagné le plus de vues reçoivent
-# « tendance » (rang 1 à 20) et « vues_7j » (vues gagnées). Un film publié sur
-# YouTube pendant la semaine compte toutes ses vues. Pas encore 7 jours
-# d'historique : pas de tendances (l'appli cache la rangée).
+# Règles de YouTube (Developer Policies III.E.4) : interdit de calculer de nouvelles
+# statistiques à partir des chiffres YouTube (ex. « vues gagnées en 7 jours ») et de
+# garder un historique des statistiques. Les tendances utilisent donc le nombre de vues
+# YouTube tel quel : parmi les films publiés sur YouTube depuis 30 jours (hors documentaires),
+# les 20 plus vus reçoivent « tendance » (rang 1 à 20). Aucun historique n'est gardé : l'ancien fichier
+# historique_vues.json est supprimé.
 FICHIER_HISTORIQUE = os.path.join(DOSSIER, "historique_vues.json")
-JOURS_TENDANCE = 7
+JOURS_TENDANCE = 30
 TAILLE_TENDANCES = 20
 
 
-def lire_historique():
+def est_documentaire(film):
+    """Vrai si le film a le genre « Documentaire » (les documentaires ne vont pas dans les tendances)."""
+    genres = list(film.get("genres") or []) + [film.get("genre") or ""]
+    return any("documentaire" in str(g).lower() for g in genres)
+
+
+def tendances(films, aujourd_hui):
+    """Classe les 20 films les plus vus parmi ceux publiés sur YouTube depuis 30 jours,
+    documentaires exclus.
+    Renvoie le nombre de films classés."""
     try:
-        with open(FICHIER_HISTORIQUE, encoding="utf-8") as f:
-            return json.load(f).get("jours", {})
-    except (OSError, ValueError):
-        return {}
-
-
-def ecrire_historique(jours):
-    lignes = [f"{json.dumps(d)}:{json.dumps(jours[d], separators=(',', ':'), sort_keys=True)}"
-              for d in sorted(jours)]
-    with open(FICHIER_HISTORIQUE, "w", encoding="utf-8") as f:
-        f.write('{"jours":{\n' + ",\n".join(lignes) + "\n}}\n")
-
-
-def tendances(films, aujourd_hui, jours=None):
-    """Note les vues du jour, puis classe les films qui en gagnent le plus en 7 jours.
-    Renvoie le nombre de films classés (0 si l'historique est trop court)."""
-    if jours is None:
-        jours = lire_historique()
-    du_jour = dict(jours.get(aujourd_hui, {}))
+        os.remove(FICHIER_HISTORIQUE)
+    except OSError:
+        pass
     for film in films.values():
-        if isinstance(film.get("vues"), int):
-            du_jour[film["id"]] = film["vues"]
-    jours[aujourd_hui] = du_jour
+        film.pop("tendance", None)
+        film.pop("vues_7j", None)
     jour = datetime.strptime(aujourd_hui, "%Y-%m-%d")
-    garder_depuis = (jour - timedelta(days=JOURS_TENDANCE + 1)).strftime("%Y-%m-%d")
-    for d in [d for d in jours if d < garder_depuis]:
-        del jours[d]
-    ecrire_historique(jours)
-
-    reference = (jour - timedelta(days=JOURS_TENDANCE)).strftime("%Y-%m-%d")
-    candidates = [d for d in jours if d <= reference]
-    if not candidates:
-        return 0
-    jour_base = max(candidates)
-    base = jours[jour_base]
-    gains = []
-    for film in films.values():
-        vues = film.get("vues")
-        if not isinstance(vues, int):
-            continue
-        if film["id"] in base:
-            gain = vues - base[film["id"]]
-        elif film.get("date", "")[:10] > jour_base:
-            gain = vues          # publié sur YouTube pendant la semaine
-        else:
-            continue             # arrivé dans l'appli trop récemment pour comparer
-        if gain > 0:
-            gains.append((gain, film))
-    gains.sort(key=lambda g: (-g[0], g[1]["id"]))
-    for rang, (gain, film) in enumerate(gains[:TAILLE_TENDANCES], 1):
+    depuis = (jour - timedelta(days=JOURS_TENDANCE)).strftime("%Y-%m-%d")
+    recents = [f for f in films.values()
+               if isinstance(f.get("vues"), int) and f["vues"] > 0
+               and f.get("date", "")[:10] >= depuis and not est_documentaire(f)]
+    recents.sort(key=lambda f: (-f["vues"], f["id"]))
+    for rang, film in enumerate(recents[:TAILLE_TENDANCES], 1):
         film["tendance"] = rang
-        film["vues_7j"] = gain
-    return min(len(gains), TAILLE_TENDANCES)
+    return min(len(recents), TAILLE_TENDANCES)
 
 
 # --- Corrections à la main --------------------------------------------------------
@@ -2577,8 +2548,8 @@ def main():
     arrives = dates_d_ajout(films, ancien, {c["nom"] for c in chaines if c.get("import_discret")})
     print(f"Arrivés dans l'appli à ce passage : {arrives} films.")
     nb_tendances = tendances(films, date_stats)
-    print(f"Tendances de la semaine : {nb_tendances} films classés"
-          + ("." if nb_tendances else " (il faut 7 jours d'historique des vues)."))
+    print(f"Tendances : {nb_tendances} films classés (les plus vus parmi ceux publiés"
+          f" sur YouTube depuis {JOURS_TENDANCE} jours, sans les documentaires).")
     # Sécurité : un film absent de la lecture des chaînes n'est déclaré « retiré » qu'après
     # une vérification directe auprès de YouTube (si la lecture d'une chaîne s'est arrêtée
     # en route, ses films ne doivent pas être comptés comme retirés).
