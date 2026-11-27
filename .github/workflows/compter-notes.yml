@@ -1,0 +1,189 @@
+name: Compter les notes Wikidata
+
+# Se lance seulement à la main (Actions > Compter les notes Wikidata > Run workflow).
+# Ne touche pas au catalogue : il prend des films au hasard (hors documentaires),
+# les cherche sur Wikidata (données libres, utilisables dans une appli avec pub)
+# et compte combien ont une note (Rotten Tomatoes, Metacritic…).
+on:
+  workflow_dispatch:
+    inputs:
+      echantillon:
+        description: "Nombre de films à tester (0 = tout le catalogue, compter environ 3 heures)"
+        default: "600"
+
+jobs:
+  compter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Compter les notes
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          ECHANTILLON: ${{ inputs.echantillon }}
+        run: |
+          python3 - <<'FIN'
+          import json, os, sys, random, time
+          from collections import Counter
+          sys.path.insert(0, os.getcwd())
+          import robot
+
+          TAILLE = int((os.environ.get("ECHANTILLON") or "600").strip() or 600)
+          cle = os.environ["YOUTUBE_API_KEY"]
+          with open("catalogue.json", encoding="utf-8") as f:
+              tous = json.load(f)["films"]
+          films = [f for f in tous if not robot.est_documentaire(f)]
+          if 0 < TAILLE < len(films):
+              films = random.Random(1).sample(films, TAILLE)
+          print(f"Films testés : {len(films)} (tirés au hasard parmi les "
+                f"{sum(1 for f in tous if not robot.est_documentaire(f))} films hors documentaires).")
+
+          # Descriptions complètes YouTube (le réalisateur et les acteurs y sont écrits).
+          textes = {}
+          try:
+              for v in robot.details_des_videos([f["id"] for f in films], cle):
+                  textes[v["id"]] = v.get("snippet", {}).get("description", "")
+          except (Exception, SystemExit) as erreur:
+              print(f"Descriptions YouTube indisponibles ({erreur}) : recherche par titre seulement.")
+
+
+          def qid_par_equipe(realisateurs, acteurs, duree):
+              lignes = robot.appel_wikidata(robot.requete_wikidata(realisateurs, acteurs))["results"]["bindings"]
+              candidats = []
+              for ligne in lignes:
+                  if not (ligne.get("titreFr") or ligne.get("titreEn")):
+                      continue
+                  n = int(ligne.get("n", {}).get("value", 0))
+                  try:
+                      d = float(ligne.get("duree", {}).get("value", ""))
+                      d = d / 60 if d > 400 else d
+                  except ValueError:
+                      d = None
+                  candidats.append((n, ligne["film"]["value"].rsplit("/", 1)[-1], d))
+              minimum = 1 if (realisateurs and len(acteurs) == 1) else 2
+              if not candidats or candidats[0][0] < minimum:
+                  return None
+              if len(candidats) > 1 and candidats[1][0] == candidats[0][0]:
+                  return None
+              n, qid, d = candidats[0]
+              if d and duree and abs(d - duree) > robot.TOLERANCE_DUREE_MINUTES:
+                  return None
+              return qid
+
+
+          def qid_par_titre(titre, duree):
+              if not duree:
+                  return None
+              cible = robot.normalise(titre)
+              resultats = robot.appel_api_wikidata({"action": "wbsearchentities", "search": titre, "language": "fr",
+                                                    "uselang": "fr", "type": "item", "limit": 10}).get("search", [])
+              ids = [r["id"] for r in resultats
+                     if cible in (robot.normalise(r.get("label", "")), robot.normalise(r.get("match", {}).get("text", "")))]
+              if not ids:
+                  return None
+              time.sleep(0.5)
+              entites = robot.appel_api_wikidata({"action": "wbgetentities", "ids": "|".join(ids[:10]),
+                                                  "props": "claims"}).get("entities", {})
+              trouves = []
+              for qid, entite in entites.items():
+                  classes = {(v or {}).get("id") for v in robot.valeurs_wikidata(entite, "P31")}
+                  if not classes & robot.CLASSES_FILM:
+                      continue
+                  durees = []
+                  for v in robot.valeurs_wikidata(entite, "P2047"):
+                      unite = str(v.get("unit", "")).rsplit("/", 1)[-1]
+                      try:
+                          durees.append(float(v.get("amount", "")) * robot.UNITES_MINUTES[unite])
+                      except (KeyError, ValueError):
+                          pass
+                  if any(abs(d - duree) <= robot.TOLERANCE_DUREE_TITRE for d in durees):
+                      trouves.append(qid)
+              return trouves[0] if len(trouves) == 1 else None
+
+
+          # 1) Retrouver chaque film sur Wikidata (même méthode que pour les années de sortie).
+          qids = {}
+          pannes = 0
+          for i, film in enumerate(films, 1):
+              duree = film.get("duree_minutes")
+              try:
+                  qid = None
+                  realisateurs, acteurs = robot.equipe_du_film(textes.get(film["id"], ""))
+                  if acteurs:
+                      qid = qid_par_equipe(realisateurs, acteurs, duree)
+                      time.sleep(1)
+                  if not qid and not robot.est_une_accroche(film["titre"]):
+                      qid = qid_par_titre(film["titre"], duree)
+                      time.sleep(0.5)
+                  if qid:
+                      qids[film["id"]] = qid
+              except Exception as erreur:
+                  pannes += 1
+                  print(f"  Pas de réponse de Wikidata pour « {film['titre']} » ({erreur}).")
+                  time.sleep(5)
+                  if pannes >= 20:
+                      print("Wikidata ne répond plus : le comptage s'arrête ici.")
+                      films = films[:i]
+                      break
+              if i % 100 == 0:
+                  print(f"  … {i} films vérifiés, {len(qids)} retrouvés sur Wikidata.")
+
+          # 2) Lire les notes (« note de critique », P444) et qui les donne (P447).
+          notes = {}
+          liste = sorted(set(qids.values()))
+          for debut in range(0, len(liste), 50):
+              try:
+                  entites = robot.appel_api_wikidata({"action": "wbgetentities", "ids": "|".join(liste[debut:debut + 50]),
+                                                      "props": "claims"}).get("entities", {})
+              except Exception as erreur:
+                  print(f"  Notes illisibles pour un paquet de films ({erreur}).")
+                  continue
+              for qid, entite in entites.items():
+                  for c in entite.get("claims", {}).get("P444", []):
+                      valeur = c.get("mainsnak", {}).get("datavalue", {}).get("value")
+                      source = next((q.get("datavalue", {}).get("value", {}).get("id")
+                                     for q in c.get("qualifiers", {}).get("P447", [])
+                                     if q.get("datavalue")), None)
+                      if valeur:
+                          notes.setdefault(qid, []).append((source or "?", str(valeur)))
+              time.sleep(0.5)
+
+          sources = sorted({s for n in notes.values() for s, _ in n if s != "?"})
+          noms = {}
+          for debut in range(0, len(sources), 50):
+              try:
+                  entites = robot.appel_api_wikidata({"action": "wbgetentities", "ids": "|".join(sources[debut:debut + 50]),
+                                                      "props": "labels", "languages": "fr|en"}).get("entities", {})
+                  for qid, e in entites.items():
+                      lab = e.get("labels", {})
+                      noms[qid] = (lab.get("fr") or lab.get("en") or {}).get("value", qid)
+              except Exception:
+                  pass
+
+          # 3) Résultat.
+          total = len(films)
+          avec_note = [f for f in films if qids.get(f["id"]) in notes]
+          par_source = Counter()
+          for f in avec_note:
+              for s in {s for s, _ in notes[qids[f["id"]]]}:
+                  par_source[noms.get(s, "source inconnue")] += 1
+          hors_docs = sum(1 for f in tous if not robot.est_documentaire(f))
+          pct = lambda n: f"{100 * n / total:.1f} %" if total else "0 %"
+          print()
+          print("===== RÉSULTAT =====")
+          print(f"Films testés : {total}")
+          print(f"Retrouvés sur Wikidata : {len(qids)} ({pct(len(qids))})")
+          print(f"Avec au moins une note : {len(avec_note)} ({pct(len(avec_note))})")
+          print(f"Estimation sur tout le catalogue ({hors_docs} films hors documentaires) : "
+                f"environ {round(hors_docs * len(avec_note) / total) if total else 0} films avec une note.")
+          print("Notes par source (nombre de films) :")
+          for nom, n in par_source.most_common(15):
+              print(f"  {nom} : {n} films ({pct(n)})")
+          print("Exemples :")
+          for f in avec_note[:25]:
+              detail = ", ".join(f"{noms.get(s, '?')} {v}" for s, v in notes[qids[f['id']]][:3])
+              print(f"  {f['titre']} → {detail}")
+          FIN
