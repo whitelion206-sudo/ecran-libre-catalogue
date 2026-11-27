@@ -2017,11 +2017,11 @@ def dates_d_ajout(films, ancien, discretes=()):
 # Règles de YouTube (Developer Policies III.E.4) : interdit de calculer de nouvelles
 # statistiques à partir des chiffres YouTube (ex. « vues gagnées en 7 jours ») et de
 # garder un historique des statistiques. Les tendances utilisent donc le nombre de vues
-# YouTube tel quel : parmi les films publiés sur YouTube depuis 30 jours (hors documentaires),
+# YouTube tel quel : parmi les films publiés sur YouTube depuis 7 jours (hors documentaires),
 # les 20 plus vus reçoivent « tendance » (rang 1 à 20). Aucun historique n'est gardé : l'ancien fichier
 # historique_vues.json est supprimé.
 FICHIER_HISTORIQUE = os.path.join(DOSSIER, "historique_vues.json")
-JOURS_TENDANCE = 30
+JOURS_TENDANCE = 7
 TAILLE_TENDANCES = 20
 
 
@@ -2032,7 +2032,7 @@ def est_documentaire(film):
 
 
 def tendances(films, aujourd_hui):
-    """Classe les 20 films les plus vus parmi ceux publiés sur YouTube depuis 30 jours,
+    """Classe les 20 films les plus vus parmi ceux publiés sur YouTube depuis 7 jours,
     documentaires exclus.
     Renvoie le nombre de films classés."""
     try:
