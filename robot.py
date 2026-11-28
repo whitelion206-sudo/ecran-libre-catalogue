@@ -459,20 +459,32 @@ def genres_du_titre(titre):
             genres += genres_d_une_liste(entre)
         if i + 1 < len(morceaux):
             genres += genres_d_une_liste(morceaux[i + 1])
+            for suite in morceaux[i + 2:]:          # « … | Film Complet | Action | Thriller | ACE »
+                purs = genres_purs(suite)
+                if not purs:
+                    break
+                genres += purs
         genres = list(dict.fromkeys(genres))
-        if genres or i + 1 < len(morceaux):
+        if genres:
             return genres
         break
     # Genres placés ailleurs (« Accroche | Sci-Fi, Action », « Titre | Thriller, Téléfilm |
-    # Film Complet ») : on prend un morceau s'il ne contient QUE des genres connus
-    # (et des mots neutres comme « Téléfilm »).
+    # Film Complet », ou un genre par morceau comme CINE PRIME : « Titre | Policier |
+    # Drame | Film complet | ACE ») : on prend chaque morceau qui ne contient QUE des
+    # genres connus (et des mots neutres comme « Téléfilm »).
+    trouves = []
     for morceau in morceaux[1:]:
-        parties = [p for p in re.split(r"[,/&]|\bet\b", morceau)
-                   if nettoie_genre(p) and not est_neutre(p)]
-        genres = [genre_normalise(p, strict=True) for p in parties]
-        if parties and all(genres):
-            return list(dict.fromkeys(genres))
-    return []
+        trouves += genres_purs(morceau)
+    return list(dict.fromkeys(trouves))
+
+
+def genres_purs(morceau):
+    """Les genres d'un morceau de titre qui ne contient QUE des genres connus
+    (« Action, Thriller », « Comédie & Famille »), sinon []."""
+    parties = [p for p in re.split(r"[,/&]|\bet\b", morceau)
+               if nettoie_genre(p) and not est_neutre(p)]
+    genres = [genre_normalise(p, strict=True) for p in parties]
+    return genres if parties and all(genres) else []
 
 
 def genres_de_la_description(description):
@@ -788,6 +800,15 @@ def finit_par(titre, fin):
     return bool(re.search(r"\|\s*" + re.escape(fin) + r"\s*$", titre or ""))
 
 
+# Certaines chaînes (CINE PRIME) séparent les parties du titre avec un caractère qui
+# ressemble à « | » mais n'en est pas un (⎪, ｜, │…). On le remplace par un vrai « | ».
+SEPARATEURS_SPECIAUX = str.maketrans({"⎪": " | ", "｜": " | ", "│": " | ", "∣": " | ", "┃": " | "})
+
+
+def separateurs_normaux(titre):
+    return re.sub(r"\s*\|\s*", " | ", titre.translate(SEPARATEURS_SPECIAUX)).strip(" |") if titre else titre
+
+
 def details_des_videos(ids, cle):
     details = []
     for debut in range(0, len(ids), 50):
@@ -798,7 +819,11 @@ def details_des_videos(ids, cle):
             {"part": "snippet,contentDetails,status,statistics", "id": ",".join(paquet)},
             cle,
         )
-        details += reponse.get("items", [])
+        for item in reponse.get("items", []):
+            snippet = item.get("snippet")
+            if snippet and snippet.get("title") and any(c in snippet["title"] for c in "⎪｜│∣┃"):
+                snippet["title"] = separateurs_normaux(snippet["title"])
+            details.append(item)
     return details
 
 
