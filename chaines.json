@@ -127,6 +127,14 @@
     "import_discret": true
   },
   {
+    "nom": "CINE PRIME",
+    "id": "UC9vXcOHj-sknqn_UJMDcpPA",
+    "genre": "",
+    "vf_seulement": true,
+    "lecture_rapide": true,
+    "import_discret": true
+  },
+  {
     "nom": "ARTE",
     "handle": "@arte",
     "genre": "Documentaire",
