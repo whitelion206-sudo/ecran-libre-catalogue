@@ -21,7 +21,7 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.
 # Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.
 # Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.
-# 7 paire(s).
+# 6 paire(s).
 
 # Jeffrey Dahmer · 1 h 30
 # Dahmer : le Psychopathe · Boxoffice | HORREUR | Films Complets · https://www.youtube.com/watch?v=M52RRPofLGM
@@ -29,13 +29,6 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 M52RRPofLGM => 
 _rseQiYi7pE => 
 M52RRPofLGM + _rseQiYi7pE => pas un doublon
-
-# John Coler · 1 h 32
-# Django, prépare ton cercueil ! · Ciné Western - Films Complets en Français · https://www.youtube.com/watch?v=11G5z8s67w4
-# Django prépare ton exécution · Ciné Western - Films Complets en Français · https://www.youtube.com/watch?v=GcisLbBxNkA
-11G5z8s67w4 => 
-GcisLbBxNkA => 
-11G5z8s67w4 + GcisLbBxNkA => pas un doublon
 
 # Dark Earth · 1 h 23
 # Earth's Dark Side · Boxoffice | SCIENCE-FICTION | Films Complets · https://www.youtube.com/watch?v=LjAK_oaEzIQ
