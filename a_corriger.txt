@@ -1,7 +1,7 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 17 film(s).
+# 18 film(s).
 
 # Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
 Avant qu'il ne soit trop tard => 
@@ -47,6 +47,9 @@ Une femme accro au travail croise un inconnu et rêve de le retrouver =>
 
 # Ciné Movies - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=wqddWYn8Nus
 Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable => 
+
+# Ciné Nanar - Films Complets en Français · 1 h 20 · https://www.youtube.com/watch?v=JVJP1iH47NE
+Il revient d'entre les morts avec le don de voir l'avenir => 
 
 # Ciné Nanar - Films Complets en Français · 1 h 20 · https://www.youtube.com/watch?v=rImJHGpCAmg
 Sauver ses enfants quand la planète entière part en morceaux => 
