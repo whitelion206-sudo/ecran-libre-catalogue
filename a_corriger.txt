@@ -1,58 +1,10 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 18 film(s).
-
-# Allociné Films Complets · 1 h 27 · https://www.youtube.com/watch?v=izkDpFEgsVE
-Avant qu'il ne soit trop tard => 
-
-# Allociné Films Complets · 1 h 32 · https://www.youtube.com/watch?v=7SLNdGvhzPo
-Scandale et Sport Automobile - La Légende de Max Mosley => 
-
-# Allociné Films Complets · 1 h 41 · https://www.youtube.com/watch?v=D4fIbRONtns
-Welcome to Death Row - Snoop Dogg Tupac Dr Dre Eazy E Suge Knight => 
-
-# Boxoffice | COMÉDIES | Films Complets · 1 h 30 · https://www.youtube.com/watch?v=ihEaKosvNgs
-TITOFF au Casino de Paris - Spectacle COMPLET (One Man Show, Standup) => 
-
-# Boxoffice | COMÉDIES | Films Complets · 1 h 15 · https://www.youtube.com/watch?v=ajJNRXssglY
-TITOFF au Palais des Glaces - Spectacle COMPLET (One Man Show, Standup) => 
-
-# Boxoffice | Films TV · 1 h 23 · https://www.youtube.com/watch?v=OG9XHPxLvS0
-Ce Qu'on ne se dit Pas => 
-
-# Boxoffice | THRILLERS | Films Complets · 1 h 51 · https://www.youtube.com/watch?v=FbYTD_2S3LQ
-The Tower - La Soirée Infernale - Film ENTIER Gratuit en Français => 
-
-# Ciné Classics - Films Complets · 1 h 22 · https://www.youtube.com/watch?v=oZyRoiWHI8U
-Les Contes de Maupassant – Aux Champs + Le Petit Fût => 
-
-# Ciné Classics - Films Complets · 1 h 26 · https://www.youtube.com/watch?v=pRKOI5yo5KY
-Les Contes de Maupassant – Ce cochon de Morin + Une soirée => 
-
-# Ciné Classics - Films Complets · 1 h 23 · https://www.youtube.com/watch?v=wzVY9t3pZUc
-Les Contes de Maupassant – Histoire d'une fille de ferme + La Parure => 
-
-# Ciné Classics - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=xTd6pVSAPYs
-Les Contes de Maupassant – Le Père Amable + Hautot père et fils => 
-
-# Ciné Classics - Films Complets · 1 h 22 · https://www.youtube.com/watch?v=JQomSwDd7xs
-Les Contes de Maupassant – Le Rosier de Madame Husson + L'Ami Joseph => 
-
-# Ciné Comédie - Films Complets en Français · 1 h 28 · https://www.youtube.com/watch?v=UTSxol0FFqg
-40 ANS ET DE RETOUR AU LYCÉE Leur diplôme est annulé => 
-
-# Ciné Movies - Films Complets · 1 h 27 · https://www.youtube.com/watch?v=uCZF__P8Qvk
-Une femme accro au travail croise un inconnu et rêve de le retrouver => 
+# 2 film(s).
 
 # Ciné Movies - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=wqddWYn8Nus
 Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 20 · https://www.youtube.com/watch?v=JVJP1iH47NE
-Il revient d'entre les morts avec le don de voir l'avenir => 
-
-# Ciné Nanar - Films Complets en Français · 1 h 20 · https://www.youtube.com/watch?v=rImJHGpCAmg
-Sauver ses enfants quand la planète entière part en morceaux => 
 
 # Ciné Nanar - Films Complets en Français · 1 h 21 · https://www.youtube.com/watch?v=8-oRzGlvszs
 Survivre dans une jungle où hommes armés et esprits vous traquent => 
@@ -63,3 +15,59 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # S'il faut le corriger : copie sa ligne dans corrections.txt et écris le bon titre après « => ».
 # S'il est déjà bon : copie sa ligne dans corrections.txt et recopie le même titre après « => ».
 # 0 film(s).
+
+
+# ------------------------------------------------------------------
+# Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.
+# Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.
+# Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.
+# 7 paire(s).
+
+# Jeffrey Dahmer · 1 h 30
+# Dahmer : le Psychopathe · Boxoffice | HORREUR | Films Complets · https://www.youtube.com/watch?v=M52RRPofLGM
+# En Cavale · Boxoffice | DRAMES | Films Complets · https://www.youtube.com/watch?v=_rseQiYi7pE
+M52RRPofLGM => 
+_rseQiYi7pE => 
+M52RRPofLGM + _rseQiYi7pE => pas un doublon
+
+# John Coler · 1 h 32
+# Django, prépare ton cercueil ! · Ciné Western - Films Complets en Français · https://www.youtube.com/watch?v=11G5z8s67w4
+# Django prépare ton exécution · Ciné Western - Films Complets en Français · https://www.youtube.com/watch?v=GcisLbBxNkA
+11G5z8s67w4 => 
+GcisLbBxNkA => 
+11G5z8s67w4 + GcisLbBxNkA => pas un doublon
+
+# Dark Earth · 1 h 23
+# Earth's Dark Side · Boxoffice | SCIENCE-FICTION | Films Complets · https://www.youtube.com/watch?v=LjAK_oaEzIQ
+# Sorciers, Magiciens et Créatures · Allociné Films Complets · https://www.youtube.com/watch?v=TZS-53YrcEI
+LjAK_oaEzIQ => 
+TZS-53YrcEI => 
+LjAK_oaEzIQ + TZS-53YrcEI => pas un doublon
+
+# Cuba Gooding · 1 h 24
+# Imposture · Boxoffice | Nouveautés & Films Complets · https://www.youtube.com/watch?v=8EnbCEN12YE
+# La Veuve · Boxoffice | 4K | Films Complets · https://www.youtube.com/watch?v=RVVuC9tE0nY
+8EnbCEN12YE => 
+RVVuC9tE0nY => 
+8EnbCEN12YE + RVVuC9tE0nY => pas un doublon
+
+# Adolf Eichmann · 1 h 35
+# L'Horreur des Camps · Boxoffice | DRAMES | Films Complets · https://www.youtube.com/watch?v=Z0-ND-MgM7I
+# Les aveux d'un criminel de guerre · Boxoffice | Films TV · https://www.youtube.com/watch?v=kC3-ShmQvTU
+Z0-ND-MgM7I => 
+kC3-ShmQvTU => 
+Z0-ND-MgM7I + kC3-ShmQvTU => pas un doublon
+
+# Dark Earth · 1 h 22
+# SHADOW AWAKENS: Gardiens de l'Univers · Ciné Nanar - Films Complets en Français · https://www.youtube.com/watch?v=AWYRRSyq4Pc
+# Earth's Dark Side · Boxoffice | SCIENCE-FICTION | Films Complets · https://www.youtube.com/watch?v=LjAK_oaEzIQ
+AWYRRSyq4Pc => 
+LjAK_oaEzIQ => 
+AWYRRSyq4Pc + LjAK_oaEzIQ => pas un doublon
+
+# Dark Earth · 1 h 22
+# SHADOW AWAKENS: Gardiens de l'Univers · Ciné Nanar - Films Complets en Français · https://www.youtube.com/watch?v=AWYRRSyq4Pc
+# Sorciers, Magiciens et Créatures · Allociné Films Complets · https://www.youtube.com/watch?v=TZS-53YrcEI
+AWYRRSyq4Pc => 
+TZS-53YrcEI => 
+AWYRRSyq4Pc + TZS-53YrcEI => pas un doublon
