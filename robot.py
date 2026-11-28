@@ -2081,6 +2081,96 @@ def tendances(films, aujourd_hui):
     return min(len(recents), TAILLE_TENDANCES)
 
 
+# --- Films similaires ---------------------------------------------------------------
+#
+# Pour chaque film, les 10 films les plus proches, d'après le genre et les mots du
+# résumé (« shérif », « hors-la-loi »… pour un western). Rien ne vient d'un site
+# extérieur : tout est calculé à partir du catalogue. Le résultat va dans un fichier à
+# part, similaires.json, pour ne pas alourdir catalogue.json.
+
+FICHIER_SIMILAIRES = os.path.join(DOSSIER, "similaires.json")
+NB_SIMILAIRES = 10
+SCORE_MINI_SIMILAIRE = 0.05
+MOTS_VIDES = set("""
+le la les un une des de du d l et en a au aux pour par sur dans avec son sa ses leur leurs qui que quoi dont ou il
+elle ils elles on se s ce cet cette ces est sont etre ete va vont plus ne pas n y lui eux nous vous je tu mais donc or
+ni car tout tous toute toutes tres bien aussi comme quand alors apres avant entre sans sous chez vers film films
+complet complete francais francaise version integrale gratuit gratuitement regarder youtube abonnez abonne abonner
+chaine video videos lien liens suivez retrouvez nos notre votre vos meme fait faire peut doit deux trois mais
+""".split())
+
+
+def mots_pour_similaires(texte):
+    texte = unicodedata.normalize("NFKD", (texte or "").lower()).encode("ascii", "ignore").decode()
+    return [m for m in re.findall(r"[a-z]{3,}", texte) if m not in MOTS_VIDES]
+
+
+def base_de_saga(titre):
+    """« Dark Rising : Les Gardiens » et « Dark Rising 2 » → « dark rising »."""
+    t = unicodedata.normalize("NFKD", (titre or "").lower()).encode("ascii", "ignore").decode()
+    t = re.split(r"\s*:\s*|\s+[-–]\s+|\s*\(|\s+\d", t)[0].strip(" .!,'")
+    return t if len(t) >= 5 and len(t.split()) <= 4 else ""
+
+
+def films_similaires(films):
+    """Calcule les films similaires et écrit similaires.json. Renvoie le nombre de films
+    qui ont au moins une suggestion."""
+    import math
+    ids = sorted(films)
+    n = len(ids)
+    if n < 2:
+        with open(FICHIER_SIMILAIRES, "w", encoding="utf-8") as f:
+            json.dump({}, f)
+        return 0
+    sacs, genres_de = {}, {}
+    for fid in ids:
+        film = films[fid]
+        sacs[fid] = Counter(mots_pour_similaires(film.get("description")))
+        genres_de[fid] = {"g:" + "".join(mots_pour_similaires(g)) for g in (film.get("genres") or []) if mots_pour_similaires(g)}
+    df = Counter()
+    for fid in ids:
+        df.update(set(sacs[fid]) | genres_de[fid])
+    plafond = 0.3 * n
+    vecteurs = {}
+    for fid in ids:
+        v = {}
+        for mot, tf in sacs[fid].items():
+            if 2 <= df[mot] <= plafond:
+                v[mot] = (1 + math.log(tf)) * math.log(n / df[mot])
+        for g in genres_de[fid]:          # le genre compte beaucoup (comme 3 mots importants)
+            v[g] = 3 * math.log(n / df[g]) if df[g] < n else 0.5
+        norme = math.sqrt(sum(x * x for x in v.values())) or 1.0
+        vecteurs[fid] = {k: x / norme for k, x in v.items() if x > 0}
+    index = {}
+    for fid, v in vecteurs.items():
+        for mot, x in v.items():
+            index.setdefault(mot, []).append((fid, x))
+    docu = {fid: est_documentaire(films[fid]) for fid in ids}
+    saga = {fid: base_de_saga(films[fid].get("titre")) for fid in ids}
+    sagas = {}
+    for fid, base in saga.items():
+        if base:
+            sagas.setdefault(base, []).append(fid)
+    resultat = {}
+    for fid in ids:
+        scores = Counter()
+        for mot, x in vecteurs[fid].items():
+            for autre, y in index[mot]:
+                scores[autre] += x * y
+        scores.pop(fid, None)
+        if saga[fid] and len(sagas[saga[fid]]) <= 12:     # même saga : proposée en premier
+            for autre in sagas[saga[fid]]:
+                if autre != fid:
+                    scores[autre] += 0.25
+        choix = [autre for autre, sc in sorted(scores.items(), key=lambda e: (-e[1], e[0]))
+                 if sc >= SCORE_MINI_SIMILAIRE and docu[autre] == docu[fid]][:NB_SIMILAIRES]
+        if choix:
+            resultat[fid] = choix
+    with open(FICHIER_SIMILAIRES, "w", encoding="utf-8") as f:
+        json.dump(resultat, f, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    return len(resultat)
+
+
 # --- Corrections à la main --------------------------------------------------------
 #
 # corrections.txt (à la racine du dépôt), une correction par ligne :
@@ -2650,6 +2740,7 @@ def main():
     nb_tendances = tendances(films, date_stats)
     print(f"Tendances : {nb_tendances} films classés (les plus vus parmi ceux publiés"
           f" sur YouTube depuis {JOURS_TENDANCE} jours, sans les documentaires).")
+    print(f"Films similaires : calculés pour {films_similaires(films)} films (voir similaires.json).")
     # Sécurité : un film absent de la lecture des chaînes n'est déclaré « retiré » qu'après
     # une vérification directe auprès de YouTube (si la lecture d'une chaîne s'est arrêtée
     # en route, ses films ne doivent pas être comptés comme retirés).
