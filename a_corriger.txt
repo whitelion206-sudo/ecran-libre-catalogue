@@ -1,7 +1,46 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 2 film(s).
+# 15 film(s).
+
+# CINE PRIME · 1 h 44 · https://www.youtube.com/watch?v=uTvM9KPmGjE
+Boy 7⎪Sa mémoire a été effacée pour cacher la vérité⎪Sci-Fi⎪ => 
+
+# CINE PRIME · 1 h 46 · https://www.youtube.com/watch?v=_NNgnGN4H5I
+First man in space⎪Le vol qui a changé le monde⎪ => 
+
+# CINE PRIME · 1 h 24 · https://www.youtube.com/watch?v=awIutyOWQaw
+Ip Man: Kung Fu Master⎪Accusé de meurtre, il doit laver son honneur⎪Action⎪ => 
+
+# CINE PRIME · 1 h 23 · https://www.youtube.com/watch?v=HbFIsVc9pUI
+La Bagarre de Santa Fe⎪Randolph Scott contre ses propres frères⎪Western⎪ => 
+
+# CINE PRIME · 1 h 10 · https://www.youtube.com/watch?v=WAG0Zwyz-t8
+La Chevauchée de la vengeance⎪Randolph Scott face à Lee Van Cleef⎪Western⎪ => 
+
+# CINE PRIME · 1 h 32 · https://www.youtube.com/watch?v=vhOXCkIFTgY
+Le Commando⎪Un agent de la DEA défend sa famille⎪Michael Jai White⎪ => 
+
+# CINE PRIME · 1 h 28 · https://www.youtube.com/watch?v=ph46IInu2-Y
+Le Détournement du bus CX-17⎪Un bus scolaire pris en otage⎪Thriller⎪Drame⎪ => 
+
+# CINE PRIME · 1 h 29 · https://www.youtube.com/watch?v=_8EPfakGP-o
+Le parfait amour⎪Sa mère lui cherche l’homme idéal⎪Henry Ian Cusick⎪Romance⎪ => 
+
+# CINE PRIME · 1 h 39 · https://www.youtube.com/watch?v=fBB-3xTpHts
+Le Rafiot héroïque⎪Jack Lemmon en mission secrète dans le Pacifique⎪Comédie⎪Guerre⎪ => 
+
+# CINE PRIME · 1 h 36 · https://www.youtube.com/watch?v=G6tbfwXLe_A
+Piège en eaux troubles⎪Bruce Willis traque un tueur dans la police⎪Action⎪Thriller⎪ => 
+
+# CINE PRIME · 1 h 53 · https://www.youtube.com/watch?v=3A6OspZ12hA
+Prisoner of War⎪Scott Adkins⎪Capturé, il devra se battre pour survivre⎪Action⎪ => 
+
+# CINE PRIME · 1 h 41 · https://www.youtube.com/watch?v=D_RUypox4Yo
+The Black Demon⎪En pleine mer, personne ne viendra les sauver⎪Action⎪Drame⎪ => 
+
+# CINE PRIME · 1 h 27 · https://www.youtube.com/watch?v=EAxuGTaiq9U
+Trahison au sommet⎪Il retrouve la vue et découvre le piège⎪Action⎪Sci-Fi⎪ => 
 
 # Ciné Movies - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=wqddWYn8Nus
 Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable => 
@@ -21,4 +60,11 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.
 # Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.
 # Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.
-# 0 paire(s).
+# 1 paire(s).
+
+# Thomas Beckett · 1 h 27
+# Sniper 2⎪Tom Berenger⎪Une cible à éliminer⎪Action⎪Guerre⎪ · CINE PRIME · https://www.youtube.com/watch?v=7HyWXG_Bp8A
+# Sniper 3 · Ciné Movies - Films Complets · https://www.youtube.com/watch?v=Yl3TNb0vFg8
+7HyWXG_Bp8A => 
+Yl3TNb0vFg8 => 
+7HyWXG_Bp8A + Yl3TNb0vFg8 => pas un doublon
