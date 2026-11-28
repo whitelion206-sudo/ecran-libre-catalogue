@@ -860,6 +860,9 @@ PAS_DOUBLONS = set()
 # qui reste dans l'appli (par exemple celle qui a 27 millions de vues), même si une
 # autre chaîne vient avant dans chaines.json.
 COPIES_A_GARDER = set()
+# Copie retirée -> copie gardée, rempli par sans_doublons (pour reporter les avis
+# donnés sur une copie qui a été fusionnée).
+FUSIONNES = {}
 
 
 def mots_du_resume(texte):
@@ -958,6 +961,7 @@ def sans_doublons(films):
             if genre not in double["genres"]:
                 double["genres"].append(genre)
         double["genre"] = double["genre"] or (double["genres"][0] if double["genres"] else "")
+        FUSIONNES[fid] = double["id"]
         retires.append(f"{film['titre']} ({film['chaine']})")
     if retires:
         print(f"Doublons retirés : {len(retires)} (ex. : {', '.join(retires[:5])})")
@@ -2208,6 +2212,46 @@ def films_similaires(films):
     return len(resultat)
 
 
+# --- Avis Écran Libre (pouces) ------------------------------------------------------
+#
+# compter_avis.py lit les votes dans Firebase et écrit avis.json ; ici on ajoute les
+# totaux à chaque film du catalogue (avis_oui, avis_non). Ce sont les avis des
+# utilisateurs d'Écran Libre, pas des chiffres de YouTube.
+
+FICHIER_AVIS = os.path.join(DOSSIER, "avis.json")
+
+
+def appliquer_avis(films):
+    """Ajoute avis_oui / avis_non aux films. Renvoie (films notés, avis comptés)."""
+    for film in films.values():
+        film.pop("avis_oui", None)
+        film.pop("avis_non", None)
+    try:
+        with open(FICHIER_AVIS, encoding="utf-8") as f:
+            par_film = json.load(f).get("films", {})
+    except (OSError, ValueError, AttributeError):
+        return 0, 0
+    notes = total = 0
+    for fid, compte in par_film.items():
+        cible = fid
+        for _ in range(5):                       # copie fusionnée -> copie gardée
+            if cible in films or cible not in FUSIONNES:
+                break
+            cible = FUSIONNES[cible]
+        film = films.get(cible)
+        if not film or not isinstance(compte, list) or len(compte) != 2:
+            continue
+        oui, non = (max(0, int(x)) if isinstance(x, (int, float)) else 0 for x in compte)
+        if oui + non == 0:
+            continue
+        if "avis_oui" not in film:
+            notes += 1
+        film["avis_oui"] = film.get("avis_oui", 0) + oui
+        film["avis_non"] = film.get("avis_non", 0) + non
+        total += oui + non
+    return notes, total
+
+
 # --- Corrections à la main --------------------------------------------------------
 #
 # corrections.txt (à la racine du dépôt), une correction par ligne :
@@ -2781,6 +2825,8 @@ def main():
     print(f"Tendances : {nb_tendances} films classés (les plus vus parmi ceux publiés"
           f" sur YouTube depuis {JOURS_TENDANCE} jours, sans les documentaires).")
     print(f"Films similaires : calculés pour {films_similaires(films)} films (voir similaires.json).")
+    notes, comptes = appliquer_avis(films)
+    print(f"Avis Écran Libre : {comptes} avis sur {notes} films ajoutés au catalogue.")
     # Sécurité : un film absent de la lecture des chaînes n'est déclaré « retiré » qu'après
     # une vérification directe auprès de YouTube (si la lecture d'une chaîne s'est arrêtée
     # en route, ses films ne doivent pas être comptés comme retirés).
