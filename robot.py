@@ -831,6 +831,10 @@ def partie_ou_episode(titre):
 # Paires écrites « id1 + id2 => pas un doublon » dans corrections.txt : deux films
 # différents que le robot ne doit ni fusionner ni proposer comme doublons possibles.
 PAS_DOUBLONS = set()
+# Lignes « id => copie à garder » : quand ce film a des doublons, c'est cette copie-là
+# qui reste dans l'appli (par exemple celle qui a 27 millions de vues), même si une
+# autre chaîne vient avant dans chaines.json.
+COPIES_A_GARDER = set()
 
 
 def mots_du_resume(texte):
@@ -883,7 +887,8 @@ def sans_doublons(films):
     def proche(a, b, ecart):
         return abs(a["duree_minutes"] - b["duree_minutes"]) <= ecart
 
-    for fid, film in films.items():           # dans l'ordre des chaînes
+    # dans l'ordre des chaînes, mais les « copies à garder » passent en premier
+    for fid, film in sorted(films.items(), key=lambda e: e[0] not in COPIES_A_GARDER):
         cle_titre = normalise(film["titre"])
         principal = titre_principal(film["titre"])
         double = next((a for a in gardes.get(cle_titre, []) if proche(film, a, 5)), None)
@@ -2209,6 +2214,9 @@ def lire_corrections():
             a, _, b = (x.strip() for x in gauche.partition("+"))
             if a and b:
                 PAS_DOUBLONS.add(frozenset((a, b)))
+            continue
+        if "+" not in gauche and not genres and titre.lower().strip(" .!") in ("copie à garder", "copie a garder", "garder"):
+            COPIES_A_GARDER.add(gauche)
             continue
         if gauche and (titre or genres):
             corrections.append((gauche, titre, genres))
