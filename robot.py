@@ -887,6 +887,14 @@ def sans_doublons(films):
         cle_titre = normalise(film["titre"])
         principal = titre_principal(film["titre"])
         double = next((a for a in gardes.get(cle_titre, []) if proche(film, a, 5)), None)
+        if double is None and fid in TITRES_CORRIGES:
+            # Même titre écrit à la main dans corrections.txt pour les deux copies :
+            # c'est le même film même si une copie est un peu plus courte (jusqu'à
+            # 15 minutes d'écart), sauf si les années corrigées sont différentes.
+            double = next((a for a in gardes.get(cle_titre, []) if a["id"] in TITRES_CORRIGES
+                           and proche(film, a, 15)
+                           and not (film.get("annee_corrigee") and a.get("annee_corrigee")
+                                    and film["annee_corrigee"] != a["annee_corrigee"])), None)
         if double is None and principal:      # « Rouge Rubis : … » après « Rouge rubis »
             double = next((a for a in gardes.get(principal, []) if proche(film, a, 2)), None)
         if double is None:                    # « Rouge rubis » après « Rouge Rubis : … »
