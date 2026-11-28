@@ -2162,7 +2162,14 @@ def films_similaires(films):
             for autre in sagas[saga[fid]]:
                 if autre != fid:
                     scores[autre] += 0.25
-        choix = [autre for autre, sc in sorted(scores.items(), key=lambda e: (-e[1], e[0]))
+        # D'abord les films qui ont au moins un genre en commun (ou de la même saga) :
+        # un thriller ne propose une comédie que s'il n'y a pas assez de thrillers proches.
+        mes_genres = genres_de[fid]
+        def rang(e):
+            autre, sc = e
+            proche = (not mes_genres) or bool(mes_genres & genres_de[autre]) or (saga[fid] and saga[autre] == saga[fid])
+            return (0 if proche else 1, -sc, autre)
+        choix = [autre for autre, sc in sorted(scores.items(), key=rang)
                  if sc >= SCORE_MINI_SIMILAIRE and docu[autre] == docu[fid]][:NB_SIMILAIRES]
         if choix:
             resultat[fid] = choix
