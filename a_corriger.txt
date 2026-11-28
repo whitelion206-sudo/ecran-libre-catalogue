@@ -21,46 +21,4 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.
 # Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.
 # Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.
-# 6 paire(s).
-
-# Jeffrey Dahmer · 1 h 30
-# Dahmer : le Psychopathe · Boxoffice | HORREUR | Films Complets · https://www.youtube.com/watch?v=M52RRPofLGM
-# En Cavale · Boxoffice | DRAMES | Films Complets · https://www.youtube.com/watch?v=_rseQiYi7pE
-M52RRPofLGM => 
-_rseQiYi7pE => 
-M52RRPofLGM + _rseQiYi7pE => pas un doublon
-
-# Dark Earth · 1 h 23
-# Earth's Dark Side · Boxoffice | SCIENCE-FICTION | Films Complets · https://www.youtube.com/watch?v=LjAK_oaEzIQ
-# Sorciers, Magiciens et Créatures · Allociné Films Complets · https://www.youtube.com/watch?v=TZS-53YrcEI
-LjAK_oaEzIQ => 
-TZS-53YrcEI => 
-LjAK_oaEzIQ + TZS-53YrcEI => pas un doublon
-
-# Cuba Gooding · 1 h 24
-# Imposture · Boxoffice | Nouveautés & Films Complets · https://www.youtube.com/watch?v=8EnbCEN12YE
-# La Veuve · Boxoffice | 4K | Films Complets · https://www.youtube.com/watch?v=RVVuC9tE0nY
-8EnbCEN12YE => 
-RVVuC9tE0nY => 
-8EnbCEN12YE + RVVuC9tE0nY => pas un doublon
-
-# Adolf Eichmann · 1 h 35
-# L'Horreur des Camps · Boxoffice | DRAMES | Films Complets · https://www.youtube.com/watch?v=Z0-ND-MgM7I
-# Les aveux d'un criminel de guerre · Boxoffice | Films TV · https://www.youtube.com/watch?v=kC3-ShmQvTU
-Z0-ND-MgM7I => 
-kC3-ShmQvTU => 
-Z0-ND-MgM7I + kC3-ShmQvTU => pas un doublon
-
-# Dark Earth · 1 h 22
-# SHADOW AWAKENS: Gardiens de l'Univers · Ciné Nanar - Films Complets en Français · https://www.youtube.com/watch?v=AWYRRSyq4Pc
-# Earth's Dark Side · Boxoffice | SCIENCE-FICTION | Films Complets · https://www.youtube.com/watch?v=LjAK_oaEzIQ
-AWYRRSyq4Pc => 
-LjAK_oaEzIQ => 
-AWYRRSyq4Pc + LjAK_oaEzIQ => pas un doublon
-
-# Dark Earth · 1 h 22
-# SHADOW AWAKENS: Gardiens de l'Univers · Ciné Nanar - Films Complets en Français · https://www.youtube.com/watch?v=AWYRRSyq4Pc
-# Sorciers, Magiciens et Créatures · Allociné Films Complets · https://www.youtube.com/watch?v=TZS-53YrcEI
-AWYRRSyq4Pc => 
-TZS-53YrcEI => 
-AWYRRSyq4Pc + TZS-53YrcEI => pas un doublon
+# 0 paire(s).
