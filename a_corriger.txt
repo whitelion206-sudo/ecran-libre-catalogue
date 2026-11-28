@@ -1,52 +1,499 @@
 # Films dont le titre est encore une phrase d'accroche (mis à jour par le robot).
 # Pour en corriger un : copie sa ligne dans corrections.txt et écris le vrai titre après « => ».
 # Si le titre est déjà le bon, recopie-le après « => » : il ne sera plus listé ici.
-# 15 film(s).
-
-# CINE PRIME · 1 h 44 · https://www.youtube.com/watch?v=uTvM9KPmGjE
-Boy 7⎪Sa mémoire a été effacée pour cacher la vérité⎪Sci-Fi⎪ => 
-
-# CINE PRIME · 1 h 46 · https://www.youtube.com/watch?v=_NNgnGN4H5I
-First man in space⎪Le vol qui a changé le monde⎪ => 
-
-# CINE PRIME · 1 h 24 · https://www.youtube.com/watch?v=awIutyOWQaw
-Ip Man: Kung Fu Master⎪Accusé de meurtre, il doit laver son honneur⎪Action⎪ => 
-
-# CINE PRIME · 1 h 23 · https://www.youtube.com/watch?v=HbFIsVc9pUI
-La Bagarre de Santa Fe⎪Randolph Scott contre ses propres frères⎪Western⎪ => 
-
-# CINE PRIME · 1 h 10 · https://www.youtube.com/watch?v=WAG0Zwyz-t8
-La Chevauchée de la vengeance⎪Randolph Scott face à Lee Van Cleef⎪Western⎪ => 
-
-# CINE PRIME · 1 h 32 · https://www.youtube.com/watch?v=vhOXCkIFTgY
-Le Commando⎪Un agent de la DEA défend sa famille⎪Michael Jai White⎪ => 
-
-# CINE PRIME · 1 h 28 · https://www.youtube.com/watch?v=ph46IInu2-Y
-Le Détournement du bus CX-17⎪Un bus scolaire pris en otage⎪Thriller⎪Drame⎪ => 
-
-# CINE PRIME · 1 h 29 · https://www.youtube.com/watch?v=_8EPfakGP-o
-Le parfait amour⎪Sa mère lui cherche l’homme idéal⎪Henry Ian Cusick⎪Romance⎪ => 
-
-# CINE PRIME · 1 h 39 · https://www.youtube.com/watch?v=fBB-3xTpHts
-Le Rafiot héroïque⎪Jack Lemmon en mission secrète dans le Pacifique⎪Comédie⎪Guerre⎪ => 
-
-# CINE PRIME · 1 h 36 · https://www.youtube.com/watch?v=G6tbfwXLe_A
-Piège en eaux troubles⎪Bruce Willis traque un tueur dans la police⎪Action⎪Thriller⎪ => 
-
-# CINE PRIME · 1 h 53 · https://www.youtube.com/watch?v=3A6OspZ12hA
-Prisoner of War⎪Scott Adkins⎪Capturé, il devra se battre pour survivre⎪Action⎪ => 
-
-# CINE PRIME · 1 h 41 · https://www.youtube.com/watch?v=D_RUypox4Yo
-The Black Demon⎪En pleine mer, personne ne viendra les sauver⎪Action⎪Drame⎪ => 
-
-# CINE PRIME · 1 h 27 · https://www.youtube.com/watch?v=EAxuGTaiq9U
-Trahison au sommet⎪Il retrouve la vue et découvre le piège⎪Action⎪Sci-Fi⎪ => 
+# 164 film(s).
 
 # Ciné Movies - Films Complets · 1 h 29 · https://www.youtube.com/watch?v=wqddWYn8Nus
 Une inconnue trop dévouée s'installe au cœur d'une famille vulnérable => 
 
 # Ciné Nanar - Films Complets en Français · 1 h 21 · https://www.youtube.com/watch?v=8-oRzGlvszs
 Survivre dans une jungle où hommes armés et esprits vous traquent => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=vBNJvsUxsCs
+1950: des nonnes sataniques dérobent les enfants de femmes enceintes => 
+
+# La Fabrique à Films · 1 h 35 · https://www.youtube.com/watch?v=fKF2kIG1JXs
+Accusé à tort de meurtre, cet agent du FBI doit prouver son innocence => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=lOXXvdnxgoc
+Accusé à tort, cet ancien marine est la dernière chance d’éviter la pire attaque => 
+
+# La Fabrique à Films · 1 h 40 · https://www.youtube.com/watch?v=Q3Sg8op6-Xw
+Amnésique, il se réveille prisonnier d'un grotte infestée de mutants affamés => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=T4kS0714PeQ
+Aveugle et traquée dans un manoir, elle doit utiliser ses autres sens pour survivre => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=xzjBzBsphOE
+Bambi a perdu sa mère à cause des chasseurs. Sa vengeance sera sans pitié => 
+
+# La Fabrique à Films · 1 h 09 · https://www.youtube.com/watch?v=J3S2__lLPfs
+C'était un shérif normal jusqu'à ce qu'il se transforme en loup garou affamé => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=ZG9HSAb7-yw
+Ce crocodile géant a bouffé un sac rempli d'argent avant de s'échapper => 
+
+# La Fabrique à Films · 1 h 31 · https://www.youtube.com/watch?v=lIQuk2rLF-Q
+Ce jeu est totalement interdit. Il y jouent quand même pour l'argent => 
+
+# La Fabrique à Films · 1 h 43 · https://www.youtube.com/watch?v=N92C3oi-S0c
+Ce kébabier orphelin venge sa famille en cuisinant ses victimes => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=bRd-KN6bMJ0
+Ce loup-garou est entrainé par l'armée américaine pour tuer tout ce qui bouge => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=EJqUmdhZu08
+Ce lycée cache des secrets sordides et les profs en paient le prix => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=FsCgpUsDISQ
+Ce maître en arts martiaux aide la police de Hong Kong à arrêter un tueur en série => 
+
+# La Fabrique à Films · 1 h 34 · https://www.youtube.com/watch?v=yr9VJg4cDBw
+Ce samouraï mercenaire jure loyauté au roi ennemi pour se venger => 
+
+# La Fabrique à Films · 2 h 23 · https://www.youtube.com/watch?v=54vqm2f1liA
+Ce sont les derniers disciples d'un art martial mortel. Cet héritage cache un secret => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=AmXiPCntLmc
+Ce tueur dévoile l'identité de ses prochaines victimes avant de passer à l'acte => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=Lb_pWWyy2AY
+Ces exorcistes pensaient affronter un simple démon. C'est le mal incarné => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=OIudzsMsI1M
+Ces Guerriers de Contes de Fées sont le seul rempart face à une menace bien réelle => 
+
+# La Fabrique à Films · 1 h 17 · https://www.youtube.com/watch?v=3JCBZQ6_DP0
+Cet ado ne soupçonnait pas qu'il deviendrait aussi populaire auprès des femmes mûres => 
+
+# La Fabrique à Films · 2 h 09 · https://www.youtube.com/watch?v=qXk2MhGcm0s
+Cet incident secret que la NASA s'efforce de dissimuler à tout prix => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=zREw0qzb_6k
+Cette baby-sitter est prête à tuer pour protéger ces ados => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=G-5zLHTjbpU
+Cette Comtesse Hongroise prend des bains de sang pour préserver sa jeunesse éternelle => 
+
+# La Fabrique à Films · 1 h 17 · https://www.youtube.com/watch?v=5aScoPHuBJg
+Cette nymphe maléfique est capable de séduire n'importe quel homme => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=aor0sf9HoAQ
+Cette pom-pom girl revient d’entre les morts pour se venger => 
+
+# La Fabrique à Films · 1 h 40 · https://www.youtube.com/watch?v=MN76CW-uOkM
+Cette prison haute sécurité détient les mutants les plus dangereux au monde => 
+
+# La Fabrique à Films · 1 h 35 · https://www.youtube.com/watch?v=oXEinTXM9Lo
+Dans ce futur, toutes les substances sont légales... même les plus mortelles => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=6hOuGw0Qja0
+Dans cette course à mort, franchir la ligne d'arrivée est une question de survie => 
+
+# La Fabrique à Films · 1 h 40 · https://www.youtube.com/watch?v=QfC9erBoFWI
+Dans l'obscurité d'un nightclub, ce tueur repère ses futures proies => 
+
+# La Fabrique à Films · 2 h 43 · https://www.youtube.com/watch?v=ASYCTN0IkrM
+Dans l’enfer glacé de l'hiver, des soldats défient l'armée la plus puissante au monde => 
+
+# La Fabrique à Films · 2 h 41 · https://www.youtube.com/watch?v=h4q5hTmDowo
+Dans un japon futuriste, une détective cybernétique traque une société secrète => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=cIpibl6_b0E
+Des dinosaures créés dans un laboratoire secret s'échappent et sème le chaos => 
+
+# La Fabrique à Films · 1 h 21 · https://www.youtube.com/watch?v=7L1FBmw7XFY
+Des influenceurs assoiffés de buzz risquent leur vie pour du contenu => 
+
+# La Fabrique à Films · 1 h 19 · https://www.youtube.com/watch?v=GBNUNoB54H4
+Des influenceurs piégés dans le manoir d'un milliardaire avec des vampires => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=I3FZgZbilUY
+Des pilotes de l'armée affrontent des dinosaures meurtriers en haute altitude => 
+
+# La Fabrique à Films · 1 h 41 · https://www.youtube.com/watch?v=tYG_16eyXCo
+Des pirates vikings invoquent une sorcière avant d’envahir la Pologne => 
+
+# La Fabrique à Films · 1 h 10 · https://www.youtube.com/watch?v=aZV5NTO0fiI
+Des spéléologues se font piéger dans une caverne infestée de crocodiles => 
+
+# La Fabrique à Films · 1 h 49 · https://www.youtube.com/watch?v=5JFfswIJw_4
+Deux agents rivaux doivent s'unir pour faire un tomber un syndicat du crime => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=hmexwywDg84
+Deux enfants volent une voiture de flic et découvrent l’enfer => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=MlRXo9qmo9M
+Deux flics ennemis. Une mission impossible. Une seule chance de survivre => 
+
+# La Fabrique à Films · 1 h 50 · https://www.youtube.com/watch?v=0PsSYr-CnLw
+Deux frères gangsters en prison sombrent dans la folie totale => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=AFkqZOO0ffA
+Deux nettoyeurs trouvent une mallette de cash et déclenchent une chasse à l’homme => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=RUp0cMiGxVI
+Deux reporters sont envoyés sur le front. L'horreur des combats les changent à jamais => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=-zFGNg0x5Ew
+Echoué sur une ile, il affronte une menace encore plus mortelle => 
+
+# La Fabrique à Films · 9 h 10 · https://www.youtube.com/watch?v=5euu26bxjnM
+Elle est le dernier rempart contre les ombres du mal => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=I0Z6U3FbNiA
+Elle est somnambule et l'hôpital veut censurer ce qu'elle voit dans ses rêves => 
+
+# La Fabrique à Films · 1 h 22 · https://www.youtube.com/watch?v=VqA4scyR6PU
+Elle prétend que sa célèbre voisine a disparu mais sa psychose cache autre chose => 
+
+# La Fabrique à Films · 1 h 19 · https://www.youtube.com/watch?v=xRAcgxj8BP8
+Elle rencontre une créature bestiale et goûte à son côté sauvage => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=hkLJttLy-cc
+Elle reçoit un artefact de son père disparu et s'embarque dans une quête périlleuse => 
+
+# La Fabrique à Films · 1 h 17 · https://www.youtube.com/watch?v=VFcV_9Rbd40
+Elle voulait un aperçu de l'enfer... Elle rencontre le diable en personne => 
+
+# La Fabrique à Films · 1 h 45 · https://www.youtube.com/watch?v=04q1jsI_uWU
+Elle était séquestrée au sous-sol. Son kidnappeur va payer le prix fort => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=EOHrsSfNrlg
+Elles ont tout quitté pour rejoindre la secte d'un gourou manipulateur => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=Z60VIj4Cbn0
+En Alaska une scientifique est prête à mourir pour capturer la foudre => 
+
+# La Fabrique à Films · 1 h 15 · https://www.youtube.com/watch?v=4uTm7S6pqVE
+En plein accouchement, cette femme découvre une horrible verité sur son médecin => 
+
+# La Fabrique à Films · 1 h 23 · https://www.youtube.com/watch?v=_erw0i35Mko
+En plein hiver nucléaire, il doit affronter Zeus qui a kidnappé sa petite amie => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=bSJOZzEZRDM
+En pleine affaire de meurtre, une juge tombe sous le charme du suspect numéro 1 => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=ovGM5AnQoO8
+En pleine orbite, sa combinaison spatiale fuit et risque de le noyer => 
+
+# La Fabrique à Films · 1 h 23 · https://www.youtube.com/watch?v=rekWmWh-mkk
+En terre hostile, la survie dépend de celui qui tuera le premier... => 
+
+# La Fabrique à Films · 1 h 17 · https://www.youtube.com/watch?v=NSZ920KS7Q0
+En Transylvanie, le Prince des Ténèbres voue une obsession à l'Impératrice de Russie => 
+
+# La Fabrique à Films · 1 h 11 · https://www.youtube.com/watch?v=aNAi-kHwfT4
+En traquant le mystère d'un navire maudit, un équipage disparaît dans l’abîme => 
+
+# La Fabrique à Films · 1 h 48 · https://www.youtube.com/watch?v=Rj84A1AO7vo
+Envoyé au cœur du conflit en Afghanistan, il doit mener une négociation impossible => 
+
+# La Fabrique à Films · 2 h 09 · https://www.youtube.com/watch?v=sxgvOWy3sdg
+Face à l'armada japonaise, la Corée doit dégainer son arme secrète => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=Q3GP4xM5-Nk
+Face à l'invasion barbare, ce Prince Slave est le seul à pouvoir son peuple => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=kRj2lrGoGEE
+Face à l'invasion des orcs, ils doivent brandir l'arme ultime... Ou périr => 
+
+# La Fabrique à Films · 2 h 11 · https://www.youtube.com/watch?v=g4SWdGAg-_w
+Face à un Empire ravageur, un seul général coréen refuse de se rendre => 
+
+# La Fabrique à Films · 1 h 22 · https://www.youtube.com/watch?v=2DbwKH-WMiU
+Face à une nouvelle ère glaciaire, l'humanité doit s'adapter ou mourir => 
+
+# La Fabrique à Films · 1 h 42 · https://www.youtube.com/watch?v=d9oGjEP9mSU
+Forcées d'être parfaites, les élèves ignorent tout du terrible secret de l'académie => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=LJ7UmjrDeMo
+Hantée par des cauchemars lucides, elle commence à douter de la réalité => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=Hgj5PP-UaMY
+Il a survécu à la roulette russe. Il s'est vengé de tout le monde => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=Eow-nx4FxSY
+Il avait pour mission de la tuer, elle est finalement sa seule chance de survivre => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=TwnfO3oygo0
+Il escortait un criminel en détention et se retrouve piégé dans la pire des prisons => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=Ej0W1E7VxjA
+Il n'a que 90 minutes avant d'être brûlé par le soleil => 
+
+# La Fabrique à Films · 1 h 36 · https://www.youtube.com/watch?v=Zm29xbDt82Q
+Il n’aurait jamais dû accepter de livrer ce colis suspect => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=MwRKBxA3xSI
+Il quitte la terre en quête d'un refuge sur une planète colonisée mais hostile => 
+
+# La Fabrique à Films · 1 h 18 · https://www.youtube.com/watch?v=Htbf6T1AQVQ
+Il se bat dans un monde virtuel qui devient soudainement trop réel => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=bDDgOOiY3X0
+Il vient lui faire du mal. Elle ne va pas se laisser faire... => 
+
+# La Fabrique à Films · 1 h 32 · https://www.youtube.com/watch?v=j6LbB4fu5j4
+Ils espionnent leur voisin pour s'amuser mais ce qu'ils vont voir va les choquer => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=o63q74tkzDA
+Ils n'ont que quelques jours pour retrouver un artefact ou leurs parents meurent => 
+
+# La Fabrique à Films · 1 h 14 · https://www.youtube.com/watch?v=ZUZZabk1Dp0
+Ils ont 7 minutes pour braquer une banque ultra-sécurisée => 
+
+# La Fabrique à Films · 1 h 43 · https://www.youtube.com/watch?v=Jbf7zwn5Tok
+Ils ont menacé son fils. Il va leur faire vivre un enfer => 
+
+# La Fabrique à Films · 1 h 34 · https://www.youtube.com/watch?v=pgTaY6JqMlU
+Ils pensaient réveillonner un famille. La mort les attend sous le sapin => 
+
+# La Fabrique à Films · 1 h 23 · https://www.youtube.com/watch?v=vHyERlnnVhs
+Ils se réveillent dans un labyrinthe, traqués par une présence invisible => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=bSowrI20OMA
+Ils se réveillent en pleine invasion extraterrestre => 
+
+# La Fabrique à Films · 1 h 22 · https://www.youtube.com/watch?v=pffcB-SRU-A
+Ils sont coincés dans la maison où, il y a 100 ans, un enfant a tué toute sa famille => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=piOBs3gT5qk
+Ils veulent la Terre et n'auront aucune pitié pour ses habitants... => 
+
+# La Fabrique à Films · 1 h 21 · https://www.youtube.com/watch?v=EJ0wIFBXu0M
+Jeté d'un avion en plein vol, sa vengeance sera sans pitié => 
+
+# La Fabrique à Films · 2 h 00 · https://www.youtube.com/watch?v=uF0CnDHiL1M
+Kidnappé bébé, il devient une machine à tuer au service des criminels => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=sj5-4BVhu4g
+L'IA extermine l’humanité, les survivants se dressent pour un ultime combat => 
+
+# La Fabrique à Films · 1 h 36 · https://www.youtube.com/watch?v=Plm98egjo3g
+La guerre ancestrale entre vampires et démons s'achève cette nuit => 
+
+# La Fabrique à Films · 1 h 34 · https://www.youtube.com/watch?v=o5JX7T4g4Xs
+La nuit, ce justicier masqué traque les criminels qui ont assassiné sa famille => 
+
+# La Fabrique à Films · 1 h 21 · https://www.youtube.com/watch?v=D5opJE1-GvU
+La seule issue possible se trouve de l'autre côté de la horde => 
+
+# La Fabrique à Films · 1 h 19 · https://www.youtube.com/watch?v=yfoPOgHQg2c
+La terre est ravagée par la peste, s'ils s'arrêtent c'est la mort assurée => 
+
+# La Fabrique à Films · 1 h 22 · https://www.youtube.com/watch?v=OarGNjwqLEQ
+La Terre menace de se cryogéniser, seuls des scientifiques peuvent l'en empêcher => 
+
+# La Fabrique à Films · 1 h 21 · https://www.youtube.com/watch?v=WfdE0N26N7Y
+Laissée pour morte, une jeune femme rejoint un clan de samouraïs assassins => 
+
+# La Fabrique à Films · 1 h 17 · https://www.youtube.com/watch?v=2NARuf9u_wo
+Lancé sur le bitume à pleine vitesse, seule la victoire compte => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=OX4KSP8B8ks
+Le Pentagone perd son arme ultime. Un pilote va tout risquer pour la récupérer => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=rQt74KO1v9I
+Mordue, elle se transforme en louve et traque ses agresseurs => 
+
+# La Fabrique à Films · 1 h 39 · https://www.youtube.com/watch?v=ZNOaKZW7jfM
+On lui a ordonné de tuer son beau-père, sinon sa femme mourra => 
+
+# La Fabrique à Films · 1 h 34 · https://www.youtube.com/watch?v=_XqqR0Jc_Nw
+Piégée dans un labyrinthe mortel, elle doit réussir des épreuves pour survivre => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=bXtIedFkByw
+Piégée par son ex toxique, elle refuse malgré tout de le quitter => 
+
+# La Fabrique à Films · 1 h 35 · https://www.youtube.com/watch?v=eparLaJ-Ex0
+Piégée par une avalanche avec le suspect qu'elle veut tuer => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=5qfQssJFKlg
+Piégés à 300 mètres sous la surface, ils sont à court d'oxygène => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=dW1EU00lhY4
+Pour déjouer un coup d'Etat, une agent secrète s'allie à 3 espions légendaires => 
+
+# La Fabrique à Films · 2 h 09 · https://www.youtube.com/watch?v=rc55f1uE-Gk
+Pour démasquer une taupe, la mafia utilise d'affreuses techniques d'interrogatoire => 
+
+# La Fabrique à Films · 1 h 43 · https://www.youtube.com/watch?v=ZPTjn1RqoU4
+Pour rembourser une dette de 500.000$, 4 escrocs planifient un hold-up chaotique => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=c57Tqh05G8E
+Pris au piège d'un orage meurtrier, il risque tout pour sauver sa ville => 
+
+# La Fabrique à Films · 1 h 36 · https://www.youtube.com/watch?v=8YpJCy6iSGU
+Rien ne se mettra en travers de son ascension au trône => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=MI9hOvTjEa0
+Sa famille assassinée sous ses yeux, elle ne reculera devant rien pour se venger => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=24uxJjqZ2eU
+Sa femme est dans un avion détourné par des criminels, il n'a pas droit à l'erreur => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=Y3ieysZg08A
+Sa rencontre avec un marin démoniaque lui a valu sa main... et son âme => 
+
+# La Fabrique à Films · 1 h 39 · https://www.youtube.com/watch?v=T5nIPOhOoww
+Sa soeur morte l'attire dans un monde étrange où rien n'a de sens => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=mj-qY5dWAkU
+Sa soirée d'anniversaire se transforme en un jeu contre la mort => 
+
+# La Fabrique à Films · 1 h 48 · https://www.youtube.com/watch?v=_Lp6VinXZDw
+Schizophrène, elle découvre un secret sordide mais personne ne la croit => 
+
+# La Fabrique à Films · 1 h 11 · https://www.youtube.com/watch?v=ApzVrr1msOw
+Seul dans une morgue, un gardien de nuit soupçonne les morts de se réveiller => 
+
+# La Fabrique à Films · 1 h 35 · https://www.youtube.com/watch?v=3Q5o7CzMbeA
+Seuls les Trois Mousquetaires peuvent déjouer le complot qui menace le royaume => 
+
+# La Fabrique à Films · 2 h 01 · https://www.youtube.com/watch?v=lY5guljLaRM
+Souffrant d'alzheimer, ce vétéran se souvient d'une chose : il doit se venger => 
+
+# La Fabrique à Films · 1 h 26 · https://www.youtube.com/watch?v=ianhpQ5eguM
+Sur une planète désertique, des cosmonautes sont traqués par des Vers géants => 
+
+# La Fabrique à Films · 1 h 16 · https://www.youtube.com/watch?v=aJPyv8PEoYU
+Tombée en panne, une femme enceinte découvre le secret de la ferme qui l’abrite => 
+
+# La Fabrique à Films · 1 h 53 · https://www.youtube.com/watch?v=wEWfC5EbOqM
+Trahi par le pouvoir, il devient le parrain le plus redouté de Shanghai => 
+
+# La Fabrique à Films · 1 h 33 · https://www.youtube.com/watch?v=bVMNK4tIZi0
+Trois couples embarquent sur un yacht de rêve, aucun ne revient vivant... => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=-g4y2qkuh3g
+Ulysse doit vaincre une créature mystique pour protéger son île et les siens => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=zNYvg_sccTM
+Un agent des forces spéciales se bat contre un complot d'Etat => 
+
+# La Fabrique à Films · 1 h 20 · https://www.youtube.com/watch?v=A7f0AiO-OTA
+Un artefact caché est la seule arme capable de repousser une invasion alien => 
+
+# La Fabrique à Films · 1 h 22 · https://www.youtube.com/watch?v=gSmFB4VBVT4
+Un astéroide mesurant trois fois l’Everest menace d’anéantir la planète Terre => 
+
+# La Fabrique à Films · 1 h 39 · https://www.youtube.com/watch?v=T3py-iciOkg
+Un avion détourné, un pilote assassiné et des centaines de vies en jeu => 
+
+# La Fabrique à Films · 1 h 06 · https://www.youtube.com/watch?v=XzK_n0yxUKU
+Un concert vire au cauchemar quand le public se retrouve infesté de zombies => 
+
+# La Fabrique à Films · 1 h 31 · https://www.youtube.com/watch?v=bO62EjtxY2c
+Un couple de psychopathes se déchaîne le soir de Noël => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=8cHV-V9_bSc
+Un dernier braquage, deux frères, aucune issue, rien ne se passe comme prévu... => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=ZxEe4qAJT-I
+Un explosif est cachée à bord du train, seules les forces spéciales peuvent l'arrêter => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=hmYvV9jvTYw
+Un flic risque sa vie pour protéger la fille de son pire ennemi => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=bZIWua79GuQ
+Un flic traque un délinquant qui détient un secret dévastateur pour sa carrière => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=cJCYGUxQgqs
+Un gang aux capacités extraordinaires est le espoir face au messager de la mort => 
+
+# La Fabrique à Films · 1 h 37 · https://www.youtube.com/watch?v=RDVD2o2ZZVw
+Un homme découvre un corps dans son loft, le piège commence => 
+
+# La Fabrique à Films · 1 h 36 · https://www.youtube.com/watch?v=i1fpHcTWlbo
+Un homme en fauteuil roulant entend des cambrioleurs s'introduire chez lui => 
+
+# La Fabrique à Films · 1 h 39 · https://www.youtube.com/watch?v=E3y2YuF58Ro
+Un homme mourant s'enferme chez lui et s'exile dans un monde virtuel pour toujours => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=2o0WIPdJqSo
+Un jeune homme séduisant est convaincu d'être suivi par quelque chose, par quelqu'un => 
+
+# La Fabrique à Films · 2 h 09 · https://www.youtube.com/watch?v=acFUYoE8Qtk
+Un magicien légendaire venu passé sème le chaos à Séoul => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=ipPljjCYMZc
+Un ours monstrueux ravage la forêt et attaque tous les randonneurs sur son chemin => 
+
+# La Fabrique à Films · 2 h 12 · https://www.youtube.com/watch?v=AtNhaU-aNEk
+Un pompier débutant doit affronter un incendie dévastateur au péril de sa vie => 
+
+# La Fabrique à Films · 1 h 12 · https://www.youtube.com/watch?v=LfL4Uum5bIQ
+Un rendez-vous amoureux dans un immeuble abandonné vire à l'extermination => 
+
+# La Fabrique à Films · 1 h 21 · https://www.youtube.com/watch?v=_yOOVlsVa_Q
+Un serial killer s'attaque aux ex conquêtes d'un officier de police => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=uBzXLuki3A4
+Un soldat de l'armée américain disparait dans le triangle des Bermudes => 
+
+# La Fabrique à Films · 1 h 46 · https://www.youtube.com/watch?v=FrPNunRh4q4
+Un tueur masqué impitoyable s’en prend aux plus puissants du royaume => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=Hta97iwdLPM
+Un veuf et sa fille sont kidnappés. Leur seule chance de survie est de creuser => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=N2J1tMRLqXg
+Une armée de dragons sauvages menace de réduire le royaume en cendres => 
+
+# La Fabrique à Films · 1 h 52 · https://www.youtube.com/watch?v=v8gFb7k-pPQ
+Une base militaire isolée en mer attend la relève, ce qui arrive sera bien pire... => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=drFs_FOZdsM
+Une charmante demoiselle déchaîne sa furie vengeresse contre les hommes => 
+
+# La Fabrique à Films · 1 h 25 · https://www.youtube.com/watch?v=-zUJhgenxNo
+Une créature s’échappe et se déchaîne dans les rues de Londres => 
+
+# La Fabrique à Films · 1 h 16 · https://www.youtube.com/watch?v=ItUjolauxZs
+Une déflagration atomique provoque un séisme et rase une ville en quelques minutes => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=NYK7WxbCyL8
+Une enquêtrice se retrouve prise au piège du tueur qu'elle traque => 
+
+# La Fabrique à Films · 1 h 42 · https://www.youtube.com/watch?v=hMZckVEsKG4
+Une escouade d'élite coincée avec un ennemi d'un autre monde => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=h1FFuUc8z-c
+Une espèce inconnue envahie la Terre, c'est la riposte ou l'extinction => 
+
+# La Fabrique à Films · 1 h 35 · https://www.youtube.com/watch?v=BZPDX3X6Psk
+Une expérience scientifique la piège dans une prison futuriste sans issue => 
+
+# La Fabrique à Films · 1 h 29 · https://www.youtube.com/watch?v=6y0hgdKPinI
+Une influenceuse piégée à l'autre bout du monde par une mystérieuse admiratrice => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=1sYPtvuQpEg
+Une mission de sauvetage périlleuse révèle une expérience humaine interdite => 
+
+# La Fabrique à Films · 1 h 30 · https://www.youtube.com/watch?v=w4xlj0bHdDA
+Une puissance étrangère menace d'asservir l'humanité. Ils refusent de capituler => 
+
+# La Fabrique à Films · 1 h 27 · https://www.youtube.com/watch?v=ckqtgQs5cNA
+Une rando vire au cauchemar quand une avalanche se déchaîne soudainement => 
+
+# La Fabrique à Films · 1 h 34 · https://www.youtube.com/watch?v=ajv0f8CeVDg
+Une voiture possédée par le mal rôde dans la nuit sombre ! => 
+
+# La Fabrique à Films · 1 h 24 · https://www.youtube.com/watch?v=4vigyvQQqEQ
+Une épidémie de rage contamine tous les moniteurs d'un camp de vacances => 
+
+# La Fabrique à Films · 1 h 48 · https://www.youtube.com/watch?v=mjuZep-HU0k
+Une équipe d’illusionnistes défie le plus dangereux casino du monde => 
+
+# La Fabrique à Films · 1 h 28 · https://www.youtube.com/watch?v=PRzvQ7Trw9I
+Une île paradisiaque cache un requin monstrueux à six têtes => 
+
+# La Fabrique à Films · 1 h 37 · https://www.youtube.com/watch?v=xfBvVSKJaIE
+À 15 ans, son corps change... Surtout quand on est mordu par un loup-garou au lycée => 
+
+# La Fabrique à Films · 1 h 44 · https://www.youtube.com/watch?v=QoTYLhbXdzA
+Échoués sur une île, ils tombent entre de mauvaises mains => 
 
 
 # ------------------------------------------------------------------
@@ -60,11 +507,25 @@ Survivre dans une jungle où hommes armés et esprits vous traquent =>
 # Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.
 # Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.
 # Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.
-# 1 paire(s).
+# 3 paire(s).
+
+# Prince Yaroslav · 1 h 30
+# Face à l'invasion barbare, ce Prince Slave est le seul à pouvoir son peuple · La Fabrique à Films · https://www.youtube.com/watch?v=Q3GP4xM5-Nk
+# La Protégée du Prince · Allociné Films Complets · https://www.youtube.com/watch?v=wcyLSrKGc3I
+Q3GP4xM5-Nk => 
+wcyLSrKGc3I => 
+Q3GP4xM5-Nk + wcyLSrKGc3I => pas un doublon
 
 # Thomas Beckett · 1 h 27
-# Sniper 2⎪Tom Berenger⎪Une cible à éliminer⎪Action⎪Guerre⎪ · CINE PRIME · https://www.youtube.com/watch?v=7HyWXG_Bp8A
+# Sniper 2 · CINE PRIME · https://www.youtube.com/watch?v=7HyWXG_Bp8A
 # Sniper 3 · Ciné Movies - Films Complets · https://www.youtube.com/watch?v=Yl3TNb0vFg8
 7HyWXG_Bp8A => 
 Yl3TNb0vFg8 => 
 7HyWXG_Bp8A + Yl3TNb0vFg8 => pas un doublon
+
+# Norton Cyberdyne · 1 h 30
+# Syngenor · La Fabrique à Films · https://www.youtube.com/watch?v=OwXu6e_ExIg
+# La Créature · Boxoffice | NANARS & PÉPITES · https://www.youtube.com/watch?v=qb3VIzqFdHk
+OwXu6e_ExIg => 
+qb3VIzqFdHk => 
+OwXu6e_ExIg + qb3VIzqFdHk => pas un doublon
