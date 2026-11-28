@@ -823,6 +823,16 @@ MOTS_IGNORES_RESUME = set("""dans pour avec elle elles leur leurs mais plus tout
 PARTIE_OU_EPISODE = re.compile(r"\b(?:partie|part|episode|épisode|chapitre|volume|vol\.?|saison|tome)\b", re.IGNORECASE)
 
 
+def partie_ou_episode(titre):
+    """« … – Partie 2 », « Épisode 3 », « L'oligarque et le marchand d'art (2/3) »."""
+    return bool(PARTIE_OU_EPISODE.search(titre) or re.search(r"\(\s*\d+\s*/\s*\d+\s*\)", titre))
+
+
+# Paires écrites « id1 + id2 => pas un doublon » dans corrections.txt : deux films
+# différents que le robot ne doit ni fusionner ni proposer comme doublons possibles.
+PAS_DOUBLONS = set()
+
+
 def mots_du_resume(texte):
     texte = "".join(ch for ch in unicodedata.normalize("NFD", (texte or "").lower()) if unicodedata.category(ch) != "Mn")
     return frozenset(m for m in re.findall(r"[a-z]{4,}", texte) if m not in MOTS_IGNORES_RESUME)
@@ -834,7 +844,7 @@ def meme_histoire(a, b, mots, chiffres):
     ma, mb = mots.get(a["id"]), mots.get(b["id"])
     if not ma or not mb:
         return False
-    if PARTIE_OU_EPISODE.search(a["titre"]) or PARTIE_OU_EPISODE.search(b["titre"]):
+    if partie_ou_episode(a["titre"]) or partie_ou_episode(b["titre"]):
         return False
     ca, cb = chiffres[a["id"]], chiffres[b["id"]]
     if ca and cb and ca != cb:
@@ -855,12 +865,17 @@ def sans_doublons(films):
     resultat = {}
     retires = []
     textes = Counter(" ".join((f.get("description") or "").split()).lower() for f in films.values())
-    mots, chiffres = {}, {}
+    mots, chiffres, exacts = {}, {}, {}
     for f in films.values():
         texte = " ".join((f.get("description") or "").split()).lower()
         m = mots_du_resume(f.get("description"))
         if len(texte) >= 80 and len(m) >= 10 and textes[texte] <= 4 and not f["chaine"].startswith("ARTE"):
             mots[f["id"]] = m
+        # Résumé recopié mot pour mot (Boxoffice republie un film sous 3 à 5 titres
+        # avec le même résumé) : même court, c'est un indice très sûr à durée égale.
+        if (len(texte) >= 50 and len(m) >= 5 and textes[texte] <= 8 and not f["chaine"].startswith("ARTE")
+                and f["id"] not in DOCUMENTAIRES and not est_documentaire(f) and not partie_ou_episode(f["titre"])):
+            exacts[f["id"]] = texte
         chiffres[f["id"]] = frozenset(re.findall(r"\d+", f["titre"]))
     par_duree = {}        # durée -> fiches gardées (pour les doublons au même résumé)
     meme_resume = []
@@ -876,9 +891,14 @@ def sans_doublons(films):
             double = next((a for a in gardes.get(principal, []) if proche(film, a, 2)), None)
         if double is None:                    # « Rouge rubis » après « Rouge Rubis : … »
             double = next((a for a in par_principal.get(cle_titre, []) if proche(film, a, 2)), None)
-        if double is None and fid in mots:   # même résumé sous un autre titre
+        if double is None and (fid in mots or fid in exacts):   # même résumé sous un autre titre
             double = next((a for d in range(film["duree_minutes"] - 2, film["duree_minutes"] + 3)
-                           for a in par_duree.get(d, []) if meme_histoire(film, a, mots, chiffres)), None)
+                           for a in par_duree.get(d, [])
+                           if (fid in exacts and exacts.get(a["id"]) == exacts[fid]
+                               and not (chiffres[fid] and chiffres[a["id"]] and chiffres[fid] != chiffres[a["id"]])
+                               and frozenset((fid, a["id"])) not in PAS_DOUBLONS)
+                           or (meme_histoire(film, a, mots, chiffres)
+                               and frozenset((fid, a["id"])) not in PAS_DOUBLONS)), None)
             if double is not None:
                 meme_resume.append(f"{film['titre']} = {double['titre']}")
         if double is None:
@@ -2080,6 +2100,11 @@ def lire_corrections():
             continue
         gauche, droite = (x.strip() for x in ligne.split("=>", 1))
         titre, _, genres = (x.strip() for x in droite.partition("|"))
+        if "+" in gauche and titre.lower().strip(" .!") in ("pas un doublon", "pas doublon"):
+            a, _, b = (x.strip() for x in gauche.partition("+"))
+            if a and b:
+                PAS_DOUBLONS.add(frozenset((a, b)))
+            continue
         if gauche and (titre or genres):
             corrections.append((gauche, titre, genres))
     return corrections
@@ -2354,6 +2379,55 @@ def ecrire_annees(memoire):
 FICHIER_A_CORRIGER = os.path.join(DOSSIER, "a_corriger.txt")
 
 
+# Doublons possibles : deux films de titres différents, de même durée (2 minutes
+# d'écart au plus), dont les résumés citent le même personnage rare (« Jack Barnes »,
+# « Paul Weaver »…). Ce n'est pas assez sûr pour les fusionner tout seul (« Gao Feng »
+# ou « Blanche Neige » peuvent être dans deux films différents) : le robot les liste
+# dans a_corriger.txt pour qu'on tranche une fois.
+NOM_DANS_RESUME = re.compile(r"\b([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ'’\-]+)\s([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ'’\-]+)\b")
+NOMS_PAS_PERSONNAGES = {"new york", "los angeles", "las vegas", "san francisco", "hong kong", "far west",
+                        "père noël", "nouvel an", "saint valentin", "seconde guerre", "première guerre",
+                        "royaume uni", "grande bretagne", "moyen âge", "nouvelle orléans", "wall street",
+                        "maison blanche", "silicon valley", "etats unis", "états unis", "union soviétique",
+                        "film complet", "films complets", "tai chi", "kung fu", "san andreas", "big one"}
+
+
+def noms_du_resume(texte):
+    """« Jack Barnes », « Paul Weaver » : deux mots à majuscule qui ne commencent pas une phrase."""
+    noms = set()
+    texte = texte or ""
+    for m in NOM_DANS_RESUME.finditer(texte):
+        avant = texte[:m.start()].rstrip()
+        if not avant or avant[-1] in ".!?:«\"–—(":
+            continue
+        if m.group(0).lower() not in NOMS_PAS_PERSONNAGES:
+            noms.add(m.group(0))
+    return noms
+
+
+def doublons_possibles(films):
+    candidats = [f for f in films.values()
+                 if not f["chaine"].startswith("ARTE") and f["id"] not in DOCUMENTAIRES
+                 and not est_documentaire(f) and not partie_ou_episode(f["titre"])]
+    noms = {f["id"]: noms_du_resume(f.get("description")) for f in candidats}
+    frequence = Counter(n for v in noms.values() for n in v)
+    par_duree = {}
+    for f in candidats:
+        par_duree.setdefault(f["duree_minutes"], []).append(f)
+    paires = []
+    for a in candidats:
+        for d in range(a["duree_minutes"] - 2, a["duree_minutes"] + 3):
+            for b in par_duree.get(d, []):
+                if b["id"] <= a["id"] or normalise(a["titre"]) == normalise(b["titre"]):
+                    continue
+                if frozenset((a["id"], b["id"])) in PAS_DOUBLONS:
+                    continue
+                communs = {n for n in noms[a["id"]] & noms[b["id"]] if frequence[n] <= 3}
+                if communs:
+                    paires.append((a, b, sorted(communs)))
+    return sorted(paires, key=lambda p: (p[0]["titre"].lower(), p[1]["titre"].lower()))
+
+
 def ecrire_a_corriger(films, memoire_titres):
     liste = [f for fid, f in films.items()
              if fid in memoire_titres and not (memoire_titres[fid] or {}).get("titre")
@@ -2389,6 +2463,23 @@ def ecrire_a_corriger(films, memoire_titres):
         "",
     ]
     ajouter(douteux)
+    paires = doublons_possibles(films)
+    lignes += [
+        "",
+        "# ------------------------------------------------------------------",
+        "# Doublons possibles : même durée et même personnage dans le résumé, mais deux titres différents.",
+        "# Si c'est le même film : copie ses deux lignes « … => » dans corrections.txt et écris le même titre aux deux.",
+        "# Si ce sont deux films différents : copie la ligne « … => pas un doublon » dans corrections.txt.",
+        f"# {len(paires)} paire(s).",
+        "",
+    ]
+    for a, b, communs in paires:
+        m = a.get("duree_minutes") or 0
+        duree = f"{m // 60} h {m % 60:02d}" if m >= 60 else f"{m} min"
+        lignes.append(f"# {', '.join(communs)} · {duree}")
+        for f in (a, b):
+            lignes.append(f"# {f['titre']} · {f.get('chaine', '')} · https://www.youtube.com/watch?v={f['id']}")
+        lignes += [f"{a['id']} => ", f"{b['id']} => ", f"{a['id']} + {b['id']} => pas un doublon", ""]
     with open(FICHIER_A_CORRIGER, "w", encoding="utf-8") as fichier:
         fichier.write("\n".join(lignes))
     return len(liste)
@@ -2537,7 +2628,8 @@ def main():
               + (f" ; introuvables : {' ; '.join(sans_film)}" if sans_film else "."))
     avant_doublons = set(films)
     films = sans_doublons(films)
-    print(f"Titres encore à corriger (voir a_corriger.txt) : {ecrire_a_corriger(films, memoire_titres)}.")
+    print(f"Titres encore à corriger (voir a_corriger.txt) : {ecrire_a_corriger(films, memoire_titres)}"
+          f" ; doublons possibles à vérifier : {len(doublons_possibles(films))}.")
     ecrire_annees(annees_de_sortie(films, textes_films, lire_annees()))
     avec_annee = sum(1 for f in films.values() if f.get("annee"))
     print(f"Années de sortie : {avec_annee} films sur {len(films)} ("
